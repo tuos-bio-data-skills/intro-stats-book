@@ -1,0 +1,34 @@
+---
+title: "Introductory Biostatisics with R"
+author: "Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+description: "This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield."
+always_allow_html: true
+github-repo: tuos-bio-data-skills/intro-stats-book
+---
+
+# Course information and overview {-}
+
+This is the online course book for... 
+
+[COMPLETE ME]
+
+You can view this book in any modern desktop browser, as well as on your phone or tablet device.
+
+## Why do a data analysis course? {#why-data-analysis}
+
+To do science yourself, or to understand the science other people do, you need some understanding of the principles of experimental design, data collection, statistical analysis and scientific presentation. That does not mean becoming a maths wizard, or a computer genius. It means knowing how to take sensible decisions about designing studies and collecting data, and then being able to interpret those data correctly. Sometimes the methods required are extremely simple, sometimes more complex. You aren’t expected to get to grips with all of them, but what we hope to do in the course is to give you a good practical grasp of the core techniques that are widely used in biology. You should then be equipped to use these techniques intelligently and, equally importantly, know when they are not appropriate, and when you need to seek help to find the correct way to design or analyse your study.
+
+You should, with some work on your part, acquire a set of skills which you will use at various stages throughout the remainder of your course, in practicals, field courses and in your project work. These same skills will almost certainly also be useful after your degree, whether doing biology, or something completely different. We live in a world that is increasingly flooded with data, and people who know how to make sense of this are in high demand.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

@@ -1,0 +1,5 @@
+book_filename: "intro-bio-stats-book"
+before_chapter_script: "preamble.R"
+chapter_name: "Chapter "
+output_dir: "docs"
+delete_merged_file: true

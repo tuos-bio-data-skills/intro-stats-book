@@ -1,0 +1,30 @@
+\usepackage{booktabs}
+
+\usepackage{color}
+\usepackage{framed}
+\setlength{\fboxsep}{.8em}
+
+\newenvironment{greybox}{
+  \definecolor{shadecolor}{rgb}{0.95,0.95,0.95}  % grey
+  \color{black}
+  \begin{shaded}}
+ {\end{shaded}}
+ 
+ \newenvironment{infobox}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}
+        \includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{greybox}
+  \item
+  }
+  {
+  \end{greybox}
+  \end{itemize}
+  }
+

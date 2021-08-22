@@ -1,1 +1,1 @@
-# intro-stats-book
+This is the Introduction to Statistics in R book provided by the School of Biosciences at the University of Sheffield. It is built using R Markdown and **bookdown** (https://github.com/rstudio/bookdown).

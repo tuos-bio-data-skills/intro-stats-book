@@ -1,6 +1,9 @@
 # Mac nonsense
 .DS_Store
 
+# bookdown cache
+_bookdown_files
+
 # History files
 .Rhistory
 .Rapp.history

@@ -86,7 +86,7 @@ One last warning. Student's two-sample *t*-test assumes the variances of *the po
 
 ## Carrying out a two-sample *t*-test in R
 
-```{r, echo = FALSE}
+```{r, include=FALSE}
 morph_data <- readr::read_csv(file = "./data_csv/MORPH_DATA.CSV")
 tmod.equlv <- t.test(Weight ~ Colour,  data = morph_data, var.equal = TRUE )
 tmod.diffv <- t.test(Weight ~ Colour,  data = morph_data, var.equal = FALSE)

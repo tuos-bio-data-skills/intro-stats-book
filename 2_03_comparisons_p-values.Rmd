@@ -43,7 +43,6 @@ Now we're ready to tackle the remaining steps in the 'learning from data' proces
 
 ::: {.infobox .action data-latex="{action}"}
 ####  {.unnumbered}
-
 Once again, the best way to understand what follows is by working through the example, though you can also make good progress through careful reading. In any case, the code again assumes that 'MORPH_DATA.CSV' has been read into a tibble called `morph_data`.
 :::
 

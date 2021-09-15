@@ -96,11 +96,7 @@ Bracken fern (*Pteridium aquilinum*) is a common plant in many upland areas. A l
 
 ### Visualising the data and checking the assumptions
 
-The data are in the file BRACKEN.CSV. Read these data into a data frame, calling it `bracken`:
-
-```{r, eval=FALSE}
-bracken <- read_csv("BRACKEN.CSV")
-```
+We can start by printing some information about the `bracken` data:
 
 ```{r}
 glimpse(bracken)

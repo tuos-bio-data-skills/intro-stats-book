@@ -1,8 +1,8 @@
-# Simple regression in R
+# Simple regression in R {#regression-in-R}
 
 Our goal in this chapter is to learn how to work with regression models in R. We'll start with the example problem and the data, and then work through model fitting, significance testing, and finally, presenting the results.
 
-## Carrying out a simple linear regression in R {#regression-in-R}
+## Introduction
 
 ```{r, echo=FALSE, message=FALSE}
 vicia_germ <- readr::read_csv(file = "./data_csv/GLUCOSE.CSV")
@@ -20,24 +20,26 @@ We want to work out whether there a statistically significant relationship betwe
 ::: {.infobox .action data-latex="{action}"}
 ####  {.unnumbered}
 
-We will be using a new data set to demonstrate simple regression in R. The data live in the 'GLUCOSE.CSV' file. The code below assumes those data have been read into a tibble called `vicia_germ`. Set that up if you plan to work along.
+We will be using this new data set to demonstrate how to conduct simple regression in R. The data live in the 'GLUCOSE.CSV' file. The code below assumes those data have been read into a tibble called `vicia_germ`. Set that up if you plan to work along.
 :::
 
-## First steps
+### First steps
 
-The data are in a CSV file called GLUCOSE.CSV. Downloaded the data and read it into an R data frame, giving it the name `vicia_germ`:
+We start by using `glimpse` to see what resides within `vicia_germ`:
 
-```{r, eval=FALSE}
-vicia_germ <- read_csv(file = "GLUCOSE.CSV")
+```{r}
+glimpse(vicia_germ)
 ```
 
-This is a fairly simple data set. It contains two numeric variables. The first column (`Temperature`) contains the information about the experimental temperature treatments, and the second column (`Glucose`) contain the glucose measurements. Notice that we refer to the different temperatures as 'experimental treatments'. This is because these data are from an experiment where temperature was controlled by the investigator. We'll discuss this terminology in more detail in the [Principles of Experimental Design](#principles-experimental-design) section.
+There are just two numeric variables. The first column (`Temperature`) contains the information about the experimental temperature treatments, and the second column (`Glucose`) contain the glucose measurements.
+
+Notice that we refer to the different temperatures as 'experimental treatments'. This is because these data are from an experiment where temperature was controlled by the investigator. We'll discuss this terminology in more detail in the [Principles of Experimental Design](#principles-experimental-design) chapter.
 
 ### Visualising the data
 
-We should visualise the data next so that we understand it more. We just need to produce a simple scatter plot with **ggplot2**:
+We should visualise the data next so that we understand it more. A simple scatter plot will do:
 
-```{r reg-worked-scatterplot, echo=FALSE, out.width='50%', fig.width=4,  fig.asp=1.0, fig.align='center'}
+```{r reg-worked-scatterplot, out.width='50%', fig.width=4,  fig.asp=1.0, fig.align='center'}
 ggplot(vicia_germ, aes(x = Temperature, y = Glucose)) + 
   geom_point()
 ```
@@ -55,7 +57,7 @@ Because linear regression involves fitting a straight line through our data, it 
 ::: {.infobox .warning data-latex="{warning}"}
 #### Assumptions {.unnumbered}
 
-A linear relationship between the predictor and response variables is not the only assumption that we have to make when we fit a linear regression. We'll come back to the other assumptions and how to check whether they have been met in the [Assumptions](#assumptions-diagnostics) and [Diagnostics](#regression-diagnostics) chapters, respectively. For now you should just be aware that there are assumptions that you **must** check when working with your own data.
+A linear relationship between the predictor and response variables is not the only assumption that we have to make when we fit a linear regression. We'll come back to the other assumptions and how to check whether they have been met in the [Assumptions](#assumptions-diagnostics) and [Diagnostics](#regression-diagnostics) chapters, respectively. For now you should just be aware that there are assumptions that you should check when working with your own data.
 :::
 
 ## Model fitting and significance tests

@@ -64,9 +64,9 @@ By now, this kind of thing is probably starting to look familiar. We have to ass
 ::: {.infobox .information data-latex="{information}"}
 #### How does R know which model to use? {.unnumbered}
 
-How does R know we want to use an ANOVA model? After all, we didn't specify this anywhere. The answer is that R looks at what type of vector `Supplement` is. It is a categorical character vector, and so R automatically carries out an ANOVA. It would do the same if `Supplement` had been a factor vector. If the values of `Supplement` had been stored as numbers (1, 2, 3, ...) then R would not have fitted an ANOVA. Instead, it would have assumed we meant to fit a regression model, which is seldom appropriate.
+How does R know we want to use an ANOVA model? After all, we didn't specify this anywhere. The answer is that R looks at what type of vector `Supplement` is. It is a categorical character vector, and so R carries out an ANOVA. It would do the same if `Supplement` had been a factor. However, if the values of `Supplement` had been stored as numbers then R would not have fitted an ANOVA. Instead, it would have assumed we meant to fit a regression model, which is seldom appropriate. **This is why we never store categorical variables as numbers in R.** 
 
-**This is why we never store categorical variables as numbers in R.** Avoid using numbers to encode the values of a categorical variable (or factor) if you want to avoid making mistakes when fitting models!
+Avoid using numbers to encode the values of a categorical variable if you want to avoid making mistakes when fitting models!
 :::
 
 Notice that we did not print the results to the console. Instead, we assigned the result a name ---`corncrake_model` now refers to a **model object**. What happens if we print this to the console?

@@ -6,9 +6,9 @@ However, we sometimes find a situation where the 'measurement' we are interested
 
 ## A new kind of distribution
 
-There are quite a few options for dealing with categorical data[^comparing_frequencies-1]. We're just going to look at one option in this book: $\chi^2$ tests. This is pronounced, and sometimes written, 'chi-square'. The 'ch' is a hard 'ch', as in 'character'. They aren't necessarily the best tool for every problem, but $\chi^2$ tests are widely used in biology, so they are a good place to start.
+There are quite a few options for dealing with categorical data[^categorical_data-1]. We're just going to look at one option in this book: $\chi^2$ tests. This is pronounced, and sometimes written, 'chi-square'. The 'ch' is a hard 'ch', as in 'character'. They aren't necessarily the best tool for every problem, but $\chi^2$ tests are widely used in biology, so they are a good place to start.
 
-[^comparing_frequencies-1]: e.g. the 'log-linear model', 'Fisher's exact test', and the 'G-test'.
+[^categorical_data-1]: e.g. the 'log-linear model', 'Fisher's exact test', and the 'G-test'.
 
 ::: {.infobox .warning data-latex="{warning}"}
 ####  {.unnumbered}
@@ -62,9 +62,9 @@ We're going to learn about two different types of $\chi^2$ test. Although the tw
 
 A goodness-of-fit test is applicable when we have a single categorical variable and some hypothesis from which we can predict the expected proportions of observations falling in each category.
 
-For example, we might want to know if there is any evidence for sex-related bias in the decision to study biology at Sheffield. We could tackle this question by recording the numbers of males and females in a cohort. This would produce a sample containing one nominal variable (Sex) with only two categories (Male and Female). Based on information about human populations, we know that the sex ratio among 18-year-olds is fairly close to 1:1[^comparing_frequencies-2]. We can thus compare the goodness of fit of the number of males and females in a sample of students with the expected value predicted by the 1:1 ratio.
+For example, we might want to know if there is any evidence for sex-related bias in the decision to study biology at Sheffield. We could tackle this question by recording the numbers of males and females in a cohort. This would produce a sample containing one nominal variable (Sex) with only two categories (Male and Female). Based on information about human populations, we know that the sex ratio among 18-year-olds is fairly close to 1:1[^categorical_data-2]. We can thus compare the goodness of fit of the number of males and females in a sample of students with the expected value predicted by the 1:1 ratio.
 
-[^comparing_frequencies-2]: Human sex-ratio is actually slightly biased toward males at birth, but since males experience a higher mortality rate in their teens, the sex ratio among 18 year olds is closer to 1:1.
+[^categorical_data-2]: Human sex-ratio is actually slightly biased toward males at birth, but since males experience a higher mortality rate in their teens, the sex ratio among 18 year olds is closer to 1:1.
 
 If we had a total of 164 students, we might get this sort of table:
 

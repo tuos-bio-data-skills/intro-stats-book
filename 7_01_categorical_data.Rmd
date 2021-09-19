@@ -1,4 +1,4 @@
-# Working with frequencies {#frequency-data-intro-chapter}
+# Categorical data {#categorical-data-intro-chapter}
 
 Much of the time in biology, we are dealing with whole objects (plants, animals, cells, eggs, islands, etc.) or discrete events (attacks, matings, nesting attempts, etc.). We are often interested in making measurements of numeric variables (length, weight, number, etc.) and then either comparing means from samples (e.g. mean leaf size of plants from two habitat types) or investigating the association between different measurements (e.g. mean leaf size and herbivore damage).
 

@@ -1,4 +1,4 @@
-# A correlation test
+# Correlation tests
 
 We're going to consider 'correlation' in this chapter. A correlation is a statistical measure of **association** between two variables. An association is any relationship between the variables that makes them dependent in some way: knowing the value of one variable gives you information about the possible values of the other.
 

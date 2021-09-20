@@ -1,3 +1,3 @@
-# (PART) Regression and ANOVA {-} 
+# (PART) Correlation and Regression {-} 
 
 

@@ -1,2 +1,3 @@
-# (PART) Frequency Data and Non-parametric Tests {-}
+# (PART) Checking and Fixing Models {-}
+
 

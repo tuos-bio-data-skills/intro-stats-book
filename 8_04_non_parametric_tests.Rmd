@@ -349,7 +349,7 @@ Spearman's rank correlation is somewhat less powerful (roughly 91% in some evalu
 
 Some bird species form 'leks'---gatherings of birds, with males each defending a small area of ground, displaying, and each mating with such females as he is successful in attracting. In general, in leks, a few birds secure many matings, and most birds secure relatively few. In a study of lekking in black grouse, a biologist is interested in whether birds that secure many matings in one season also do better the following year. Using a population with many colour-ringed birds, he gathers data for a reasonable number of males from two leks in successive years.
 
-```{r, echo=FALSE}
+```{r, include=FALSE}
 grouse <- readr::read_csv("./data_csv/GROUSE.CSV")
 ```
 

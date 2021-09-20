@@ -6,7 +6,7 @@
 
 ## Randomised Complete Block Designs
 
-We have only considered one type of experimental ANOVA design up until now: the **Completely Randomised Design** (CRD). The defining feature of a CRD is that treatments are assigned completely at random to experimental units. This is the simplest type of experimental design. Randomisation is a good thing because it prevents systematic biases from creeping in. A CRD approach is often 'good enough' in many situations. However, it isn't necessarily the most powerful design---if at all possible, we should use **blocking** to account for **nuisance factors**. A nuisance factor affects the response---it creates variation---but is of no interest to the experimenter. The variability induced by nuisance factors should be accounted for at the design stage of an experiment if possible. Let's consider a hypothetical experiment to remind ourselves how blocking works.
+We have only considered one type of experimental ANOVA design up until now: the **Completely Randomised Design** (CRD). The defining feature of a CRD is that treatments are assigned completely at random to experimental units. This is the simplest type of experimental design. Randomisation is a good thing because it prevents systematic biases from creeping in. A CRD approach is often 'good enough' in many situations. However, it isn't necessarily the most powerful design---if at all possible, we should use **blocking** to account for **nuisance factors**. A nuisance factor affects the response---it creates variation---but is of no interest to the experimenter. The variability induced by nuisance factors should be accounted for at the design stage of an experiment if possible. Let's consider a hypothetical experiment to remind ourselves how blocking works.
 
 Imagine we're evaluating the effect of three different fertiliser application rates on wheat yields (t/ha). We suspect that our experimental fields' soil type and management histories are quite different, leading to significant 'field effects' on yield. We don't care about these field effects---they are a nuisance---but we'd like to account for them. There are two factors in play in this setting: the first is the set of experimental treatments (fertiliser application rate); the second is the source of nuisance variation (field). Fertiliser application rate is the 'treatment factor', and field is the 'blocking factor'.
 
@@ -30,30 +30,6 @@ Each treatment level is represented in each field (block), but only once. The ex
 -   Why is each treatment level represented only once within blocks? This design gives us the best chance of generalising our results. If we are interested in the overall effect of fertiliser, we should prefer to put our effort into including a range of possible environmental conditions. If we only did the experiment in one field, the results might turn out to be rather unusual. We are not interested in the environmental variation as such. We want to know for a range of conditions, whatever they might be, whether there are consistent differences between fertiliser application rates.
 
 There are many different ways to introduce blocking into an experiment. The most commonly used design---and the one that is easiest to analyse---is called a **Randomised Complete Block Design**. The defining feature of this design is that *each block sees each treatment exactly once*. The fertiliser study is an example of a Randomised Complete Block Design (RCBD). The obvious question is: How do we analyse an RCBD? We'll explore that in moment. First, a small detour....
-
-## Designs without replication
-
-So far we've only used the one-way ANOVA. As we'll find out in the [Introduction to two-way ANOVA](#two-way-anova-intro), chapter we can have more than one treatment in an ANOVA. Usually, when we're interested in the effect of two factors on our response variable, we'll have the following design: two factors, each having two or more levels, *with replicate measurements* within each combination of levels:
-
-|              | **Factor A** | Level 1 | Level 2 | Level 3 |
-|-------------:|:-------------|:--------|:--------|:--------|
-| **Factor B** | Level 1      | 1,2,3   | 1,5,9   | 2,6,8   |
-|              | Level 2      | 3,4,2   | ...     | ...     |
-|              | Level 3      | 4,7,9   | ...     | ...     |
-|              | Level 4      | 4,6,5   | ...     | ...     |
-
-As we have just seen, however, it is possible to have a two-way design with only a single measurement within each combination of levels:
-
-|              | **Factor A** | Level 1 | Level 2 | Level 3 |
-|-------------:|:-------------|:--------|:--------|:--------|
-| **Factor B** | Level 1      | 1       | 1       | 2       |
-|              | Level 2      | 3       | ...     | ...     |
-|              | Level 3      | 4       | ...     | ...     |
-|              | Level 4      | 2       | ...     | ...     |
-
-What's this---no replication? Isn't that a problem? In fact, there is replication of a sort for each level of the factors. For example, there are 3 values for each level of Factor B, it's just that each value is at a different level of Factor A. This means we can still compare the means for the different levels of each treatment using an ANOVA. What we can't do is determine whether the effect of Factor B varies depending on the value of Factor A. This is called the interaction. We'll come back to this idea in the [Introduction to two-way ANOVA](#two-way-anova-intro) chapter.
-
-So... it is possible to carry out a limited sort of two-way ANOVA without replication. Is this useful? Yes---it is useful when one of the factors is a blocking factor. If our experimental design has a single blocking factor and one treatment factor, and we adopt an RCBD, this leads to an unreplicated two-way arrangement. This allows us to learn about the average effect of each treatment across blocks, which is all we need to generalise our results.
 
 ## Analysing an RCBD experiment
 
@@ -99,9 +75,9 @@ We suppressed the output for now. Notice that we have put two factors on the rig
 ::: {.infobox .warning data-latex="{warning}"}
 #### Careful with your `+` and `*` {.unnumbered}
 
-Notice that we set up the blocking factor in the model using the 'plus' symbol: `Species + Block`. R also allows us to use the 'times' symbol `*` inside a model formula, e.g. `Species * Block`. You will see this used later when we get to two-way designs. However, you must use `+` to include a blocking factor like `Block` in a model as a so-called 'main effect' term. We'll talk about what that means later. For now, just note that blocking factors are included via `+`.
+Notice that we used the 'plus' symbol (`+`) to include the blocking factor in the model: `Species + Block`. R also allows us to use the 'times' symbol (`*`) in a model formula, e.g. `Species * Block`. However, this formulation is not appropriate for including block effects. It is used to set up models for more complicated designs that involve something called an interaction term. We're not going to cover those in this book, so for now, make a mental note of the fact that blocking factors must be included via the `+` symbol.
 
-And by the way... the `+` has nothing to do with addition when working with model specifications in R.
+And by the way... the `+` has nothing to do with addition when working a model specification in R.
 :::
 
 ```{r, echo = FALSE}
@@ -145,7 +121,7 @@ Look at the degrees of freedom and the sums of squares of the residual (error). 
 
 The short answer is no, not really. There are instances when a randomised block design might appear to be disadvantageous at first glance, but these don't stand up to criticism:
 
-1.  What if we want to know if the effect of treatment varies across blocks? For example, we might be interested in whether or not damselfly effects on the midge densities are consistent in all habitat areas (e.g. some species may forage more effectively in muddy areas, others where there are more leaves). If this is the question we are trying to answer, we should have designed a different experiment. For example, a two-way design (which might also include blocking) in which we consider treatment combinations of different midge species and habitat characteristics might be appropriate. Fundamentally, the goal of blocking is to account for *uncontrolled* variation. Designing a blocked experiment and then lamenting the fact that we can't fully evaluate differences among blocks is a good example of trying to "have our cake and eat it too".
+1.  What if we want to know if the effect of treatment varies across blocks? For example, we might be interested in whether or not damselfly effects on the midge densities are consistent in all habitat areas (e.g. some species may forage more effectively in muddy areas, others where there are more leaves). If this is the question we are trying to answer, we should have designed a different experiment. For example, a design in which we consider treatment combinations of different midge species and habitat characteristics might be appropriate. Fundamentally, the goal of blocking is to account for *uncontrolled* variation. Designing a blocked experiment and then lamenting the fact that we can't fully evaluate differences among blocks is a good example of trying to "have our cake and eat it too".
 
 2.  If the blocking term does not account for some variation, the analysis may be slightly less powerful than just using a one-way ANOVA. This is because there are fewer error degrees of freedom associated with the blocked analysis (we lose a few to the block effects). This argument only works if the block effect accounts for minimal variation. We can never know before we start an experiment whether or not blocking is needed, but we do know that biological systems are inherently noisy, with many sources of uncontrolled variation coming into play. In most experimental settings, we can be fairly sure that blocking will 'work'. If we choose not to block an experiment, there is no way to account for uncontrolled variation, and we will almost certainly lose statistical power as a result.
 

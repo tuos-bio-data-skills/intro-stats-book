@@ -22,11 +22,8 @@ fig:drug-not-linked
 fig:glyco-diffs
 fig:chi-dist-1-eg
 fig:chi-test-eg
-tab:unnamed-chunk-206
+tab:unnamed-chunk-203
 fig:stats-key
-starting-a-learnr-tutorial
-using-packages-1
-reading-data-into-r
 scientific-process
 stages-scientific-process
 stages-observations

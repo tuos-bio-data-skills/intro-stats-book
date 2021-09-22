@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 16 Multiple comparison tests | Introductory Biostatisics with R</title>
+  <title>Chapter 16 Multiple comparison tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 16 Multiple comparison tests | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 16 Multiple comparison tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 16 Multiple comparison tests | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 16 Multiple comparison tests | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -626,10 +620,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="section-9" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The code below assumes CORN_CRAKE.CSV has been read into a tibble called <code>corn_crake</code>. It also assumes a one-way ANOVA model for the effect of diet supplement on hatchling growth rate has already been fitted and given the name <code>corncrake_model</code>:</p>
-<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="multiple-comparison-tests-chapter.html#cb102-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="multiple-comparison-tests-chapter.html#cb100-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
 </div>
 <p>In the <a href="one-way-anova-in-R.html#one-way-anova-in-R">One-way ANOVA in R</a> chapter, we saw how to use <code>anova</code> on a model object to evaluate whether means differ, for example:</p>
-<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="multiple-comparison-tests-chapter.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(corncrake_model)</span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="multiple-comparison-tests-chapter.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(corncrake_model)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: WeightGain
@@ -639,10 +633,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>That gives us the result of the global significance test. Unfortunately, we need different functions to carry out the Tukey HSD test. First, we convert the linear model object into a different kind of model object using the <code>aov</code> function:</p>
-<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="multiple-comparison-tests-chapter.html#cb105-1" aria-hidden="true" tabindex="-1"></a>corncrake_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(corncrake_model)</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="multiple-comparison-tests-chapter.html#cb103-1" aria-hidden="true" tabindex="-1"></a>corncrake_aov <span class="ot">&lt;-</span> <span class="fu">aov</span>(corncrake_model)</span></code></pre></div>
 <p>We don’t need to understand too much about what this is doing. In a nutshell, <code>aov</code> does some extra calculations needed to perform a Tukey HSD test. We gave the new object a name (<code>corncrake_aov</code>) because we need to use it in the next step.</p>
 <p>It’s easy to perform a Tukey HSD test once we have the ‘aov’ version of our model. There are a few different options. Here is how to do this using the <code>TukeyHSD</code> function:</p>
-<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="multiple-comparison-tests-chapter.html#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(corncrake_aov, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="multiple-comparison-tests-chapter.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(corncrake_aov, <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p>Pay attention! We applied the <code>TukeyHSD</code> function to the ‘aov’ object, <em>not</em> the original <code>lm</code> object. We have suppressed the output for now. Before we review it we need to get an idea of what it is going to show us.</p>
 <p>The <code>ordered = TRUE</code> tells <code>TukeyHSD</code> that we want to order the treatment means from smallest to largest and then apply every pairwise comparison, starting with the smallest mean (‘Allvit’) and working up through the order. Here are the means ordered from smallest to largest, working left to right:</p>
 <table>
@@ -810,9 +804,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="doing-it-the-easy-way" class="section level3" number="16.2.2">
 <h3><span class="header-section-number">16.2.2</span> Doing it the easy way…</h3>
 <p>The results table we produced is concise and complete but no reasonable person would say it was easy to arrive at. Fortunately, someone has written an R function to do this for us. It isn’t part of ‘base R’ though, so we have to install a package to use it. The package we need is called <code>agricolae</code>:</p>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="multiple-comparison-tests-chapter.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="multiple-comparison-tests-chapter.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
 <p>Once this has been installed and then loaded, we can use its <code>HSD.test</code> function to find the ‘not significantly different’ groups via a Tukey HSD test:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="multiple-comparison-tests-chapter.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(corncrake_aov, <span class="st">&quot;Supplement&quot;</span>, <span class="at">console=</span><span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="multiple-comparison-tests-chapter.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">HSD.test</span>(corncrake_aov, <span class="st">&quot;Supplement&quot;</span>, <span class="at">console=</span><span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ## Study: corncrake_aov ~ &quot;Supplement&quot;
 ## 

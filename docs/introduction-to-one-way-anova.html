@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 14 Introduction to one-way ANOVA | Introductory Biostatisics with R</title>
+  <title>Chapter 14 Introduction to one-way ANOVA | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 14 Introduction to one-way ANOVA | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 14 Introduction to one-way ANOVA | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 14 Introduction to one-way ANOVA | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 14 Introduction to one-way ANOVA | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -633,7 +627,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">14.2</span> Why do we need ANOVA models?</h2>
 <p>The corncrake, <em>Crex crex</em>, underwent severe declines in the UK thought to be due to changes in farming practices. Captive breeding and reintroduction programmes were introduced to try to help supplement the wild population. The scientists in charge of the breeding programme wanted to determine the success of 4 different supplements (the predictor variable) for increasing initial growth (the response variable) in the captive-bred hatchlings. They conducted an experiment in which groups of 8 hatchlings were fed with different supplements. A fifth group of 8 hatchlings served as the control group—they were given the base diet with no supplements. At the end of the experiment, they measured how much weight each hatchling had gained over the week.</p>
 <p>We can plot the weight gain of 8 hatchlings on each of the supplements (this is the raw data), along with the means of each supplement group, the standard error of the mean, and the sample mean of all the data (the ‘global’ mean):</p>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-95-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-92-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The grey points are the raw data, the means and standard error of each group are in blue, and the overall sample mean is shown by the dashed red line. We can see that there seem to be differences <em>among</em> the means: hatchlings in each of the different groups often deviate quite a lot from the global mean (the dashed line). This would seem likely to be an effect of the supplements they are on. At the same time, there is still a lot of variation <em>within</em> each group: not all of the hatchlings on the same supplements have the same weight gain.</p>
 <p>Perhaps all of this could be explained away as sampling variation—that is, the supplements make no difference at all to weight gain and all we’re observing are chance variations. We need a statistical test (or tests) to decide whether these differences are ‘real.’</p>
 <p>It might be tempting to use <em>t</em>-tests to compare each mean value with every other mean. This would involve ten <em>t</em>-tests on all possible comparisons of the 5 different supplements. Remember, if there is no effect of supplement, then each time we do a <em>t</em>-test, there is a chance that we will get a false significant result. Using the conventional <em>p</em> = 0.05 significance level, there is a 1 in 20 chance of getting such ‘false positives.’ However, doing several such tests increases the overall risk of finding at least one false positive. In fact, doing ten <em>t</em>-tests gives about a 40% chance of at least one test giving a false positive, even though the individual tests are conducted with <em>p</em> = 0.05.</p>
@@ -651,7 +645,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="total-variation-1" class="section level4 unnumbered">
 <h4>Total variation</h4>
 <p>The figure below shows the weight gain of each hatchling in the study and the grand mean (i.e. we have not plotted the group-specific means).</p>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-98-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-95-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The vertical lines show the distance between each observation and the grand mean—we have ordered the data within each group to make the plot a little tidier. A positive deviation occurs when a point is above the line, and a negative deviation corresponds to a case where the point is below the line. We’re not interested in the direction of these deviations. We need to quantify the variability of the deviations. This is a feature of their magnitude (i.e. the length of the lines).</p>
 <p>What measure of variability should we use? We can’t add up the deviations because they add to zero. Instead, we apply the same idea introduced in the <a href="relationships-and-regression.html#relationships-and-regression">Relationships and regression</a> chapter: the measure of variability we need is based on the ‘sum of squares’ (abbreviated SS) of the deviations. A sum of squares is calculated by taking each deviation in turn, squaring it, and adding up the squared values. Here are the numeric values of the deviations shown graphically above:</p>
 <pre><code>##  [1]  -5.05   1.95  -1.05  -2.05  -3.05  -4.05  -8.05   1.95  -3.05  -0.05
@@ -663,7 +657,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="residual-variation-1" class="section level4 unnumbered">
 <h4>Residual variation</h4>
 <p>The next component of variability we need relates to the within-group variation. Let’s replot the original figure showing the weight gain of each hatchling (points), the mean of each supplement group (horizontal blue lines), and the grand mean:</p>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-100-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-97-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The vertical lines show something new this time. They display the distance between each observation and the group-specific means. They summarise the variation among hatchlings <em>within</em> treatment groups. Here are the numeric values of these deviations:</p>
 <pre><code>##  [1] -9.250 -5.625 -9.000 -4.250 -3.250 -2.625 -1.250 -1.625 -0.625 -4.000
 ## [11] -3.500  0.375 -2.500 -2.500  1.750  1.375 -1.500  2.750 -5.875 -1.000
@@ -674,7 +668,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="between-group-variation" class="section level4 unnumbered">
 <h4>Between-group variation</h4>
 <p>The last component of variability we need relates to the between group variation. We’ll replot the figure one more time, but this time we’ll show just the group-specific means (blue points), the overall grand mean (dashed red line), and the deviations of each group mean from the grand mean:</p>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-102-1.png" width="384" style="display: block; margin: auto;" /></p>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-99-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Now the vertical lines show the distance between each group-specific mean and the grand mean. We have five different treatment groups, so there are only five lines. These lines show the variation due to differences among treatment groups. Here are the numeric values of these deviations:</p>
 <pre><code>## [1] -2.425  0.950  0.450 -3.800  4.825</code></pre>
 <p>These values quantify the variation that can be attributed to differences among treatments. Once again, we can summarise this variability as a single number by calculating the associated sum of squares—this number is called the treatment sum of squares. This is the same as the ‘explained sum of squares’ discussed in the context of regression. It is a measure of the variability attributed to differences among treatments.</p>

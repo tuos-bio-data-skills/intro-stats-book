@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 Sampling error | Introductory Biostatisics with R</title>
+  <title>Chapter 4 Sampling error | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 Sampling error | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 4 Sampling error | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 Sampling error | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 4 Sampling error | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -685,17 +679,17 @@ Figure 4.5: Distribution of number of purple morphs sampled (n = 500)
 <p>(It is common to use a shorthand abbreviations such “SE,” “S.E.” “se” or “s.e.” in place of ‘standard error’ when referring to the standard error in text.)</p>
 <p>It’s much easier to make sense of something abstract, like a standard error, by looking at a concrete example. Let’s calculate the standard error of the estimated purple morph frequency. It is possible to do this using mathematical reasoning; however, it is much easier to understand what’s happening if we use ‘brute force’ simulations in R.</p>
 <p>We’ll show you the code to do this but there’s no need to commit any of it to memory. It’s included for readers who like to see how things work. We start by specifying the number of samples to take (<code>n_samples</code>), the sample size to use for each sample (<code>sample_size</code>), and the value of the population morph frequency (<code>purple_prob</code>). We set up the simulation by creating these variables:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="sampling-error.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of independent samples</span></span>
-<span id="cb8-2"><a href="sampling-error.html#cb8-2" aria-hidden="true" tabindex="-1"></a>n_samples <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb8-3"><a href="sampling-error.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size to use for each sample</span></span>
-<span id="cb8-4"><a href="sampling-error.html#cb8-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">80</span></span>
-<span id="cb8-5"><a href="sampling-error.html#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># probability a plant will be purple</span></span>
-<span id="cb8-6"><a href="sampling-error.html#cb8-6" aria-hidden="true" tabindex="-1"></a>purple_prob <span class="ot">&lt;-</span> <span class="fl">0.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sampling-error.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of independent samples</span></span>
+<span id="cb6-2"><a href="sampling-error.html#cb6-2" aria-hidden="true" tabindex="-1"></a>n_samples <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb6-3"><a href="sampling-error.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size to use for each sample</span></span>
+<span id="cb6-4"><a href="sampling-error.html#cb6-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb6-5"><a href="sampling-error.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># probability a plant will be purple</span></span>
+<span id="cb6-6"><a href="sampling-error.html#cb6-6" aria-hidden="true" tabindex="-1"></a>purple_prob <span class="ot">&lt;-</span> <span class="fl">0.4</span></span></code></pre></div>
 <p>This sets up a simulation to calculate the expected standard error when the purple morph frequency is 40% and the sample size is 80, using 10^{5} samples. The next step requires a bit more knowledge of R and probability theory:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sampling-error.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repeat the sampling/estimation procedure many times</span></span>
-<span id="cb9-2"><a href="sampling-error.html#cb9-2" aria-hidden="true" tabindex="-1"></a>raw_samples <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_samples, <span class="at">size =</span> sample_size, <span class="at">prob =</span> purple_prob)</span>
-<span id="cb9-3"><a href="sampling-error.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert results to %</span></span>
-<span id="cb9-4"><a href="sampling-error.html#cb9-4" aria-hidden="true" tabindex="-1"></a>percent_samples <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> raw_samples <span class="sc">/</span> sample_size</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="sampling-error.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repeat the sampling/estimation procedure many times</span></span>
+<span id="cb7-2"><a href="sampling-error.html#cb7-2" aria-hidden="true" tabindex="-1"></a>raw_samples <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_samples, <span class="at">size =</span> sample_size, <span class="at">prob =</span> purple_prob)</span>
+<span id="cb7-3"><a href="sampling-error.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert results to %</span></span>
+<span id="cb7-4"><a href="sampling-error.html#cb7-4" aria-hidden="true" tabindex="-1"></a>percent_samples <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> raw_samples <span class="sc">/</span> sample_size</span></code></pre></div>
 <p>The details of the R code are not important here. A minimum of A-level statistics is needed to understand what the <code>rbinom</code> function is doing, but in a nutshell, it is the workhorse that runs the simulation. Mostly, we’re showing the code to demonstrate that seemingly complex things are often easy to do in R.</p>
 <p>What matters here is the result. This is stored the result in a vector called <code>percent_samples</code>. Here are its first 50 values:</p>
 <pre><code>##  [1] 33.75 35.00 42.50 41.25 46.25 35.00 42.50 45.00 43.75 40.00 41.25 52.50
@@ -705,7 +699,7 @@ Figure 4.5: Distribution of number of purple morphs sampled (n = 500)
 ## [49] 40.00 45.00</code></pre>
 <p>These numbers are all part of the sampling distribution of morph frequency estimates. Each value is one possible estimate of the purple morph frequency when we sample 80 individuals from a population where the true value is 40%. There are 10^{5} such estimates stored in <code>percent_samples</code>.</p>
 <p>How do we then calculate the standard error? This is <em>defined</em> as the standard deviation of the sampling distribution that we just constructed with a simulation. So all we need to do now is calculate their standard deviation using the <code>sd</code> function:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="sampling-error.html#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(percent_samples)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sampling-error.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(percent_samples)</span></code></pre></div>
 <pre><code>## [1] 5.494663</code></pre>
 <p>The standard error is about 5.5. Why is this number useful? It gives us a means to reason about the variability in a sampling distribution. When a sampling distribution is ‘well-behaved,’ then roughly speaking, about 95% of estimates are expected to lie within a range of about four standard errors.</p>
 <p>Not convinced? Look at the second bar plot we produced, where the sample size was 80 and the purple morph frequency was 40%. What is the approximate range of simulated values? How close is this to <span class="math inline">\(4 \times 5.5\)</span>? Quite close!</p>

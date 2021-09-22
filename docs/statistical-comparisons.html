@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Statistical comparisons | Introductory Biostatisics with R</title>
+  <title>Chapter 6 Statistical comparisons | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Statistical comparisons | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 6 Statistical comparisons | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Statistical comparisons | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 6 Statistical comparisons | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -639,14 +633,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="examine-the-data" class="section level3" number="6.1.2">
 <h3><span class="header-section-number">6.1.2</span> Examine the data</h3>
 <p>The first step is to calculate point estimates of the mean dry weight of each morph. These are our ‘best guess’ of the population means. It can also be useful to know something about the sample size and variability of dry weight in each sample. We can summarise variability using the standard deviation (<code>sd</code>) of each sample. Here is how to do this with <strong>dplyr</strong>:</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="statistical-comparisons.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using morph data...</span></span>
-<span id="cb39-2"><a href="statistical-comparisons.html#cb39-2" aria-hidden="true" tabindex="-1"></a>morph_data <span class="sc">%&gt;%</span> </span>
-<span id="cb39-3"><a href="statistical-comparisons.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ...group the data by colour morph category</span></span>
-<span id="cb39-4"><a href="statistical-comparisons.html#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Colour) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-5"><a href="statistical-comparisons.html#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... calculate the mean, sd and sample size of weight in each category</span></span>
-<span id="cb39-6"><a href="statistical-comparisons.html#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Weight), </span>
-<span id="cb39-7"><a href="statistical-comparisons.html#cb39-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(Weight),</span>
-<span id="cb39-8"><a href="statistical-comparisons.html#cb39-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">samp_size =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="statistical-comparisons.html#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># using morph data...</span></span>
+<span id="cb37-2"><a href="statistical-comparisons.html#cb37-2" aria-hidden="true" tabindex="-1"></a>morph_data <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="statistical-comparisons.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ...group the data by colour morph category</span></span>
+<span id="cb37-4"><a href="statistical-comparisons.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Colour) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-5"><a href="statistical-comparisons.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ... calculate the mean, sd and sample size of weight in each category</span></span>
+<span id="cb37-6"><a href="statistical-comparisons.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Weight), </span>
+<span id="cb37-7"><a href="statistical-comparisons.html#cb37-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(Weight),</span>
+<span id="cb37-8"><a href="statistical-comparisons.html#cb37-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">samp_size =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 4
 ##   Colour  mean    sd samp_size
 ##   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;
@@ -655,9 +649,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This shows the mean dry weight of the purple morph is indeed greater than that of the green morph. Maybe our hypothesis is true. The standard deviation estimates indicate that the dry weight of purple morphs is also a bit more variable than the green morphs.</p>
 <p>These numbers are point estimates taken from limited samples. If we sampled the populations again, sampling variation would lead to different estimates. We’re not yet in a position to conclude that purple morphs are bigger than green morphs because we don’t know if the difference is just down to ‘luck.’</p>
 <p>We should also visualise the sample distributions of colour morph weights. We could do this in a variety of ways but since we only have two samples we may as well use a fairly information-rich summary. Histograms are a good choice when we have a reasonable amount of data:</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="statistical-comparisons.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(morph_data, <span class="fu">aes</span>(<span class="at">x =</span> Weight)) <span class="sc">+</span> </span>
-<span id="cb41-2"><a href="statistical-comparisons.html#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>) <span class="sc">+</span> </span>
-<span id="cb41-3"><a href="statistical-comparisons.html#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Colour, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># &lt;- separate histogram for each colour morph!</span></span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="statistical-comparisons.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(morph_data, <span class="fu">aes</span>(<span class="at">x =</span> Weight)) <span class="sc">+</span> </span>
+<span id="cb39-2"><a href="statistical-comparisons.html#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>) <span class="sc">+</span> </span>
+<span id="cb39-3"><a href="statistical-comparisons.html#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Colour, <span class="at">ncol =</span> <span class="dv">1</span>) <span class="co"># &lt;- separate histogram for each colour morph!</span></span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:two-morph-dist"></span>
 <img src="intro-bio-stats-book_files/figure-html/two-morph-dist-1.png" alt="Size distributions of purple and green morph samples" width="75%" />
 <p class="caption">

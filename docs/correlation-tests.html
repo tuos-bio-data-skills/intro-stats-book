@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 11 Correlation tests | Introductory Biostatisics with R</title>
+  <title>Chapter 11 Correlation tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 11 Correlation tests | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 11 Correlation tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 11 Correlation tests | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 11 Correlation tests | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -667,20 +661,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualising-the-data-and-checking-the-assumptions-2" class="section level3" number="11.2.1">
 <h3><span class="header-section-number">11.2.1</span> Visualising the data and checking the assumptions</h3>
 <p>We can start by printing some information about the <code>bracken</code> data:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="correlation-tests.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bracken)</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="correlation-tests.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bracken)</span></code></pre></div>
 <pre><code>## Rows: 22
 ## Columns: 2
 ## $ Calluna &lt;dbl&gt; 980, 760, 613, 489, 498, 416, 589, 510, 459, 680, 471, 145, 25…
 ## $ Bracken &lt;dbl&gt; 2.3, 1.4, 4.0, 3.6, 4.3, 4.0, 6.3, 6.5, 8.3, 8.2, 8.1, 9.1, 8.…</code></pre>
 <p>There are 22 observations (rows) and two variables (columns) in this data set. The two variables, <code>Calluna</code> and <code>Bracken</code>, contain the estimates of heather and bracken abundance in each plot, respectively.</p>
 <p>We should always explore the data thoroughly before carrying out any kind of statistical analysis. To begin, we can visualise the form of the association with a scatter plot:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="correlation-tests.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna, <span class="at">y =</span> Bracken)) <span class="sc">+</span></span>
-<span id="cb59-2"><a href="correlation-tests.html#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="correlation-tests.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna, <span class="at">y =</span> Bracken)) <span class="sc">+</span></span>
+<span id="cb57-2"><a href="correlation-tests.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-scatter-1.png" width="336" style="display: block; margin: auto;" /></p>
 <p>There appears to be a strong negative association between the species’ abundances, and the relationship seems to follow a ‘straight line’ pattern. It looks like Pearson’s correlation is a reasonable measure of association for these data.</p>
 <p>We will confirm this with a significance test. Is it appropriate to carry out the test? We’re dealing with numeric variables measured in ratio scale (assumption 1). What about their distributions (assumptions 2)? Here’s a quick visual summary:</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="correlation-tests.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">100</span>)</span>
-<span id="cb60-2"><a href="correlation-tests.html#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Bracken)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="correlation-tests.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">100</span>)</span>
+<span id="cb58-2"><a href="correlation-tests.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Bracken)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-dist-1.png" width="40%" /><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-dist-2.png" width="40%" /></p>
 <p>These dot plots suggest the normality assumption is met, i.e. both distributions are roughly ‘bell-shaped.’</p>
 <p>That’s all three assumptions met—the variables are on a ratio scale, dot the normality assumption is met, and the abundance relationship is linear. It looks like the statistical test will give reliable results.</p>
@@ -688,7 +682,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="doing-the-test" class="section level3" number="11.2.2">
 <h3><span class="header-section-number">11.2.2</span> Doing the test</h3>
 <p>Let’s proceed with the analysis… Carrying out a correlation analysis in R is straightforward. We use the <code>cor.test</code> function to do this:</p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="correlation-tests.html#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Calluna <span class="sc">+</span> Bracken, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">data =</span> bracken)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="correlation-tests.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Calluna <span class="sc">+</span> Bracken, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">data =</span> bracken)</span></code></pre></div>
 <p>We have suppressed the output here to focus on how the function works:</p>
 <ul>
 <li><p>We use the R formula syntax to determine which pair of variables are analysed. The <code>cor.test</code> function expects the two variable names to appear to the right of the <code>~</code>, separated by a <code>+</code> symbol, with nothing on the left.</p></li>

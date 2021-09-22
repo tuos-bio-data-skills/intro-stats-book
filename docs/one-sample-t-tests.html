@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 9 One sample t-tests | Introductory Biostatisics with R</title>
+  <title>Chapter 9 One sample t-tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 9 One sample t-tests | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 9 One sample t-tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 9 One sample t-tests | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 9 One sample t-tests | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -679,24 +673,24 @@ Figure 9.1: Example of data used in a one-sample t-test
 <p>We’ll use the plant morph example again to learn how to carry out a one-sample <em>t</em>-test in R. Remember, the data were ‘collected’ to 1) compare the frequency of purple morphs to a prediction and 2) compare the mean dry weight of purple and green morphs. Neither of these questions can be tackled with a one-sample <em>t</em>-test.</p>
 <p>Instead, let’s pretend that we unearthed a report from 30 years ago that found the mean size of purple morphs to be 710 grams. We want to evaluate whether the mean size of purple plants in the contemporary population is different from this expectation, because we think they may have adapted to local conditions.</p>
 <p>We only need the purple morph data for this example, so we should first <code>filter</code> the data to get hold of only the purple plants:</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="one-sample-t-tests.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get just the purple morphs</span></span>
-<span id="cb44-2"><a href="one-sample-t-tests.html#cb44-2" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="ot">&lt;-</span> <span class="fu">filter</span>(morph_data, Colour <span class="sc">==</span> <span class="st">&quot;Purple&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="one-sample-t-tests.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get just the purple morphs</span></span>
+<span id="cb42-2"><a href="one-sample-t-tests.html#cb42-2" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="ot">&lt;-</span> <span class="fu">filter</span>(morph_data, Colour <span class="sc">==</span> <span class="st">&quot;Purple&quot;</span>)</span></code></pre></div>
 <p>The <code>purple_morphs</code> data set has two columns: <code>Weight</code> contains the dry weight biomass of purple plants, and <code>Colour</code> indicates which sample (plant morph) an observation belongs to. We don’t need the <code>Colour</code> column anymore because we’ve just removed all the green plants, but there’s no harm in leaving it in.</p>
 <div id="visualising-the-data-and-checking-the-assumptions" class="section level3" number="9.3.1">
 <h3><span class="header-section-number">9.3.1</span> Visualising the data and checking the assumptions</h3>
 <p>We start by calculating a few summary statistics and visualising the sample distribution of purple morph dry weights. That’s right… always check the data before carrying out a statistical analysis! We already looked over these data in the <a href="statistical-comparisons.html#statistical-comparisons">Statistical comparisons</a> chapter. However, we’ll proceed as though this is the first time we’ve seen them to demonstrate a complete workflow.</p>
 <p>Here is the <strong>dplyr</strong> code to produce the descriptive statistics:</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="one-sample-t-tests.html#cb45-1" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a href="one-sample-t-tests.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Weight), </span>
-<span id="cb45-3"><a href="one-sample-t-tests.html#cb45-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(Weight),</span>
-<span id="cb45-4"><a href="one-sample-t-tests.html#cb45-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">samp_size =</span> <span class="fu">n</span>())</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="one-sample-t-tests.html#cb43-1" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="one-sample-t-tests.html#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean =</span> <span class="fu">mean</span>(Weight), </span>
+<span id="cb43-3"><a href="one-sample-t-tests.html#cb43-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd =</span> <span class="fu">sd</span>(Weight),</span>
+<span id="cb43-4"><a href="one-sample-t-tests.html#cb43-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">samp_size =</span> <span class="fu">n</span>())</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 3
 ##    mean    sd samp_size
 ##   &lt;dbl&gt; &lt;dbl&gt;     &lt;int&gt;
 ## 1  767.  156.        77</code></pre>
 <p>We have 77 purple plants in the sample. Not bad but we should keep an eye on the normality assumption. Let’s check this by making a histogram with the sample of purple plant dry weights:</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="one-sample-t-tests.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(purple_morphs, <span class="fu">aes</span>(<span class="at">x =</span> Weight)) <span class="sc">+</span> </span>
-<span id="cb47-2"><a href="one-sample-t-tests.html#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="one-sample-t-tests.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(purple_morphs, <span class="fu">aes</span>(<span class="at">x =</span> Weight)) <span class="sc">+</span> </span>
+<span id="cb45-2"><a href="one-sample-t-tests.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">50</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:purple-morph-dist-again"></span>
 <img src="intro-bio-stats-book_files/figure-html/purple-morph-dist-again-1.png" alt="Size distributions of purple morph dry weight sample" width="60%" />
 <p class="caption">
@@ -708,14 +702,14 @@ Figure 9.2: Size distributions of purple morph dry weight sample
 <div id="carrying-out-the-test" class="section level3" number="9.3.2">
 <h3><span class="header-section-number">9.3.2</span> Carrying out the test</h3>
 <p>It’s easy to carry out a one-sample <em>t</em>-test in R. We use a function called <code>t.test</code> (no surprises there). Remember, <code>Weight</code> contains the dry weight biomass of purple plants. Here’s the R code to carry out a one-sample <em>t</em>-test:</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="one-sample-t-tests.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(purple_morphs<span class="sc">$</span>Weight, <span class="at">mu =</span> <span class="dv">710</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="one-sample-t-tests.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(purple_morphs<span class="sc">$</span>Weight, <span class="at">mu =</span> <span class="dv">710</span>)</span></code></pre></div>
 <p>We have suppressed the output because we initially want to focus on how to use the <code>t.test</code> function. We have to assign two arguments to control what the function does:</p>
 <ol style="list-style-type: decimal">
 <li><p>The first argument (<code>purple_morphs$Weight</code>) is simply a numeric vector containing the sample values. Sadly we can’t give <code>t.test</code> a data frame when doing a one-sample test. Instead, we have to pull out the column we’re interested in using the <code>$</code> operator.</p></li>
 <li><p>The second argument (called <code>mu</code>) sets the expected value to which we want to compare the sample mean. So <code>mu = 710</code> tells the function to compare the sample mean to a value of 710. This can be any value we like, and the correct value depends on the question we’re asking.</p></li>
 </ol>
 <p>That’s it for setting up the test. Here is the R code for the test again, this time with the output included:</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="one-sample-t-tests.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(purple_morphs<span class="sc">$</span>Weight, <span class="at">mu =</span> <span class="dv">710</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="one-sample-t-tests.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(purple_morphs<span class="sc">$</span>Weight, <span class="at">mu =</span> <span class="dv">710</span>)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 

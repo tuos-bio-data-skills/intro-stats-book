@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 15 One-way ANOVA in R | Introductory Biostatisics with R</title>
+  <title>Chapter 15 One-way ANOVA in R | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 15 One-way ANOVA in R | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 15 One-way ANOVA in R | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 15 One-way ANOVA in R | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 15 One-way ANOVA in R | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -624,7 +618,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="first-steps-1" class="section level3" number="15.1.1">
 <h3><span class="header-section-number">15.1.1</span> First steps</h3>
 <p>What lives inside the <code>corn_crake</code> data set? There are no surprises:</p>
-<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="one-way-anova-in-R.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="one-way-anova-in-R.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(corn_crake)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 2
 ## $ Supplement &lt;chr&gt; &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;No…
@@ -634,9 +628,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="visualising-the-data-1" class="section level3" number="15.1.2">
 <h3><span class="header-section-number">15.1.2</span> Visualising the data</h3>
 <p>We should plot our data before we even consider fitting a model. One way to do this is by creating a boxplot:</p>
-<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="one-way-anova-in-R.html#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(corn_crake, <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> WeightGain)) <span class="sc">+</span> </span>
-<span id="cb90-2"><a href="one-way-anova-in-R.html#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-107-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="one-way-anova-in-R.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(corn_crake, <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> WeightGain)) <span class="sc">+</span> </span>
+<span id="cb88-2"><a href="one-way-anova-in-R.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-104-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>At this point, we just want to get an idea of what our data look like. We don’t need to worry about customising the plot to make it look nice.</p>
 <div id="examine-the-plot" class="section level4 unnumbered infobox action">
 <h4>Examine the plot</h4>
@@ -649,7 +643,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Carrying out ANOVA in R is quite simple, but as with regression, there is more than one step.</p>
 <p>The first involves a process known as <em>fitting the model</em> (or just <em>model fitting</em>). This is the step where R calculates the relevant means and the additional information needed to generate the results in step two. We call this step model fitting because an ANOVA is a type of model for our data: it is a model that allows the mean of a variable to vary among groups.</p>
 <p>How do we fit an ANOVA model in R? We use the <code>lm</code> function again. Remember what the letters ‘lm’ stand for? They stand for ‘(general) linear model.’ An ANOVA model is just another special case of that general linear model. Here is how we fit a one-way ANOVA in R, using the corncrake data:</p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="one-way-anova-in-R.html#cb91-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="one-way-anova-in-R.html#cb89-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
 <p>By now, this kind of thing is probably starting to look familiar. We have to assign two arguments:</p>
 <ol style="list-style-type: decimal">
 <li><p>The first argument is a formula. We know this because it includes a ‘tilde’ symbol: <code>~</code>. The variable name on the left of the <code>~</code> must be the numeric response variable whose means we want to compare among groups. The variable on the right should be the indicator (or predictor) variable that says which group each observation belongs to. These are <code>WeightGain</code> and <code>Supplement</code>, respectively.</p></li>
@@ -661,7 +655,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Avoid using numbers to encode the values of a categorical variable if you want to avoid making mistakes when fitting models!</p>
 </div>
 <p>Notice that we did not print the results to the console. Instead, we assigned the result a name —<code>corncrake_model</code> now refers to a <strong>model object</strong>. What happens if we print this to the console?</p>
-<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="one-way-anova-in-R.html#cb92-1" aria-hidden="true" tabindex="-1"></a>corncrake_model</span></code></pre></div>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="one-way-anova-in-R.html#cb90-1" aria-hidden="true" tabindex="-1"></a>corncrake_model</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = WeightGain ~ Supplement, data = corn_crake)
@@ -680,7 +674,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">15.2.1</span> Interpreting the results</h3>
 <p>We really want a <em>p</em>-value to help us determine whether there is statistical support for a difference among the group means. That is, we need to calculate things like degrees of freedom, sums of squares, mean squares, and the <em>F</em>-ratio. This is step 2.</p>
 <p>We use the <code>anova</code> function to do this:</p>
-<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="one-way-anova-in-R.html#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(corncrake_model)</span></code></pre></div>
+<div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="one-way-anova-in-R.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(corncrake_model)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: WeightGain
@@ -721,13 +715,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In order to be able to plot these quantities we first have to calculate them. We can do this using <code>dplyr</code>. Here’s a reminder of the equation for the standard error of a mean: <span class="math display">\[
 SE = \frac{\text{Standard deviation of the sample}}{\sqrt{\text{Sample size}}} = \frac{SD}{\sqrt{n}}
 \]</span> So, the required <code>dplyr</code> code is:</p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="one-way-anova-in-R.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the mean and the SE for each supplement</span></span>
-<span id="cb97-2"><a href="one-way-anova-in-R.html#cb97-2" aria-hidden="true" tabindex="-1"></a>corncrake_stats <span class="ot">&lt;-</span> </span>
-<span id="cb97-3"><a href="one-way-anova-in-R.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  corn_crake <span class="sc">%&gt;%</span> </span>
-<span id="cb97-4"><a href="one-way-anova-in-R.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Supplement) <span class="sc">%&gt;%</span> </span>
-<span id="cb97-5"><a href="one-way-anova-in-R.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(WeightGain), <span class="at">SE =</span> <span class="fu">sd</span>(WeightGain)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
-<span id="cb97-6"><a href="one-way-anova-in-R.html#cb97-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print to the console</span></span>
-<span id="cb97-7"><a href="one-way-anova-in-R.html#cb97-7" aria-hidden="true" tabindex="-1"></a>corncrake_stats</span></code></pre></div>
+<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="one-way-anova-in-R.html#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get the mean and the SE for each supplement</span></span>
+<span id="cb95-2"><a href="one-way-anova-in-R.html#cb95-2" aria-hidden="true" tabindex="-1"></a>corncrake_stats <span class="ot">&lt;-</span> </span>
+<span id="cb95-3"><a href="one-way-anova-in-R.html#cb95-3" aria-hidden="true" tabindex="-1"></a>  corn_crake <span class="sc">%&gt;%</span> </span>
+<span id="cb95-4"><a href="one-way-anova-in-R.html#cb95-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Supplement) <span class="sc">%&gt;%</span> </span>
+<span id="cb95-5"><a href="one-way-anova-in-R.html#cb95-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Mean =</span> <span class="fu">mean</span>(WeightGain), <span class="at">SE =</span> <span class="fu">sd</span>(WeightGain)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="fu">n</span>()))</span>
+<span id="cb95-6"><a href="one-way-anova-in-R.html#cb95-6" aria-hidden="true" tabindex="-1"></a><span class="co"># print to the console</span></span>
+<span id="cb95-7"><a href="one-way-anova-in-R.html#cb95-7" aria-hidden="true" tabindex="-1"></a>corncrake_stats</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 3
 ##   Supplement  Mean    SE
 ##   &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;
@@ -738,20 +732,20 @@ SE = \frac{\text{Standard deviation of the sample}}{\sqrt{\text{Sample size}}} =
 ## 5 Sizefast    19    1.69</code></pre>
 <p>Notice that we used the <code>n</code> function to get the sample size. The rest of this R code should be quite familiar by now. We gave the data frame containing the group-specific means and standard errors the name <code>corncrake_stats</code>.</p>
 <p>We have a couple of different options for making a good summary figure. The first plots a point for each mean and places error bars around this to show ±1 SE. In order to do this using <code>ggplot2</code> we have to add <em>two layers</em>—the first specifies the points (the means) and the second specifies the error bar (the SE). Here is how to do this:</p>
-<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="one-way-anova-in-R.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> corncrake_stats, </span>
-<span id="cb99-2"><a href="one-way-anova-in-R.html#cb99-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> Mean, <span class="at">ymin =</span> Mean <span class="sc">-</span> SE, <span class="at">ymax =</span> Mean <span class="sc">+</span> SE)) <span class="sc">+</span> </span>
-<span id="cb99-3"><a href="one-way-anova-in-R.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the means</span></span>
-<span id="cb99-4"><a href="one-way-anova-in-R.html#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb99-5"><a href="one-way-anova-in-R.html#cb99-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
-<span id="cb99-6"><a href="one-way-anova-in-R.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb99-7"><a href="one-way-anova-in-R.html#cb99-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
-<span id="cb99-8"><a href="one-way-anova-in-R.html#cb99-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span> </span>
-<span id="cb99-9"><a href="one-way-anova-in-R.html#cb99-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use sensible labels</span></span>
-<span id="cb99-10"><a href="one-way-anova-in-R.html#cb99-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Supplement treatment&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Weight gain (g)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb99-11"><a href="one-way-anova-in-R.html#cb99-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># flip x and y axes</span></span>
-<span id="cb99-12"><a href="one-way-anova-in-R.html#cb99-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb99-13"><a href="one-way-anova-in-R.html#cb99-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
-<span id="cb99-14"><a href="one-way-anova-in-R.html#cb99-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="one-way-anova-in-R.html#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> corncrake_stats, </span>
+<span id="cb97-2"><a href="one-way-anova-in-R.html#cb97-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> Mean, <span class="at">ymin =</span> Mean <span class="sc">-</span> SE, <span class="at">ymax =</span> Mean <span class="sc">+</span> SE)) <span class="sc">+</span> </span>
+<span id="cb97-3"><a href="one-way-anova-in-R.html#cb97-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the means</span></span>
+<span id="cb97-4"><a href="one-way-anova-in-R.html#cb97-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb97-5"><a href="one-way-anova-in-R.html#cb97-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
+<span id="cb97-6"><a href="one-way-anova-in-R.html#cb97-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb97-7"><a href="one-way-anova-in-R.html#cb97-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
+<span id="cb97-8"><a href="one-way-anova-in-R.html#cb97-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span> </span>
+<span id="cb97-9"><a href="one-way-anova-in-R.html#cb97-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use sensible labels</span></span>
+<span id="cb97-10"><a href="one-way-anova-in-R.html#cb97-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Supplement treatment&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Weight gain (g)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb97-11"><a href="one-way-anova-in-R.html#cb97-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># flip x and y axes</span></span>
+<span id="cb97-12"><a href="one-way-anova-in-R.html#cb97-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb97-13"><a href="one-way-anova-in-R.html#cb97-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
+<span id="cb97-14"><a href="one-way-anova-in-R.html#cb97-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-summary-initial-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>First, notice that we set the <code>data</code> argument in <code>ggplot</code> to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: <code>x</code>, <code>y</code>, <code>ymin</code> and <code>ymax</code>. Third, we added one layer using <code>geom_point</code>. This adds the individual points based on the <code>x</code> and <code>y</code> mappings. Fourth, we added a second layer using <code>geom_errorbar</code>. This adds the error bars based on the <code>x</code>, <code>ymin</code> and <code>ymax</code> mappings. Finally we adjusted the y limits and the labels (this last step is optional). Ask a demonstrator to step through this with you if you are confused by it.</p>
 <div id="factors" class="section level4 unnumbered infobox information">
@@ -759,26 +753,26 @@ SE = \frac{\text{Standard deviation of the sample}}{\sqrt{\text{Sample size}}} =
 <p>Now is good time to take a short detour to remind ourselves about factors. In the world of experimental design, the word ‘factor’ is used to describe a controlled variable where the levels—i.e. its different values or categories—are set by the experimenter. R includes a special type of vector for representing factors. This is called, rather sensibly, a factor. One can get quite a long way in R-land without using factors. However, we inevitably end up using them because so much of R’s plotting and statistical modelling machinery rely on factors. We are going to need to them to help us reorder the groups in our plot.</p>
 </div>
 <p>Take a close look at that last figure. Is there anything wrong with it? The control group in this study is the no diet group (‘None’). Conventionally, we display the control groups first. R hasn’t done this because the different categories of <code>Supplement</code> are presented in alphabetical order by default. One way to change that order if by converting <code>Supplement</code> to a factor and define the order we want as we do so. Here is how to do this using <code>dplyr</code> and a function called <code>factor</code>:</p>
-<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="one-way-anova-in-R.html#cb100-1" aria-hidden="true" tabindex="-1"></a>corncrake_stats <span class="ot">&lt;-</span> </span>
-<span id="cb100-2"><a href="one-way-anova-in-R.html#cb100-2" aria-hidden="true" tabindex="-1"></a>  corncrake_stats <span class="sc">%&gt;%</span> </span>
-<span id="cb100-3"><a href="one-way-anova-in-R.html#cb100-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Supplement =</span> <span class="fu">factor</span>(Supplement, </span>
-<span id="cb100-4"><a href="one-way-anova-in-R.html#cb100-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Sizefast&quot;</span>, <span class="st">&quot;Linseed&quot;</span>, <span class="st">&quot;Allvit&quot;</span>, <span class="st">&quot;Earlybird&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="one-way-anova-in-R.html#cb98-1" aria-hidden="true" tabindex="-1"></a>corncrake_stats <span class="ot">&lt;-</span> </span>
+<span id="cb98-2"><a href="one-way-anova-in-R.html#cb98-2" aria-hidden="true" tabindex="-1"></a>  corncrake_stats <span class="sc">%&gt;%</span> </span>
+<span id="cb98-3"><a href="one-way-anova-in-R.html#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Supplement =</span> <span class="fu">factor</span>(Supplement, </span>
+<span id="cb98-4"><a href="one-way-anova-in-R.html#cb98-4" aria-hidden="true" tabindex="-1"></a>                             <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">&quot;None&quot;</span>, <span class="st">&quot;Sizefast&quot;</span>, <span class="st">&quot;Linseed&quot;</span>, <span class="st">&quot;Allvit&quot;</span>, <span class="st">&quot;Earlybird&quot;</span>)))</span></code></pre></div>
 <p>We use <code>mutate</code> to update <code>Supplement</code>, using the <code>factor</code> function to redefine the levels of <code>Supplement</code> and overwrite the original. Now, when we rerun the <code>ggplot2</code> code we end up with a figure like this:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-summary-releveled-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The treatments are presented in the order specified with the <code>levels</code> argument. Problem solved!</p>
 <p>A bar plot is another popular visualisation for summarising the results of an ANOVA. We only have to change one thing about the last chunk of <code>ggplot2</code> code to make a bar plot. Instead of using <code>geom_point</code>, we use <code>geom_col</code> (we’ll drop the <code>coord_flip</code> bit too):</p>
-<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="one-way-anova-in-R.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> corncrake_stats, </span>
-<span id="cb101-2"><a href="one-way-anova-in-R.html#cb101-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> Mean, <span class="at">ymin =</span> Mean <span class="sc">-</span> SE, <span class="at">ymax =</span> Mean <span class="sc">+</span> SE)) <span class="sc">+</span> </span>
-<span id="cb101-3"><a href="one-way-anova-in-R.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the means</span></span>
-<span id="cb101-4"><a href="one-way-anova-in-R.html#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb101-5"><a href="one-way-anova-in-R.html#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
-<span id="cb101-6"><a href="one-way-anova-in-R.html#cb101-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb101-7"><a href="one-way-anova-in-R.html#cb101-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
-<span id="cb101-8"><a href="one-way-anova-in-R.html#cb101-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span> </span>
-<span id="cb101-9"><a href="one-way-anova-in-R.html#cb101-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use sensible labels</span></span>
-<span id="cb101-10"><a href="one-way-anova-in-R.html#cb101-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Supplement treatment&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Weight gain (g)&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb101-11"><a href="one-way-anova-in-R.html#cb101-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
-<span id="cb101-12"><a href="one-way-anova-in-R.html#cb101-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb99"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb99-1"><a href="one-way-anova-in-R.html#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> corncrake_stats, </span>
+<span id="cb99-2"><a href="one-way-anova-in-R.html#cb99-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> Mean, <span class="at">ymin =</span> Mean <span class="sc">-</span> SE, <span class="at">ymax =</span> Mean <span class="sc">+</span> SE)) <span class="sc">+</span> </span>
+<span id="cb99-3"><a href="one-way-anova-in-R.html#cb99-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the means</span></span>
+<span id="cb99-4"><a href="one-way-anova-in-R.html#cb99-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">&quot;lightgrey&quot;</span>, <span class="at">colour =</span> <span class="st">&quot;grey&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb99-5"><a href="one-way-anova-in-R.html#cb99-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># this adds the error bars</span></span>
+<span id="cb99-6"><a href="one-way-anova-in-R.html#cb99-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">colour =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb99-7"><a href="one-way-anova-in-R.html#cb99-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># controlling the appearance</span></span>
+<span id="cb99-8"><a href="one-way-anova-in-R.html#cb99-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span> </span>
+<span id="cb99-9"><a href="one-way-anova-in-R.html#cb99-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use sensible labels</span></span>
+<span id="cb99-10"><a href="one-way-anova-in-R.html#cb99-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Supplement treatment&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Weight gain (g)&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb99-11"><a href="one-way-anova-in-R.html#cb99-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use a more professional theme</span></span>
+<span id="cb99-12"><a href="one-way-anova-in-R.html#cb99-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-summary-points-1.png" width="336" style="display: block; margin: auto;" /></p>
 
 </div>

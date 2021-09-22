@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 21 Regression diagnostics in R | Introductory Biostatisics with R</title>
+  <title>Chapter 21 Regression diagnostics in R | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 21 Regression diagnostics in R | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 21 Regression diagnostics in R | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 21 Regression diagnostics in R | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 21 Regression diagnostics in R | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -620,21 +614,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="section-15" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>We assume the data from ‘GLUCOSE.CSV’ have been read into a tibble called <code>vicia_germ</code> and the associated regression model has been fitted as before:</p>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="regression-diagnostics-in-r.html#cb154-1" aria-hidden="true" tabindex="-1"></a>vicia_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Glucose <span class="sc">~</span> Temperature, <span class="at">data =</span> vicia_germ)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="regression-diagnostics-in-r.html#cb152-1" aria-hidden="true" tabindex="-1"></a>vicia_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Glucose <span class="sc">~</span> Temperature, <span class="at">data =</span> vicia_germ)</span></code></pre></div>
 <p>Create <code>vicia_germ</code> and <code>vicia_model</code> if you plan to work along.</p>
 </div>
 <p>The built in facility for diagnostic plots in R works via a function called <code>plot</code>. It is easy to use. For example, to produce a residuals vs fitted values plot, we use:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="regression-diagnostics-in-r.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-180-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="regression-diagnostics-in-r.html#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">which =</span> <span class="dv">1</span>, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-177-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The first argument is the name of fitted model object. The second argument controls the output of the <code>plot</code> function: <code>which = 1</code> argument tells it to produce a residuals vs fitted values plot. The <code>add.smooth = FALSE</code> is telling the function not to add a line called a ‘loess smooth.’ This line is supposed to help us pick out patterns, but it tends to overfit the relationship and causes people to see problems that aren’t there. For this reason, it’s often better to suppress the line.</p>
 <p>Remember that this plot allows us to evaluate the linearity assumption: we’re looking for any evidence of a systematic trend (e.g. a hump or U-shaped curve) here. Because there is no obvious pattern, we can accept the linearity assumption and move on to the normality assumption.</p>
 <p>We use the <code>plot</code> function to plot a normal probability diagnostic by setting <code>which = 2</code>:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="regression-diagnostics-in-r.html#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-181-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="regression-diagnostics-in-r.html#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-178-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This produces essentially the same kind of normal probability plot we made in the previous chapter, with one small difference. Rather than drawing a 1:1 line, the ‘plot’ function shows us a line of best fit. This allows us to pick out the curvature a little more easily. There’s nothing here to lead us to worry about this assumption—the points are close to the line with no systematic trend away from it.</p>
 <p>Finally, we can produce a scale-location diagnostic plot using the <code>plot</code> function to assess the constant variance assumption. Here we use <code>which = 3</code> and again we suppress the line (using <code>add.smooth = FALSE</code>) to avoid finding spurious patterns:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="regression-diagnostics-in-r.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-182-1.png" width="384" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="regression-diagnostics-in-r.html#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(vicia_model, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-179-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>We’re looking for any sign of the size of the transformed residuals either increasing or decreasing as the fitted values get larger. This plot looks good—as the relationship here looks pretty flat, we can conclude that the variability in the residuals is constant.</p>
 <div id="dont-panic-if-your-diagnostics-arent-perfect" class="section level4 unnumbered infobox warning">
 <h4>Don’t panic if your diagnostics aren’t perfect!</h4>
@@ -647,16 +641,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="section-16" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>We assume the data from ‘CORN_CRAKE.CSV’ have been read into a tibble called <code>corn_crake</code> and the associated one-way ANOVA model has been fitted as before:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="regression-diagnostics-in-r.html#cb158-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="regression-diagnostics-in-r.html#cb156-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
 <p>Create <code>corn_crake</code> and <code>corncrake_model</code> if you plan to work along.</p>
 </div>
 <p>The first diagnostic plot we produced for the regression model above is the residuals vs fitted values plot. In a regression, this is used to evaluate the linearity assumption. What does it do in a one-way ANOVA? Not much of use to be honest. There isn’t much point making a residuals vs fitted values plot for a one-way ANOVA. Why? Because the residuals will never show a trend with respect to the ‘fitted values,’ which are just the group-specific means. That’s one thing less to worry about.</p>
 <p>The normal probability plot is used to identify departures from normality. This plot allows us to check whether the residuals—the deviation of each point from its group’s mean—are likely to have been drawn from a normal distribution. Here’s the normal probability plot for our example:</p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="regression-diagnostics-in-r.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(corncrake_model, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="regression-diagnostics-in-r.html#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(corncrake_model, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-diag-2-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This looks very good. The points don’t deviate from the line systematically, except for a couple at the lower end (that’s not unusual), so it looks like the normality assumption is satisfied.</p>
 <p>The scale-location plot allows us to evaluate the constant variance assumption. This allows us to see whether or not the variability of the residuals is roughly constant within each group. Here’s the scale-location plot for the corncrake example:</p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="regression-diagnostics-in-r.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(corncrake_model, <span class="at">which =</span> <span class="dv">3</span>, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="regression-diagnostics-in-r.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(corncrake_model, <span class="at">which =</span> <span class="dv">3</span>, <span class="at">add.smooth =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-diag-3-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The warning sign we’re looking for here is a systematic pattern. We want to see if the magnitude of the residuals tends to increase or decrease with the fitted values. If such a pattern is apparent, then it suggests that variance changes with the mean. There is no such pattern in the above plot, so the constant variance assumption is satisfied.</p>
 </div>
@@ -665,7 +659,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Looking back over the scale-location plot, it seems like three of the groups exhibit similar variability, while the remaining two are different. They aren’t wildly different, though, so it is reasonable to assume the differences are due to sampling variation. Unfortunately, some people are uncomfortable using this sort of visual reasoning. They want to see a <em>p</em>-value to back up the decision to proceed.</p>
 <p>We think this is a bad idea. Here is the reason why. Formal tests of equality of variance are not very powerful. This means that to detect a difference, we either need a lot of data, or the differences need to be so large that they would be easy to spot using a graphical approach. The test is a crutch that we don’t need.</p>
 <p>That said, some people will demand to see a statistical test evaluating the equality of variance assumption. Several such tests exist but the most widely used is the Bartlett test:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="regression-diagnostics-in-r.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="regression-diagnostics-in-r.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bartlett.test</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
 <pre><code>## 
 ##  Bartlett test of homogeneity of variances
 ## 

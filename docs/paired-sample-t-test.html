@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 18 Paired-sample t-test | Introductory Biostatisics with R</title>
+  <title>Chapter 18 Paired-sample t-test | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatisics with R" />
+  <meta property="og:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatisics with R" />
+  <meta name="twitter:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatistics with R" />
   
   <meta name="twitter:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   
@@ -153,12 +153,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#text-instructions-and-explanations"><i class="fa fa-check"></i>Text, instructions, and explanations</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-code-and-output"><i class="fa fa-check"></i>R code and output</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html"><i class="fa fa-check"></i>Programming prerequisites</a>
-<ul>
-<li class="chapter" data-level="0.1" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#starting-a-learnr-tutorial"><i class="fa fa-check"></i><b>0.1</b> Starting a <strong>learnr</strong> tutorial</a></li>
-<li class="chapter" data-level="0.2" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#using-packages-1"><i class="fa fa-check"></i><b>0.2</b> Using packages</a></li>
-<li class="chapter" data-level="0.3" data-path="programming-prerequisites-1.html"><a href="programming-prerequisites-1.html#reading-data-into-r"><i class="fa fa-check"></i><b>0.3</b> Reading data into R</a></li>
 </ul></li>
 <li class="part"><span><b>I Collecting and Using Data</b></span></li>
 <li class="chapter" data-level="1" data-path="scientific-process.html"><a href="scientific-process.html"><i class="fa fa-check"></i><b>1</b> The scientific process</a>
@@ -603,7 +597,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatisics with R</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introductory Biostatistics with R</a>
           </h1>
         </div>
 
@@ -663,7 +657,7 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 <p>The data live in the ‘GLYCOLIPID.CSV’ file. The code below assumes those data have been read into a tibble called <code>glycolipid</code>. Set that up if you plan to work along.</p>
 </div>
 <p>We start by looking at the data:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="paired-sample-t-test.html#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(glycolipid)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="paired-sample-t-test.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(glycolipid)</span></code></pre></div>
 <pre><code>## Rows: 16
 ## Columns: 4
 ## $ Patient    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8
@@ -672,12 +666,12 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 ## $ Glycolipid &lt;dbl&gt; 142.9, 140.6, 144.7, 144.0, 142.4, 146.0, 149.1, 150.4, 139…</code></pre>
 <p>There are four variables in this data set: <code>Patient</code> indexes the patient identity, <code>Sex</code> is the sex of the patient (we don’t need this), <code>Drug</code> denotes the drug treatment, and <code>Glycolipid</code> is the glycolipid level.</p>
 <p>Next, we need to calculate the differences between each pair. We can do this with the <code>dplyr</code> functions <code>group_by</code> and <code>summarise</code>:</p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="paired-sample-t-test.html#cb119-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs <span class="ot">&lt;-</span> </span>
-<span id="cb119-2"><a href="paired-sample-t-test.html#cb119-2" aria-hidden="true" tabindex="-1"></a>  glycolipid <span class="sc">%&gt;%</span></span>
-<span id="cb119-3"><a href="paired-sample-t-test.html#cb119-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Patient) <span class="sc">%&gt;%</span></span>
-<span id="cb119-4"><a href="paired-sample-t-test.html#cb119-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Difference =</span> <span class="fu">diff</span>(Glycolipid))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="paired-sample-t-test.html#cb117-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs <span class="ot">&lt;-</span> </span>
+<span id="cb117-2"><a href="paired-sample-t-test.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  glycolipid <span class="sc">%&gt;%</span></span>
+<span id="cb117-3"><a href="paired-sample-t-test.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Patient) <span class="sc">%&gt;%</span></span>
+<span id="cb117-4"><a href="paired-sample-t-test.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Difference =</span> <span class="fu">diff</span>(Glycolipid))</span></code></pre></div>
 <p>What we did was group the data by the values of <code>Patient</code>, and then used a function called <code>diff</code> to calculate the difference between the two Glycolipid concentrations <em>within each patient</em>. We stored the result of this calculation in a new data frame called <code>glycolipid_diffs</code>. This is the data we’ll use to carry out the paired-sample <em>t</em>-test:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="paired-sample-t-test.html#cb120-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="paired-sample-t-test.html#cb118-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   Patient Difference
 ##     &lt;dbl&gt;      &lt;dbl&gt;
@@ -690,8 +684,8 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 ## 7       7     -7    
 ## 8       8     -2.5</code></pre>
 <p>We should check that the differences could plausibly have been drawn from a normal distribution, though keep in mind that the normality assumption is hard to assess with only 8 observations:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="paired-sample-t-test.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(glycolipid_diffs, <span class="fu">aes</span>(<span class="at">x =</span> Difference)) <span class="sc">+</span></span>
-<span id="cb122-2"><a href="paired-sample-t-test.html#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>() <span class="sc">+</span> <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">22</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="paired-sample-t-test.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(glycolipid_diffs, <span class="fu">aes</span>(<span class="at">x =</span> Difference)) <span class="sc">+</span></span>
+<span id="cb120-2"><a href="paired-sample-t-test.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>() <span class="sc">+</span> <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">22</span>)</span></code></pre></div>
 <pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:glyco-diffs"></span>
 <img src="intro-bio-stats-book_files/figure-html/glyco-diffs-1.png" alt="Within-individual differences from glycolipid study" width="50%" />
@@ -700,7 +694,7 @@ Figure 18.3: Within-individual differences from glycolipid study
 </p>
 </div>
 <p>Hmm… there really isn’t a lot of data to work with here but there’s nothing in that plot that screams ‘non-normal,’ which means the assumptions have been met as best they can be. Let’s proceed to carry out a one-sample <em>t</em>-test on the calculated differences. This is easy to do in R:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(glycolipid_diffs<span class="sc">$</span>Difference)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="paired-sample-t-test.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(glycolipid_diffs<span class="sc">$</span>Difference)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -726,7 +720,7 @@ Figure 18.3: Within-individual differences from glycolipid study
 <div id="using-the-paired-true-argument" class="section level3" number="18.4.1">
 <h3><span class="header-section-number">18.4.1</span> Using the <code>paired = TRUE</code> argument</h3>
 <p>R has a built-in procedure for doing paired-sample <em>t</em>-tests in one step. Now that we’ve done it the hard way, let’s try carrying out the test using that built-in procedure. This looks very similar to a two-sample <em>t</em>-test, except that we have to set the <code>paired</code> argument of the <code>t.test</code> function to <code>TRUE</code>:</p>
-<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="paired-sample-t-test.html#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Glycolipid <span class="sc">~</span> Drug, <span class="at">data =</span> glycolipid, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Glycolipid <span class="sc">~</span> Drug, <span class="at">data =</span> glycolipid, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 

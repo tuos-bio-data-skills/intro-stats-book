@@ -46,9 +46,9 @@ We're going to make sense of all this by studying one particular correlation coe
 
 What do we need to know about Pearson's product-moment correlation? Let's start with the naming conventions. People often use "Pearson's correlation coefficient" or "Pearson's correlation" as a convenient shorthand because writing "Pearson's product-moment correlation coefficient" all the time soon becomes tedious. If we want to be concise, we can use the standard mathematical symbol to denote Pearson's correlation coefficient---lower case '$r$'.
 
-The one thing we absolutely have to know about Pearson's correlation coefficient is that it is **a measure of linear association between numeric variables**. This means Pearson's correlation is appropriate when numeric variables follow a 'straight-line' relationship. That doesn't mean they have to be perfectly related, by the way. It simply means there shouldn't be any 'curviness' to their pattern of association[^correlation-1].
+The one thing we absolutely have to know about Pearson's correlation coefficient is that it is **a measure of linear association between numeric variables**. This means Pearson's correlation is appropriate when numeric variables follow a 'straight-line' relationship. That doesn't mean they have to be perfectly related, by the way. It simply means there shouldn't be any 'curviness' to their pattern of association[^4_01_correlation-1].
 
-[^correlation-1]: If non-linear associations *are* apparent it's generally better to use a different correlation coefficient (we'll consider one alternative later in the book).
+[^4_01_correlation-1]: If non-linear associations *are* apparent it's generally better to use a different correlation coefficient (we'll consider one alternative later in the book).
 
 Finally, calculating Pearson's correlation coefficient serves to *estimate* the strength of an association. An estimate can't tell us whether that association is likely to be 'real' or not. We need a statistical test to tackle that question. There is a standard parametric test associated with Pearson's correlation coefficient. Unfortunately, this does not have its own name. We will call it "Pearson's correlation test" to distinguish the test from the coefficient. Just keep in mind these are not 'official' names.
 
@@ -59,7 +59,7 @@ The logic underpinning Pearson's correlation test is the same as we've seen in p
 1.  Define a null hypothesis.
 2.  Calculate an appropriate test statistic.
 3.  Work out the null distribution of that statistic.
-4.  Use this to calculate a *p*-value from the observed coefficient.
+4.  Use this to calculate a *p*-value from the observed coefficient.
 
 We won't work through the details other than to note a few important aspects:
 
@@ -68,9 +68,9 @@ We won't work through the details other than to note a few important aspects:
 
 Like any parametric technique, Pearson's correlation test makes several assumptions. These need to be met in order for the statistical test to be reliable. The assumptions are:
 
--   Both variables are measured on an interval or ratio scale.
--   The two variables are normally distributed (in the population).
--   The relationship between the variables is linear.
+1.  Both variables are measured on an interval or ratio scale.
+2.  The two variables are normally distributed (in the population).
+3.  The relationship between the variables is linear.
 
 The first two requirements should not need any further explanation at this point---we've seen them before in the context of the one- and two-sample *t*-tests. The third one stems from Pearson's correlation coefficient being a measure of linear association.
 
@@ -83,91 +83,89 @@ That's enough background and abstract concepts. Let's see how to perform correla
 ::: {.infobox .action data-latex="{action}"}
 ####  {.unnumbered}
 
-We will use a new data set to demonstrate correlation analysis. The data live in a file called 'BRACKEN.CSV'. The code below assumes those data have been read into a tibble called `bracken`. Set that up if you plan to work along.
+We will use a new data set to demonstrate correlation analysis. The data live in a file called 'ALZHEIMERS.CSV'. The code below assumes those data have been read into a tibble called `alzheimers`. Set that up if you plan to work along.
 :::
 
 ```{r, include=FALSE}
-bracken <- readr::read_csv("./data_csv/BRACKEN.CSV")
+alzheimers <- readr::read_csv("./data_csv/ALZHEIMERS.CSV")
 ```
 
-The plant morph example is not suitable for correlation analysis. We need a new example to motivate a workflow for correlation tests in R. The example we're going use is about the association between ferns and heather...
+The plant morph example is not suitable for correlation analysis. We need a new example to review the workflow for correlation tests in R. The example we're going use is about the association a plasma biomarker with cognitive impairment in patients with Alzheimer's disease.
 
-Bracken fern (*Pteridium aquilinum*) is a common plant in many upland areas. A land manager needs to know whether there is any association between bracken and heather (*Calluna vulgaris*) in these areas. To determine whether the two species are associated, she sampled 22 plots at random and estimated the density of bracken and heather in each plot. The data are the mean *Calluna* standing crop (g m^-2^) and the number of bracken fronds per m^2^.
+In Alzheimer\'s disease (AD) patients, brain degeneration is associated with the accumulation of tau protein tangles in the brain. Studies have shown that total tau (t-Tau) levels are higher in the plasma of AD patients than in healthy subjects. A group of biomedical researchers are interested in using plasma t-Tau to assess the extent of AD progression. They have designed a sensitive assay to measure plasma t-Tau. The team recruits 40 AD patients to a pilot study designed to evaluate the new assay. Each patient is undergoes a mini-mental state examination (MMSE) to assess the degree of cognitive impairment (defined as score \< 26). Their t-Tau levels are then measured using the new assay.
 
 ### Visualising the data and checking the assumptions
 
-We can start by printing some information about the `bracken` data:
+We can start by printing some information about the `alzheimers` data:
 
 ```{r}
-glimpse(bracken)
+glimpse(alzheimers)
 ```
 
-There are 22 observations (rows) and two variables (columns) in this data set. The two variables, `Calluna` and `Bracken`, contain the estimates of heather and bracken abundance in each plot, respectively.
+There are 40 observations (rows) and two variables (columns) in this data set. The two variables, `MMSE` and `tTau`, contain patient's MMSE scores and t-Tau protein concentrations, respectively.
 
-We should always explore the data thoroughly before carrying out any kind of statistical analysis. To begin, we can visualise the form of the association with a scatter plot:
+Always explore the data thoroughly before carrying out a statistical analysis. To begin, we can visualise the form of the association with a scatter plot:
 
-```{r bracken-calluna-scatter, fig.width=3.5, fig.asp=1, fig.align='center'}
-ggplot(bracken, aes(x = Calluna, y = Bracken)) +
+```{r mmse-ttau-scatter, fig.width=3.5, fig.asp=1, fig.align='center'}
+ggplot(alzheimers, aes(x = MMSE, y = tTau)) +
   geom_point()
 ```
 
-There appears to be a strong negative association between the species' abundances, and the relationship seems to follow a 'straight line' pattern. It looks like Pearson's correlation is a reasonable measure of association for these data.
+There appears to be a negative association between cognitive performance and the assayed t-Tau levels. The relationship seems to follow a 'straight line' pattern, meaning Pearson's correlation may be a reasonable measure of association for these data (assumptions #3).
 
-We will confirm this with a significance test. Is it appropriate to carry out the test? We're dealing with numeric variables measured in ratio scale (assumption 1). What about their distributions (assumptions 2)? Here's a quick visual summary:
+Before confirming the association with a Pearson correlation test, we should determine if it is appropriate to carry out the planned test. We are working with numeric variables measured in ratio scale---that's assumption #1 dealt with. What about their distributions (assumptions #2)? Here's a quick visual summary:
 
-```{r bracken-calluna-dist, fig.show = 'hold', fig.width=4, fig.asp=1, out.width='40%'}
-ggplot(bracken, aes(x = Calluna)) + geom_dotplot(binwidth = 100)
-ggplot(bracken, aes(x = Bracken)) + geom_dotplot(binwidth = 2)
+```{r mmse-ttau-dist, fig.show = 'hold', fig.width=4, fig.asp=1, out.width='40%'}
+ggplot(alzheimers, aes(x = MMSE)) + 
+  geom_dotplot(binwidth = 2)
+ggplot(alzheimers, aes(x = tTau)) + 
+  geom_dotplot(binwidth = 2)
 ```
 
-These dot plots suggest the normality assumption is met, i.e. both distributions are roughly 'bell-shaped'.
+It is impossible to be 100% sure with such a small data set, but these plots suggest there is no obvious problem with the normality assumption---both distributions are roughly 'bell-shaped'.
 
-That's all three assumptions met---the variables are on a ratio scale, dot the normality assumption is met, and the abundance relationship is linear. It looks like the statistical test will give reliable results.
+That's all three assumptions met: 1) the variables are on a ratio scale, 2) the normality assumption is met, and 3) the abundance relationship is linear. It looks like the statistical test should give reliable results.
 
 ### Doing the test
 
-Let's proceed with the analysis... Carrying out a correlation analysis in R is straightforward. We use the `cor.test` function to do this:
+Let's proceed with the correlation analysis. We use the `cor.test` function to do this in R:
 
 ```{r, eval=FALSE}
-cor.test(~ Calluna + Bracken, method = "pearson", data = bracken)
+cor.test(~ MMSE + tTau, method = "pearson", data = alzheimers)
 ```
 
 We have suppressed the output here to focus on how the function works:
 
 -   We use the R formula syntax to determine which pair of variables are analysed. The `cor.test` function expects the two variable names to appear to the right of the `~`, separated by a `+` symbol, with nothing on the left.
-
 -   We use `method = "pearson"` to control which type of correlation coefficient was calculated. The default method is Pearson's correlation, but it never hurts to be explicit, so we wrote `method = "pearson"` anyway.
+-   When we use the formula syntax, as we are doing here, we have to tell the function where to find the variables. That's the `data = alzheimers` part.
 
--   When we use the formula syntax, as we are doing here, we have to tell the function where to find the variables. That's the `data = bracken` part.
+Notice that `cor.test` uses a different convention from `t.test` to specify the formula. `t.test` places one variable on the left and the other variable on the right-hand side of the `~` (e.g. `MMSE ~ tTau`), whereas `cor.test` requires both two variables to appear to the right of the `~`, separated by a `+` symbol. This convention exists to emphasise the absence of 'directionality' in correlations---neither variable has a special status.
 
-Notice `cor.test` uses a different convention from the `t.test` function for the formula argument of. `t.test` places one variable on the left and the other variable on the right-hand side of the `~` (e.g. `Calluna ~ Bracken`), whereas `cor.test` requires both two variables to appear to the right of the `~`, separated by a `+` symbol. This convention exists to emphasise the absence of 'directionality' in correlations, i.e. neither variable has a special status. This will probably make more sense after covering 'regression' in later chapters.
-
-The output from the `cor.test` is, however, very similar to that produced by the `t.test` function. Here it is:
+The output from `cor.test` is, however, very similar to that produced by the `t.test` function. Here it is:
 
 ```{r, echo=FALSE}
-cor.test(~ Calluna + Bracken, method = "pearson", data = bracken)
+cor.test(~ MMSE + tTau, method = "pearson", data = alzheimers)
 ```
 
-We won't step through most of this as its meaning should be clear. The `t = -5.2706, df = 20, p-value = 3.701e-05` line is the one we really care about:
+We won't step through most of this as its meaning should be clear. The `t = -3.4685, df = 38, p-value = 0.001317` line is the one we really care about:
 
--   The first part says that the test statistic associated with the test is a *t*-statistic, where `t = -5.27`. Remember, this has nothing to do with 'comparing means'.
--   Next, we see the degrees of freedom for the test. Can you see where this comes from? It is $n-2$, where $n$ is the sample size. Together, the degrees of freedom and the *t*-statistic determine the *p*-value.
--   The *t*-statistic and associated *p*-value are generated under the null hypothesis of zero correlation ($r = 0$). Since *p* \< 0.05, we conclude that there is a statistically significant correlation between bracken and heather.
+-   The first part says that the test statistic associated with the test is a *t*-statistic, where `t = -3.4685`. Remember, this has nothing to do with 'comparing means'.
+-   Next, we see the degrees of freedom for the test. Can you see where this comes from? It is $n-2$, where $n$ is the sample size. R uses the degrees of freedom and the *t*-statistic determine the *p*-value.
+-   The *p*-value is generated under the null hypothesis of zero correlation ($r = 0$). Since *p* \< 0.05, we conclude that there is a statistically significant negative correlation between t-Tau levels and MMSE.
 
-What is the actual correlation between bracken and heather densities? That's given at the bottom of the test output: $-0.76$. As expected from the scatter plot, there is quite a strong negative association between bracken and heather densities.
+What is the correlation between t-Tau levels and MMSE? That's given at the bottom of the test output: $-0.49$. As expected from the scatter plot, there is a moderate negative association between the two measurements.
 
 ### Reporting the result
 
-When using Pearson's method, we should report the value of the correlation coefficient, the sample size, and the *p*-value[^correlation-2]. Here's how to report the results of this analysis:
+When using Pearson's method, we should report the value of the correlation coefficient, the sample size, and the *p*-value[^4_01_correlation-2]. Here's how to report the results of this analysis:
 
-[^correlation-2]: People occasionally report the value of the correlation coefficient, the *t*-statistic, the degrees of freedom, and the *p*-value. We won't do this.
+[^4_01_correlation-2]: Some people like to report the the *t*-statistic alongside the correlation coefficient, the degrees of freedom, and the *p*-value. There's no need to do this though because the *t*-statistic is calculated directly from the correlation coefficient and the degrees of freedom.
 
-> There is a negative correlation between bracken and heather among the study plots (r=-0.76, n=22, p \< 0.001).
+> There is a negative correlation between t-Tau and MMSE scores among patients (r=-0.49, n=38, p \< 0.01).
 
-Notice that we stated the direction of the association. After all, that's what matters to the land manager.
+Notice that we stated the direction of the association. It is important to do that because both the direction and strength of the association are relevant to the clinical context. As hoped, elevated plasma t-Tau levels determined by the new assay are associated with reduced cognitive performance.
 
 ## Next steps
 
-When we summarised the result, we did not say that bracken is having a negative *effect* on the heather, or *vice versa*. It might well be true that bracken has a negative effect on heather. However, our correlation analysis only characterises the association between bracken and heather[^correlation-3]. If we want to make statements about one species is related to the other, we need use a different kind of analysis. That's the focus of our next topic: simple linear regression.
-
-[^correlation-3]: There is a second subtler limitation to this analysis: it was conducted using data from an observational study. If we want to say something about how bracken *affects* heather then we have to conduct an experimental manipulation (e.g. removing bracken from some plots).
+Our correlation analysis only characterises the strength and direction of the association between t-Tau and MMSE scores. We would need to use a different kind of analysis to say anything about how MMSE scores change with t-Tau concentration. That's the focus of our next topic: simple linear regression.

@@ -69,7 +69,7 @@ Writing 'simple linear regression' all the time becomes tedious, so we'll often 
 
 Another way to describe linear regression is that it finds the straight-line relationship which best describes the dependence of one variable (the **dependent variable**) on the other (the **independent variable**). The dependent vs. independent and response vs. predictor conventions for variables in a regression are equivalent. They only differ in the words they use to describe the variables involved.
 
-To avoid confusion, we will stick with response / predictor naming convention in this course.
+To avoid confusion, we will stick with response / predictor naming convention in this book.
 :::
 
 How do we decide how to select which is to be used as the response variable and which as the predictor variable? The decision is straightforward in an experimental setting: the manipulated variable is the predictor variable, and the measured outcome is the response variable. Consider the thermal tolerance example from earlier. The temperature was manipulated in that experiment, so it must be designated the predictor variable. Moreover, *a priori* (before conducting the experiment), we can reasonably suppose that temperature changes may cause changes in enzyme activity, but the reverse seems pretty unlikely.
@@ -169,9 +169,9 @@ ggplot(all.exp.data, aes(x = x, y = y)) +
   facet_wrap(~labs, nrow = 2)
 ```
 
-We said that regression works by finding the intercept and slope that minimises the vertical distances between the line and each observation in some way[^regression_intro-1]. In fact, it minimises something called the 'sum of squares' of these distances: we calculate a sum of squares for a particular set of observations and a fitted line by squaring the residual distances and adding all of these up. This quantity is called the **residual sum of squares**. The line with the *lowest* residual sum of squares is the best line because it 'explains' the most variation in the response variable.
+We said that regression works by finding the intercept and slope that minimises the vertical distances between the line and each observation in some way[^4_02_regression_intro-1]. In fact, it minimises something called the 'sum of squares' of these distances: we calculate a sum of squares for a particular set of observations and a fitted line by squaring the residual distances and adding all of these up. This quantity is called the **residual sum of squares**. The line with the *lowest* residual sum of squares is the best line because it 'explains' the most variation in the response variable.
 
-[^regression_intro-1]: Notice that it is the vertical distance that matters, not the perpendicular distance from the line.
+[^4_02_regression_intro-1]: Notice that it is the vertical distance that matters, not the perpendicular distance from the line.
 
 You should be able to see that, for the horizontal line ('A'), the residual sum of squares is larger than any of the other three plots with the sloping lines. This suggests that the sloping lines fit the data better. Which one is best among the three we've plotted? To get at this, we need to calculate the residual sum of squares for each line:
 

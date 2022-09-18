@@ -240,7 +240,7 @@ This output should make sense in the light of what we saw in the previous chapte
 We need to know the degrees of freedom associated with the test: in a two-way $\chi^{2}$ contingency table test these are $(n_A-1) \times (n_B-1)$, where $n_A-1$ is the number of categories in the first variable, and $n_B-1$ is the number of categories in the second variable. So if we're working with a 2 x 2 table the d.f. are 1, if we're working with a 2 x 3 table the d.f. are 2, if we're working with a 3 x 3 table the d.f. are 4, and so on.
 :::
 
-What was that "Yates' continuity correction" all about? The reasoning behind using this correction is a bit beyond this course, but in a nutshell, it generates more reliable *p*-values under certain circumstances. By default, the `chisq.test` function applies this correction to all 2 x 2 contingency tables. We can force R to use the standard calculation by setting `correct = FALSE` if we want to:
+What was that "Yates' continuity correction" all about? The reasoning behind using this correction is a bit beyond this book, but in a nutshell, it generates more reliable *p*-values under certain circumstances. By default, the `chisq.test` function applies this correction to all 2 x 2 contingency tables. We can force R to use the standard calculation by setting `correct = FALSE` if we want to:
 
 ```{r}
 chisq.test(lady_bird_table, correct = FALSE)

@@ -12,7 +12,7 @@ always_allow_html: true
 github-repo: tuos-bio-data-skills/intro-stats-book
 ---
 
-# Course information and overview {.unnumbered}
+# Overview {.unnumbered}
 
 This book provides a self-contained introduction to the analysis of biological data using the R programming language. Topics include principles of experimental design principles of frequentist statistics, simple statistical tests, analysis of variance, regression, analysis of categorical data, and non-parametric statistics.
 

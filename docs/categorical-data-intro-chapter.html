@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 23 Categorical data | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 23 Categorical data | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="transformations-chapter.html"/>
 <link rel="next" href="goodness-of-fit-tests.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,14 +605,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="categorical-data-intro-chapter" class="section level1" number="23">
-<h1><span class="header-section-number">Chapter 23</span> Categorical data</h1>
+<div id="categorical-data-intro-chapter" class="section level1 hasAnchor" number="23">
+<h1><span class="header-section-number">Chapter 23</span> Categorical data<a href="categorical-data-intro-chapter.html#categorical-data-intro-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Much of the time in biology, we are dealing with whole objects (plants, animals, cells, eggs, islands, etc.) or discrete events (attacks, matings, nesting attempts, etc.). We are often interested in making measurements of numeric variables (length, weight, number, etc.) and then either comparing means from samples (e.g. mean leaf size of plants from two habitat types) or investigating the association between different measurements (e.g. mean leaf size and herbivore damage).</p>
-<p>However, we sometimes find a situation where the ‘measurement’ we are interested in is not a quantitative measure but is <em>categorical</em>. Categorical data are things like sex, colour or species. Such variables cannot be treated in the same way as numeric variables. Although we can ‘measure’ each object (e.g. record if an animal is male or female), we can’t calculate numeric quantities such as the ‘mean colour morph,’ ‘mean species’ or ‘median sex’ of animals in a sample. Instead, we work with the observed frequencies, in the form of counts, of different categories, or combinations of categories.</p>
-<div id="a-new-kind-of-distribution" class="section level2" number="23.1">
-<h2><span class="header-section-number">23.1</span> A new kind of distribution</h2>
-<p>There are quite a few options for dealing with categorical data<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. We’re just going to look at one option in this book: <span class="math inline">\(\chi^2\)</span> tests. This is pronounced, and sometimes written, ‘chi-square.’ The ‘ch’ is a hard ‘ch,’ as in ‘character.’ They aren’t necessarily the best tool for every problem, but <span class="math inline">\(\chi^2\)</span> tests are widely used in biology, so they are a good place to start.</p>
-<div id="section-18" class="section level4 unnumbered infobox warning">
+<p>However, we sometimes find a situation where the ‘measurement’ we are interested in is not a quantitative measure but is <em>categorical</em>. Categorical data are things like sex, colour or species. Such variables cannot be treated in the same way as numeric variables. Although we can ‘measure’ each object (e.g. record if an animal is male or female), we can’t calculate numeric quantities such as the ‘mean colour morph’, ‘mean species’ or ‘median sex’ of animals in a sample. Instead, we work with the observed frequencies, in the form of counts, of different categories, or combinations of categories.</p>
+<div id="a-new-kind-of-distribution" class="section level2 hasAnchor" number="23.1">
+<h2><span class="header-section-number">23.1</span> A new kind of distribution<a href="categorical-data-intro-chapter.html#a-new-kind-of-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are quite a few options for dealing with categorical data<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>. We’re just going to look at one option in this book: <span class="math inline">\(\chi^2\)</span> tests. This is pronounced, and sometimes written, ‘chi-square’. The ‘ch’ is a hard ‘ch’, as in ‘character’. They aren’t necessarily the best tool for every problem, but <span class="math inline">\(\chi^2\)</span> tests are widely used in biology, so they are a good place to start.</p>
+<div id="section-16" class="section level4 unnumbered infobox warning">
 <h4 class="unnumbered"></h4>
 <p>The material in this chapter is provided for readers who like to have a sense of how statistics works. Don’t worry too much if it seems confusing—you don’t have to understand it to use the tests we’ll cover in the next two chapters. In any case, this chapter is very short.</p>
 </div>
@@ -631,7 +631,7 @@ Figure 23.1: Distribution of a large sample of chi-square distributed variable w
 </div>
 <p>As we just noted, only positive values occur and most of these values lie between about 0 and 10. We can also see that the distribution is asymmetric. It is skewed to the right.</p>
 <p>So why is any of this useful?</p>
-<p>Let’s look at the plant morph example again. Imagine taking repeated samples from a population when the purple morph frequency is 25% . If we take 1000 plants each time and the true frequency is 25%, we expect to sample 250 purple plants on average. We’ll call this number the ‘expected value.’ We won’t actually end up with 250 plants in each sample because of sampling error. We’ll call this latter number the ‘observed value.’</p>
+<p>Let’s look at the plant morph example again. Imagine taking repeated samples from a population when the purple morph frequency is 25% . If we take 1000 plants each time and the true frequency is 25%, we expect to sample 250 purple plants on average. We’ll call this number the ‘expected value’. We won’t actually end up with 250 plants in each sample because of sampling error. We’ll call this latter number the ‘observed value’.</p>
 <p>So far we’re not doing anything we haven’t seen before. We’re just discussing what happens under repeated sampling from a population. Here’s the new bit… Imagine that every time we sample the 1000 plants, we calculate the following quantity:</p>
 <p><span class="math display">\[2*\frac{(O-E)^{2}}{E}\]</span></p>
 <p>…where <span class="math inline">\(O\)</span> is the observed value and <span class="math inline">\(E\)</span> is the expected value defined above. What does its distribution look like? We can find out by simulating the scenario in R and plotting the results:</p>
@@ -643,13 +643,13 @@ Figure 23.2: Distribution of the test statistic
 </div>
 <p>That looks a lot like the theoretical <span class="math inline">\(\chi^2\)</span> distribution we plotted above. It turns out that observed frequencies (‘counts’) that have been standardised with respect to their expected values—via the <span class="math inline">\(\frac{(O-E)^{2}}{E}\)</span> statistic—have a <span class="math inline">\(\chi^2\)</span> sampling distribution (at least approximately). This result is the basis for using the <span class="math inline">\(\chi^2\)</span> distribution in various statistical tests involving categorical variables and frequencies or counts.</p>
 </div>
-<div id="types-of-test" class="section level2" number="23.2">
-<h2><span class="header-section-number">23.2</span> Types of test</h2>
+<div id="types-of-test" class="section level2 hasAnchor" number="23.2">
+<h2><span class="header-section-number">23.2</span> Types of test<a href="categorical-data-intro-chapter.html#types-of-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’re going to learn about two different types of <span class="math inline">\(\chi^2\)</span> test. Although the two tests work on the same general principle, it is still important to distinguish between them according to where they are used.</p>
-<div id="chi2-goodness-of-fit-test" class="section level3" number="23.2.1">
-<h3><span class="header-section-number">23.2.1</span> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test</h3>
+<div id="chi2-goodness-of-fit-test" class="section level3 hasAnchor" number="23.2.1">
+<h3><span class="header-section-number">23.2.1</span> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test<a href="categorical-data-intro-chapter.html#chi2-goodness-of-fit-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A goodness-of-fit test is applicable when we have a single categorical variable and some hypothesis from which we can predict the expected proportions of observations falling in each category.</p>
-<p>For example, we might want to know if there is any evidence for sex-related bias in the decision to study biology at Sheffield. We could tackle this question by recording the numbers of males and females in a cohort. This would produce a sample containing one nominal variable (Sex) with only two categories (Male and Female). Based on information about human populations, we know that the sex ratio among 18-year-olds is fairly close to 1:1<a href="#fn24" class="footnote-ref" id="fnref24"><sup>24</sup></a>. We can thus compare the goodness of fit of the number of males and females in a sample of students with the expected value predicted by the 1:1 ratio.</p>
+<p>For example, we might want to know if there is any evidence for sex-related bias in the decision to study biology at Sheffield. We could tackle this question by recording the numbers of males and females in a cohort. This would produce a sample containing one nominal variable (Sex) with only two categories (Male and Female). Based on information about human populations, we know that the sex ratio among 18-year-olds is fairly close to 1:1<a href="#fn23" class="footnote-ref" id="fnref23"><sup>23</sup></a>. We can thus compare the goodness of fit of the number of males and females in a sample of students with the expected value predicted by the 1:1 ratio.</p>
 <p>If we had a total of 164 students, we might get this sort of table:</p>
 <table>
 <thead>
@@ -669,8 +669,8 @@ Figure 23.2: Distribution of the test statistic
 </table>
 <p>With a 1:1 sex ratio, if there is no sex bias in the decision to study biology, we would expect 82 of each sex. It looks as though there might be some discrepancy between the expected values and those actually found. However, this could be entirely consistent with sampling variation. The <span class="math inline">\(\chi^{2}\)</span> goodness of fit test allows us to test how likely it is that such a discrepancy has arisen through sampling variation.</p>
 </div>
-<div id="chi2-contingency-table-test" class="section level3" number="23.2.2">
-<h3><span class="header-section-number">23.2.2</span> <span class="math inline">\(\chi^{2}\)</span> contingency table test</h3>
+<div id="chi2-contingency-table-test" class="section level3 hasAnchor" number="23.2.2">
+<h3><span class="header-section-number">23.2.2</span> <span class="math inline">\(\chi^{2}\)</span> contingency table test<a href="categorical-data-intro-chapter.html#chi2-contingency-table-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A contingency table test is applicable when each object is classified according to more than one categorical variable. Contingency table tests are used to test whether there is an association between the categories of those variables.</p>
 <p>Consider biology students again. We might be interested in whether eye colour was in any way related to sex. It would be simple to record eye colour (e.g. brown vs blue) along with the sex of each student in a sample. Now we would end up with a table that had two classifications:</p>
 <table>
@@ -697,8 +697,8 @@ Figure 23.2: Distribution of the test statistic
 <p>Now it is possible to compare the proportions of brown and blue eyes among males and females… The total number of males and females are 64 and 100, respectively. The proportion of males with brown eyes is 20/64 = 0.31, and that for females 42/100 = 0.42. It appears that brown eyes are somewhat less prevalent among males. A contingency table test will tell us if the difference in eye colour frequencies is likely to have arisen through sampling variation.</p>
 <p>Notice that we are not interested in judging whether the proportion of males, or the proportion of blue-eyed students, are different from some expectation. That’s the job of a goodness of fit test. We want to know if there is an association between eye colour and sex. That’s the job of a contingency table test.</p>
 </div>
-<div id="the-assumptions-and-requirements-of-chi2-tests" class="section level3" number="23.2.3">
-<h3><span class="header-section-number">23.2.3</span> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests</h3>
+<div id="the-assumptions-and-requirements-of-chi2-tests" class="section level3 hasAnchor" number="23.2.3">
+<h3><span class="header-section-number">23.2.3</span> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests<a href="categorical-data-intro-chapter.html#the-assumptions-and-requirements-of-chi2-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Contingency tables and goodness-of-fit tests are not fundamentally different from one another in terms of their assumptions. The difference between the two types lies in the type of hypothesis evaluated. When we carry out a goodness-of-fit test, we have to supply the expected values. In contrast, the calculation of expected values is embedded in the formula used to carry out a contingency table test. That will make more sense once we’ve seen the two tests in action.</p>
 <p><span class="math inline">\(\chi^{2}\)</span> tests are sometimes thought of as <strong>non-parametric</strong> tests because they do not assume any particular form for the distribution of the data. In fact, as with any statistical test, there are some assumptions in play, but these are relatively mild:</p>
 <ul>
@@ -712,9 +712,9 @@ Figure 23.2: Distribution of the test statistic
 </div>
 <div class="footnotes">
 <hr />
-<ol start="23">
-<li id="fn23"><p>e.g. the ‘log-linear model,’ ‘Fisher’s exact test,’ and the ‘G-test.’<a href="categorical-data-intro-chapter.html#fnref23" class="footnote-back">↩︎</a></p></li>
-<li id="fn24"><p>Human sex-ratio is actually slightly biased toward males at birth, but since males experience a higher mortality rate in their teens, the sex ratio among 18 year olds is closer to 1:1.<a href="categorical-data-intro-chapter.html#fnref24" class="footnote-back">↩︎</a></p></li>
+<ol start="22">
+<li id="fn22"><p>e.g. the ‘log-linear model’, ‘Fisher’s exact test’, and the ‘G-test’.<a href="categorical-data-intro-chapter.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<li id="fn23"><p>Human sex-ratio is actually slightly biased toward males at birth, but since males experience a higher mortality rate in their teens, the sex ratio among 18 year olds is closer to 1:1.<a href="categorical-data-intro-chapter.html#fnref23" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -783,7 +783,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

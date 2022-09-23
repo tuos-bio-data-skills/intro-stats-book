@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 17 Principles of experimental design | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 17 Principles of experimental design | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="multiple-comparison-tests-chapter.html"/>
 <link rel="next" href="paired-sample-t-test.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,22 +605,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="principles-experimental-design" class="section level1" number="17">
-<h1><span class="header-section-number">Chapter 17</span> Principles of experimental design</h1>
-<div id="introduction-4" class="section level2" number="17.1">
-<h2><span class="header-section-number">17.1</span> Introduction</h2>
-<p>The data we use to test hypotheses may be generated by recording information from natural systems (‘observational studies’) or by carrying out some sort of experiment in which the system under study is manipulated in some way (‘experimental studies’). There is often considerable scope for deliberately arranging the system to generate data in the best way to test a particular effect when conducting experiments. For this reason, we tend to use the term ‘design’ primarily in the context of experiments. However, collecting data in both situations requires thought and planning, and many considerations of what is termed experimental design apply equally to observational and experimental studies<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</p>
+<div id="principles-experimental-design" class="section level1 hasAnchor" number="17">
+<h1><span class="header-section-number">Chapter 17</span> Principles of experimental design<a href="principles-experimental-design.html#principles-experimental-design" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-4" class="section level2 hasAnchor" number="17.1">
+<h2><span class="header-section-number">17.1</span> Introduction<a href="principles-experimental-design.html#introduction-4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The data we use to test hypotheses may be generated by recording information from natural systems (‘observational studies’) or by carrying out some sort of experiment in which the system under study is manipulated in some way (‘experimental studies’). There is often considerable scope for deliberately arranging the system to generate data in the best way to test a particular effect when conducting experiments. For this reason, we tend to use the term ‘design’ primarily in the context of experiments. However, collecting data in both situations requires thought and planning, and many considerations of what is termed experimental design apply equally to observational and experimental studies<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
 <p>The underlying principle of experimental design is: <em>to extract data from a system so that variation in the data can be unambiguously attributed to the particular process we are investigating</em>.</p>
 <p>To do this, we need to know how to maximise the <strong>statistical power</strong> of an experiment or data collection protocol. Statistical power is the likelihood that a study will detect an effect when there really is an effect present. In statistics, the word ‘effect’ is an umbrella term for anything measurable we care about, like differences between groups or associations between variables. Statistical power is influenced by: (1) the size of the effect and (2) the size of the sample used to detect it. Bigger effects are easier to detect than smaller effects, while large samples present greater test sensitivity than small samples. A second consideration is that the less variable the data, the smaller the effects we can detect.</p>
 <p>Given these facts, there are obviously two things to do when designing an experiment:</p>
 <ol style="list-style-type: decimal">
 <li>Use the maximum feasible sample sizes.</li>
-<li>Take steps to minimise the variability in the data<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>.</li>
+<li>Take steps to minimise the variability in the data<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>.</li>
 </ol>
 <p>Exactly what combination of these is appropriate will depend on the subject area. In a physiological experiment using complex apparatus and monitoring equipment, the scope for replication may be very limited. Here maximum effort should be put into experimentally controlling extraneous sources of variation. With the subject material, this may mean using animals of the same age, reared under the same conditions, of the same stock; it may involve using clones of plant material. It will involve running the experiment under controlled conditions of light and temperature and using measurement methods that are as <em>precise</em> as possible. On the other hand, an ecologist studying an organism in the field may have relatively little scope for experimental control of either the material studied or the environmental conditions and may be forced to make relatively crude measurements. In this case, the best approach is to control what can be controlled and then try and maximise the sample size.</p>
 </div>
-<div id="jargon-busting" class="section level2" number="17.2">
-<h2><span class="header-section-number">17.2</span> Jargon busting</h2>
+<div id="jargon-busting" class="section level2 hasAnchor" number="17.2">
+<h2><span class="header-section-number">17.2</span> Jargon busting<a href="principles-experimental-design.html#jargon-busting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we delve further into experimental design concepts, we need to introduce a little bit of statistical jargon. We’ll define the terms and then run through an example to better understand them:</p>
 <ul>
 <li><p>An <strong>experimental unit</strong> is the physical entity assigned to a treatment (see next definition). Examples of possible experimental units are individual clones or organisms.</p></li>
@@ -629,14 +629,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>An experimental <strong>factor</strong> is a collection of related treatments and controls, and the different treatments/controls are called the <strong>levels</strong> of that factor.</p></li>
 </ul>
 <p>Here’s an example. Suppose we wanted to compare cattle weight gain on four different dietary supplements to determine which is the most effective. We conducted an experiment in which groups of eight cows are given a particular supplement for one month. A fifth group serves as the control group—they do not receive any supplements. At the end of the experiment, we measure how much weight each cow has gained over the month. In this example, individual cows are the experimental units, dietary supplements are the treatments, and the ‘no supplement’ group is the control group. Together, the four ‘supplement type’ and the ‘no diet’ control constitute the five levels of the ‘dietary supplement’ factor.</p>
-<p>Finally, a word of warning—it is common to lump control groups and treatment groups together and just call them ‘treatments.’ This is fine, but be aware of the distinction between the two.</p>
+<p>Finally, a word of warning—it is common to lump control groups and treatment groups together and just call them ‘treatments’. This is fine, but be aware of the distinction between the two.</p>
 </div>
-<div id="replication" class="section level2" number="17.3">
-<h2><span class="header-section-number">17.3</span> Replication</h2>
+<div id="replication" class="section level2 hasAnchor" number="17.3">
+<h2><span class="header-section-number">17.3</span> Replication<a href="principles-experimental-design.html#replication" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We cannot do statistics without understanding the idea of <em>replication</em>—the process of assigning several experimental units to the same treatment or combination of treatments. Why does replication matter? Replication affects the power of a statistical test—by increasingly the replication in a study, we increase the sample size available to detect specific effects. Replication is particularly important in biology because the material we work with is often inherently variable and hard to make precise measurements on. </p>
 <p>The basic idea is simple: increased replication = more statistical power. However, we have to be very careful about how we replicate…</p>
-<div id="independence" class="section level3" number="17.3.1">
-<h3><span class="header-section-number">17.3.1</span> Independence and pseudoreplication</h3>
+<div id="independence" class="section level3 hasAnchor" number="17.3.1">
+<h3><span class="header-section-number">17.3.1</span> Independence and pseudoreplication<a href="principles-experimental-design.html#independence" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Most statistical tests assume that the data are independent. Independence means that the value of a measurement from one object is not affected by the values of other objects. Common sources of non-independence in biology include:</p>
 <ul>
 <li>genetics - e.g. if a set of mice are taken from the litter of a single female, they are more likely to be similar to each other than mice taken from the litters of several different females.</li>
@@ -647,6 +647,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Non-independence occurs at many levels in biological data, and in statistical testing, the common consequence of non-independence is <em>pseudoreplication</em>. Pseudoreplication is an artificial increase in the sample size caused by using non-independent data. It may be easiest to see what this means by example.</p>
 <p>Imagine we are interested in whether plants of a particular species produce flowers with different numbers of petals when grown in two different soil types. We have three plants in each soil type, and each plant produces 4 flowers. If we count the petals in a single flower from each plant, and then test the difference using a <em>t</em>-test we get the following result:</p>
 <table>
+<colgroup>
+<col width="21%" />
+<col width="13%" />
+<col width="21%" />
+<col width="13%" />
+<col width="12%" />
+<col width="17%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center"><strong>Soil type</strong></th>
@@ -702,6 +710,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>The difference is not significant. Now imagine that instead of sampling a single flower from each plant, we counted the petals of all four flowers on each plant and (incorrectly) use all the values in the analysis (giving an apparent sample size of 12 in each treatment):</p>
 <table>
+<colgroup>
+<col width="20%" />
+<col width="14%" />
+<col width="20%" />
+<col width="14%" />
+<col width="12%" />
+<col width="18%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="center"><strong>Soil type</strong></th>
@@ -764,50 +780,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In summary, when carrying out an investigation the key question to ask is: What is the <em>biological unit of replication</em> relevant to the effect we trying to test? As this implies, the appropriate unit of replication may vary depending on what we are investigating. If we want to test for a difference in the plankton density between two lakes, then taking 10 samples from each lake and comparing them would be the correct approach. But if, as above, we wanted to assess the effect of fish on plankton density, it would be inappropriate—the correct unit of replication in this case is the whole lake and we would therefore want to sample several lakes with and without fish.</p>
 </div>
 </div>
-<div id="controls" class="section level2" number="17.4">
-<h2><span class="header-section-number">17.4</span> Controls</h2>
+<div id="controls" class="section level2 hasAnchor" number="17.4">
+<h2><span class="header-section-number">17.4</span> Controls<a href="principles-experimental-design.html#controls" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We are told repeatedly, probably starting at primary school, that every experiment must have a control—a reference treatment against which the other treatments can be compared. The idea does sometimes generate confusion since some experiments do not require a control, whereas others may require more than one control. What’s more, it can be difficult to pin down what to control for.</p>
 <p>In some cases, the appropriate control is obvious. In a toxicity test, we are interested in the mortality due to the toxicant. We want the control to tell us the background mortality rate without toxicants. However, if we measure the movement rates of slugs on surfaces of differing moisture content, no control is required—indeed, none possible. Slugs encounter many different moisture conditions in their daily lives, and there isn’t a ‘control’ moisture level.</p>
 <p>More tricky is the situation where the objects we are investigating are affected not just by the treatment we are administering but also by other effects of applying that treatment. The use of control treatments can sometimes address this, but these are now not simply the ‘natural’ situation. They may have to be specifically designed to mimic certain aspects of the experiment, not others. These sorts of controls are discussed in more detail below.</p>
 </div>
-<div id="confounded-and-noisy-experiments" class="section level2" number="17.5">
-<h2><span class="header-section-number">17.5</span> Confounded and noisy experiments</h2>
+<div id="confounded-and-noisy-experiments" class="section level2 hasAnchor" number="17.5">
+<h2><span class="header-section-number">17.5</span> Confounded and noisy experiments<a href="principles-experimental-design.html#confounded-and-noisy-experiments" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Unwanted variation comes in two forms:</p>
 <ul>
 <li>The first is <em>confounding variation</em>. This occurs when one or more other sources of variation work in parallel to the factor we are investigating and make it hard, or impossible, to attribute any effects we see to a single cause unambiguously. Confounding variation is particularly problematic in observational studies because, by definition, we don’t manipulate the factors we’re interested in.</li>
 <li>The second is <em>noise</em>. This describes variation that is unrelated to the factor we are investigating. Noise adds variability to the results so that it is harder to see and detect statistically any effect of that factor. As noted above, much of experimental design is about improving our ability to account for noise in a statistical analysis.</li>
 </ul>
 <p>We will consider these together because some of the techniques for dealing with them apply to both.</p>
-<div id="confounding" class="section level3" number="17.5.1">
-<h3><span class="header-section-number">17.5.1</span> Confounding</h3>
+<div id="confounding" class="section level3 hasAnchor" number="17.5.1">
+<h3><span class="header-section-number">17.5.1</span> Confounding<a href="principles-experimental-design.html#confounding" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The potential for confounding effects may sometimes be easy to recognise. Suppose we measure growth rates in plants growing at sites of differing altitudes. In that case, several factors all change systematically with altitude (temperature, ultraviolet radiation, precipitation, wind speed, etc.), and it may be hard to use such data to examine the effects of any one of these factors alone. The important thing to remember is that observing a relationship between two variables does not necessarily indicate a causal link. A negative relationship between plant growth and increased precipitation up a mountain may be determined by one or more of the other factors that vary with altitude.</p>
 <p>Confounding doesn’t just occur in observational studies. Confounding occurs when the administration of a treatment itself generates other unwanted effects—this is called procedural confounding. An example might be in the administration of nutrients to plants. Changing the supply of nitrogen may be done by supplying different levels of a nitrate (NO3) salt (e.g. Mg(NO3)2 or Ca(NO3)2), but how can we be sure that the effects we see are a consequence of nitrogen addition, rather than effects of the magnesium or calcium cations?</p>
 </div>
-<div id="noise" class="section level3" number="17.5.2">
-<h3><span class="header-section-number">17.5.2</span> Noise</h3>
+<div id="noise" class="section level3 hasAnchor" number="17.5.2">
+<h3><span class="header-section-number">17.5.2</span> Noise<a href="principles-experimental-design.html#noise" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Noise in the data can be generated by the same processes that generate confounding. The difference is that noise is generated even when the confounding factors don’t align with the treatments. So, going back to measuring growth rates in plants, if we were looking at growth rates of different subspecies of plant on a mountain, then we might find that we can get five samples from each different subspecies, but the samples are scattered across very different altitudes on the mountain. This will add variation to the estimates of growth rate—this is unwanted noise. On the other hand, if the subspecies grow predominantly at different altitudes, the variation due to altitude is confounded with the variation due to subspecies.</p>
 </div>
 </div>
-<div id="dealing-with-confounding-effects-and-noise" class="section level2" number="17.6">
-<h2><span class="header-section-number">17.6</span> Dealing with confounding effects and noise</h2>
+<div id="dealing-with-confounding-effects-and-noise" class="section level2 hasAnchor" number="17.6">
+<h2><span class="header-section-number">17.6</span> Dealing with confounding effects and noise<a href="principles-experimental-design.html#dealing-with-confounding-effects-and-noise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Confounding effects occur often in biological work and noise of some sort is always present. Techniques for dealing with such effects include: randomisation, blocking, experimental control, and additional treatments.</p>
-<div id="randomisation" class="section level3" number="17.6.1">
-<h3><span class="header-section-number">17.6.1</span> Randomisation</h3>
-<p>Randomisation is fundamental to experimental design. Although we can identify specific confounding factors and explicitly counter using experimental techniques, we can never anticipate all such factors. Randomisation provides an ‘insurance’ against the unpredictable confounding effects encountered in experiments. The basic principle is that each experimental unit should be selected or allocated to a particular treatment, ‘at random.’ This may involve selecting which patients to give a drug and which a placebo at random, or it may include setting out experimental plots at random locations in a field. The important thing is that those who get a particular treatment are randomly selected from all the possible patients or plots.</p>
+<div id="randomisation" class="section level3 hasAnchor" number="17.6.1">
+<h3><span class="header-section-number">17.6.1</span> Randomisation<a href="principles-experimental-design.html#randomisation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Randomisation is fundamental to experimental design. Although we can identify specific confounding factors and explicitly counter using experimental techniques, we can never anticipate all such factors. Randomisation provides an ‘insurance’ against the unpredictable confounding effects encountered in experiments. The basic principle is that each experimental unit should be selected or allocated to a particular treatment, ‘at random’. This may involve selecting which patients to give a drug and which a placebo at random, or it may include setting out experimental plots at random locations in a field. The important thing is that those who get a particular treatment are randomly selected from all the possible patients or plots.</p>
 <p>Randomisation guards against a variety of possible biases and confounding effects, including the inadvertent biases that might be introduced simply in the process of setting up an experiment. For example, if in a toxicological experiment the chemical treatment is set up first and then the control, it may be that the animals caught most easily from the stock tank (the largest? the weakest?) will all end up in the chemical treatment and the remainder in the control, with consequent bias in the death rates observed in the subsequent experiment.</p>
 <p>Randomisation is a critical method for guarding against confounding effects. It is the best insurance we have against unwittingly getting another factor working parallel to a treatment. It does not, of course, do anything to reduce noise in the data. In fact, if randomisation removes confounding effectively, it can appear to increase that variation—but it is a necessary cost to pay for being able to interpret treatment effects correctly.</p>
-<div id="what-does-at-random-mean" class="section level4 unnumbered infobox information">
-<h4>What does ‘at random’ mean?</h4>
+<div id="what-does-at-random-mean" class="section level4 unnumbered hasAnchor infobox information">
+<h4>What does ‘at random’ mean?<a href="principles-experimental-design.html#what-does-at-random-mean" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <em>random</em> bit of the word randomisation has a specific meaning: objects chosen ‘at random’ are chosen <em>independently with equal probabilities</em>. How do we achieve this in practice? First, we need a set of random numbers. For example, if we need to assign 10 experimental units to treatments, we might start with a set of random integers: 4, 3, 5, 8, 7, 1, 10, 9, 6, 2 (attaining such a set is easy with R — e.g. <code>sample(1:10)</code>).</p>
 <p>Exactly how these numbers are used in setting up the experiment will depend on what is practical. For example, in the toxicological experiment, we might place animals in each of the test containers to be used for the experiment, number each container and then use the first half of the set of random numbers to randomly select half the containers to be the test and use the remainder as the controls.</p>
 </div>
 </div>
-<div id="blocking" class="section level3" number="17.6.2">
-<h3><span class="header-section-number">17.6.2</span> Blocking</h3>
-<p>Another way of tackling potential confounding effects, and the general heterogeneity of biological material leading to noise, is to organise experimental material into ‘blocks.’ This technique, called <strong>blocking</strong>, is arguably the most important experimental design concept after replication. It works as follows:</p>
+<div id="blocking" class="section level3 hasAnchor" number="17.6.2">
+<h3><span class="header-section-number">17.6.2</span> Blocking<a href="principles-experimental-design.html#blocking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Another way of tackling potential confounding effects, and the general heterogeneity of biological material leading to noise, is to organise experimental material into ‘blocks’. This technique, called <strong>blocking</strong>, is arguably the most important experimental design concept after replication. It works as follows:</p>
 <ol style="list-style-type: decimal">
 <li><p>Group the objects being studied into blocks such that variation among objects within blocks is small; variation between blocks may be larger.</p></li>
-<li><p>Each treatment should occur at least once within each block<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>.</p></li>
+<li><p>Each treatment should occur at least once within each block<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>.</p></li>
 </ol>
 <p>For example, in an experiment in which mice are reared on three different diets (I, II, III), we might expect the responses of mice from within a particular litter to be fairly similar to each other, but they might be rather different to the responses of mice from different litters. If we have five litters of mice (A … E) it would be sensible to select three mice from each litter (at random) to be allocated to each treatment.</p>
 <table>
@@ -853,23 +869,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>It’s worth saying again: blocking is one of the most important experimental design concepts. Many experimental settings lend themselves to some kind of blocking scheme. If there is a way to block an experiment, we should do it. Why? Because a study is more likely to detect an effect if it uses a blocked design compared to the equivalent non-blocked version.</p>
 </div>
-<div id="experimental-control" class="section level3" number="17.6.3">
-<h3><span class="header-section-number">17.6.3</span> Experimental control</h3>
+<div id="experimental-control" class="section level3 hasAnchor" number="17.6.3">
+<h3><span class="header-section-number">17.6.3</span> Experimental control<a href="principles-experimental-design.html#experimental-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Obviously, some unwanted variation in data will arise if there is poor measurement or careless implementation of the treatments. In every study we do, we should look at the ‘protocol’ issues and see if they can be improved. This means considering the precision of the measurements we are making in relation to the size of effects we are interested in. There would be no point in timing measurement intervals over which seedling growth was determined to the millisecond, but it would be good to measure seedling height using a standard approach and to the nearest millimetre, rather than centimetre.</p>
 <p>The second form of experimental control is where we can use experimental manipulation of some sort to control for factors that might vary among replicates or treatments. At its simplest, this involves controlling the other conditions (e.g. temperature) so that all treatments experience identical conditions. It may not always be necessary for the conditions to be <em>constant</em>—it may be sufficient that whatever variation occurs is the same for all treatments.</p>
 <p>More complex problems arise where the unwanted variation is produced as a by-product of the treatment we administer (procedural confounding again). Suppose we were interested in the effect of leaf litter decomposition on the microbial communities in soils. In that case, we might have an experimental treatment that involves varying the amount of leaf litter placed on the soil surface in test plots. The problem is that this will vary not just the amount of decomposing material entering the soil, but also the physical presence of the leaf litter layer will affect the microclimate at the soil surface (e.g. the dryness in the surface of the soil). So we might create some sort of artificial litter that can be mixed in with the real litter, but which does not decompose so that each plot has a constant volume of ‘litter’ on the surface, but different amounts of decomposing material entering the soil.</p>
 <p>Other situations in which this type of experimental ‘adjustment’ can be used include experiments in which different nutrient solutions have to be adjusted so that they have the same pH or where different temperature treatments have to have humidity adjusted to ensure that it remains constant. In general, this type of approach can be very useful, but it depends on the necessary adjustment being known and sometimes requires continuous monitoring to keep the adjustments correct.</p>
 </div>
-<div id="additional-treatments-designing-in-unwanted-variation" class="section level3" number="17.6.4">
-<h3><span class="header-section-number">17.6.4</span> Additional treatments: ‘designing in’ unwanted variation</h3>
+<div id="additional-treatments-designing-in-unwanted-variation" class="section level3 hasAnchor" number="17.6.4">
+<h3><span class="header-section-number">17.6.4</span> Additional treatments: ‘designing in’ unwanted variation<a href="principles-experimental-design.html#additional-treatments-designing-in-unwanted-variation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Often we are faced by situations in which the unwanted variation — in particular confounding effects — cannot be removed by manipulating the treatments themselves, but has to be tackled by creating additional treatments whose function is to measure the extent of the unwanted variation, and then allow us to remove it statistically, from the data after the experiment is done. In other words, instead of just designing the experiment with the factor we are interested in, we ‘design in’ the sources of unwanted variation.</p>
-<div id="transplants-and-cross-factoring" class="section level4" number="17.6.4.1">
-<h4><span class="header-section-number">17.6.4.1</span> Transplants and cross-factoring</h4>
+<div id="transplants-and-cross-factoring" class="section level4 hasAnchor" number="17.6.4.1">
+<h4><span class="header-section-number">17.6.4.1</span> Transplants and cross-factoring<a href="principles-experimental-design.html#transplants-and-cross-factoring" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Imagine we had an investigation that involved looking at the effects of air pollution on the ability of trees to defend themselves chemically against attack by leaf-mining insects. The obvious thing to do would be to look at trees along a gradient of air pollution and monitor leaf damage by the insects. We might find that the insects attack the trees more in polluted areas. However, the problem here is that the trees growing in areas of high air pollution might be attacked more because they are stressed and less able to invest resources in defending themselves (as hypothesised), or because the insects own natural enemies are less abundant in areas of high air pollution, leading to reduced suppression. One way of escaping this confounding effect would be to take tree saplings from polluted and unpolluted areas and do reciprocal transplants—moving trees from polluted areas into clean areas, and vice versa. This then enables us to separate out to a large extent the effect of tree quality from the effect of insect abundance as we can compare trees that have grown with and without air pollution in both polluted and unpolluted areas.</p>
 <p>It is also possible that by careful choice of location, or other elements of design, we can include the unwanted variation as an additional factor in the design without necessarily physically manipulating the subjects, but by sampling material systematically with regard to both the thing we are interested in and the additional unwanted factor(s), so that we can <em>cross-factor</em> the two. For example, suppose we were interested in how habitat use determines gut parasite load in dogfish. In that case, we might sample dogfish from different habitats and record the sex, age, or size of the fish. It would then be possible to separate the effects of sex or age from those of where the fish were living. If we didn’t do this, then both factors would probably contribute unwanted variation or confounding effects (e.g. male and female dogfish have somewhat different habitat preferences).</p>
 </div>
-<div id="EXPT-DESIGN-PROCEDURAL-CONTROLS" class="section level4" number="17.6.4.2">
-<h4><span class="header-section-number">17.6.4.2</span> Procedural controls</h4>
+<div id="EXPT-DESIGN-PROCEDURAL-CONTROLS" class="section level4 hasAnchor" number="17.6.4.2">
+<h4><span class="header-section-number">17.6.4.2</span> Procedural controls<a href="principles-experimental-design.html#EXPT-DESIGN-PROCEDURAL-CONTROLS" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Confounding effects are not only a problem along natural gradients. The experimental procedures can also introduce them. For example, a marine biologist investigating the effect of crab predation on the density of bivalve molluscs in an estuarine ecosystem might have cages on the mudflats from which crabs are removed and in which any change in bivalve settlement and survival can be monitored. The obvious control for this would be equivalent plots on the adjacent mudflats with normal crab numbers. Suppose the experiment just compares the bivalve density in cages with reduced crab numbers to their density in the adjacent mudflat. In that case, any effects observed could be attributable to crab density, environmental changes brought about by the cages, or disturbance due to the repeated netting to remove crabs. Several additional controls might be useful here. In addition to the proper treatment, bivalve density could be monitored in:</p>
 <ul>
 <li><p>a ‘no cage / no disturbance control’—open mudflat adjacent to the experiment (so no cage effects, no added disturbance).</p></li>
@@ -881,8 +897,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-<div id="ethics-and-practicality" class="section level2" number="17.7">
-<h2><span class="header-section-number">17.7</span> Ethics and practicality</h2>
+<div id="ethics-and-practicality" class="section level2 hasAnchor" number="17.7">
+<h2><span class="header-section-number">17.7</span> Ethics and practicality<a href="principles-experimental-design.html#ethics-and-practicality" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Although experimental design is often fairly straightforward in principle, the ideal design to test an hypothesis may turn out to be impractical, unaffordable or unethical. All experiments are constrained by practicality and finance. Ethical considerations also constrain a rather smaller but important set. Ethical factors constrain experiments in every biological discipline. However, nowhere is the issue more pronounced than in medicine.</p>
 <p>Drug testing presents the classic difficulty. Effective testing of a drug’s efficacy depends on comparing patients receiving the drug with closely equivalent patients not doing so, or receiving some alternative treatment. Since one of the treatments will likely be better than another, by definition, at least one group of people have an available and better treatment withheld from them (e.g., Aspinal and Goodman 1995). Thus, as soon as the experimental evidence indicates which treatment is best, it is very hard to justify withholding it from all patients, even if the experimenter feels that further work is necessary.</p>
 <p>Good experimental design and appropriate analysis cannot remove ethical, practical or financial problems. Still, they can help ensure that the maximum useful information is returned where time and money are invested in a problem.</p>
@@ -891,10 +907,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="13">
-<li id="fn13"><p>It is worth noting that in reports <em>experiment</em> and <em>observation</em> should always be distinguished. If we have carried out observations on a natural system of any sort, but where there has been no experimental manipulation of any aspect of the system, that is not an experiment. It would be inappropriate to write in a report: “This experiment consisted of measuring mean stomatal density from thirty trees growing at a range of altitudes.” Instead, we might write: “We conducted an observational study measuring mean stomatal density from thirty trees growing at a range of altitudes.”<a href="principles-experimental-design.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>This variability could be due to all kinds of things: the organisms/material being used; of the experimental conditions; and of the methods of measurement.<a href="principles-experimental-design.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>Actually, there are special types of experimental design that use blocking, but where each treatment does not appear in every block. These are much more advanced than anything we will cover in this book.<a href="principles-experimental-design.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<ol start="12">
+<li id="fn12"><p>It is worth noting that in reports <em>experiment</em> and <em>observation</em> should always be distinguished. If we have carried out observations on a natural system of any sort, but where there has been no experimental manipulation of any aspect of the system, that is not an experiment. It would be inappropriate to write in a report: “This experiment consisted of measuring mean stomatal density from thirty trees growing at a range of altitudes.” Instead, we might write: “We conducted an observational study measuring mean stomatal density from thirty trees growing at a range of altitudes.”<a href="principles-experimental-design.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>This variability could be due to all kinds of things: the organisms/material being used; of the experimental conditions; and of the methods of measurement.<a href="principles-experimental-design.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>Actually, there are special types of experimental design that use blocking, but where each treatment does not appear in every block. These are much more advanced than anything we will cover in this book.<a href="principles-experimental-design.html#fnref14" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -963,7 +979,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

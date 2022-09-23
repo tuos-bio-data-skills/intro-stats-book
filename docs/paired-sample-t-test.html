@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 18 Paired-sample t-test | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="principles-experimental-design.html"/>
 <link rel="next" href="anova-for-randomised-block-designs.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,19 +605,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="paired-sample-t-test" class="section level1" number="18">
-<h1><span class="header-section-number">Chapter 18</span> Paired-sample t-test</h1>
+<div id="paired-sample-t-test" class="section level1 hasAnchor" number="18">
+<h1><span class="header-section-number">Chapter 18</span> Paired-sample t-test<a href="paired-sample-t-test.html#paired-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In the previous chapter, we learned how blocking is a valuable technique for dealing with confounding effects. However, we didn’t discuss how we would analyse such data. If we’ve used a block design, we can’t just throw our data at something like a <em>t</em>-test or a standard one-way ANOVA. Remember, one of the assumptions of these tests is the independence of the experimental units, yet a blocked design creates a situation where some units are not independent. In this chapter and the next, we’ll consider versions of the <em>t</em>-test and ANOVA that can be used to analyse such non-independent data.</p>
-<div id="when-do-we-use-a-paired-sample-t-test" class="section level2" number="18.1">
-<h2><span class="header-section-number">18.1</span> When do we use a paired-sample <em>t</em>-test?</h2>
+<div id="when-do-we-use-a-paired-sample-t-test" class="section level2 hasAnchor" number="18.1">
+<h2><span class="header-section-number">18.1</span> When do we use a paired-sample <em>t</em>-test?<a href="paired-sample-t-test.html#when-do-we-use-a-paired-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>There are situations in which data may naturally form pairs of non-independent observations: the first value in sample A is linked to the first value in sample B, the second value in sample A is linked with the second value in sample B, and so on. This is known as a <em>paired-sample</em> data. A common example of paired-sample data is when we have a group of organisms, and we record some measurements from each organism before and after an experimental treatment. For example, if we were studying heart rate in relation to position (sitting vs standing), we might measure the heart rate of several people in both positions. In this case, the heart rate of a particular person when sitting is paired with the heart rate of the same person when standing.</p>
 <p>An experimental design that sets out to produce paired data is known as a <em>paired-sample design</em>. More often than not, paired-sample data arise as a consequence of such deliberate decisions. Why? In biology, we often have the problem that there is a great deal of variation between the units we’re studying (individual organisms, tissue samples, etc). There may be so much among-unit variation that the effect of any difference among the situations we’re interested in is obscured. Using a paired-sample design gives us a way to control for the among-unit variation and increase the power of our statistical tests. However, we should not use a two-sample <em>t</em>-test when our data have this kind of structure. Let’s find out why.</p>
 </div>
-<div id="why-do-we-use-a-paired-sample-design" class="section level2" number="18.2">
-<h2><span class="header-section-number">18.2</span> Why do we use a paired-sample design?</h2>
+<div id="why-do-we-use-a-paired-sample-design" class="section level2 hasAnchor" number="18.2">
+<h2><span class="header-section-number">18.2</span> Why do we use a paired-sample design?<a href="paired-sample-t-test.html#why-do-we-use-a-paired-sample-design" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Consider the following. A drug company wishes to test two drugs for their effectiveness in treating a rare illness in which glycolipids are poorly metabolised. An effective drug is one that lowers glycolipid concentrations in patients. The company can only find 8 patients willing to cooperate in the early trials of the two drugs. What’s more, the 8 patients vary in their age, sex, body weight, severity of symptoms and other health problems.</p>
 <p>One way to conduct an experiment that evaluates the effect of the new drug is to randomly assign the 8 patients to one or other drug and monitor their performance. However, this kind of design is very unlikely to detect a statistically significant difference between the treatments. This is because it provides very little replication, yet can we expect considerable variability from one person to another in glycolipid levels before any treatment is applied. This variability would lead to a large standard error in the difference between means.</p>
-<p>A solution to this problem is to treat each patient <em>with both drugs in turn</em> and record the glycolipid concentrations in the blood after taking each drug. One arrangement would be for four patients to start with drug A and four with drug B, and then after a suitable break from the treatments, they could be swapped over onto the other drug. This would give us eight replicate observations on the effectiveness of each drug, and we can determine, for each patient, which drug is more effective.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a></p>
+<p>A solution to this problem is to treat each patient <em>with both drugs in turn</em> and record the glycolipid concentrations in the blood after taking each drug. One arrangement would be for four patients to start with drug A and four with drug B, and then after a suitable break from the treatments, they could be swapped over onto the other drug. This would give us eight replicate observations on the effectiveness of each drug, and we can determine, for each patient, which drug is more effective.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a></p>
 <p>The experimental design, and one hypothetical outcome, is represented in the diagram below…</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:drug-linked"></span>
 <img src="intro-bio-stats-book_files/figure-html/drug-linked-1.png" alt="Data from glycolipid study, showing paired design. Each patient is denoted by a unique number." width="50%" />
@@ -637,20 +637,20 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 <p>So, it would be quite possible to end up with two groups where there was no apparent difference in the mean glycolipid levels between the two drug treatments even though Drug B seems to be more effective in the majority of patients. The pairing allows us to factor out (i.e. remove) the variation among individuals and concentrate on the differences between the two treatments. This works by focussing on the differences occurring <em>within</em> individuals. The result is a much more sensitive evaluation of the effect we’re interested in.</p>
 <p>The next question is, how do we go about analysing paired data in a way that properly accounts for the structure in the data?</p>
 </div>
-<div id="how-do-you-carry-out-a-t-test-on-paired-samples" class="section level2" number="18.3">
-<h2><span class="header-section-number">18.3</span> How do you carry out a <em>t</em>-test on paired samples?</h2>
+<div id="how-do-you-carry-out-a-t-test-on-paired-samples" class="section level2 hasAnchor" number="18.3">
+<h2><span class="header-section-number">18.3</span> How do you carry out a <em>t</em>-test on paired samples?<a href="paired-sample-t-test.html#how-do-you-carry-out-a-t-test-on-paired-samples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It should be clear why a paired-sample design might be useful, but how do we construct the right test? The ‘trick’ is to work directly with the differences between pairs of values. In the case of the glycolipid levels illustrated in the first diagram, we noted that there was a greater decrease of glycolipids in 75% of patients using Drug B compared with Drug A.</p>
 <p>If we calculate the actual differences (i.e. subtracted the value for Drug A from the value for Drug B) for each patient, we might see something like: -3.9, -4.1, 2.5, -4.7, 0.5, -3.7, -6.9, -2.4. Notice that there are only two positive values in this sample of differences, one of which is close to 0. The mean difference is -2.8, i.e. on average, glycolipid levels are lower with Drug B. Another way of stating this observation is that <em>within subjects</em> (patients), the mean difference between drug B and drug A is negative. A paired-sample design focusses on the within-subject (or more generally, within-item) change.</p>
 <p>On the other hand, if the two drugs had had similar effects, what would we expect to see? We would expect no consistent difference in glycolipid levels between the Drug A and Drug B treatments. Glycolipid levels are unlikely to remain exactly the same over time. Still, there shouldn’t be any pattern to these changes with respect to the drug treatment: some patients will show increases, some decreases, and some no change at all. The mean of the differences, in this case, should be somewhere around zero (though sampling variation will ensure it isn’t exactly equal to zero).</p>
-<p>So, to carry out a <em>t</em>-test on paired-sample data, we have to: 1) find the mean of the difference of all the pairs and 2) evaluate whether this is significantly different from zero. We already know how to do this! <strong>This is just an application of the one-sample <em>t</em>-test</strong>, where the expected value (i.e. the null hypothesis) is 0. The thing to realise is that although we started out with two sets of values, what matters is the sample of differences between pairs and the population we’re interested in a ‘population of differences.’</p>
+<p>So, to carry out a <em>t</em>-test on paired-sample data, we have to: 1) find the mean of the difference of all the pairs and 2) evaluate whether this is significantly different from zero. We already know how to do this! <strong>This is just an application of the one-sample <em>t</em>-test</strong>, where the expected value (i.e. the null hypothesis) is 0. The thing to realise is that although we started out with two sets of values, what matters is the sample of differences between pairs and the population we’re interested in a ‘population of differences’.</p>
 <p>When used to analyse paired data in this way, the test is referred to as a paired-sample <em>t</em>-test. This is not wrong, but it is important to remember that a paired-sample <em>t</em>-test is just a one-sample <em>t</em>-test applied to the sample of differences between pairs of associated observations. A paired-sample <em>t</em>-test isn’t a new kind of test. Instead, it is a one-sample <em>t</em>-test applied to <em>a particular kind of situation</em>.</p>
-<div id="assumptions-of-the-paired-sample-t-test" class="section level3" number="18.3.1">
-<h3><span class="header-section-number">18.3.1</span> Assumptions of the paired-sample <em>t</em>-test</h3>
+<div id="assumptions-of-the-paired-sample-t-test" class="section level3 hasAnchor" number="18.3.1">
+<h3><span class="header-section-number">18.3.1</span> Assumptions of the paired-sample <em>t</em>-test<a href="paired-sample-t-test.html#assumptions-of-the-paired-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The assumptions of a paired-sample <em>t</em>-test are no different from the one-sample <em>t</em>-test. After all, they boil down to the same test! We just have to be aware of the target sample. The key point to keep in mind is that the sample of differences is important, not the original data. There is no requirement for the original data to be drawn from a normal distribution because the normality assumption applies to the differences. This is very useful because even where the original data seem to be drawn from a non-normal distribution, the differences between pairs can often be acceptably normal. The differences need to be measured on an interval or ratio scale, but this is guaranteed if the original data are on one of these scales.</p>
 </div>
 </div>
-<div id="carrying-out-a-paired-sample-t-test-in-r" class="section level2" number="18.4">
-<h2><span class="header-section-number">18.4</span> Carrying out a paired-sample <em>t</em>-test in R</h2>
+<div id="carrying-out-a-paired-sample-t-test-in-r" class="section level2 hasAnchor" number="18.4">
+<h2><span class="header-section-number">18.4</span> Carrying out a paired-sample <em>t</em>-test in R<a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R offers the option of a paired-sample <em>t</em>-test to save us the effort of calculating differences. It does this for us and then carries out a one-sample test on those differences. We’ll look at how to do it the ‘old fashioned’ way first—calculating the differences ourselves and running a one-sample test—before using the short-cut method provided by R. We’ll do this using the glycolipid drug example.</p>
 <div id="section-10" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
@@ -693,7 +693,7 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 Figure 18.3: Within-individual differences from glycolipid study
 </p>
 </div>
-<p>Hmm… there really isn’t a lot of data to work with here but there’s nothing in that plot that screams ‘non-normal,’ which means the assumptions have been met as best they can be. Let’s proceed to carry out a one-sample <em>t</em>-test on the calculated differences. This is easy to do in R:</p>
+<p>Hmm… there really isn’t a lot of data to work with here but there’s nothing in that plot that screams ‘non-normal’, which means the assumptions have been met as best they can be. Let’s proceed to carry out a one-sample <em>t</em>-test on the calculated differences. This is easy to do in R:</p>
 <div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="paired-sample-t-test.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(glycolipid_diffs<span class="sc">$</span>Difference)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
@@ -717,8 +717,8 @@ Figure 18.3: Within-individual differences from glycolipid study
 <li><p>The sample of differences was used in the test, not the sample of paired observations. This means the degrees of freedom for a paired-sample <em>t</em> test are one less than the number of differences (= number of pairs); not one, or two, less than the total number of observations.</p></li>
 <li><p>Since we used a paired-sample design our conclusion stresses the fact that the use of the Drug B results in a lower glycolipid level in individual patients. It doesn’t say that the use of Drug B resulted in lower glycolipid concentrations for everyone given Drug B than for anyone given Drug A.</p></li>
 </ol>
-<div id="using-the-paired-true-argument" class="section level3" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Using the <code>paired = TRUE</code> argument</h3>
+<div id="using-the-paired-true-argument" class="section level3 hasAnchor" number="18.4.1">
+<h3><span class="header-section-number">18.4.1</span> Using the <code>paired = TRUE</code> argument<a href="paired-sample-t-test.html#using-the-paired-true-argument" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R has a built-in procedure for doing paired-sample <em>t</em>-tests in one step. Now that we’ve done it the hard way, let’s try carrying out the test using that built-in procedure. This looks very similar to a two-sample <em>t</em>-test, except that we have to set the <code>paired</code> argument of the <code>t.test</code> function to <code>TRUE</code>:</p>
 <div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Glycolipid <span class="sc">~</span> Drug, <span class="at">data =</span> glycolipid, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <pre><code>## 
@@ -726,15 +726,15 @@ Figure 18.3: Within-individual differences from glycolipid study
 ## 
 ## data:  Glycolipid by Drug
 ## t = 2.6209, df = 7, p-value = 0.03436
-## alternative hypothesis: true difference in means is not equal to 0
+## alternative hypothesis: true mean difference is not equal to 0
 ## 95 percent confidence interval:
 ##  0.277451 5.397549
 ## sample estimates:
-## mean of the differences 
-##                  2.8375</code></pre>
+## mean difference 
+##          2.8375</code></pre>
 <p>R takes care of the differencing for us, so now we can work with the original <code>glycolipid</code> data rather than the <code>glycolipid_diffs</code> data frame constructed above. We won’t step through the output because it should make sense by this point.</p>
-<div id="order-matter" class="section level4 unnumbered infobox action">
-<h4>Order matter!</h4>
+<div id="order-matter" class="section level4 unnumbered hasAnchor infobox action">
+<h4>Order matter!<a href="paired-sample-t-test.html#order-matter" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Be careful when using the built in procedure for doing paired-sample <em>t</em>-tests. The only information R uses to associate pairs of observations is their order in each group. The first observation in the ‘A’ group is paired with the first observation in the ‘B’ group, the second observation in the ‘A’ group is paired with the second observation in the ‘B’ group, and so on. If the items/individuals aren’t ordered the same way in each group, the test will be wrong and we’ll end up with a meaningless <em>p</em>-value!</p>
 </div>
 <p>It’s nice that R makes it easy to do a paired-sample <em>t</em>-test in one step. Just don’t forget that this version of the <em>t</em>-test is just a one-sample test on paired differences.</p>
@@ -744,8 +744,8 @@ Figure 18.3: Within-individual differences from glycolipid study
 </div>
 <div class="footnotes">
 <hr />
-<ol start="16">
-<li id="fn16"><p>This kind of experimental design is called a cross-over study. It can be problematic if, for example, “carry-over” effects occur, e.g., the effect of one drug is altered when the other drug has previously been administered. We won’t worry about these problems here though.<a href="paired-sample-t-test.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<ol start="15">
+<li id="fn15"><p>This kind of experimental design is called a cross-over study. It can be problematic if, for example, “carry-over” effects occur, e.g., the effect of one drug is altered when the other drug has previously been administered. We won’t worry about these problems here though.<a href="paired-sample-t-test.html#fnref15" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -814,7 +814,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

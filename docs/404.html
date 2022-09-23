@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Page not found | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Page not found | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -677,7 +677,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

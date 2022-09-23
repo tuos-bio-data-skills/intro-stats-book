@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 13 Simple regression in R | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 13 Simple regression in R | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="relationships-and-regression.html"/>
 <link rel="next" href="introduction-to-one-way-anova.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,13 +605,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="regression-in-R" class="section level1" number="13">
-<h1><span class="header-section-number">Chapter 13</span> Simple regression in R</h1>
+<div id="regression-in-R" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapter 13</span> Simple regression in R<a href="regression-in-R.html#regression-in-R" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Our goal in this chapter is to learn how to work with regression models in R. We’ll start with the example problem and the data, and then work through model fitting, significance testing, and finally, presenting the results.</p>
-<div id="introduction-2" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> Introduction</h2>
+<div id="introduction-2" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> Introduction<a href="regression-in-R.html#introduction-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A plant physiologist studying the process of germination in the broad bean (<em>Vicia faba</em>) is interested in the relationship between the activity of the enzyme amylase and the temperature at which the germinating beans are kept. As part of this work, she carries out an experiment to find the relationship between glucose release (from the breakdown of starch by amylase) and temperature (over the range 2 - 20C). The data obtained from such an experiment are given below.</p>
 <table>
+<colgroup>
+<col width="44%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+<col width="5%" />
+</colgroup>
 <tbody>
 <tr class="odd">
 <td align="left">Temperature (<span class="math inline">\(C\)</span>)</td>
@@ -646,8 +659,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4 class="unnumbered"></h4>
 <p>We will be using this new data set to demonstrate how to conduct simple regression in R. The data live in the ‘GLUCOSE.CSV’ file. The code below assumes those data have been read into a tibble called <code>vicia_germ</code>. Set that up if you plan to work along.</p>
 </div>
-<div id="first-steps" class="section level3" number="13.1.1">
-<h3><span class="header-section-number">13.1.1</span> First steps</h3>
+<div id="first-steps" class="section level3 hasAnchor" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> First steps<a href="regression-in-R.html#first-steps" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We start by using <code>glimpse</code> to see what resides within <code>vicia_germ</code>:</p>
 <div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="regression-in-R.html#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(vicia_germ)</span></code></pre></div>
 <pre><code>## Rows: 10
@@ -655,31 +668,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ Temperature &lt;dbl&gt; 2, 4, 6, 8, 10, 12, 14, 16, 18, 20
 ## $ Glucose     &lt;dbl&gt; 1.0, 0.5, 2.5, 1.5, 3.2, 4.3, 2.5, 3.5, 2.8, 5.6</code></pre>
 <p>There are just two numeric variables. The first column (<code>Temperature</code>) contains the information about the experimental temperature treatments, and the second column (<code>Glucose</code>) contain the glucose measurements.</p>
-<p>Notice that we refer to the different temperatures as ‘experimental treatments.’ This is because these data are from an experiment where temperature was controlled by the investigator. We’ll discuss this terminology in more detail in the <a href="principles-experimental-design.html#principles-experimental-design">Principles of Experimental Design</a> chapter.</p>
+<p>Notice that we refer to the different temperatures as ‘experimental treatments’. This is because these data are from an experiment where temperature was controlled by the investigator. We’ll discuss this terminology in more detail in the <a href="principles-experimental-design.html#principles-experimental-design">Principles of Experimental Design</a> chapter.</p>
 </div>
-<div id="visualising-the-data" class="section level3" number="13.1.2">
-<h3><span class="header-section-number">13.1.2</span> Visualising the data</h3>
+<div id="visualising-the-data" class="section level3 hasAnchor" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> Visualising the data<a href="regression-in-R.html#visualising-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We should visualise the data next so that we understand it more. A simple scatter plot will do:</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="regression-in-R.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(vicia_germ, <span class="fu">aes</span>(<span class="at">x =</span> Temperature, <span class="at">y =</span> Glucose)) <span class="sc">+</span> </span>
 <span id="cb64-2"><a href="regression-in-R.html#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/reg-worked-scatterplot-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p>Remember, <code>Glucose</code> is the response variable and <code>Temperature</code> is the predictor variable, so they belong on the <span class="math inline">\(y\)</span> and <span class="math inline">\(x\)</span> axes, respectively.</p>
-<div id="variables-and-axes" class="section level4 unnumbered infobox warning">
-<h4>Variables and axes</h4>
+<div id="variables-and-axes" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Variables and axes<a href="regression-in-R.html#variables-and-axes" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Be careful when you produce a scatter plot to summarise data in a regression analysis. You need to make sure the two variables are plotted the right way around with respect to the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> axes: place the response variable on the <span class="math inline">\(y\)</span> axis and the predictor on the <span class="math inline">\(x\)</span> axis. Nothing says, “I don’t know what I’m doing,” quite like mixing up the axes.</p>
 </div>
 <p>Because linear regression involves fitting a straight line through our data, it only makes sense to fit this model if the relationship between the two variables is linear. Plotting our data lets us see whether or not there appears to be a linear relationship. The scatter plot we produced above suggests that, in this case, the relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> is linear.</p>
-<div id="assumptions" class="section level4 unnumbered infobox warning">
-<h4>Assumptions</h4>
+<div id="assumptions" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Assumptions<a href="regression-in-R.html#assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A linear relationship between the predictor and response variables is not the only assumption that we have to make when we fit a linear regression. We’ll come back to the other assumptions and how to check whether they have been met in the <a href="#assumptions-diagnostics">Assumptions</a> and <a href="#regression-diagnostics">Diagnostics</a> chapters, respectively. For now you should just be aware that there are assumptions that you should check when working with your own data.</p>
 </div>
 </div>
 </div>
-<div id="model-fitting-and-significance-tests" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Model fitting and significance tests</h2>
+<div id="model-fitting-and-significance-tests" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Model fitting and significance tests<a href="regression-in-R.html#model-fitting-and-significance-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Carrying out a regression analysis in R is a two step process.</p>
 <p>The first step involves a process known as <em>fitting the model</em> (or just <em>model fitting</em>). In effect, this is the step where R calculates the best fit line, along with a large amount of additional information needed to generate the results in step two. We call this step model fitting because, well, we end up fitting the straight line model to the data.</p>
-<p>How do we fit a linear regression model in R? We will do it using the <code>lm</code> function. The letters ‘lm’ in this function name stand for ‘linear model.’ We won’t say much more at this point other than point out that a linear regression is a particular case of a general linear model. R doesn’t have a special regression function.</p>
+<p>How do we fit a linear regression model in R? We will do it using the <code>lm</code> function. The letters ‘lm’ in this function name stand for ‘linear model’. We won’t say much more at this point other than point out that a linear regression is a particular case of a general linear model. R doesn’t have a special regression function.</p>
 <p>Here is how we fit a linear regression in R using the enzyme data:</p>
 <div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="regression-in-R.html#cb65-1" aria-hidden="true" tabindex="-1"></a>vicia_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Glucose <span class="sc">~</span> Temperature, <span class="at">data =</span> vicia_germ)</span></code></pre></div>
 <p>This should look quite familiar. We have to assign two arguments:</p>
@@ -687,9 +700,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>The first argument is a <strong>formula</strong>. We know this because it includes a ‘tilde’ symbol: <code>~</code>. The variable name on the left of the <code>~</code> should be the response variable. The variable name on the right should be the predictor variable. These are <code>Glucose</code> and <code>Temperature</code>, respectively. Make sure you get these the right way round when carrying out regression.</p></li>
 <li><p>The second argument is the name of the data frame or tibble object that contains the two variables listed in the formula (<code>vicia_germ</code>).</p></li>
 </ol>
-<div id="how-does-r-knows-we-want-to-carry-out-a-regression" class="section level4 unnumbered infobox information">
-<h4>How does R knows we want to carry out a regression?</h4>
-<p>How does R know we want to use regression? After all, we didn’t specify this anywhere. The answer is that R looks at what type of variable <code>Temperature</code> is. It is numeric, and so R automatically carries out a regression. If it had been a factor or a character vector (representing a categorical variable), R would have carried out a different kind of analysis, called a one-way Analysis of Variance (ANOVA). Many of the models we examine in this course are very similar and can be fitted using the <code>lm</code> function. The only thing that really distinguishes them is the type of variables that appear to the right of the <code>~</code> in a formula: if they are categorical variables, we end up fitting an ANOVA model, while numeric variables lead to a regression.</p>
+<div id="how-does-r-knows-we-want-to-carry-out-a-regression" class="section level4 unnumbered hasAnchor infobox information">
+<h4>How does R knows we want to carry out a regression?<a href="regression-in-R.html#how-does-r-knows-we-want-to-carry-out-a-regression" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>How does R know we want to use regression? After all, we didn’t specify this anywhere. The answer is that R looks at what type of variable <code>Temperature</code> is. It is numeric, and so R automatically carries out a regression. If it had been a factor or a character vector (representing a categorical variable), R would have carried out a different kind of analysis, called a one-way Analysis of Variance (ANOVA). Many of the models we examine in this book are very similar and can be fitted using the <code>lm</code> function. The only thing that really distinguishes them is the type of variables that appear to the right of the <code>~</code> in a formula: if they are categorical variables, we end up fitting an ANOVA model, while numeric variables lead to a regression.</p>
 <p>The key message is that you have to keep a close eye on the type of variables you are modelling to understand what kind of model R will fit.</p>
 </div>
 <p>Notice that we did not print the results to the console. Instead, we assigned the result a name (<code>vicia_model</code>). This now refers to a fitted <strong>model object</strong>. What happens if we print a regression model object to the console?</p>
@@ -720,8 +733,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This summarises the different parts of the <em>F</em>-test calculations: <code>Df</code> – degrees of freedom, <code>Sum Sq</code> – the sum of squares, <code>Mean Sq</code> – the mean square, <code>F value</code> – the <em>F</em>-statistic, <code>Pr(&gt;F)</code> – the p-value. These were touched on in the last chapter.</p>
 <p>The <em>F</em>-statistic (variance ratio) is the key term. When working with a regression model, this quantifies how much variability in the data is explained when we include the best fit slope term in the model. Larger values indicate a stronger relationship between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>. The <em>p</em>-value gives the probability that the relationship could have arisen through sampling variation if there were no real association. As always, a <em>p</em>-value of less than 0.05 is taken as evidence that the relationship is real, i.e. the result is statistically significant.</p>
 <p>We should also note down the two degrees of freedom given in the table because these will be needed when we report the results.</p>
-<div id="extracting-a-little-more-information" class="section level3" number="13.2.1">
-<h3><span class="header-section-number">13.2.1</span> Extracting a little more information</h3>
+<div id="extracting-a-little-more-information" class="section level3 hasAnchor" number="13.2.1">
+<h3><span class="header-section-number">13.2.1</span> Extracting a little more information<a href="regression-in-R.html#extracting-a-little-more-information" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There is a second function, called <code>summary</code>, that can be used to extract a little more information from the fitted regression model:</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="regression-in-R.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(vicia_model)</span></code></pre></div>
 <pre><code>## 
@@ -757,19 +770,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Notice that the <em>p</em>-value associated with the slope coefficient is the same as the one we found when we used the <code>anova</code> function. This is not a coincidence—<code>anova</code> and <code>summary</code> test the same thing when working with simple linear regression models. <strong>This is not generally true for other models involving the <code>lm</code> function.</strong></p>
 <p>The only other part of the output from summary that is of interest now is the line containing the <code>Multiple R-squared</code> value:</p>
 <pre><code>## Multiple R-squared:  0.6369, Adjusted R-squared:  0.5915</code></pre>
-<p>This shows the <span class="math inline">\(R\)</span>-squared (<span class="math inline">\(R^{2}\)</span>) of our model. It tells you what proportion (sometimes expressed as a percentage) of the variation in the data is accounted for by the fitted line. If <span class="math inline">\(R^{2}=1\)</span> the line passes through all the points on the graph (all the variation is accounted for) and if <span class="math inline">\(R^{2}\approx 0\%\)</span> the line explains little or none of the variation in the data. The <span class="math inline">\(R^{2}\)</span> value here is 0.64. This is very respectable but still indicates that there are other sources of variation which remain unexplained by the line (e.g. differences between beans, inaccuracies in the assay technique)<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>.</p>
+<p>This shows the <span class="math inline">\(R\)</span>-squared (<span class="math inline">\(R^{2}\)</span>) of our model. It tells you what proportion (sometimes expressed as a percentage) of the variation in the data is accounted for by the fitted line. If <span class="math inline">\(R^{2}=1\)</span> the line passes through all the points on the graph (all the variation is accounted for) and if <span class="math inline">\(R^{2}\approx 0\%\)</span> the line explains little or none of the variation in the data. The <span class="math inline">\(R^{2}\)</span> value here is 0.64. This is very respectable but still indicates that there are other sources of variation which remain unexplained by the line (e.g. differences between beans, inaccuracies in the assay technique)<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>.</p>
 </div>
 </div>
-<div id="present-results" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Presenting results</h2>
+<div id="present-results" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Presenting results<a href="regression-in-R.html#present-results" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>From the preceding analysis we can conclude:</p>
 <blockquote>
 <p>There is a significant positive relationship between the incubation temperature (°C) and glucose released (<span class="math inline">\(\mu g mg^{-1}\)</span> dry weight) in germinating bean seeds (<span class="math inline">\(y=0.52+0.20x\)</span>, F=14, d.f.=1,8, <em>p</em>&lt;0.01).</p>
 </blockquote>
 <p>Don’t forget to quote both degrees of freedom in the result. These are obtained from the ANOVA table produced by <code>anova</code> and should be given as the slope degrees of freedom first (which is always 1), followed by the error degrees of freedom.</p>
 <p>If the results are being presented only in the text, it is usually appropriate to specify the regression equation and the significance of the relationship. This allows the reader to see in which direction and how steep the relationship is and perhaps use the equation in further calculations. It may also be useful to give the units of measurement—though these should already be stated in the Methods. Often, however, we will want to present the results as a figure, showing the original data and the fitted regression line. In this case, most of the statistical detail can go in the figure legend instead.</p>
-<div id="plotting-the-fitted-line-and-the-data" class="section level3" number="13.3.1">
-<h3><span class="header-section-number">13.3.1</span> Plotting the fitted line and the data</h3>
+<div id="plotting-the-fitted-line-and-the-data" class="section level3 hasAnchor" number="13.3.1">
+<h3><span class="header-section-number">13.3.1</span> Plotting the fitted line and the data<a href="regression-in-R.html#plotting-the-fitted-line-and-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We already know how to make a scatter plot. The only new trick we need to learn is how to add the fitted line. Remember the output from the summary table—this gave us the intercept and slope of the best fit line. We could extract these (there is a function called <code>coef</code> that does this), and using our knowledge of the equation of a straight line, use them to then calculate a series of points on the fitted line. However, there is an easier way to do this using the <code>predict</code> function.</p>
 <div id="section-7" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
@@ -819,8 +832,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 </div>
-<div id="regression-causation" class="section level2" number="13.4">
-<h2><span class="header-section-number">13.4</span> What about causation?</h2>
+<div id="regression-causation" class="section level2 hasAnchor" number="13.4">
+<h2><span class="header-section-number">13.4</span> What about causation?<a href="regression-in-R.html#regression-causation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>No discussion of regression would be complete without a little sermon on the fact that just because you observe a (significant) relationship between two variables, this does not necessarily mean that the two variables are causally linked. Suppose we find a negative relationship between the density of oligochaete worms (the response variable) and the density of trout (the predictor variable) in a sample of different streams. In that case, this need not indicate that the trout reduce the numbers of oligochaetes. Oligochaete numbers are often very high in slow-flowing, silty streams where they live in the sediments, whereas trout prefer faster flowing, well-oxygenated, stony streams. A negative correlation could occur simply for that reason. There are many situations in biology where a relationship between two variables can occur, not because there is a causal link between them but because each is related to a third variable (e.g. habitat).</p>
 <p>This difficulty must always be considered when interpreting relationships between variables in data collected from non-experimental situations. However, it is often said that regression analysis can never be used to infer a causal link because of this problem. This is incorrect. What is important is how the data are generated, not the statistical model used to analyse them.</p>
 <p>Imagine ten plants were randomly assigned to be grown under ten different light intensities, with all other conditions held constant. In those circumstances it would be entirely proper to analyse the effect of light level on plant height by a regression of plant height (<span class="math inline">\(y\)</span>) against light level (<span class="math inline">\(x\)</span>) and, if a significant positive straight-line relationship was found, to conclude that increased light level caused increased plant height. But the fact that we are experimentally producing an effect in plants randomly allocated to each light level is what gives us the confidence to draw a conclusion about causality. Light might not be the direct causal agent—maybe another factor (e.g. temperature) is varying along with light and causing the effect—but it must be at least indirectly related to plant growth because it was experimentally manipulated.</p>
@@ -833,8 +846,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="9">
-<li id="fn9"><p>The <code>Adjusted R-squared:</code> value can be ignored in this analysis—it is used when doing a form of regression called <em>multiple regression</em>, in which there is more than one <span class="math inline">\(x\)</span> variable.<a href="regression-in-R.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<ol start="8">
+<li id="fn8"><p>The <code>Adjusted R-squared:</code> value can be ignored in this analysis—it is used when doing a form of regression called <em>multiple regression</em>, in which there is more than one <span class="math inline">\(x\)</span> variable.<a href="regression-in-R.html#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -903,7 +916,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 16 Multiple comparison tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 16 Multiple comparison tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="one-way-anova-in-R.html"/>
 <link rel="next" href="principles-experimental-design.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,17 +605,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="multiple-comparison-tests-chapter" class="section level1" number="16">
-<h1><span class="header-section-number">Chapter 16</span> Multiple comparison tests</h1>
+<div id="multiple-comparison-tests-chapter" class="section level1 hasAnchor" number="16">
+<h1><span class="header-section-number">Chapter 16</span> Multiple comparison tests<a href="multiple-comparison-tests-chapter.html#multiple-comparison-tests-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>In the <a href="one-way-anova-in-R.html#one-way-anova-in-R">One-way ANOVA in R</a> chapter, we learned how to examine the global hypothesis of no difference between means. That test does not evaluate <em>which</em> means might be driving a significant result. For example, in the corncrake example, we found evidence of a significant effect of dietary supplement on the mean hatchling growth rate. However, our analysis did not tell us which supplements are better or worse and did not make any statements about which supplements differ significantly from each other. The purpose of this chapter is to examine one method for assessing where the differences lie.</p>
-<div id="post-hoc-multiple-comparisons-tests" class="section level2" number="16.1">
-<h2><span class="header-section-number">16.1</span> Post hoc multiple comparisons tests</h2>
-<p>The general method we will use is called a <strong>post hoc multiple comparisons test</strong>. The phrase ‘post hoc’ refers to the fact that these tests are conducted without any particular prior comparisons in mind. The words ‘multiple comparisons’ refer to the fact that they consider many different pairwise comparisons. There are quite a few multiple comparison tests—Scheffé’s test, the Student-Newman-Keuls test, Duncan’s new multiple range test, Dunnett’s test, … (the list goes on and on). Each one applies to particular circumstances, and none is universally accepted as ‘the best.’ We are going to work with the most widely used test: the <strong>Tukey multiple comparison test</strong>. This test is also known as Tukey’s Honestly Significant Difference (Tukey HSD) test<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>.</p>
-<p>People tend to favour Tukey’s HSD test because it is ‘conservative’: the test has a low false-positive rate compared to the alternatives. A false positive occurs when a test turns up a statistically significant result for an effect that is not there. A low false-positive rate is a good thing. It means that if we find a significant difference, we can be more confident it is ‘real.’ The cost of using the Tukey HSD test is that it isn’t as powerful as alternatives: the test turns up a lot of false negatives. A false negative occurs when a test fails to produce a statistically significant result for an effect when it is present. A test with a high false-negative rate tends to miss effects.</p>
+<div id="post-hoc-multiple-comparisons-tests" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Post hoc multiple comparisons tests<a href="multiple-comparison-tests-chapter.html#post-hoc-multiple-comparisons-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The general method we will use is called a <strong>post hoc multiple comparisons test</strong>. The phrase ‘post hoc’ refers to the fact that these tests are conducted without any particular prior comparisons in mind. The words ‘multiple comparisons’ refer to the fact that they consider many different pairwise comparisons. There are quite a few multiple comparison tests—Scheffé’s test, the Student-Newman-Keuls test, Duncan’s new multiple range test, Dunnett’s test, … (the list goes on and on). Each one applies to particular circumstances, and none is universally accepted as ‘the best’. We are going to work with the most widely used test: the <strong>Tukey multiple comparison test</strong>. This test is also known as Tukey’s Honestly Significant Difference (Tukey HSD) test<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>.</p>
+<p>People tend to favour Tukey’s HSD test because it is ‘conservative’: the test has a low false-positive rate compared to the alternatives. A false positive occurs when a test turns up a statistically significant result for an effect that is not there. A low false-positive rate is a good thing. It means that if we find a significant difference, we can be more confident it is ‘real’. The cost of using the Tukey HSD test is that it isn’t as powerful as alternatives: the test turns up a lot of false negatives. A false negative occurs when a test fails to produce a statistically significant result for an effect when it is present. A test with a high false-negative rate tends to miss effects.</p>
 <p>One line of thinking says post hoc multiple comparisons tests of any kind should never be undertaken. We shouldn’t carry out an experiment without a prior prediction of what will happen—we should know which comparisons need to be made and should only undertake those particular comparisons rather than making every possible comparison. Nonetheless, post hoc multiple comparisons tests are easy to apply and widely used, so there is value in knowing how to use them. The Tukey HSD test at least tends to guard against picking up non-existent effects.</p>
 </div>
-<div id="mult-comp-R" class="section level2" number="16.2">
-<h2><span class="header-section-number">16.2</span> Tukey’s HSD test in R</h2>
+<div id="mult-comp-R" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Tukey’s HSD test in R<a href="multiple-comparison-tests-chapter.html#mult-comp-R" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will use the corncrake example to illustrate how to use R to carry out and interpret Tukey’s HSD test.</p>
 <div id="section-9" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
@@ -659,7 +659,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>So the <code>TukeyHSD</code> with <code>ordered = TRUE</code> will first compare ‘Allvit’ to ‘None,’ then ‘Allvit’ to ‘Linseed,’ then ‘Allvit’ to ‘Sizefast,’ then ‘Allvit’ to ‘Earlybird,’ then ‘None’ to ‘Linseed,’ then ‘None’ to ‘Sizefast,’ … and so on, until we get to ‘Sizefast’ vs. ‘Earlybird.’ Let’s look at the output:</p>
+<p>So the <code>TukeyHSD</code> with <code>ordered = TRUE</code> will first compare ‘Allvit’ to ‘None’, then ‘Allvit’ to ‘Linseed’, then ‘Allvit’ to ‘Sizefast’, then ‘Allvit’ to ‘Earlybird’, then ‘None’ to ‘Linseed’, then ‘None’ to ‘Sizefast’, … and so on, until we get to ‘Sizefast’ vs. ‘Earlybird’. Let’s look at the output:</p>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
 ##     factor levels have been ordered
@@ -690,8 +690,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Earlybird-None     7.250  1.247435 13.252565 0.0113786</code></pre>
 <p>It looks like the means of the ‘Earlybird’ and ‘None’ levels are significantly different at the <em>p</em> &lt; 0.05 level.</p>
 <p>Now we know how to look up any set of comparisons, we need to see whether the difference is significant. The next question is: How should we summarise such a table?</p>
-<div id="how-to-summarise-multiple-comparison-results" class="section level3" number="16.2.1">
-<h3><span class="header-section-number">16.2.1</span> How to summarise multiple-comparison results</h3>
+<div id="how-to-summarise-multiple-comparison-results" class="section level3 hasAnchor" number="16.2.1">
+<h3><span class="header-section-number">16.2.1</span> How to summarise multiple-comparison results<a href="multiple-comparison-tests-chapter.html#how-to-summarise-multiple-comparison-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Summarising the results of multiple comparison tests can be a tricky business. The first rule is: don’t present the results like the <code>TukeyHSD</code> function does! A clear summary of the results will help us to interpret them correctly and makes it easier to explain them to others. How should we do this? Let’s list the means in order from smallest to largest again:</p>
 <table>
 <tbody>
@@ -713,19 +713,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Now, using the table of Tukey results, we can perform a sequence of pairwise comparisons between the supplements starting with the smallest pair… ‘Allvit’ and ‘None.’ The appropriate test is in the first table:</p>
+<p>Now, using the table of Tukey results, we can perform a sequence of pairwise comparisons between the supplements starting with the smallest pair… ‘Allvit’ and ‘None’. The appropriate test is in the first table:</p>
 <pre><code>##       diff        lwr        upr      p adj 
 ##  1.3750000 -4.6275646  7.3775646  0.9638453</code></pre>
-<p>The last column gives the <em>p</em>-value, which in this case is certainly not significant (it is much greater than 0.05), so we conclude there is no difference between the ‘Allvit’ and ‘None’ treatments. So now we continue with ‘Allvit,’ but compare it to the next larger mean (‘Linseed’). In this case the values are:</p>
+<p>The last column gives the <em>p</em>-value, which in this case is certainly not significant (it is much greater than 0.05), so we conclude there is no difference between the ‘Allvit’ and ‘None’ treatments. So now we continue with ‘Allvit’, but compare it to the next larger mean (‘Linseed’). In this case the values are:</p>
 <pre><code>##      diff       lwr       upr     p adj 
 ##  4.250000 -1.752565 10.252565  0.270779</code></pre>
-<p>The last column gives the <em>p</em>-value, which again is not significant, so we conclude there is no difference between the ‘Allvit’ and ‘Linseed’ treatments. So now we continue with ‘Allvit,’ but compare it to the next larger mean (‘Sizefast’). In this case, the values are:</p>
+<p>The last column gives the <em>p</em>-value, which again is not significant, so we conclude there is no difference between the ‘Allvit’ and ‘Linseed’ treatments. So now we continue with ‘Allvit’, but compare it to the next larger mean (‘Sizefast’). In this case, the values are:</p>
 <pre><code>##       diff        lwr        upr      p adj 
 ##  4.7500000 -1.2525646 10.7525646  0.1771593</code></pre>
-<p>Once again, this difference is not significant, so we conclude there is no difference between the ‘Allvit’ and ‘Sizefast’ treatments either. So again, we continue with ‘Allvit,’ which we compare to the next larger mean (‘Earlybird’).</p>
+<p>Once again, this difference is not significant, so we conclude there is no difference between the ‘Allvit’ and ‘Sizefast’ treatments either. So again, we continue with ‘Allvit’, which we compare to the next larger mean (‘Earlybird’).</p>
 <pre><code>##       diff        lwr        upr      p adj 
 ##  8.6250000  2.6224354 14.6275646  0.0018764</code></pre>
-<p>This time the <em>p</em>-value is clearly less than 0.05, so we conclude that this pair of treatments are significantly different. We record this by marking ‘Allvit,’ ‘None,’ ‘Linseed’ and ‘Sizefast’ to indicate that they don’t differ from each other. We’ll use the letter ‘b’ to do this.</p>
+<p>This time the <em>p</em>-value is clearly less than 0.05, so we conclude that this pair of treatments are significantly different. We record this by marking ‘Allvit’, ‘None’, ‘Linseed’ and ‘Sizefast’ to indicate that they don’t differ from each other. We’ll use the letter ‘b’ to do this.</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -754,9 +754,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>The ‘b’ defines a group of treatment means—‘Allvit,’ ‘None,’ ‘Linseed’ and ‘Sizefast’—which are not significantly different from one another. It doesn’t matter which letter we use by the way (the reason for using ‘b’ here will become apparent in a moment).</p>
-<p>The means are ordered from smallest to largest, which means we can forget about ‘None,’ ‘Linseed’ and ‘Sizefast’ treatments for a moment—if they are not significantly different from ‘Allvit’ they can’t be significantly different from one another.</p>
-<p>We move on to ‘Earlybird,’ but now, we <em>work back down</em> the treatments to see if we can define another overlapping group of means that are not significantly different from one another. When we do this, we find that ‘Earlybird’ is not significantly different from ‘Linseed’ and ‘Sizefast,’ but that it is significantly different from ‘None.’ This forms a second ‘not significantly different’ group. We will denote this with a new letter (‘a’) in our table:</p>
+<p>The ‘b’ defines a group of treatment means—‘Allvit’, ‘None’, ‘Linseed’ and ‘Sizefast’—which are not significantly different from one another. It doesn’t matter which letter we use by the way (the reason for using ‘b’ here will become apparent in a moment).</p>
+<p>The means are ordered from smallest to largest, which means we can forget about ‘None’, ‘Linseed’ and ‘Sizefast’ treatments for a moment—if they are not significantly different from ‘Allvit’ they can’t be significantly different from one another.</p>
+<p>We move on to ‘Earlybird’, but now, we <em>work back down</em> the treatments to see if we can define another overlapping group of means that are not significantly different from one another. When we do this, we find that ‘Earlybird’ is not significantly different from ‘Linseed’ and ‘Sizefast’, but that it is significantly different from ‘None’. This forms a second ‘not significantly different’ group. We will denote this with a new letter (‘a’) in our table:</p>
 <table>
 <tbody>
 <tr class="odd">
@@ -793,16 +793,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>If there were additional treatments with a mean that was greater than ‘Earlybird,’ we would have to carry on this process, <em>working back up</em> from ‘Earlybird.’ Thankfully, there are no more treatments, so we are finished.</p>
+<p>If there were additional treatments with a mean that was greater than ‘Earlybird’, we would have to carry on this process, <em>working back up</em> from ‘Earlybird’. Thankfully, there are no more treatments, so we are finished.</p>
 <p>This leaves us with a concise and complete summary of where the differences between treatments are, which greatly simplifies the task of interpreting the results. Treatment labels that share a letter represent sets of means that are not different from each other. Treatments that are not linked by one or more shared letters are significantly different.</p>
-<div id="significant-anova-but-no-differences-in-a-tukey-test" class="section level4 unnumbered infobox warning">
-<h4>Significant ANOVA but no differences in a Tukey test?</h4>
+<div id="significant-anova-but-no-differences-in-a-tukey-test" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Significant ANOVA but no differences in a Tukey test?<a href="multiple-comparison-tests-chapter.html#significant-anova-but-no-differences-in-a-tukey-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>ANOVA and the Tukey HSD test are different tests, with different goals. Because of this, it is possible to end up with a significant result from ANOVA, indicating at least one difference between means, but fail to get any differences detected by the Tukey test. This situation can arise when there are many group means being compared and the ANOVA result is marginal (close to <em>p</em> = 0.05).</p>
 <p>When this happens, there isn’t much we can do except make the best interpretation we can from inspecting the data, and be suitably cautious in the conclusions we draw. It might be tempting to run a new <em>post hoc</em> analysis using a different kind of test. Don’t do this. It is a terrible strategy for doing statistics because this kind of practise is guaranteed to increase the chances of finding a false positive.</p>
 </div>
 </div>
-<div id="doing-it-the-easy-way" class="section level3" number="16.2.2">
-<h3><span class="header-section-number">16.2.2</span> Doing it the easy way…</h3>
+<div id="doing-it-the-easy-way" class="section level3 hasAnchor" number="16.2.2">
+<h3><span class="header-section-number">16.2.2</span> Doing it the easy way…<a href="multiple-comparison-tests-chapter.html#doing-it-the-easy-way" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The results table we produced is concise and complete but no reasonable person would say it was easy to arrive at. Fortunately, someone has written an R function to do this for us. It isn’t part of ‘base R’ though, so we have to install a package to use it. The package we need is called <code>agricolae</code>:</p>
 <div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="multiple-comparison-tests-chapter.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;agricolae&quot;</span>)</span></code></pre></div>
 <p>Once this has been installed and then loaded, we can use its <code>HSD.test</code> function to find the ‘not significantly different’ groups via a Tukey HSD test:</p>
@@ -840,8 +840,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So, there is no need to build these Tukey HSD tables by hand. Use the <code>HSD.test</code> function in the <code>agricolae</code> package instead. Why did we do it the long way first? Well, the usual reasoning applies: it helps us understand how the ‘letters notation’ works.</p>
 </div>
 </div>
-<div id="summarise" class="section level2" number="16.3">
-<h2><span class="header-section-number">16.3</span> Summarising and presenting the results of a Tukey test</h2>
+<div id="summarise" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> Summarising and presenting the results of a Tukey test<a href="multiple-comparison-tests-chapter.html#summarise" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As with any statistical test it will usually be necessary to summarise the Tukey HSD test in a written form. This gets quite complicated when both the global significance test and the multiple comparisons tests need to be presented. In most cases, it is best to summarise the ANOVA results and concentrate on those comparisons that relate to the original hypothesis we were interested in. Then, refer to a table or figure for the additional detail. For example…</p>
 <blockquote>
 <p>There was a significant effect of supplement on the weight gain of hatchlings (ANOVA: F=5.1; d.f.= 4,35; p&lt;0.01) (Figure 1). The only supplement that led to a significantly higher rate of weight gain than the control group was Earlybird (Tukey multiple comparisons test, p &lt; 0.05).</p>
@@ -898,8 +898,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="12">
-<li id="fn12"><p>N.B. Try to avoid a common mistake: it is <em>Tukey</em>, after its originator, the statistician Prof. John Tukey, not Turkey, a large domesticated bird which has made no useful contributions to statistical theory or practice.<a href="multiple-comparison-tests-chapter.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<ol start="11">
+<li id="fn11"><p>N.B. Try to avoid a common mistake: it is <em>Tukey</em>, after its originator, the statistician Prof. John Tukey, not Turkey, a large domesticated bird which has made no useful contributions to statistical theory or practice.<a href="multiple-comparison-tests-chapter.html#fnref11" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -968,7 +968,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

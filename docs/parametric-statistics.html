@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 Parametric statistics | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 Parametric statistics | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="hypotheses-and-p-values.html"/>
 <link rel="next" href="one-sample-t-tests.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,21 +605,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="parametric-statistics" class="section level1" number="8">
-<h1><span class="header-section-number">Chapter 8</span> Parametric statistics</h1>
-<div id="introduction" class="section level2" number="8.1">
-<h2><span class="header-section-number">8.1</span> Introduction</h2>
-<p>The majority of statistical tools used in this book share one important feature—they are underpinned by a mathematical model of some kind. Because a mathematical model lurks in the background, this particular flavour of statistics called <strong>parametric statistics</strong>. In this context, the word ‘parametric’ refers to the fact that a mathematical model’s behaviour depends on one or more quantities known as ‘parameters.’</p>
+<div id="parametric-statistics" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> Parametric statistics<a href="parametric-statistics.html#parametric-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Introduction<a href="parametric-statistics.html#introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The majority of statistical tools used in this book share one important feature—they are underpinned by a mathematical model of some kind. Because a mathematical model lurks in the background, this particular flavour of statistics called <strong>parametric statistics</strong>. In this context, the word ‘parametric’ refers to the fact that a mathematical model’s behaviour depends on one or more quantities known as ‘parameters’.</p>
 <p>We are <strong>not</strong> going to study the mathematical details of these models. However, it is important to understand the <strong>assumptions</strong> underlying a statistical model. Assumptions are the aspects of a system that we accept as true, or at least nearly true. If our assumptions are not reasonable, we can’t be sure that the results of our analysis (e.g. a statistical test) will be reliable. We always need to evaluate the assumptions of an analysis to determine whether or not we trust it.</p>
-<p>Ultimately, we want to understand, in approximate terms, how a model and its assumptions lead to a particular statistical test. We have already explored aspects of this process in the last few chapters, such as sampling variation, null distributions, and <em>p</em>-values. By thinking about models and their assumptions we can connect these abstract ideas to the practical side of ‘doing statistics.’ Our goal in this chapter is to introduce a few more concepts required to make these connections.</p>
+<p>Ultimately, we want to understand, in approximate terms, how a model and its assumptions lead to a particular statistical test. We have already explored aspects of this process in the last few chapters, such as sampling variation, null distributions, and <em>p</em>-values. By thinking about models and their assumptions we can connect these abstract ideas to the practical side of ‘doing statistics’. Our goal in this chapter is to introduce a few more concepts required to make these connections.</p>
 </div>
-<div id="math-models" class="section level2" number="8.2">
-<h2><span class="header-section-number">8.2</span> Mathematical models</h2>
+<div id="math-models" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Mathematical models<a href="parametric-statistics.html#math-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A mathematical model is a description of a system using the language and concepts of mathematics. That ‘system’ could be more or less anything scientists study—the movement of planets in a solar system, the carbon cycle of our planet, changes in abundance and distribution of a species, the development of an organ, or the spread of a plasmid conferring antibiotic resistance.</p>
 <p>In the frequentist world, a statistical model is a type of mathematical model that describes how samples of data are generated from a hypothetical population. We’re only going to consider only a small subset of the huge array of statistical models people routinely use. Conceptually, the parametric models we use in this book describe data in terms of a <strong>systematic component</strong> and a <strong>random component</strong>:</p>
 <p><span class="math display">\[\text{Observed Data} = \text{Systematic Component} + \text{Random Component}\]</span> What are these two components?</p>
 <ul>
-<li><p>The systematic component of a model describes the structure, or the relationships, in the data. When people refer to ‘the model,’ this is the bit they usually care about.</p></li>
+<li><p>The systematic component of a model describes the structure, or the relationships, in the data. When people refer to ‘the model’, this is the bit they usually care about.</p></li>
 <li><p>The random component captures the leftover “noise” in the data. This is essentially the part of the data that the systematic component of the model fails to describe.</p></li>
 </ul>
 <p>This is best understood by example. In what follows, we’re going to label the individual values in the sample <span class="math inline">\(y_i\)</span>. The <span class="math inline">\(i\)</span> in this label indexes the individual values; it takes values 1, 2, 3, 4, … and so on. We can think of the collection of the <span class="math inline">\(y_i\)</span>’s as the variable we’re interested in.</p>
@@ -636,8 +636,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>These two descriptions have not yet completely specified our example models. We need to make one more assumption to complete them. The values of the <span class="math inline">\(\epsilon_i\)</span> differ from one observation to the next because they describe the noise in the system. For this reason, <span class="math inline">\(\epsilon_i\)</span> is thought of as a statistical variable, which means we also need to specify its <em>distribution</em>.</p>
 <p>What is missing from our description so far is, therefore, a statement about the distribution of the <span class="math inline">\(\epsilon_i\)</span>. We need to formally set out what kinds of values it is allowed to take and how likely those different values are. The distributional assumption is almost always the same in this book: we assume that the <span class="math inline">\(\epsilon_i\)</span> are drawn from a <strong>normal distribution</strong>.</p>
 </div>
-<div id="parametric-stats" class="section level2" number="8.3">
-<h2><span class="header-section-number">8.3</span> The normal distribution</h2>
+<div id="parametric-stats" class="section level2 hasAnchor" number="8.3">
+<h2><span class="header-section-number">8.3</span> The normal distribution<a href="parametric-statistics.html#parametric-stats" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Most people have encountered the normal distribution at one point or another, even if they didn’t realise it at the time. Here is a histogram of 100000 values drawn from a normal distribution:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:norm-dist-eg"></span>
 <img src="intro-bio-stats-book_files/figure-html/norm-dist-eg-1.png" alt="Distribution of a large sample of normally distributed variable" width="60%" />
@@ -645,7 +645,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 8.1: Distribution of a large sample of normally distributed variable
 </p>
 </div>
-<p>Does that look familiar? The normal distribution is sometimes called the ‘Gaussian distribution,’ or more colloquially, the ‘bell-shaped curve.’ We don’t have time in this book to study this distribution in any detail. Instead, we’ll simply list some key facts about the normal distribution that relate to the statistical models we’ll be using later on:</p>
+<p>Does that look familiar? The normal distribution is sometimes called the ‘Gaussian distribution’, or more colloquially, the ‘bell-shaped curve’. We don’t have time in this book to study this distribution in any detail. Instead, we’ll simply list some key facts about the normal distribution that relate to the statistical models we’ll be using later on:</p>
 <ol style="list-style-type: decimal">
 <li><p>The normal distribution is appropriate for numeric variables measured on an interval or ratio scale. Strictly speaking, the variable should also be continuous, though a normal distribution can provide a decent approximation for some kinds of discrete numeric data.</p></li>
 <li><p>The normal distribution is completely described by its mean (its central tendency) and its standard deviation (its dispersion). If we know these two quantities for a particular normal distribution, we know everything there is to know about that distribution.</p></li>
@@ -653,19 +653,19 @@ Figure 8.1: Distribution of a large sample of normally distributed variable
 <li><p>When we add or subtract two normally distributed variables to create a new variable, the resulting variable will also be normally distributed. Similarly, if we multiply a normally distributed by a number to create a new variable, the resulting variable will still be normally distributed.</p></li>
 </ol>
 <p>The mathematical properties of the normal distribution are very well understood. This has made it possible for mathematicians to determine how the sampling distribution of means and variances behaves when the underlying variables are normally distributed. This knowledge underpins many of the statistical tests we use in this book.</p>
-<div id="standard-error-of-the-mean" class="section level3" number="8.3.1">
-<h3><span class="header-section-number">8.3.1</span> Standard error of the mean</h3>
+<div id="standard-error-of-the-mean" class="section level3 hasAnchor" number="8.3.1">
+<h3><span class="header-section-number">8.3.1</span> Standard error of the mean<a href="parametric-statistics.html#standard-error-of-the-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s consider a simple example. We want to estimate the standard error associated with a sample mean. If we’re happy to assume that the sample was drawn from a normal distribution, then there’s no need to resort to computationally expensive techniques like bootstrapping to work this out.</p>
 <p>There is a well-known formula for calculating the standard error once we assume normality. If <span class="math inline">\(s^2\)</span> is the variance of the sample, and <span class="math inline">\(n\)</span> is the sample size, the standard error is given by:</p>
 <p><span class="math display">\[\text{Standard error of the mean} = \sqrt{\frac{s^2}{n}}\]</span></p>
 <p>That’s it, if we know the variance and the size of a sample, it’s easy to estimate the standard error of its mean <em>if we’re happy to assume the sample came from a normally distributed variable</em><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>.</p>
 <p>In fact, as a result of rule #4 above, we can calculate the standard error of <em>any quantity</em> that involves adding or subtracting the means of samples drawn from normal distributions.</p>
 </div>
-<div id="the-t-distribution" class="section level3" number="8.3.2">
-<h3><span class="header-section-number">8.3.2</span> The <em>t</em> distribution</h3>
+<div id="the-t-distribution" class="section level3 hasAnchor" number="8.3.2">
+<h3><span class="header-section-number">8.3.2</span> The <em>t</em> distribution<a href="parametric-statistics.html#the-t-distribution" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The normal distribution is usually the first distribution people learn about in a statics course. The reasons for this are:</p>
 <ul>
-<li>it crops up a lot as a consequence of something called ‘the central limit theorem,’ and</li>
+<li>it crops up a lot as a consequence of something called ‘the central limit theorem’, and</li>
 <li>many other important distributions are related to the normal distribution in some way.</li>
 </ul>
 <p>We’re not going to worry about the central limit theorem here. However, we do need to consider one more distribution. One of the most important of those ‘other distributions’ is Student’s <em>t</em>-distribution<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>.</p>
@@ -677,7 +677,7 @@ Figure 8.1: Distribution of a large sample of normally distributed variable
 </ul>
 <p>The sampling distribution of this new quantity has a particular form. It follows a Student’s <em>t</em>-distribution.</p>
 <p>Student’s <em>t</em>-distribution arises all the time in relation to means. For example, what happens if we take samples from a pair of normal distributions, calculate the difference between their estimated means, and then divide this difference by its standard error? The sampling distribution of the scaled difference between means also follows a Student’s <em>t</em>-distribution.</p>
-<p>Because it involves rescaling a mean by its standard error, the form of a <em>t</em>-distribution only depends on one thing: the sample size. This may not sound like an important result, but it really is, because it allows us to construct simple statistical tests to evaluate differences between means. We’ll be relying on this result in the next two chapters as we learn about so-called ‘<em>t</em>-tests.’</p>
+<p>Because it involves rescaling a mean by its standard error, the form of a <em>t</em>-distribution only depends on one thing: the sample size. This may not sound like an important result, but it really is, because it allows us to construct simple statistical tests to evaluate differences between means. We’ll be relying on this result in the next two chapters as we learn about so-called ‘<em>t</em>-tests’.</p>
 
 </div>
 </div>
@@ -686,7 +686,7 @@ Figure 8.1: Distribution of a large sample of normally distributed variable
 <hr />
 <ol start="1">
 <li id="fn1"><p>In fact, the equation for the standard error of a mean applies when we have a big sample, even if that sample did not come from a normally distributed variable. This result is a consequence of that ‘the central limit theorem’ mentioned in this chapter.<a href="parametric-statistics.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Why is it called Student’s <em>t</em>? The <em>t</em>-distribution was discovered by W.G. Gosset, a statistician employed by the Guinness Brewery. He published his statistical work under the pseudonym of ‘Student,’ because Guinness would have claimed ownership of his work if he had used his real name.<a href="parametric-statistics.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Why is it called Student’s <em>t</em>? The <em>t</em>-distribution was discovered by W.G. Gosset, a statistician employed by the Guinness Brewery. He published his statistical work under the pseudonym of ‘Student’, because Guinness would have claimed ownership of his work if he had used his real name.<a href="parametric-statistics.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -755,7 +755,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

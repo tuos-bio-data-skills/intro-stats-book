@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 9 One sample t-tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 9 One sample t-tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="parametric-statistics.html"/>
 <link rel="next" href="two-sample-t-test.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,10 +605,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="one-sample-t-tests" class="section level1" number="9">
-<h1><span class="header-section-number">Chapter 9</span> One sample <em>t</em>-tests</h1>
-<div id="when-do-we-use-a-one-sample-t-test" class="section level2" number="9.1">
-<h2><span class="header-section-number">9.1</span> When do we use a one-sample <em>t</em>-test?</h2>
+<div id="one-sample-t-tests" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapter 9</span> One sample <em>t</em>-tests<a href="one-sample-t-tests.html#one-sample-t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="when-do-we-use-a-one-sample-t-test" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> When do we use a one-sample <em>t</em>-test?<a href="one-sample-t-tests.html#when-do-we-use-a-one-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The one-sample <em>t</em>-test is a very simple statistical test. It is used when we have a sample of a numeric variable and we want to compare its population mean to a particular value. The one-sample <em>t</em>-test evaluates whether the population mean is likely to be different from this value. The expected value could be any value we are interested in. Here are a couple of specific examples:</p>
 <ul>
 <li><p>We have developed a theoretical model of foraging behaviour that predicts an animal should leave a food patch after 10 minutes. Suppose we have data on the actual time spent by 25 animals observed foraging in the patch. In that case, we could test whether the mean foraging time is ‘significantly different’ from the prediction using a one-sample <em>t</em>-test.</p></li>
@@ -616,8 +616,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Let’s see if we can get a sense of how these tests would work.</p>
 </div>
-<div id="how-does-the-one-sample-t-test-work" class="section level2" number="9.2">
-<h2><span class="header-section-number">9.2</span> How does the one-sample <em>t</em>-test work?</h2>
+<div id="how-does-the-one-sample-t-test-work" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> How does the one-sample <em>t</em>-test work?<a href="one-sample-t-tests.html#how-does-the-one-sample-t-test-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Imagine we have taken a sample of some variable, and we want to evaluate whether its mean is different from some number (the ‘expected value’).</p>
 <p>Here’s an example of what these data might look like if we had used a sample size of 50:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:one-t-eg-samps"></span>
@@ -629,7 +629,7 @@ Figure 9.1: Example of data used in a one-sample t-test
 <p>We’re calling the variable ‘X’ in this example. It needs a label, and ‘X’ is as good as any other. The red line shows the sample mean. This is a bit less than 11. The blue line shows the expected value. This is 10, so this example could correspond to the foraging study mentioned above.</p>
 <p>The observed sample mean is about one unit larger than the expected value. How do we decide whether the population mean is really different from the expected value? Perhaps the difference between the observed and expected value is due to sampling variation. Here’s how a frequentist tackles this kind of question:</p>
 <ol style="list-style-type: decimal">
-<li><p>Set up an appropriate null hypothesis, i.e. an hypothesis of ‘no effect’ or ‘no difference.’ The null hypothesis in this type of question is that <em>the population mean is equal to the expected value</em>.</p></li>
+<li><p>Set up an appropriate null hypothesis, i.e. an hypothesis of ‘no effect’ or ‘no difference’. The null hypothesis in this type of question is that <em>the population mean is equal to the expected value</em>.</p></li>
 <li><p>Work out what the sampling distribution of a sample mean looks like under the null hypothesis. This is the null distribution. Because we’re now using a parametric approach, we will assume this has a particular form.</p></li>
 <li><p>Finally, we use the null distribution to assess how likely the observed result is under the null hypothesis. This is the <em>p</em>-value calculation that we use to summarise our test.</p></li>
 </ol>
@@ -645,8 +645,8 @@ Figure 9.1: Example of data used in a one-sample t-test
 <p>If our normality assumption is reasonable, this test-statistic follows a <em>t</em>-distribution. This is guaranteed by the normality assumption. So this particular test statistic is also a <em>t</em>-statistic. That’s why we label it <em>t</em>. This knowledge leads to the final step…</p>
 <p><strong>Step 4.</strong> Compare the <em>t</em>-statistic to the theoretical predictions of the <em>t</em>-distribution to assess the statistical significance of the difference between observed and expected value. We calculate the probability that we would have observed a difference with a magnitude as large as, or larger than, the observed difference, if the null hypothesis were true. That’s the <em>p</em>-value for the test.</p>
 <p>We could step through the actual calculations involved in these steps in detail, using R to help us, but there’s no need to do this. We can let R handle everything for us. But first, we should review the assumptions of the one-sample <em>t</em>-test.</p>
-<div id="assumptions-of-the-one-sample-t-test" class="section level3" number="9.2.1">
-<h3><span class="header-section-number">9.2.1</span> Assumptions of the one-sample <em>t</em>-test</h3>
+<div id="assumptions-of-the-one-sample-t-test" class="section level3 hasAnchor" number="9.2.1">
+<h3><span class="header-section-number">9.2.1</span> Assumptions of the one-sample <em>t</em>-test<a href="one-sample-t-tests.html#assumptions-of-the-one-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Several assumptions need to be met in order for a one-sample <em>t</em>-test to be valid. Some of these are more important than others. We’ll start with the most important and work down the list in reverse order of importance:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Independence.</strong> In rough terms, independence means each observation in the sample does not ‘depend on’ the others. We’ll discuss this more carefully when we consider the <a href="#experimental-design">principles of experimental design</a>. The key thing to know now is why this assumption matters: if the data are not independent, the <em>p</em>-values generated by the one-sample <em>t</em>-test will be unreliable.</li>
@@ -658,14 +658,14 @@ Figure 9.1: Example of data used in a one-sample t-test
 </ol>
 <p>We don’t have the time to explain why the normality assumption is not too important for large samples, but we can at least state the reason: it is a consequence of that central limit theorem we mentioned in the last chapter.</p>
 </div>
-<div id="evaluating-the-assumptions" class="section level3" number="9.2.2">
-<h3><span class="header-section-number">9.2.2</span> Evaluating the assumptions</h3>
+<div id="evaluating-the-assumptions" class="section level3 hasAnchor" number="9.2.2">
+<h3><span class="header-section-number">9.2.2</span> Evaluating the assumptions<a href="one-sample-t-tests.html#evaluating-the-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first two assumptions—independence and measurement scale—are aspects of experimental design. We can only evaluate these by thinking carefully about how the data were gathered and what was measured. It’s too late to do anything about these after we have collected our data.</p>
 <p>What about that 3<sup>rd</sup> assumption—normality? One way to evaluate this is by visualising the sample distribution. For small samples, if the sample distribution looks approximately normal then it’s probably fine to use the <em>t</em>-test. For large samples, we don’t even need to worry about a moderate departure from normality<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>.</p>
 </div>
 </div>
-<div id="carrying-out-a-one-sample-t-test-in-r" class="section level2" number="9.3">
-<h2><span class="header-section-number">9.3</span> Carrying out a one-sample <em>t</em>-test in R</h2>
+<div id="carrying-out-a-one-sample-t-test-in-r" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> Carrying out a one-sample <em>t</em>-test in R<a href="one-sample-t-tests.html#carrying-out-a-one-sample-t-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="section-3" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>As usual, a good way to understand what follows is by working through the example. Remember, the code again assumes that ‘MORPH_DATA.CSV’ has been read into a tibble called <code>morph_data</code>.</p>
@@ -676,8 +676,8 @@ Figure 9.1: Example of data used in a one-sample t-test
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="one-sample-t-tests.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># get just the purple morphs</span></span>
 <span id="cb42-2"><a href="one-sample-t-tests.html#cb42-2" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="ot">&lt;-</span> <span class="fu">filter</span>(morph_data, Colour <span class="sc">==</span> <span class="st">&quot;Purple&quot;</span>)</span></code></pre></div>
 <p>The <code>purple_morphs</code> data set has two columns: <code>Weight</code> contains the dry weight biomass of purple plants, and <code>Colour</code> indicates which sample (plant morph) an observation belongs to. We don’t need the <code>Colour</code> column anymore because we’ve just removed all the green plants, but there’s no harm in leaving it in.</p>
-<div id="visualising-the-data-and-checking-the-assumptions" class="section level3" number="9.3.1">
-<h3><span class="header-section-number">9.3.1</span> Visualising the data and checking the assumptions</h3>
+<div id="visualising-the-data-and-checking-the-assumptions" class="section level3 hasAnchor" number="9.3.1">
+<h3><span class="header-section-number">9.3.1</span> Visualising the data and checking the assumptions<a href="one-sample-t-tests.html#visualising-the-data-and-checking-the-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We start by calculating a few summary statistics and visualising the sample distribution of purple morph dry weights. That’s right… always check the data before carrying out a statistical analysis! We already looked over these data in the <a href="statistical-comparisons.html#statistical-comparisons">Statistical comparisons</a> chapter. However, we’ll proceed as though this is the first time we’ve seen them to demonstrate a complete workflow.</p>
 <p>Here is the <strong>dplyr</strong> code to produce the descriptive statistics:</p>
 <div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="one-sample-t-tests.html#cb43-1" aria-hidden="true" tabindex="-1"></a>purple_morphs <span class="sc">%&gt;%</span> </span>
@@ -699,8 +699,8 @@ Figure 9.2: Size distributions of purple morph dry weight sample
 </div>
 <p>These is nothing too ‘non-normal’ about this sample distribution—it’s roughly bell-shaped—so it seems reasonable to assume it came from normally distributed population.</p>
 </div>
-<div id="carrying-out-the-test" class="section level3" number="9.3.2">
-<h3><span class="header-section-number">9.3.2</span> Carrying out the test</h3>
+<div id="carrying-out-the-test" class="section level3 hasAnchor" number="9.3.2">
+<h3><span class="header-section-number">9.3.2</span> Carrying out the test<a href="one-sample-t-tests.html#carrying-out-the-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s easy to carry out a one-sample <em>t</em>-test in R. We use a function called <code>t.test</code> (no surprises there). Remember, <code>Weight</code> contains the dry weight biomass of purple plants. Here’s the R code to carry out a one-sample <em>t</em>-test:</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="one-sample-t-tests.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(purple_morphs<span class="sc">$</span>Weight, <span class="at">mu =</span> <span class="dv">710</span>)</span></code></pre></div>
 <p>We have suppressed the output because we initially want to focus on how to use the <code>t.test</code> function. We have to assign two arguments to control what the function does:</p>
@@ -722,19 +722,19 @@ Figure 9.2: Size distributions of purple morph dry weight sample
 ## mean of x 
 ##  766.5638</code></pre>
 <p>The first line tells us what kind of <em>t</em>-test we used. This says: <code>One Sample t-test</code>. OK, now we know that we used the one-sample <em>t</em>-test (there are other kinds). The next line reminds us about the data. This says: <code>data:  purple_morphs$Weight</code>, which is R-speak for ’we compared the mean of the <code>Weight</code> variable to an expected value. Which value? This is given later.</p>
-<p>The third line of text is the most important. This says: <code>t = 3.1811, df = 76, p-value = 0.002125</code>. The first part of this, <code>t = 3.1811</code>, is the test statistic, i.e. the value of the <em>t</em>-statistic. The second part, <code>df = 76</code>, summarise the ‘degrees of freedom.’ This is required to work out the <em>p</em>-value. It also tells us something about how much ‘power’ our statistical test has (see the box below). The third part, <code>p-value = 0.002125</code>, is the all-important <em>p</em>-value.</p>
-<p>That <em>p</em>-value indicates a statistically significant difference between the mean dry weight biomass and the expected value of 710 g (<em>p</em> is less than 0.05). Because the <em>p</em>-value is less than 0.01 but greater than 0.001, we report this as ‘<em>p</em> &lt; 0.01.’ Read through the <a href="hypotheses-and-p-values.html#presenting-p-values">Presenting <em>p</em>-values</a> section again if this logic is confusing.</p>
+<p>The third line of text is the most important. This says: <code>t = 3.1811, df = 76, p-value = 0.002125</code>. The first part of this, <code>t = 3.1811</code>, is the test statistic, i.e. the value of the <em>t</em>-statistic. The second part, <code>df = 76</code>, summarise the ‘degrees of freedom’. This is required to work out the <em>p</em>-value. It also tells us something about how much ‘power’ our statistical test has (see the box below). The third part, <code>p-value = 0.002125</code>, is the all-important <em>p</em>-value.</p>
+<p>That <em>p</em>-value indicates a statistically significant difference between the mean dry weight biomass and the expected value of 710 g (<em>p</em> is less than 0.05). Because the <em>p</em>-value is less than 0.01 but greater than 0.001, we report this as ‘<em>p</em> &lt; 0.01’. Read through the <a href="hypotheses-and-p-values.html#presenting-p-values">Presenting <em>p</em>-values</a> section again if this logic is confusing.</p>
 <p>The fourth line of text (<code>alternative hypothesis: true mean is not equal to 710</code>) tells us the alternative to the null hypothesis (H<sub>1</sub>). More importantly, this reminds us which expected value was used to formulate the null hypothesis (mean = 710).</p>
 <p>The next two lines show us the ‘95% confidence interval’ for the difference between the means. We don’t need this information now, but we can think of this interval as a rough summary of the likely values of the ‘true’ mean<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>.</p>
 <p>The last few lines summarise the sample mean. This might be useful if we had not already calculated.</p>
-<div id="a-bit-more-about-degrees-of-freedom" class="section level4 unnumbered infobox information">
-<h4>A bit more about degrees of freedom</h4>
+<div id="a-bit-more-about-degrees-of-freedom" class="section level4 unnumbered hasAnchor infobox information">
+<h4>A bit more about degrees of freedom<a href="one-sample-t-tests.html#a-bit-more-about-degrees-of-freedom" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Degrees of freedom (abbreviated d.f. or df) are closely related to the idea of sample size. The greater the degrees of freedom associated with a test, the more likely it is to detect an effect if it’s present. To calculate the degrees of freedom, we start with the sample size, and then reduce this number by one for every quantity (e.g. a mean) we had to calculate to construct the test.</p>
 <p>Calculating degrees of freedom for a one-sample <em>t</em>-test is easy. The degrees of freedom are just n-1, where n is the number of observations in the sample. We lose one degree of freedom because we have to calculate one sample mean to construct the test.</p>
 </div>
 </div>
-<div id="summarising-the-result" class="section level3" number="9.3.3">
-<h3><span class="header-section-number">9.3.3</span> Summarising the result</h3>
+<div id="summarising-the-result" class="section level3 hasAnchor" number="9.3.3">
+<h3><span class="header-section-number">9.3.3</span> Summarising the result<a href="one-sample-t-tests.html#summarising-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Having obtained the result, we now need to write our conclusion. We are testing a scientific hypothesis, so we must always return to the original question to write the conclusion. In this case, the appropriate conclusion is:</p>
 <blockquote>
 <p>The mean dry weight biomass of purple plants is significantly different from the expectation of 710 grams (<em>t</em> = 3.18, d.f. = 76, <em>p</em> &lt; 0.01).</p>
@@ -751,8 +751,8 @@ Figure 9.2: Size distributions of purple morph dry weight sample
 <li><p><strong>Upper or lower case</strong> The <em>t</em> statistic should always be written as lower case when writing it in a report (as in the conclusions above). Similarly, d.f. and <em>p</em> are always best as lower case. Some statistics we encounter later are written in upper case, but even with these, d.f. and <em>p</em> should be lower case.</p></li>
 <li><p><strong>How should I present <em>p</em>?</strong> There are various conventions in use for presenting <em>p</em>-values. We discussed these in the <a href="hypotheses-and-p-values.html#hypotheses-and-p-values">Hypotheses and <em>p</em>-values</a> chapter. Learn them! It’s not possible to understand scientific papers or prepare reports properly without knowing these conventions.</p></li>
 </ol>
-<div id="p-0.00-its-impossible-p-1e-16-whats-that" class="section level4 unnumbered infobox warning">
-<h4>p = 0.00? It’s impossible! p = 1e-16? What’s that?</h4>
+<div id="p-0.00-its-impossible-p-1e-16-whats-that" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>p = 0.00? It’s impossible! p = 1e-16? What’s that?<a href="one-sample-t-tests.html#p-0.00-its-impossible-p-1e-16-whats-that" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Some statistics packages will sometimes give a probability of <em>p</em> = 0.00. This does not mean the probability was really zero. A probability of zero would mean an outcome was impossible, even though it happened! When a computer package reports <em>p</em> = 0.00 it just means that the probability was ‘very small’ and ended up being rounded down to 0.</p>
 <p>R typically uses a slightly different convention for presenting small probabilities. A very small probability is given as <code>p-value &lt; 2.2e-16</code>. What does 2.2e-16 mean? This is R-speak for scientific notation, i.e. <span class="math inline">\(2.2e^{-16}\)</span> is equivalent to <span class="math inline">\(2.2 \times 10^{-16}\)</span>.</p>
 <p>It is fine to report a result like this as <em>p</em> &lt; 0.001; definitely do not write something like <em>p</em> = 2.2e-16.</p>
@@ -834,7 +834,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

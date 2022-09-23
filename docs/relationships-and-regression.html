@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 12 Relationships and regression | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 12 Relationships and regression | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="correlation-tests.html"/>
 <link rel="next" href="regression-in-R.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,10 +605,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="relationships-and-regression" class="section level1" number="12">
-<h1><span class="header-section-number">Chapter 12</span> Relationships and regression</h1>
-<div id="introduction-1" class="section level2" number="12.1">
-<h2><span class="header-section-number">12.1</span> Introduction</h2>
+<div id="relationships-and-regression" class="section level1 hasAnchor" number="12">
+<h1><span class="header-section-number">Chapter 12</span> Relationships and regression<a href="relationships-and-regression.html#relationships-and-regression" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="introduction-1" class="section level2 hasAnchor" number="12.1">
+<h2><span class="header-section-number">12.1</span> Introduction<a href="relationships-and-regression.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Much of biology is concerned with relationships between numeric variables. For example:</p>
 <ul>
 <li>We sample fish and measure their length and weight because we want to understand how weight changes with length.</li>
@@ -634,27 +634,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We might not be very confident in judging which, if either, of these plots provides evidence of a positive relationship between the two variables. Maybe the pattern we perceive can just be explained by sampling variation, or perhaps it can’t. We need a procedure—a statistical test—to evaluate how likely the relationship could have arisen as a result of sampling variation. In addition to judging the statistical significance of a relationship, we may also be interested in describing the relationship mathematically – i.e. finding the equation of the best fitting line through the data.</p>
 <p>A linear regression analysis allows us to do all this.</p>
 </div>
-<div id="what-does-linear-regression-do" class="section level2" number="12.2">
-<h2><span class="header-section-number">12.2</span> What does linear regression do?</h2>
+<div id="what-does-linear-regression-do" class="section level2 hasAnchor" number="12.2">
+<h2><span class="header-section-number">12.2</span> What does linear regression do?<a href="relationships-and-regression.html#what-does-linear-regression-do" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Simple linear regression</strong> allows us to <em>predict</em> how one variable (the <strong>response variable</strong>) <em>responds</em> or <em>depends</em> on to another (the <strong>predictor variable</strong>), assuming a straight-line relationship.</p>
 <ul>
-<li><p>What does the word ‘simple’ mean here? Simple linear regression is a regression model which only accounts for one predictor variable. If more than one predictor variable is considered, the correct term to describe the resulting model is ‘multiple regression.’ Multiple regression is a very useful tool, but we’re only going to study simple regression in this book.</p></li>
+<li><p>What does the word ‘simple’ mean here? Simple linear regression is a regression model which only accounts for one predictor variable. If more than one predictor variable is considered, the correct term to describe the resulting model is ‘multiple regression’. Multiple regression is a very useful tool, but we’re only going to study simple regression in this book.</p></li>
 <li><p>What does the word ‘linear’ mean here? In statistics, the word linear is used in two slightly different but closely related ways. When discussing simple linear regression, the term linear is often understood to mean that the relationship follows a straight line. That’s all. The more technical definition concerns the relationship between the parameters of a statistical model. We don’t need to worry about that one here.</p></li>
 </ul>
-<p>Writing ‘simple linear regression’ all the time becomes tedious, so we’ll often write ‘linear regression’ or ‘regression.’ Just keep in mind that we’re always referring to simple linear regression in this book. These regression models account for a straight-line relationship between two numeric variables, i.e. they describe how the response variable changes in response to the values of the predictor variable. It is conventional to label the response variable as ‘<span class="math inline">\(y\)</span>’ and the predictor variable as ‘<span class="math inline">\(x\)</span>.’ When we present such data graphically, the response variable always goes on the <span class="math inline">\(y\)</span>-axis and the predictor variable on the <span class="math inline">\(x\)</span>-axis. Try not to forget this convention!</p>
-<div id="response-predictor-or-dependent-independent" class="section level4 unnumbered infobox information">
-<h4>‘response / predictor’ or ‘dependent / independent?’</h4>
+<p>Writing ‘simple linear regression’ all the time becomes tedious, so we’ll often write ‘linear regression’ or ‘regression’. Just keep in mind that we’re always referring to simple linear regression in this book. These regression models account for a straight-line relationship between two numeric variables, i.e. they describe how the response variable changes in response to the values of the predictor variable. It is conventional to label the response variable as ‘<span class="math inline">\(y\)</span>’ and the predictor variable as ‘<span class="math inline">\(x\)</span>’. When we present such data graphically, the response variable always goes on the <span class="math inline">\(y\)</span>-axis and the predictor variable on the <span class="math inline">\(x\)</span>-axis. Try not to forget this convention!</p>
+<div id="response-predictor-or-dependent-independent" class="section level4 unnumbered hasAnchor infobox information">
+<h4>‘response / predictor’ or ‘dependent / independent’?<a href="relationships-and-regression.html#response-predictor-or-dependent-independent" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Another way to describe linear regression is that it finds the straight-line relationship which best describes the dependence of one variable (the <strong>dependent variable</strong>) on the other (the <strong>independent variable</strong>). The dependent vs. independent and response vs. predictor conventions for variables in a regression are equivalent. They only differ in the words they use to describe the variables involved.</p>
-<p>To avoid confusion, we will stick with response / predictor naming convention in this course.</p>
+<p>To avoid confusion, we will stick with response / predictor naming convention in this book.</p>
 </div>
 <p>How do we decide how to select which is to be used as the response variable and which as the predictor variable? The decision is straightforward in an experimental setting: the manipulated variable is the predictor variable, and the measured outcome is the response variable. Consider the thermal tolerance example from earlier. The temperature was manipulated in that experiment, so it must be designated the predictor variable. Moreover, <em>a priori</em> (before conducting the experiment), we can reasonably suppose that temperature changes may cause changes in enzyme activity, but the reverse seems pretty unlikely.</p>
 <p>Things are not so clear cut when working with data from an observational study. Indeed, the ‘response vs predictor’ naming convention can lead to confusion because the term ‘response variable’ tends to make people think in terms of causal relationships, i.e. that variation in the the predictor somehow <em>causes</em> changes in the response variable. Sometimes that is true, such as in the experimental setting described above. However, deciding to call one variable a response and the other a predictor should not be taken to automatically imply a casual relationship between them.</p>
 <p>Finally, it matters which way round we designate the response and predictor variable in a regression analysis. Suppose we have two variables A and B. In that case, the relationship we find from a regression will not be the same for A against B as for B against A. Choosing which variable to designate as the response boils down to working out which of the variables needs to be explained (response) in terms of the other (predictor).</p>
 </div>
-<div id="how-does-simple-linear-regression-work" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> How does simple linear regression work?</h2>
-<div id="finding-the-best-fit-line" class="section level3" number="12.3.1">
-<h3><span class="header-section-number">12.3.1</span> Finding the best fit line</h3>
+<div id="how-does-simple-linear-regression-work" class="section level2 hasAnchor" number="12.3">
+<h2><span class="header-section-number">12.3</span> How does simple linear regression work?<a href="relationships-and-regression.html#how-does-simple-linear-regression-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="finding-the-best-fit-line" class="section level3 hasAnchor" number="12.3.1">
+<h3><span class="header-section-number">12.3.1</span> Finding the best fit line<a href="relationships-and-regression.html#finding-the-best-fit-line" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we draw a straight line through a set of points on a graph then, unless they form a perfect straight line, some points will lie close to the line and others further away. The vertical distances between the line and each point (i.e. measured parallel to the <span class="math inline">\(y\)</span>-axis) have a special name. They are called the <em>residuals</em>. Here’s a visual example:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:reg-eg-with-resids1"></span>
 <img src="intro-bio-stats-book_files/figure-html/reg-eg-with-resids1-1.png" alt="Example of data (blue points) used in a simple regression. A fitted line and the associated residuals (vertical lines) are also shown" width="384" />
@@ -666,13 +666,13 @@ Figure 12.1: Example of data (blue points) used in a simple regression. A fitted
 <p>Regression works by finding the line which minimises the size of the residuals in some sense. We’ll explain exactly how in a moment. The following illustration indicates the principle of this process:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/reg-eg-four-plots1-1.png" width="70%" style="display: block; margin: auto;" /></p>
 <p>The data are identical in all four graphs, but in the top left-hand graph a horizontal line (i.e. no effect of <span class="math inline">\(x\)</span> on <span class="math inline">\(y\)</span>) has been fitted, while on the remaining three graphs sloping lines of different magnitude have been fitted.</p>
-<div id="which-line-is-best" class="section level4 unnumbered infobox action">
-<h4>Which line is best?</h4>
-<p>One of the four lines is the ‘line of best’ fit from a regression analysis. Spend a few moments looking at the four figures. Which line seems to fit the data best? Why do you think this line is ‘best?’</p>
+<div id="which-line-is-best" class="section level4 unnumbered hasAnchor infobox action">
+<h4>Which line is best?<a href="relationships-and-regression.html#which-line-is-best" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>One of the four lines is the ‘line of best’ fit from a regression analysis. Spend a few moments looking at the four figures. Which line seems to fit the data best? Why do you think this line is ‘best’?</p>
 </div>
 <p>Let’s visualise the data, the candidate lines and the residuals:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/reg-eg-four-plots2-1.png" width="70%" style="display: block; margin: auto;" /></p>
-<p>We said that regression works by finding the intercept and slope that minimises the vertical distances between the line and each observation in some way<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>. In fact, it minimises something called the ‘sum of squares’ of these distances: we calculate a sum of squares for a particular set of observations and a fitted line by squaring the residual distances and adding all of these up. This quantity is called the <strong>residual sum of squares</strong>. The line with the <em>lowest</em> residual sum of squares is the best line because it ‘explains’ the most variation in the response variable.</p>
+<p>We said that regression works by finding the intercept and slope that minimises the vertical distances between the line and each observation in some way<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. In fact, it minimises something called the ‘sum of squares’ of these distances: we calculate a sum of squares for a particular set of observations and a fitted line by squaring the residual distances and adding all of these up. This quantity is called the <strong>residual sum of squares</strong>. The line with the <em>lowest</em> residual sum of squares is the best line because it ‘explains’ the most variation in the response variable.</p>
 <p>You should be able to see that, for the horizontal line (‘A’), the residual sum of squares is larger than any of the other three plots with the sloping lines. This suggests that the sloping lines fit the data better. Which one is best among the three we’ve plotted? To get at this, we need to calculate the residual sum of squares for each line:</p>
 <pre><code>##   Line    Residual Sum of Squares
 ## 1    A                   17.55067
@@ -680,21 +680,21 @@ Figure 12.1: Example of data (blue points) used in a simple regression. A fitted
 ## 3    C                   10.12265
 ## 4    D                   12.79674</code></pre>
 <p>So it looks like the line in panel C is the best fitting line among the candidates. In fact, it is the best fit line among all possible candidates. Did you manage to guess this by looking at the lines and the raw data? If not, think about why you got the answer wrong. Did you consider the vertical distances or the perpendicular distances?</p>
-<div id="know-your-residuals" class="section level4 unnumbered infobox warning">
-<h4>Know your residuals</h4>
+<div id="know-your-residuals" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Know your residuals<a href="relationships-and-regression.html#know-your-residuals" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>It is important to understand what a residual represents. Why? Because they pop up all the time when working with statistical models (not only regression, in fact). It is hard to understand what R is telling you about a model without knowing about these residual things.</p>
 </div>
 </div>
 </div>
-<div id="what-do-you-get-out-of-a-regression" class="section level2" number="12.4">
-<h2><span class="header-section-number">12.4</span> What do you get out of a regression?</h2>
+<div id="what-do-you-get-out-of-a-regression" class="section level2 hasAnchor" number="12.4">
+<h2><span class="header-section-number">12.4</span> What do you get out of a regression?<a href="relationships-and-regression.html#what-do-you-get-out-of-a-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A regression analysis involves two activities:</p>
 <ul>
 <li><p><strong>Interpretation.</strong> When we ‘fit’ a regression model to data we estimate the coefficients of a best-fit straight line through the data. This is the equation that best describes how the <span class="math inline">\(y\)</span> (response) variable <em>responds to</em> the <span class="math inline">\(x\)</span> (predictor) variable. To put it in slightly more technical terms, it describes the <span class="math inline">\(y\)</span> variable as a function of the <span class="math inline">\(x\)</span> variable. This model may be used to understand how the variables are related or make predictions.</p></li>
 <li><p><strong>Inference.</strong> It is not enough to just estimate the regression equation. Before we can use it, we need to determine whether there is a statistically significant relationship between the <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> variables. That is, the analysis will tell us whether an apparent association is likely to be real or just a chance outcome resulting from sampling variation.</p></li>
 </ul>
-<div id="interpreting-a-regression" class="section level3" number="12.4.1">
-<h3><span class="header-section-number">12.4.1</span> Interpreting a regression</h3>
+<div id="interpreting-a-regression" class="section level3 hasAnchor" number="12.4.1">
+<h3><span class="header-section-number">12.4.1</span> Interpreting a regression<a href="relationships-and-regression.html#interpreting-a-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What is the form of the relationship? The equation for a straight-line relationship is <span class="math inline">\(y = a + b \times x\)</span>, where</p>
 <ul>
 <li><p><span class="math inline">\(y\)</span> is the response variable,</p></li>
@@ -706,40 +706,40 @@ Figure 12.1: Example of data (blue points) used in a simple regression. A fitted
 <p><img src="intro-bio-stats-book_files/figure-html/reg-line-explain-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>Having the equation for a relationship allows us to predict the value of the <span class="math inline">\(y\)</span> variable for any value of <span class="math inline">\(x\)</span>. For example, in the thermal tolerance example, we want an equation that will allow us to work out how fitness changes with temperature. Such predictions can be made by hand (see below) or using R (details later).</p>
 <p>In the above diagram, the regression equation is: <span class="math inline">\(y = 1 + 0.66 x\)</span>. So to find the value of <span class="math inline">\(y\)</span> at <span class="math inline">\(x = 2\)</span> we use: <span class="math inline">\(y = 1 + (0.667 \times 2) = 2.32\)</span>. Obviously, by finding <span class="math inline">\(y\)</span> values for 2 (or preferably 3) different <span class="math inline">\(x\)</span> values from the equation, the actual line can easily be plotted on a graph manually if required—plot the values and join the dots! It’s much easier to use R to do this kind of thing though.</p>
-<div id="regression-involves-a-statistical-model" class="section level4 unnumbered infobox information">
-<h4>Regression involves a statistical model</h4>
+<div id="regression-involves-a-statistical-model" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Regression involves a statistical model<a href="relationships-and-regression.html#regression-involves-a-statistical-model" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A simple linear regression is underpinned by a statistical model. If you skim back through the <a href="parametric-statistics.html#parametric-statistics">parametric statistics</a> chapter, you will see that the equation <span class="math inline">\(y = a + b \times x\)</span> represents the ‘systematic component’ of the regression model. This bit describes the component of variation in <span class="math inline">\(y\)</span> that is explained by the model for the dependence of <span class="math inline">\(y\)</span> on <span class="math inline">\(x\)</span>. The residuals correspond to the ‘random component’ of the model. These represent the component of variation in the <span class="math inline">\(y\)</span> variable that our regression model fails to describe.</p>
 </div>
 </div>
-<div id="evaluating-hypotheses-inference" class="section level3" number="12.4.2">
-<h3><span class="header-section-number">12.4.2</span> Evaluating hypotheses (‘inference’)</h3>
+<div id="evaluating-hypotheses-inference" class="section level3 hasAnchor" number="12.4.2">
+<h3><span class="header-section-number">12.4.2</span> Evaluating hypotheses (‘inference’)<a href="relationships-and-regression.html#evaluating-hypotheses-inference" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>More than one kind of significance test can be carried out with a simple linear regression. We’re going to focus on the most common test: an <em>F</em> test of whether the slope coefficient is significantly different from 0. This addresses the important question, “Is there a relationship?”</p>
 <p>How do we do this? We play exactly the same kind of gambit we used to develop the earlier significance tests:</p>
 <ol style="list-style-type: decimal">
-<li><p>We start with a null hypothesis of ‘no effect.’ This corresponds to the hypothesis that the slope of the regression is zero.</p></li>
+<li><p>We start with a null hypothesis of ‘no effect’. This corresponds to the hypothesis that the slope of the regression is zero.</p></li>
 <li><p>We then work out what the distribution of some kind of test statistic should look like under the null hypothesis. The test statistic in this case is called the <em>F</em>-ratio.</p></li>
 <li><p>We then calculate a <em>p</em>-value by asking how likely it is that we would see the observed test statistic, or a more extreme value, if the null hypothesis were really true.</p></li>
 </ol>
 <p>It’s not so critical that someone understands the mechanics of an <em>F</em>-test to use it. However, knowing a bit about where is comes from does help to demystify the output produced by R. To that end, let’s step through the calculations involved in the <em>F</em> test using the example data shown in the above four-panel plot.</p>
-<div id="total-variation" class="section level4 unnumbered">
-<h4>Total variation</h4>
+<div id="total-variation" class="section level4 unnumbered hasAnchor">
+<h4>Total variation<a href="relationships-and-regression.html#total-variation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We first need to calculate something called the <strong>total sum of squares</strong>. The figure below shows the raw data (blue points) and the grand mean (i.e. the sample mean).</p>
 <p><img src="intro-bio-stats-book_files/figure-html/reg-eg-total-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The vertical lines show the distance between each observation and the grand mean. These vertical lines are just the residuals from a model where the slope of the line is set to zero. What we need to do is quantify the variability of these residuals. We can’t just add them up, because by definition, they have to sum to zero, i.e. they are calculated relative to the grand mean.</p>
 <p>Instead, we calculate the total sum of squares by taking each residual in turn, squaring it, and then adding up all the squared values. We call this the total sum of squares because it is a measure of the total variability in the response variable, <span class="math inline">\(y\)</span>. This number is 17.55 for the data in the figure above.</p>
 </div>
-<div id="residual-variation" class="section level4 unnumbered">
-<h4>Residual variation</h4>
+<div id="residual-variation" class="section level4 unnumbered hasAnchor">
+<h4>Residual variation<a href="relationships-and-regression.html#residual-variation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Next we need to calculate the <strong>residual sum of squares</strong>. We have already seen how this calculation works because it is used in the calculation of the best fit line—the best fit line is the one that minimises the residual sum of squares. Let’s plot this line along with the associated residuals of this line again:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/reg-eg-with-resids2-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The vertical lines show the distance between each observation and the best fit line. We need to quantify the variability of these residuals. Again, we can’t just add up the deviations because they have to sum to zero as a result of how the best fit line is found. Instead we calculate the residual sum of squares by taking each residual in turn, squaring it, and then adding up all the squared values. This number is 10.12 for the figure above. We call this the residual, or error, sum of squares because it is a measure of the variation in <span class="math inline">\(y\)</span> that is ‘left over’ after accounting for the influence of the predictor variable <span class="math inline">\(x\)</span>.</p>
 </div>
-<div id="explained-variation" class="section level4 unnumbered">
-<h4>Explained variation</h4>
+<div id="explained-variation" class="section level4 unnumbered hasAnchor">
+<h4>Explained variation<a href="relationships-and-regression.html#explained-variation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Once the total sum of squares and the residual sum of squares are known, we can calculate the quantity we really want: the <strong>explained sum of squares</strong>. This is a measure of the variation in <span class="math inline">\(y\)</span> that is explained by the influence of the predictor variable <span class="math inline">\(x\)</span>. We calculate this by subtracting the residual sum of squares from the total sum of squares. This makes intuitive sense: if we subtract the variation in <span class="math inline">\(y\)</span> we can’t explain (residual) from all the variation in <span class="math inline">\(y\)</span> (total), we end up with the amount ‘explained’ by the regression. This number is 7.43 for the example.</p>
 </div>
-<div id="degrees-of-freedom-mean-squares-and-f-tests" class="section level4 unnumbered">
-<h4>Degrees of freedom, mean squares and <em>F</em> tests</h4>
+<div id="degrees-of-freedom-mean-squares-and-f-tests" class="section level4 unnumbered hasAnchor">
+<h4>Degrees of freedom, mean squares and <em>F</em> tests<a href="relationships-and-regression.html#degrees-of-freedom-mean-squares-and-f-tests" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The problem with sums of squares is that they are a function of sample size. The more data we have, the larger our sum of squares will get. The solution to this problem is to convert them into a measure of variability that doesn’t scale with sample size. We need to calculate <strong>degrees of freedom</strong> (written as df, or d.f.) to do this. We came across the concept of degrees of freedom when we studied the <em>t</em>-test. The idea is closely related to sample size. It is difficult to give a precise definition, but roughly speaking, the degrees of freedom of a statistic is a measures of how much information it is based on (bigger is better).</p>
 <p>Each of the measures of variability we just calculated for the simple linear regression has a degrees of freedom associated with it. We need the explained and error degrees of freedom:</p>
 <ul>
@@ -753,29 +753,29 @@ Figure 12.1: Example of data (blue points) used in a simple regression. A fitted
 <p>Now for the important bit. The two mean squares can be compared by calculating the ratio between them, which is designated by the letter <em>F</em>:</p>
 <p><span class="math display">\[F = \mbox{Variance Ratio} = \frac{\mbox{Explained Mean Square}}{\mbox{Residual Mean Square}}\]</span></p>
 <p>This is called the <em>F</em> ratio, or sometimes, the variance ratio. If the explained variation is large compared to the residual variation, then the <em>F</em> ratio will be large. Conversely, if the explained variation is relatively small the <em>F</em> ratio will be small. We can see where this is heading…</p>
-<p>The <em>F</em> ratio is a type of test statistic—if the value of <em>F</em> is sufficiently large, we judge it to be statistically significant. For this judgement to be valid, we have to make one key assumption about the population from which the data has been sampled: we assume the residuals are drawn from a normal distribution. If this assumption is correct, it can be shown that the distribution of the <em>F</em> ratio under the null hypothesis (the ‘null distribution’) has a particular form: it follows a theoretical distribution called an <em>F</em>-distribution. And yes, that’s why the variance ratio is called ‘<em>F</em>.’</p>
+<p>The <em>F</em> ratio is a type of test statistic—if the value of <em>F</em> is sufficiently large, we judge it to be statistically significant. For this judgement to be valid, we have to make one key assumption about the population from which the data has been sampled: we assume the residuals are drawn from a normal distribution. If this assumption is correct, it can be shown that the distribution of the <em>F</em> ratio under the null hypothesis (the ‘null distribution’) has a particular form: it follows a theoretical distribution called an <em>F</em>-distribution. And yes, that’s why the variance ratio is called ‘<em>F</em>’.</p>
 <p>All this means we can assess statistical significance of the slope coefficient by comparing the <em>F</em> ratio calculated from a sample to this theoretical distribution. This procedure is called an <em>F</em> test. The <em>F</em> ratio is 7.34 in our example. This is quite high, which indicates that the slope is likely to be significantly different from 0.</p>
 <p>We need more than an <em>F</em> ratio to calculate a <em>p</em>-value. We also need to consider the degrees of freedom of the test. Furthermore, because this test involves an <em>F</em> ratio, <strong>there are two different degrees of freedom to consider</strong>: the explained and residual df’s. Try to remember that fact—<em>F</em> ratio tests involve a pair of degrees of freedom.</p>
 <p>We could calculate a <em>p</em>-value now by messing around with tables of <em>F</em> ratios and degrees of freedom. However, it is much easier to let R do this for us when working with a regression model. That’s what we’re going to do in the next chapter, so for now, we’ll leave significance tests alone.</p>
 </div>
 </div>
 </div>
-<div id="correlation-or-regression" class="section level2" number="12.5">
-<h2><span class="header-section-number">12.5</span> Correlation or regression?</h2>
+<div id="correlation-or-regression" class="section level2 hasAnchor" number="12.5">
+<h2><span class="header-section-number">12.5</span> Correlation or regression?<a href="relationships-and-regression.html#correlation-or-regression" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Before we finish up, it is worth pausing to review the difference between regression and correlation analyses. Whilst regression and correlation are both concerned with associations between numeric variables, they are different techniques and each is appropriate under distinct circumstances. This is a frequent source of confusion. Which technique is required for a particular analysis depends on</p>
 <ul>
 <li>the way the data were collected and</li>
 <li>the goal of the analysis.</li>
 </ul>
 <p>There are two broad questions to consider—</p>
-<div id="where-do-the-data-come-from" class="section level4 unnumbered">
-<h4>Where do the data come from?</h4>
+<div id="where-do-the-data-come-from" class="section level4 unnumbered hasAnchor">
+<h4>Where do the data come from?<a href="relationships-and-regression.html#where-do-the-data-come-from" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Think about how the data have been collected. If they are from a study where one of the variables has been experimentally manipulated, then choosing the best analysis is easy. We should use a regression analysis, in which the predictor variable is the experimentally manipulated variable and the response variable is the measured outcome. The fitted line from a regression analysis describes how the outcome variable <em>depends on</em> the manipulated variable—it describes the causal relationship between them.</p>
 <p>It is generally inappropriate to use correlation to analyse data from an experimental setting. A correlation analysis examines association but does not imply the dependence of one variable on another. Since there is no distinction of response or predictor variables, it doesn’t matter which way round we do a correlation. In fact, the phrase ‘which way round’ doesn’t even make sense in the context of a correlation.</p>
 <p>If the data are from a so-called ‘observational study’ where someone took measurements, but nothing was actually manipulated experimentally, then either method may be appropriate.</p>
 </div>
-<div id="what-is-the-goal-of-the-analysis" class="section level4 unnumbered">
-<h4>What is the goal of the analysis?</h4>
+<div id="what-is-the-goal-of-the-analysis" class="section level4 unnumbered hasAnchor">
+<h4>What is the goal of the analysis?<a href="relationships-and-regression.html#what-is-the-goal-of-the-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Think about what question is being asked. A correlation coefficient only quantifies the strength and direction of an association between variables—it tells us nothing about the form of a relationship. Nor does it allow us to make predictions about the value of one variable from the values of a second. A regression does allow this because it involves fitting a line through the data—i.e. regression involves <strong>a model</strong> for the relationship.</p>
 <p>This means that if the goal is to understand the form of a relationship between two variables, or to use a fitted model to make predictions, we have to use regression. If we just want to know whether two variables are associated or not, the direction of the association, and whether the association is strong or weak, then a correlation analysis is sufficient. It is better to use a correlation analysis when the extra information produced by a regression is not needed, because the former will be simpler and potentially more robust.</p>
 
@@ -784,8 +784,8 @@ Figure 12.1: Example of data (blue points) used in a simple regression. A fitted
 </div>
 <div class="footnotes">
 <hr />
-<ol start="8">
-<li id="fn8"><p>Notice that it is the vertical distance that matters, not the perpendicular distance from the line.<a href="relationships-and-regression.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<ol start="7">
+<li id="fn7"><p>Notice that it is the vertical distance that matters, not the perpendicular distance from the line.<a href="relationships-and-regression.html#fnref7" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -854,7 +854,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 The scientific process | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 The scientific process | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="data-variables.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,55 +605,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="scientific-process" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> The scientific process</h1>
+<div id="scientific-process" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> The scientific process<a href="scientific-process.html#scientific-process" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>There is something fascinating about science. One gets such a wholesale return of conjecture out of a trifling investment of fact.</em></p>
 <p>Mark Twain</p>
 <p><em>To do science is to search for patterns, not simply to accumulate facts.</em></p>
 <p>Robert MacArthur</p>
 </blockquote>
-<div id="stages-scientific-process" class="section level2" number="1.1">
-<h2><span class="header-section-number">1.1</span> Stages in the scientific process</h2>
+<div id="stages-scientific-process" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Stages in the scientific process<a href="scientific-process.html#stages-scientific-process" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Science is about asking, and answering, the right questions. A number of distinct stages occur within this process: making observations, asking questions, formulating hypotheses, and testing predictions. Collectively these are the building blocks of what is known as the scientific method. Exactly how they fit together, and what the philosophical and practical limitations of different approaches are, have been the subject of much debate by philosophers of science. We’re not going to tackle those issues here, but instead try to extract a general working framework for the process of a typical scientific investigation.</p>
-<div id="stages-observations" class="section level3" number="1.1.1">
-<h3><span class="header-section-number">1.1.1</span> Observations</h3>
+<div id="stages-observations" class="section level3 hasAnchor" number="1.1.1">
+<h3><span class="header-section-number">1.1.1</span> Observations<a href="scientific-process.html#stages-observations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Observation</strong> — <em>information, or impression, about events or objects</em>.</p>
 <p>In general the questions we ask are not generated by pure abstract thought, but are a result of observations about the natural world. These may take the form of direct observations we make ourselves, patterns that crop up in data collected for other purposes, in non-specific surveys, and the accumulated works of other people.</p>
 <p>Such observations of biological systems will lead almost automatically into asking questions.</p>
 </div>
-<div id="stages-questions" class="section level3" number="1.1.2">
-<h3><span class="header-section-number">1.1.2</span> Questions</h3>
+<div id="stages-questions" class="section level3 hasAnchor" number="1.1.2">
+<h3><span class="header-section-number">1.1.2</span> Questions<a href="scientific-process.html#stages-questions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Question</strong> — <em>what it is that you want to know; the scope of your investigation</em>.</p>
 <p>It is important to keep the question sufficiently focussed. The overall aim of a particular study should be to answer one or (perhaps) two questions. The question of why the tropics are more diverse than the temperate regions is a valid and fascinating question, but it’s probably not be a good choice for a final year project or even a PhD.</p>
 <p>The next stage is to formulate an hypothesis.</p>
 </div>
-<div id="stages-hypotheses" class="section level3" number="1.1.3">
-<h3><span class="header-section-number">1.1.3</span> Hypotheses</h3>
+<div id="stages-hypotheses" class="section level3 hasAnchor" number="1.1.3">
+<h3><span class="header-section-number">1.1.3</span> Hypotheses<a href="scientific-process.html#stages-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Hypothesis</strong> — <em>an explanation proposed to account for observed facts.</em></p>
 <p>In general, in biology, the critical distinguishing feature of an hypothesis is that it specifies some biological process, or processes, which might account for the observations made. Formulating hypotheses requires more than just a restatement of the question – it usually embodies some mechanism (though this may not be fully understood) and it will often draw on additional information. One question will also often generate more than one hypothesis.</p>
 <p>Once we have formulated a set of hypotheses, we need to derive the predictions that follow.</p>
 </div>
-<div id="stages-predictions" class="section level3" number="1.1.4">
-<h3><span class="header-section-number">1.1.4</span> Predictions</h3>
+<div id="stages-predictions" class="section level3 hasAnchor" number="1.1.4">
+<h3><span class="header-section-number">1.1.4</span> Predictions<a href="scientific-process.html#stages-predictions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Prediction</strong> — <em>what you would expect to see if the hypothesis was true</em>.</p>
 <p>Hypotheses are about proposing explanations, but they might not be directly testable. That is, they may not tell us what data to collect, or what pattern to expect in the data. To be able to test an hypothesis we need to make some predictions from that hypothesis. These will be determined both by what we expect to see and what it is possible, or practical, to measure. A prediction is not simply a rephrasing of the hypothesis – it should more or less lead to a statement of the experiment to conduct or observation to make, and type of data to collect.</p>
 <p>The ideal prediction is one that is unique to the hypothesis it is based on, so if the prediction is true only one of the hypotheses could have been responsible. It may not always be possible to generate such ‘clean’ predictions, in which case, some combination of predictions may need to be considered. Additionally, several processes may be operating at the same time, which makes hypothesis testing harder still, because it may be necessary to consider two or more hypotheses, and their corresponding predictions, in combination.</p>
 <p>Science is hard!</p>
 </div>
 </div>
-<div id="an-example" class="section level2" number="1.2">
-<h2><span class="header-section-number">1.2</span> An example</h2>
-<div id="observations" class="section level4 unnumbered">
-<h4>Observations</h4>
+<div id="an-example" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> An example<a href="scientific-process.html#an-example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="observations" class="section level4 unnumbered hasAnchor">
+<h4>Observations<a href="scientific-process.html#observations" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Imagine, while observing a stream one day, we notice that the freshwater ‘shrimps’ (<em>Gammarus</em>) seem to occur almost entirely under stones; we rarely seem to see them in a patch of open stream bed. Having made observations, it may be necessary to collect some more data to check that this phenomenon is not just a one-off event, or a false impression. Look under a few more stones, watch the same species another day, or in another place, check the literature for similar observations by others.</p>
 </div>
-<div id="question" class="section level4 unnumbered">
-<h4>Question</h4>
+<div id="question" class="section level4 unnumbered hasAnchor">
+<h4>Question<a href="scientific-process.html#question" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Why does <em>Gammarus</em> spend most of its time under stones?</p>
 </div>
-<div id="hypotheses" class="section level4 unnumbered">
-<h4>Hypotheses</h4>
+<div id="hypotheses" class="section level4 unnumbered hasAnchor">
+<h4>Hypotheses<a href="scientific-process.html#hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p><em>Gammarus</em> occur under stones because:</p>
 <ul>
 <li><p>they need to shelter from the current</p></li>
@@ -661,8 +661,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>they are subject to predation by visually hunting fish and need to remain out of sight</p></li>
 </ul>
 </div>
-<div id="predictions" class="section level4 unnumbered">
-<h4>Predictions</h4>
+<div id="predictions" class="section level4 unnumbered hasAnchor">
+<h4>Predictions<a href="scientific-process.html#predictions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Taking each hypothesis in turn, we expect to observe:</p>
 <ul>
 <li><p><em>Shelter hypothesis:</em> a greater proportion of <em>Gammarus</em> should be found in the open in streams with slow flow, or in slower flowing areas of a stream.</p></li>
@@ -672,16 +672,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If we want to tease apart our hypotheses we may need to refine these predictions. For example, <em>Gammarus</em> may be under stones because it prefers the sheltered environment, but also because food accumulates there. In this case we might expect that <em>Gammarus</em> will show a weak aggregative response to shelter alone, or food alone, and a stronger one to them both together.</p>
 </div>
 </div>
-<div id="hypothesis-testing" class="section level2" number="1.3">
-<h2><span class="header-section-number">1.3</span> Hypothesis testing</h2>
+<div id="hypothesis-testing" class="section level2 hasAnchor" number="1.3">
+<h2><span class="header-section-number">1.3</span> Hypothesis testing<a href="scientific-process.html#hypothesis-testing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Once we have firmed up our hypotheses and predictions we are in the position to collect data to evaluate our ideas. On the basis of these data we will either accept or reject our various hypotheses. The important thing to realise about the process of hypothesis testing is that, in science especially, hypotheses are either rejected, or not rejected, but an hypothesis can rarely, except in trivial cases, be proved.</p>
 <p>Why is this? Since we cannot be sure that we’ve thought of all the possible hypotheses to explain an observation, finding evidence that supports a prediction does not guarantee that the underlying hypothesis is the only one which could have produced the effect we find. On the other hand, if we find evidence that directly contradicts the prediction(s) from an hypothesis, we can be certain (assuming the prediction and data are not flawed) that the hypothesis cannot be true.</p>
 <p>An hypothesis which predicted that all conifers should be evergreen could be supported by numerous observations of different conifer species in forests around the world, but is conclusively refuted by the first larch tree we encounter.</p>
 <p>Having tested our hypothesis, by examining the evidence that its predictions are true, we may accept it as the best current explanation of the observations, or we may reject it as an explanation, and turn to other hypotheses. The same procedure must then be repeated for these hypotheses.</p>
 <p>This basic cycle of proposing hypotheses and then seeking evidence potentially capable of falsifying them, is, in essence, the idealized model of the scientific process famously proposed by the philosopher of science Karl Popper (1902-1994). It is often termed <em>falsificationism</em>.</p>
 </div>
-<div id="are-we-sure" class="section level2" number="1.4">
-<h2><span class="header-section-number">1.4</span> Don’t we ever know anything for sure?</h2>
+<div id="are-we-sure" class="section level2 hasAnchor" number="1.4">
+<h2><span class="header-section-number">1.4</span> Don’t we ever know anything for sure?<a href="scientific-process.html#are-we-sure" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The method presented here provides a view of science as one in which we suggest hypotheses, then test them, trying to reject them by finding conclusive counter-evidence, then replacing them with new hypotheses. It all sounds a bit frustrating.</p>
 <p>In fact of course we do ‘accept’ hypotheses all the time – that is, we fail to reject them over and over again. These hypotheses become more accepted and in some sense become regarded as ‘true’ if repeated attempts to test them all fail to provide good counter evidence. In other words, we have some ideas that are doing pretty well in terms of resisting falsification, and we use these as our best estimates of the truth, with the proviso that it is still possible a better idea will come along in due course.</p>
 <p>The simple process of falsification described above also presents a picture of scientists as neutral, objective creatures, rationally proceeding through cycles of setting up hypotheses, testing them, rejecting them, setting them aside and starting over again. Of course this is not a true reflection of the complex, often messy, business involved in trying to figure out how the world works. Philosophers of science have argued long and hard about how far from this idealized process real science actually is. Various alternative philosophies suggest more ‘realistic’ processes. For example…</p>
@@ -759,7 +759,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

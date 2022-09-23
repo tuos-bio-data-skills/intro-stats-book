@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Statistical significance and p-values | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Statistical significance and p-values | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="sampling-error.html"/>
 <link rel="next" href="statistical-comparisons.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,18 +605,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistical-significance-and-p-values" class="section level1" number="5">
-<h1><span class="header-section-number">Chapter 5</span> Statistical significance and <em>p</em>-values</h1>
+<div id="statistical-significance-and-p-values" class="section level1 hasAnchor" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Statistical significance and <em>p</em>-values<a href="statistical-significance-and-p-values.html#statistical-significance-and-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Frequentist statistics works by answering the following question: <em>what would have happened</em> if we repeated a data collection exercise many times, <em>assuming that the population remains the same</em> each time. This is the idea we used to generate sampling distributions in the previous chapter. The details of this procedure depend on what kind of question we are asking.</p>
 <p>What is common to every frequentist technique is that we ultimately have to work out what some sort of sampling distribution looks like. Once we’ve done that, we can evaluate how likely a particular result is. This naturally leads to the most important ideas in frequentist statistics: <em>p</em>-values and statistical significance.</p>
-<div id="bootstrap" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Estimating a sampling distribution</h2>
+<div id="bootstrap" class="section level2 hasAnchor" number="5.1">
+<h2><span class="header-section-number">5.1</span> Estimating a sampling distribution<a href="statistical-significance-and-p-values.html#bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s carry on with the plant polymorphism example. Our ultimate goal is to determine if the purple morph frequency is likely to be greater than 25% in the new study population. The suggestion above is that we will need to determine the sampling distribution of purple morph frequency estimates to get to this point.</p>
 <p>At first glance, this seems like an impossible task because we only have access to a single sample. The solution to this problem is surprisingly simple: use the one sample to approximate the population somehow, then work out what the sampling distribution of our estimate should look like by ‘taking samples’ from this approximation.</p>
 <p>We’ll unpack this idea a bit more before we try it out for real.</p>
-<div id="bootstrap-overview" class="section level3" number="5.1.1">
-<h3><span class="header-section-number">5.1.1</span> Overview of bootstrapping</h3>
-<p>There are many ways to use a sample to approximate the population. One of the simplest is to <em>pretend the sample is the true population</em>. We can then draw new samples from this pretend population to get at a sampling distribution. This may sound like ‘cheating,’ but it turns out this is a perfectly valid way to construct approximate sampling distributions.</p>
+<div id="bootstrap-overview" class="section level3 hasAnchor" number="5.1.1">
+<h3><span class="header-section-number">5.1.1</span> Overview of bootstrapping<a href="statistical-significance-and-p-values.html#bootstrap-overview" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are many ways to use a sample to approximate the population. One of the simplest is to <em>pretend the sample is the true population</em>. We can then draw new samples from this pretend population to get at a sampling distribution. This may sound like ‘cheating’, but it turns out this is a perfectly valid way to construct approximate sampling distributions.</p>
 <p>We’ll try to understand how this works by using a physical analogy based on our plant morph example. Imagine that we have written down the colour of every sampled plant on a different piece of paper and then placed these bits of paper into a hat. We then do the following:</p>
 <ol style="list-style-type: decimal">
 <li>Pick a piece of paper at random, record its value (purple or green), put the paper back into the hat, and shake the hat about to mix up the bits of paper.</li>
@@ -626,7 +626,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Now pick another piece of paper (we might get the same one), record its value, put that one back into the hat, and shake everything up again.</p></li>
 <li><p>Repeat this process until we have a recorded new sample of colours that is the same size as the real sample. We have now have generated a ‘new sample’ from the original one.</p></li>
 </ol>
-<p>(This process is called ‘sampling with replacement.’ Each artificial sample is called a ‘bootstrapped sample.’)</p>
+<p>(This process is called ‘sampling with replacement’. Each artificial sample is called a ‘bootstrapped sample’.)</p>
 <ol start="4" style="list-style-type: decimal">
 <li><p>For each bootstrapped sample, calculate whatever quantity is of interest. In our example, this is the proportion of purple plants sampled.</p></li>
 <li><p>Repeat steps 1-4 until we have generated a large number of bootstrapped samples. About 10000 is sufficient for most problems.</p></li>
@@ -634,16 +634,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Although it seems like cheating, this procedure really does approximate the sampling distribution of the purple plant frequency. It is called <strong>bootstrapping</strong> (or ‘the bootstrap’).</p>
 <p>The bootstrap is quite a sophisticated technique developed by statistician <a href="https://en.wikipedia.org/wiki/Bradley_Efron">Bradley Efron</a>. We’re not going to use it to solve real data analysis problems and there’s no need to learn how to do it. We’re introducing bootstrapping because it provides an intuitive way to understand how frequentist methodology works without getting stuck into any challenging mathematics.</p>
 </div>
-<div id="doing-it-for-real" class="section level3" number="5.1.2">
-<h3><span class="header-section-number">5.1.2</span> Doing it for real</h3>
+<div id="doing-it-for-real" class="section level3 hasAnchor" number="5.1.2">
+<h3><span class="header-section-number">5.1.2</span> Doing it for real<a href="statistical-significance-and-p-values.html#doing-it-for-real" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>No one carries out bootstrapping using bits of paper and hat. Generating 10000 bootstrapped samples via such a method would obviously take a very long time! Luckily, computers are very good at carrying out repetitive tasks quickly. We’re going to work through how to implement the bootstrap for our hypothetical example.</p>
 <div id="section" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The best way to understand what follows is by actually running the example code line by line. You are encouraged to do this, but it is certainly not essential. You can gain an adequate understanding bootstrapping by simply reading through the example.</p>
 </div>
-<div id="set-up-and-read-the-data" class="section level4 unnumbered">
-<h4>Set up and read the data</h4>
-<p>Assume we had sampled 250 individuals from the new plant population. A data set representing this situation is stored in the Comma Separated Value (CSV) file called ‘MORPH_DATA.CSV.’ Let’s assume these data have been read into a tibble called <code>morph_data</code>, e.g.</p>
+<div id="set-up-and-read-the-data" class="section level4 unnumbered hasAnchor">
+<h4>Set up and read the data<a href="statistical-significance-and-p-values.html#set-up-and-read-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Assume we had sampled 250 individuals from the new plant population. A data set representing this situation is stored in the Comma Separated Value (CSV) file called ‘MORPH_DATA.CSV’. Let’s assume these data have been read into a tibble called <code>morph_data</code>, e.g.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="statistical-significance-and-p-values.html#cb11-1" aria-hidden="true" tabindex="-1"></a>morph_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;MORPH_DATA.CSV&quot;</span>)</span></code></pre></div>
 <p>The data set looks like this:</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="statistical-significance-and-p-values.html#cb12-1" aria-hidden="true" tabindex="-1"></a>morph_data</span></code></pre></div>
@@ -663,9 +663,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## # … with 240 more rows</code></pre>
 <p>This contains 250 rows and two variables: <code>Colour</code> and <code>Weight</code>. <code>Colour</code> is a categorical variable and <code>Weight</code> is a numeric variable. The <code>Colour</code> variable contains the colour of each plant in the sample. What is that <code>Weight</code> variable all about? Actually… we don’t need this now but we will use it in the next chapter.</p>
 </div>
-<div id="running-the-bootstrap" class="section level4 unnumbered">
-<h4>Running the bootstrap</h4>
-<p>Now that we understand the data, we’re ready to implement bootstrapping. We are going to use a few programming tricks that beginners may not have come across before. We’ll explain these as we go, but there’s no need to learn them. Focus on the ‘why’—the logic of what we’re doing—rather than the ‘how.’</p>
+<div id="running-the-bootstrap" class="section level4 unnumbered hasAnchor">
+<h4>Running the bootstrap<a href="statistical-significance-and-p-values.html#running-the-bootstrap" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Now that we understand the data, we’re ready to implement bootstrapping. We are going to use a few programming tricks that beginners may not have come across before. We’ll explain these as we go, but there’s no need to learn them. Focus on the ‘why’—the logic of what we’re doing—rather than the ‘how’.</p>
 <p>We want to construct an approximate sampling distribution for the frequency of purple morphs. That means the variable that matters is <code>Colour</code>. Rather than work with this inside the <code>morph_data</code> data frame, we’re going to pull it out using the <code>$</code> operator and assign it a name (<code>plant_morphs</code>):</p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="statistical-significance-and-p-values.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># pull out the &#39;Colour&#39; variable</span></span>
 <span id="cb14-2"><a href="statistical-significance-and-p-values.html#cb14-2" aria-hidden="true" tabindex="-1"></a>plant_morphs <span class="ot">&lt;-</span> morph_data<span class="sc">$</span>Colour </span></code></pre></div>
@@ -692,7 +692,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb21-2"><a href="statistical-significance-and-p-values.html#cb21-2" aria-hidden="true" tabindex="-1"></a>mean_point_est <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> <span class="fu">sum</span>(plant_morphs <span class="sc">==</span> <span class="st">&quot;Purple&quot;</span>) <span class="sc">/</span> samp_size</span>
 <span id="cb21-3"><a href="statistical-significance-and-p-values.html#cb21-3" aria-hidden="true" tabindex="-1"></a>mean_point_est</span></code></pre></div>
 <pre><code>## [1] 30.8</code></pre>
-<p>The code in the point estimate calculation says, “add up all the cases where <code>plant_morphs</code> is equal to ‘purple,’ divide that total by the sample size to get the proportion of purple plants in the sample, then multiply the proprtion by 100 to turn it into a percentage.” We find that 30.8% of plants were purple among our sample of 250 plants.</p>
+<p>The code in the point estimate calculation says, “add up all the cases where <code>plant_morphs</code> is equal to ‘purple’, divide that total by the sample size to get the proportion of purple plants in the sample, then multiply the proprtion by 100 to turn it into a percentage.” We find that 30.8% of plants were purple among our sample of 250 plants.</p>
 <p>Now we’re ready to start bootstrapping. For convenience, we’ll store the number of bootstrap samples we want in <code>n_samp</code> (i.e. 10000 in this case):</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="statistical-significance-and-p-values.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of bootstrapped samples we want</span></span>
 <span id="cb23-2"><a href="statistical-significance-and-p-values.html#cb23-2" aria-hidden="true" tabindex="-1"></a>n_samp <span class="ot">&lt;-</span> <span class="dv">10000</span></span></code></pre></div>
@@ -724,8 +724,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## [16] 31.6 30.0 30.0 29.2 28.0 31.2 27.6 29.6 30.4 32.8 29.6 30.4 37.2 34.4 32.0</code></pre>
 <p>(We used the pipe <code>%&gt;%</code> to make a code a bit more readable—remember, this won’t work unless the <strong>dplyr</strong> package is loaded.)</p>
 </div>
-<div id="making-sense-of-the-bootstrapped-sample" class="section level4 unnumbered">
-<h4>Making sense of the bootstrapped sample</h4>
+<div id="making-sense-of-the-bootstrapped-sample" class="section level4 unnumbered hasAnchor">
+<h4>Making sense of the bootstrapped sample<a href="statistical-significance-and-p-values.html#making-sense-of-the-bootstrapped-sample" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>What has all this achieved? The numbers in <code>boot_out</code> represent the values of purple morph frequency we can expect to find if we repeated the data collection exercise many times, assuming that the purple morph frequency is equal to that of the actual sample. This is a bootstrapped sampling distribution!</p>
 <p>We can use this bootstrapped sampling distribution in a number of ways. Let’s plot it first get a sense of what it looks like. A histogram is OK here because we have a reasonably large number of possible cases:</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:boot-samp-dist"></span>
@@ -750,21 +750,21 @@ Figure 5.1: Bootstrapped sampling distribution of purple morph frequency
 </div>
 </div>
 </div>
-<div id="statistical-significance" class="section level2" number="5.2">
-<h2><span class="header-section-number">5.2</span> Statistical significance</h2>
+<div id="statistical-significance" class="section level2 hasAnchor" number="5.2">
+<h2><span class="header-section-number">5.2</span> Statistical significance<a href="statistical-significance-and-p-values.html#statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Now back to the question that motivated all the work in the last few chapters. Is the purple morph frequency greater than 25% in the new study population? The first thing to realise is that we can never answer a question like this definitively from a sample. We have to carry out some kind of probabilistic assessment instead. To make this assessment, we’re going to do something that looks odd at first glance.</p>
-<div id="dont-panic" class="section level4 unnumbered infobox warning">
-<h4>Don’t panic!</h4>
+<div id="dont-panic" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Don’t panic!<a href="statistical-significance-and-p-values.html#dont-panic" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The ideas in the next section are very abstract, and you probably won’t ‘get’ them straight away. That is fine—these concepts take time to absorb and understand.</p>
 </div>
-<div id="carrying-out-the-assessment" class="section level3 unnumbered">
-<h3>Carrying out the assessment</h3>
+<div id="carrying-out-the-assessment" class="section level3 unnumbered hasAnchor">
+<h3>Carrying out the assessment<a href="statistical-significance-and-p-values.html#carrying-out-the-assessment" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We need to make two assumptions to arrive at our probabilistic assessment of whether or not the purple morph frequency is greater than 25%:</p>
 <ol style="list-style-type: decimal">
 <li><p>Assume the true value of the purple morph frequency in our new study population is 25%, i.e. we’ll assume the population parameter of interest is the same as that of the original population that motivated this work. In effect, we’re pretending there is no difference between the populations.</p></li>
 <li><p>Assume that the form of sampling distribution that we generated would have been the same if the ‘equal population’ hypothesis were true. That is, the expected ‘shape’ of the sampling distribution would not change if the purple morph frequency was 25%.</p></li>
 </ol>
-<p>That first assumption is an example of a <strong>null hypothesis</strong>. The null hypothesis is an hypothesis of ‘no effect’ or ‘no difference.’ We’re going to revisit this idea many times in future chapters.</p>
+<p>That first assumption is an example of a <strong>null hypothesis</strong>. The null hypothesis is an hypothesis of ‘no effect’ or ‘no difference’. We’re going to revisit this idea many times in future chapters.</p>
 <p>The second assumption is necessary for the reasoning below to work. This can be shown to be a pretty reasonable assumption in many situations (we don’t want to get lost in the details though, so this will have to remain a “trust us” situation).</p>
 <p>Now we ask a question: if the purple morph frequency in the population really is 25%, what would its corresponding sampling distribution look like? This is called the <strong>null distribution</strong>—the distribution expected under the null hypothesis.</p>
 <p>If the second assumption is valid, we can actually construct the null distribution from our bootstrapped distribution as follows:</p>
@@ -783,17 +783,17 @@ Figure 5.2: Sampling distribution of purple morph frequency under the null hypot
 <pre><code>## [1] 0.0238</code></pre>
 <p>This number (generally denoted ‘<em>p</em>’) is called a <strong><em>p</em>-value</strong>.</p>
 </div>
-<div id="interpreting-the-p-value" class="section level3 unnumbered">
-<h3>Interpreting the p-value</h3>
-<p>What are we supposed to do with the finding <em>p</em> = 0.0238? This is the probability of obtaining a result equal to, or ‘more extreme,’ than that which was actually observed, <em>assuming that the hypothesis under consideration (the null hypothesis) is true</em>. The null hypothesis is an hypothesis of no effect (or no difference), and so a low <em>p</em>-value can be interpreted as evidence for an effect being present.</p>
+<div id="interpreting-the-p-value" class="section level3 unnumbered hasAnchor">
+<h3>Interpreting the p-value<a href="statistical-significance-and-p-values.html#interpreting-the-p-value" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>What are we supposed to do with the finding <em>p</em> = 0.0238? This is the probability of obtaining a result equal to, or ‘more extreme’, than that which was actually observed, <em>assuming that the hypothesis under consideration (the null hypothesis) is true</em>. The null hypothesis is an hypothesis of no effect (or no difference), and so a low <em>p</em>-value can be interpreted as evidence for an effect being present.</p>
 <p>It’s worth reading that a few times because it is not at all intuitive…</p>
 <p>In our example, it appears that the purple morph frequency we observed is fairly unlikely to occur if its frequency in the new population really was 25%. In biological terms, we take the low <em>p</em>-value as evidence for a difference in purple morph frequency among the populations, i.e. the data support the prediction that the purple morph is present at a frequency greater than 25% in the new study population.</p>
 <p>One important question remains: How small does a <em>p</em>-value have to be before we are happy to conclude that the effect we’re interested in is probably present? In practice, we do this by applying a threshold, called a <strong>significance level</strong>. If the <em>p</em>-value is less than the chosen significance level, we say the result is said to be <strong>statistically significant</strong>. Very often, we use a significance level of <em>p</em> &lt; 0.05 (5%).</p>
 <p>Why do we use a significance level of <em>p</em> &lt; 0.05? The short answer is that this is just a convention. Nothing more. There is nothing special about the 5% threshold other than the fact that it’s the one most often used. Statistical significance has nothing to do with biological significance. Unfortunately, many people are very uncritical about their use of this arbitrary threshold, to the extent that it can be very hard to publish a scientific study if it doesn’t contain ‘statistically significant’ results.</p>
 </div>
 </div>
-<div id="concluding-remarks" class="section level2" number="5.3">
-<h2><span class="header-section-number">5.3</span> Concluding remarks</h2>
+<div id="concluding-remarks" class="section level2 hasAnchor" number="5.3">
+<h2><span class="header-section-number">5.3</span> Concluding remarks<a href="statistical-significance-and-p-values.html#concluding-remarks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We just carried out a type of statistical test called a <strong>significance test</strong>. It was a bit convoluted reasoning, but the chain of reasoning we just employed underlies all the significance tests we use in this book. The precise details of how to construct such tests will vary from one problem to the next, but ultimately, when using frequentist ideas we always…</p>
 <ol style="list-style-type: decimal">
 <li><p>assume that there is actually no ‘effect’ (the <strong>null hypothesis</strong>), where an effect is expressed in terms of one or more population parameters,</p></li>
@@ -874,7 +874,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

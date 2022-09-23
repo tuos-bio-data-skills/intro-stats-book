@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 22 Data transformations | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 22 Data transformations | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="regression-diagnostics-in-r.html"/>
 <link rel="next" href="categorical-data-intro-chapter.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,10 +605,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="transformations-chapter" class="section level1" number="22">
-<h1><span class="header-section-number">Chapter 22</span> Data transformations</h1>
-<div id="transforms-introduction" class="section level2" number="22.1">
-<h2><span class="header-section-number">22.1</span> Data that violate ANOVA assumptions</h2>
+<div id="transformations-chapter" class="section level1 hasAnchor" number="22">
+<h1><span class="header-section-number">Chapter 22</span> Data transformations<a href="transformations-chapter.html#transformations-chapter" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="transforms-introduction" class="section level2 hasAnchor" number="22.1">
+<h2><span class="header-section-number">22.1</span> Data that violate ANOVA assumptions<a href="transformations-chapter.html#transforms-introduction" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Up until now, the data we’ve examined have conformed, at least roughly, to the assumptions of the statistical models we’ve been studying. This is all very handy but perhaps a little unrealistic. The real world being the messy place it is, biological data often don’t conform to the distributional assumptions of <em>t</em>-tests and ANOVA:</p>
 <ul>
 <li>The residuals may not be normally distributed.</li>
@@ -617,33 +617,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The kinds of problems with the <strong>distributional assumptions</strong> can also arise when working in a regression (i.e. non-normal residuals, non-constant variance). Furthermore, we might run into additional issues if there is some non-linearity in the relationship between the response and predictor variables.</p>
 <p>Most biological data are unlikely to conform perfectly to all the assumptions. Fortunately, tools like <em>t</em>-tests, ANOVAs and regressions are somewhat robust—they perform reasonably well with data that deviate to some extent from the tests’ assumptions. However, when residuals are very far from normality or variances change a lot across groups, steps may need to be taken to deal with the problem. This chapter introduces one way to tackle the analysis of data that don’t fit the assumptions: <strong>transformation</strong>. We will mostly focus on ANOVA / <em>t</em>-test setting, but keep in mind that the ideas are equally applicable to regression analysis.</p>
 </div>
-<div id="ant-eg" class="section level2" number="22.2">
-<h2><span class="header-section-number">22.2</span> Transformation: ANOVAs and <em>t</em>-tests</h2>
-<div id="the-dataforaging-in-ants" class="section level3" number="22.2.1">
-<h3><span class="header-section-number">22.2.1</span> The data—foraging in ants</h3>
+<div id="ant-eg" class="section level2 hasAnchor" number="22.2">
+<h2><span class="header-section-number">22.2</span> Transformation: ANOVAs and <em>t</em>-tests<a href="transformations-chapter.html#ant-eg" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="the-dataforaging-in-ants" class="section level3 hasAnchor" number="22.2.1">
+<h3><span class="header-section-number">22.2.1</span> The data—foraging in ants<a href="transformations-chapter.html#the-dataforaging-in-ants" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Red wood ants, <em>Formica rufa</em>, forage for food (mainly insects and ‘honeydew’ produced by aphids) both on the ground and in the canopies of trees. Rowan, oak and sycamore support very different communities of insect herbivores (including aphids), and it would be interesting to know whether the foraging efficiency of ant colonies is affected by the type of trees available to them. As part of an investigation of the foraging of <em>Formica rufa</em>, observations were made of the prey being carried by ants down trunks of rowan, oak and sycamore trees. The total biomass of prey being transported was measured over a 30 minute sampling period and the data were expressed as the biomass (dry weight in mg) of prey divided by the total number of ants leaving the tree to give the rate of food collection per ant per half hour. Observations were made on 28 rowan, 26 sycamore, and 27 oak trees.</p>
-<div id="section-17" class="section level4 unnumbered infobox action">
+<div id="section-15" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data for this example are in the file ANTS1.CSV, which we assume has been read into a tibble called <code>ants</code>. Set that up if you wish to work throughth example.</p>
 </div>
 <p>The <code>Tree</code> variable contains the tree identities and the <code>Food</code> variable contains the food collection rates:</p>
-<div class="sourceCode" id="cb161"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb161-1"><a href="transformations-chapter.html#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
+<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="transformations-chapter.html#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
 <pre><code>## Rows: 81
 ## Columns: 2
 ## $ Food &lt;dbl&gt; 11.9, 33.3, 4.6, 5.5, 6.2, 11.0, 24.3, 20.7, 5.7, 12.6, 10.2, 4.7…
 ## $ Tree &lt;chr&gt; &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;Rowan&quot;, &quot;R…</code></pre>
 <p>Let’s visualise the data. We could make a dot plot…</p>
-<div class="sourceCode" id="cb163"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb163-1"><a href="transformations-chapter.html#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ants, <span class="fu">aes</span>(<span class="at">x =</span> Food)) <span class="sc">+</span> </span>
-<span id="cb163-2"><a href="transformations-chapter.html#cb163-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">6</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Tree)</span></code></pre></div>
+<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="transformations-chapter.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ants, <span class="fu">aes</span>(<span class="at">x =</span> Food)) <span class="sc">+</span> </span>
+<span id="cb167-2"><a href="transformations-chapter.html#cb167-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">6</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Tree)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-quick-plot1-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>…or we could construct a box and whiskers plot:</p>
-<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="transformations-chapter.html#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ants, <span class="fu">aes</span>(<span class="at">x =</span> Tree, <span class="at">y =</span> Food)) <span class="sc">+</span> </span>
-<span id="cb164-2"><a href="transformations-chapter.html#cb164-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="transformations-chapter.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(ants, <span class="fu">aes</span>(<span class="at">x =</span> Tree, <span class="at">y =</span> Food)) <span class="sc">+</span> </span>
+<span id="cb168-2"><a href="transformations-chapter.html#cb168-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-quick-plot2-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>It doesn’t matter which plot we use. They tell the same story. The food collection rate is generally highest in Oaks and lowest in Rowans (Sycamores are in between). Notice too that the sample distribution of food collection rate is right-skewed. The test we are most likely to use with these data is an ANOVA, i.e. we want to assess whether the mean food collection rates are different among the three tree species. There is already an indication that an ANOVA with the raw food values may be problematic.</p>
 </div>
-<div id="fit-the-model-and-checking-the-assumptions" class="section level3" number="22.2.2">
-<h3><span class="header-section-number">22.2.2</span> Fit the model and checking the assumptions</h3>
+<div id="fit-the-model-and-checking-the-assumptions" class="section level3 hasAnchor" number="22.2.2">
+<h3><span class="header-section-number">22.2.2</span> Fit the model and checking the assumptions<a href="transformations-chapter.html#fit-the-model-and-checking-the-assumptions" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This chapter is about fixing models when the assumptions are not satisfied. What assumptions do we need to check? The test we are most likely to want to use with these data is an ANOVA, so the following assumptions must be evaluated:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Independence.</strong> The experimental units of the data must be independent.</li>
@@ -652,13 +652,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Equal variance.</strong> The variance in each level of the grouping factor is the same.</li>
 </ol>
 <p>We’ll have to assume the first assumption is satisfied and the food collection rate (second assumption) is obviously measured on a ratio scale. The distributional assumptions (normality and equality of variance) are the ones we can address with a transformation. Let’s fit the ANOVA model and produce regression diagnostics to evaluate these. Remember that we make these kinds of plots <em>after</em> we have fitted a statistical model:</p>
-<div class="sourceCode" id="cb165"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb165-1"><a href="transformations-chapter.html#cb165-1" aria-hidden="true" tabindex="-1"></a>ant_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
+<div class="sourceCode" id="cb169"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb169-1"><a href="transformations-chapter.html#cb169-1" aria-hidden="true" tabindex="-1"></a>ant_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
 <p>We need to produce a ‘normal probability plot’ to assess the normality assumption:</p>
-<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="transformations-chapter.html#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="transformations-chapter.html#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-diagnostic1-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This plot exhibits the accelerating curvature that is indicative of right-skewed residuals. This probably isn’t just sampling variation because there is a systematic departure from the dashed line everywhere along it. So it looks like there is a problem. This sort of pattern is quite common in biological data, especially when it involves counts. Clearly, we might be a bit worried about using an ANOVA with these data since it assumes the residuals to be at least approximately normally distributed.</p>
 <p>Are the variances significantly different? Look at the box plots above. The data from the three samples seem to have rather different scatter. The sample from the rowan has less variation than that from the sycamore, and the sycamore has less variation than the oak. Does the scale-location plot tell the same story?</p>
-<div class="sourceCode" id="cb167"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb167-1"><a href="transformations-chapter.html#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="transformations-chapter.html#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-diagnostic2-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This shows that the variance increases with the fitted values—it looks like there is also a problem with the constant variance assumption. Again, this pattern is very common in biological data.</p>
 <p>In the light of these evaluations, we have three options …</p>
@@ -670,11 +670,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We will consider the first two options below, and return to the third in the <a href="non-parametric-tests.html#non-parametric-tests">non-parametric tests</a> chapter.</p>
 </div>
 </div>
-<div id="carry-on" class="section level2" number="22.3">
-<h2><span class="header-section-number">22.3</span> Carrying on anyway</h2>
+<div id="carry-on" class="section level2 hasAnchor" number="22.3">
+<h2><span class="header-section-number">22.3</span> Carrying on anyway<a href="transformations-chapter.html#carry-on" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Carrying on doesn’t sound like a very good idea if we’ve already decided that the assumptions are suspect, but don’t dismiss it straight away. Mild departures from the assumptions often do not make a huge difference to the results of ANOVA (i.e. the <em>p</em>-values). At the very least, it can be instructive to continue an analysis without ‘fixing’ the apparent problems so that we can get a sense of whether they matter or not.</p>
 <p>We already fitted the ANOVA model to allow us to make the diagnostic plots. All we have to do is pass the model object to the <code>anova</code> function to get the <em>F</em>-ratio and <em>p</em>-value for the tree effects:</p>
-<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="transformations-chapter.html#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ant_mod)</span></code></pre></div>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="transformations-chapter.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ant_mod)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: Food
@@ -684,31 +684,31 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>Based on these results, it looks like there is a highly significant difference in food collection rates across the three tree species. However, we know the data are problematic, so the question is, does this result stand up when we deal with these problems?</p>
-<div id="t-tests-are-robust" class="section level4 unnumbered infobox information">
-<h4><em>t</em>-tests are robust</h4>
+<div id="t-tests-are-robust" class="section level4 unnumbered hasAnchor infobox information">
+<h4><em>t</em>-tests are robust<a href="transformations-chapter.html#t-tests-are-robust" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The ‘carry on anyway’ strategy can sometimes be justified if we only need to compare the sample means of two groups because then we can use a two-sample <em>t</em>-test rather than an ANOVA. By default, R uses a version of the <em>t</em>-test that allows for unequal sample variances. This at least deals with one potential problem. The <em>t</em>-test is also fairly robust to violations of the normality assumption when the sample sizes are small, and when the sample sizes are large, the normality assumption matters even less.</p>
 <p>The ability to do a <em>t</em>-test that doesn’t require equal variances is undoubtedly useful. A word of warning, though: some people advise carrying out a statistical test of equal variance, and if the variances are not significantly different, using the version of a two-sample <em>t</em>-test that assumes equal variances. This is not good advice. Following this procedure leads to less reliable <em>p</em>-values. The reason for this is somewhat technical, but trust us, this procedure is not good statistical practice.</p>
 </div>
 </div>
-<div id="transform" class="section level2" number="22.4">
-<h2><span class="header-section-number">22.4</span> Transforming the data</h2>
+<div id="transform" class="section level2 hasAnchor" number="22.4">
+<h2><span class="header-section-number">22.4</span> Transforming the data<a href="transformations-chapter.html#transform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One approach to dealing with difficult response variable is to apply a mathematical function to it to make the transformed data fits the model assumptions better: a process called <em>data transformation</em>. This may sound a bit dubious, but it is a perfectly valid procedure that will often allow us to use the statistical model we want to, even if the data don’t initially fit the assumptions. The critical thing to keep in mind is that the transformation should be applied to the <em>response variable</em>.</p>
-<div id="the-logarithmic-transformation" class="section level3" number="22.4.1">
-<h3><span class="header-section-number">22.4.1</span> The logarithmic transformation</h3>
+<div id="the-logarithmic-transformation" class="section level3 hasAnchor" number="22.4.1">
+<h3><span class="header-section-number">22.4.1</span> The logarithmic transformation<a href="transformations-chapter.html#the-logarithmic-transformation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Let’s try a simple transformation on the food collection rate variable in the ant data set. Instead of using the original numbers we will convert them to their logarithms. We can use common logs (logs to the base 10, written log<span class="math inline">\(_{10}\)</span>) or natural logs (logs to the base, written log<span class="math inline">\(_{e}\)</span> or ln). It doesn’t matter: they have the same effect on the data in terms of making it meet the assumptions of ANOVA (or not).</p>
 <p>Applying a log transform is quick and easy in R—there are built-in functions to take common logs and natural logs, called <code>log10</code> and <code>log</code>, respectively. We’ll use <code>mutate</code> to add a new variable, which is the common log of <code>Food</code>:</p>
-<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="transformations-chapter.html#cb170-1" aria-hidden="true" tabindex="-1"></a>ants <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ants, <span class="at">logFood =</span> <span class="fu">log10</span>(Food))</span></code></pre></div>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="transformations-chapter.html#cb174-1" aria-hidden="true" tabindex="-1"></a>ants <span class="ot">&lt;-</span> <span class="fu">mutate</span>(ants, <span class="at">logFood =</span> <span class="fu">log10</span>(Food))</span></code></pre></div>
 <p>We stored the transformed variable in a new column called <code>logFood</code>.</p>
-<div class="sourceCode" id="cb171"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb171-1"><a href="transformations-chapter.html#cb171-1" aria-hidden="true" tabindex="-1"></a>ant_mod_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(logFood <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
+<div class="sourceCode" id="cb175"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb175-1"><a href="transformations-chapter.html#cb175-1" aria-hidden="true" tabindex="-1"></a>ant_mod_log <span class="ot">&lt;-</span> <span class="fu">lm</span>(logFood <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
 <p>We need to produce a ‘normal probability plot’ to assess the normality assumption:</p>
-<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="transformations-chapter.html#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod_log, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="transformations-chapter.html#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod_log, <span class="at">which =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-log-diag1-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The accelerating curvature (indicative of right-skewed residuals) has gone. The new normal probability plot is a little better than before. Now perhaps 60% of the cases are on the dashed line. It’s hardly perfect, though—the tails of the distribution are not where we’d like them to be. What about the variances?</p>
-<div class="sourceCode" id="cb173"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb173-1"><a href="transformations-chapter.html#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod_log, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="transformations-chapter.html#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ant_mod_log, <span class="at">which =</span> <span class="dv">3</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/ants-log-diag2-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The scale location-plot indicates that the constant variance assumption is now OK, i.e. the variance no longer increases with the fitted values. It looks like the log transformation seems to have improved things quite a lot, but the diagnostics are still not perfect.</p>
 <p>The assumptions are closer to being satisfied. Let’s carry out ANOVA again using the model with the transformed food variable to see how the results change:</p>
-<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="transformations-chapter.html#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ant_mod_log)</span></code></pre></div>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="transformations-chapter.html#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(ant_mod_log)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: logFood
@@ -718,80 +718,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>What has happened? We still see evidence for a significant effect of tree (<em>p</em>&lt;0.01) with the transformed data, but the <em>p</em>-value is somewhat bigger than when we used the original data. This illustrates why it is important to evaluate assumptions and deal with them when they are violated—the output of a statistical test is affected. It does not matter too much here, but in other settings, we can end up with misleading or downright spurious results if we ignore problems with the assumptions of a statistical model.</p>
-<div id="values-of-0" class="section level4 unnumbered infobox information">
-<h4>Values of 0</h4>
+<div id="values-of-0" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Values of 0<a href="transformations-chapter.html#values-of-0" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>One thing to be aware of is that <strong>we cannot take the log of zero</strong>. If our response variable contain zeros we have add a small value to it before taking the logs. We usually add 1 to the variable, i.e. the transformation is <span class="math inline">\(log(x+1)\)</span>. It is worth trying this—it’s easy to do and can work well—but don’t be surprised if this transformation results in a model with poor diagnostics. For example, the <span class="math inline">\(log(x+1)\)</span> transformation doesn’t work well when there are many zeros in the response variable.</p>
 </div>
 </div>
-<div id="presenting-results-from-analyses-of-transformed-data" class="section level3" number="22.4.2">
-<h3><span class="header-section-number">22.4.2</span> Presenting results from analyses of transformed data</h3>
+<div id="presenting-results-from-analyses-of-transformed-data" class="section level3 hasAnchor" number="22.4.2">
+<h3><span class="header-section-number">22.4.2</span> Presenting results from analyses of transformed data<a href="transformations-chapter.html#presenting-results-from-analyses-of-transformed-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Having compared the transformed means, how should we present the results in a report? There are three alternatives. We’ll illustrate them using the log-transformation, though they also apply to other kinds of transformations.</p>
 <ol style="list-style-type: decimal">
 <li><p>We could present the transformed means (having stated what the transformation was, e.g. <span class="math inline">\(log_{e}(x+1)\)</span>). The disadvantage to this is that the numbers themselves convey little information about the values on the original scale. This isn’t always a problem. For example, effects given on a log scale act in a ‘multiplicative’ manner, so a model with log-transformed response variable can still be interpreted if we know what we’re doing.</p></li>
-<li><p>We could back-transform the means of the log-transformed data by taking the antilogs: <span class="math inline">\(10^{x}\)</span> (for logs to the base 10) and <span class="math inline">\(e^{x}\)</span> (for natural logs)<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>. However, when we back-transform data, we need to be aware of two things: (1) The back-transformed mean will not be the same as a mean calculated from the original data; (2) We have to be careful when we back-transform standard errors. Suppose we want to display the back-transformed means on a bar plot, with some indication of the variability of the data. In that case, we must calculate the standard errors and then back transform the upper and lower limits, which will not then be symmetrical about the mean.</p></li>
+<li><p>We could back-transform the means of the log-transformed data by taking the antilogs: <span class="math inline">\(10^{x}\)</span> (for logs to the base 10) and <span class="math inline">\(e^{x}\)</span> (for natural logs)<a href="#fn20" class="footnote-ref" id="fnref20"><sup>20</sup></a>. However, when we back-transform data, we need to be aware of two things: (1) The back-transformed mean will not be the same as a mean calculated from the original data; (2) We have to be careful when we back-transform standard errors. Suppose we want to display the back-transformed means on a bar plot, with some indication of the variability of the data. In that case, we must calculate the standard errors and then back transform the upper and lower limits, which will not then be symmetrical about the mean.</p></li>
 <li><p>We could also present the means calculated from the original data but state clearly that the statistical analysis was carried out on transformed data. This is often the simplest way to proceed.</p></li>
 </ol>
-<div id="diagnostic-plots-vs-p-values" class="section level4 unnumbered infobox warning">
-<h4>Diagnostic plots vs <em>p</em>-values?</h4>
+<div id="diagnostic-plots-vs-p-values" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Diagnostic plots vs <em>p</em>-values?<a href="transformations-chapter.html#diagnostic-plots-vs-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the case study above, applying a log-transformation altered the outcome of the statistical test. Does that mean <em>p</em>-values tell us something about model adequacy? Not really. Transforming the response variable will not always make the difference between a significant and not significant result. In fact, <em>p</em>-values don’t tell us much at all about how good a model is for the data in hand. It is entirely possible for a really bad model to produce small p-values.</p>
 <p>We have to use diagnostic plots to judge the success or not of a transformation. Do not use <em>p</em>-values to make that assessment!</p>
 </div>
 </div>
 </div>
-<div id="trans-types" class="section level2" number="22.5">
-<h2><span class="header-section-number">22.5</span> Types of transformations</h2>
+<div id="trans-types" class="section level2 hasAnchor" number="22.5">
+<h2><span class="header-section-number">22.5</span> Types of transformations<a href="transformations-chapter.html#trans-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Taking logarithms is only one of many possible transformations. Each one is appropriate for solving different problems in the data. The following summarises four commonly used transformations and the sort of situations where they are useful.</p>
-<div id="logarithms" class="section level3" number="22.5.1">
-<h3><span class="header-section-number">22.5.1</span> Logarithms</h3>
+<div id="logarithms" class="section level3 hasAnchor" number="22.5.1">
+<h3><span class="header-section-number">22.5.1</span> Logarithms<a href="transformations-chapter.html#logarithms" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Log transformation, as we’ve just seen, affects the response variable in two ways:</p>
 <ol style="list-style-type: decimal">
 <li><p>A log transformation stretches out a distribution’s left-hand side (smaller values) and squashes in the right-hand side (larger values). This is useful where the residuals’ distribution has a long tail to the right, as in the ant example above.</p></li>
 <li><p>The ‘squashing’ effect of a log transformation is more pronounced at higher values. This means a log transformation may also deal with another common problem in biological data (also seen in the ant data)—samples with larger means having larger variances.</p></li>
 </ol>
-<p>If we are carrying out an ANOVA and the scale-location plot exhibits a positive relationship—i.e. groups with larger means have larger variances—then a log transformation could be appropriate<a href="#fn22" class="footnote-ref" id="fnref22"><sup>22</sup></a>.</p>
+<p>If we are carrying out an ANOVA and the scale-location plot exhibits a positive relationship—i.e. groups with larger means have larger variances—then a log transformation could be appropriate<a href="#fn21" class="footnote-ref" id="fnref21"><sup>21</sup></a>.</p>
 </div>
-<div id="square-roots" class="section level3" number="22.5.2">
-<h3><span class="header-section-number">22.5.2</span> Square roots</h3>
+<div id="square-roots" class="section level3 hasAnchor" number="22.5.2">
+<h3><span class="header-section-number">22.5.2</span> Square roots<a href="transformations-chapter.html#square-roots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Taking the square root of the response variable is often appropriate where the data are whole number counts (the log transformation may also work here). This typically occurs where your data are counts of organisms (e.g. algal cells in fields of view under a microscope). The corresponding back-transformation is obviously <span class="math inline">\(x^{2}\)</span>.</p>
 <p>In R, the square root can be taken using the <code>sqrt</code> function. It works like this using <code>mutate</code>:</p>
-<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="transformations-chapter.html#cb176-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">sqrt_x =</span> <span class="fu">sqrt</span>(x))</span></code></pre></div>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="transformations-chapter.html#cb180-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">sqrt_x =</span> <span class="fu">sqrt</span>(x))</span></code></pre></div>
 <p>By the way, there is no <code>square</code> function. Taking squares is done using the <code>^</code> operator (e.g. if the variable is called <code>x</code>, use <code>x^2</code>).</p>
 </div>
-<div id="arcsine-square-root" class="section level3" number="22.5.3">
-<h3><span class="header-section-number">22.5.3</span> Arcsine square root</h3>
+<div id="arcsine-square-root" class="section level3 hasAnchor" number="22.5.3">
+<h3><span class="header-section-number">22.5.3</span> Arcsine square root<a href="transformations-chapter.html#arcsine-square-root" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The arcsine square root transformation is generally used where the response variable is in the form of percentages or proportions. Such data tend to get ‘bunched up’ at there limits—0 (0%) and 1 (100%)—which leads to non-normal distributions. A correction for this effect is to take the inverse sine of the square roots of the original variable, i.e. <span class="math inline">\(\arcsin \sqrt{x}\)</span>.</p>
 <p>In R the transformation can be achieved by combining the <code>sqrt</code> and <code>asin</code> functions inside <code>mutate</code>. For example, if we need to transform a proportion stored in the <code>x</code> variable use something like:</p>
-<div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="transformations-chapter.html#cb177-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">assqrt_x =</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb181"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb181-1"><a href="transformations-chapter.html#cb181-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">assqrt_x =</span> <span class="fu">asin</span>(<span class="fu">sqrt</span>(x)))</span></code></pre></div>
 <p>…where <code>mydata</code> is the name of hypothetical data frame containing the data. Just remember to apply <code>sqrt</code> and <code>asin</code> in the correct order. We used nested functions here, which are applied from the inside to the outside.</p>
-<div id="converting-percentages-to-proportions" class="section level4 unnumbered infobox warning">
-<h4>Converting percentages to proportions</h4>
+<div id="converting-percentages-to-proportions" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Converting percentages to proportions<a href="transformations-chapter.html#converting-percentages-to-proportions" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The arcsine square root transformation is often discussed in the context of percentages, However, the transformation only works on numbers that lie between 0 and 1, yet percentages range between 0 and 100. This is why we have to convert percentages to proportions (e.g. 100% = 1, 20% = 0.2, 2% = 0.02, etc.) before applying the arcsine square root transformation.</p>
 </div>
 </div>
-<div id="squaring" class="section level3" number="22.5.4">
-<h3><span class="header-section-number">22.5.4</span> Squaring</h3>
+<div id="squaring" class="section level3 hasAnchor" number="22.5.4">
+<h3><span class="header-section-number">22.5.4</span> Squaring<a href="transformations-chapter.html#squaring" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>A problem the above transformations don’t deal with is when a response variable has a negative skew (i.e. a long tail to the left). This problem can sometimes be dealt with, or at least reduced, by squaring the data values.</p>
 <p>In R, the transformation can be achieved by combining the <code>^</code> operator inside <code>mutate</code>. For example, we might use something like…</p>
-<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="transformations-chapter.html#cb178-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">sqr_x =</span> x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="transformations-chapter.html#cb182-1" aria-hidden="true" tabindex="-1"></a>mydata <span class="ot">&lt;-</span> <span class="fu">mutate</span>(mydata, <span class="at">sqr_x =</span> x<span class="sc">^</span><span class="dv">2</span>)</span></code></pre></div>
 <p>…where <code>mydata</code> is again the name of hypothetical data frame containing the data.</p>
 </div>
-<div id="situations-which-cannot-be-dealt-with-by-transformations" class="section level3" number="22.5.5">
-<h3><span class="header-section-number">22.5.5</span> Situations which cannot be dealt with by transformations</h3>
+<div id="situations-which-cannot-be-dealt-with-by-transformations" class="section level3 hasAnchor" number="22.5.5">
+<h3><span class="header-section-number">22.5.5</span> Situations which cannot be dealt with by transformations<a href="transformations-chapter.html#situations-which-cannot-be-dealt-with-by-transformations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are some situations where no transformation will get round the fact that the data are problematic. Two in particular are worth noting:</p>
 <ul>
 <li><strong>Dissimilar distribution shapes</strong>: If two or more subsets of the data exhibit very different problems, then a transformation that corrects one subset ends up distorting the other(s). For example, this occurs when the response variable is strongly right-skewed in one treatment group but strongly left-skewed in another.</li>
-<li><strong>Samples with many exactly equal values</strong>: When the response variable takes a limited set of values (e.g. small integers), there will be many identical values. Non-normality then results from groups of identical values forming particular ‘peaks.’ This cannot be corrected by transformation since equal values will still be equal after transformation!</li>
+<li><strong>Samples with many exactly equal values</strong>: When the response variable takes a limited set of values (e.g. small integers), there will be many identical values. Non-normality then results from groups of identical values forming particular ‘peaks’. This cannot be corrected by transformation since equal values will still be equal after transformation!</li>
 </ul>
-<div id="why-is-it-ok-to-transform-a-response-variable" class="section level4 unnumbered infobox information">
-<h4>Why is it OK to transform a response variable?</h4>
+<div id="why-is-it-ok-to-transform-a-response-variable" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Why is it OK to transform a response variable?<a href="transformations-chapter.html#why-is-it-ok-to-transform-a-response-variable" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Changing the response variable by transformation alters the results of a statistical test. Isn’t this a bit dodgy? The key thing to realise is that the scales on which we measure things are, to some extent, arbitrary. Transforming data to a different scale replaces one arbitrary scale with another. The transformations we have discussed don’t alter the ordering of data points relative to each other—they only alter the gaps between them (that is the critical point). In some cases, this rescaling can make the data more amenable to study, analysis or interpretation.</p>
 <p>In fact, we often use data transformations, perhaps without realising it, in many situations other than doing statistical tests. For example, when we look at a set of pH readings, we are already working with data on a log scale because pH units (0-14) are the negative logarithms of the hydrogen ion concentration in the water. Similarly, measurements of noise in decibels (dB), and seismic disturbance on the Richter scale, are logarithmic scales.</p>
 <p>One final comment… Obviously, we do have to apply the same transformation to every observation. For example, we would never log transform the observations in one group and leave the others alone—that really would be cheating!</p>
 </div>
 </div>
 </div>
-<div id="what-about-other-kinds-of-models" class="section level2" number="22.6">
-<h2><span class="header-section-number">22.6</span> What about other kinds of models?</h2>
+<div id="what-about-other-kinds-of-models" class="section level2 hasAnchor" number="22.6">
+<h2><span class="header-section-number">22.6</span> What about other kinds of models?<a href="transformations-chapter.html#what-about-other-kinds-of-models" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We have focussed on ANOVA here for the simple reason that the assumptions are a bit easier to evaluate compared to regression. However, exactly the same ideas apply when working with other kinds of models that <code>lm</code> can fit. The workflow is the same in every case:</p>
 <ol style="list-style-type: decimal">
 <li>Always check the diagnostic plots after we fit a regression or ANOVA (and do this before worrying about <em>p</em>-values).</li>
@@ -800,8 +800,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Keep in mind that this is often an iterative process. We might have to go through several rounds of transforming and model checking before we arrive at a good model.</p>
 </div>
-<div id="final-thoughts" class="section level2" number="22.7">
-<h2><span class="header-section-number">22.7</span> Final thoughts</h2>
+<div id="final-thoughts" class="section level2 hasAnchor" number="22.7">
+<h2><span class="header-section-number">22.7</span> Final thoughts<a href="transformations-chapter.html#final-thoughts" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Evaluating assumptions and picking transformations is as much ‘art’ as science. It takes time and experience to learn how to do it. R makes it easy to try out different options, so don’t be afraid to do this. Frequently, with biological data, no straightforward transformation improves the data, or in correcting one problem, we generate another. Fortunately, in many cases where the assumptions of a test are not reasonably well fulfilled, there is an alternative approach— which we will discuss in the <a href="non-parametric-tests.html#non-parametric-tests">non-parametric tests</a> chapter.</p>
 
 </div>
@@ -812,9 +812,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="21">
-<li id="fn21"><p>N.B. if we used log<span class="math inline">\((x+1)\)</span> we must remember to subtract the 1 again after taking the antilog.<a href="transformations-chapter.html#fnref21" class="footnote-back">↩︎</a></p></li>
-<li id="fn22"><p>Log transformations have a variety of other uses in statistics. One is in transforming a <em>predictor</em> variable when looking at the form of relationships between two variables.<a href="transformations-chapter.html#fnref22" class="footnote-back">↩︎</a></p></li>
+<ol start="20">
+<li id="fn20"><p>N.B. if we used log<span class="math inline">\((x+1)\)</span> we must remember to subtract the 1 again after taking the antilog.<a href="transformations-chapter.html#fnref20" class="footnote-back">↩︎</a></p></li>
+<li id="fn21"><p>Log transformations have a variety of other uses in statistics. One is in transforming a <em>predictor</em> variable when looking at the form of relationships between two variables.<a href="transformations-chapter.html#fnref21" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -883,7 +883,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 Data and variables | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 Data and variables | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="scientific-process.html"/>
 <link rel="next" href="learning-from-data.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,41 +605,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="data-variables" class="section level1" number="2">
-<h1><span class="header-section-number">Chapter 2</span> Data and variables</h1>
+<div id="data-variables" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Data and variables<a href="data-variables.html#data-variables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>The truth is the science of nature has been already too long made only a work of the Brain and the Fancy. It is now high time that it should return to the plainness and soundness of Observations on material and obvious things.</em></p>
 <p>Robert Hooke (1665)</p>
 <p><em>The plural of anecdote is not data.</em></p>
 <p>Roger Brinner</p>
 </blockquote>
-<div id="observations-on-material-and-obvious-things" class="section level2" number="2.1">
-<h2><span class="header-section-number">2.1</span> “Observations on material and obvious things”</h2>
+<div id="observations-on-material-and-obvious-things" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> “Observations on material and obvious things”<a href="data-variables.html#observations-on-material-and-obvious-things" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As Hooke’s observation suggests, science cannot proceed on theory alone. The information we gather about a system stimulates questions and ideas about it and, in turn, can also allow us to test these ideas. In fact, the idea of measuring and counting things is so familiar that it is easy to start a project without giving much thought to something as mundane as the nature, quantity and resolution of the data we intend to collect. Nonetheless, the features of the data we collect determine the types of analyses that can be carried out and the confidence we can have in the conclusions drawn. In the end, no level of analytical sophistication will enable us to extract information that is not there to begin with.</p>
 <p>So what is there to say about data? The first point to note is that there are many different sorts of data. We focus on simple kinds of data in this book, such as quantities (‘how much’) or classifications (‘what kind’), but not everything can be thought of in simple terms. Examples of more complex data types include spatial maps of species’ occurrence, the DNA sequences of individuals, and networks of feeding relationships among species (i.e. food webs) or gene activation (gene regulatory networks).</p>
 <p>The data we collect in a study can be organised into one or more statistical <strong>variables</strong>. In its loosest sense, statisticians use the word ‘variable’ to mean any characteristic measured or experimentally controlled on different items or objects. People tend to think of variables as numeric quantities, such as cell size, but nothing stops us working with non-numeric variables, such as developmental stage.</p>
 <p>Collectively, a set of related variables is referred to as a <strong>data set</strong> (or just ‘the data’). Confused? Consider a concrete example: the spatial maps of species’ occurrence mentioned above. A minimal data set might comprise two variables containing the x and y position of sample locations, a third variable denoting the presence/absence of a species, and one or more additional variables containing information about the environmental factors we measured.</p>
 <div class="infobox information">
 <p><strong>Data and variables in R</strong></p>
-<p>Data sets are often stored in data frames when working with R. A data frame can be thought of as having rows and columns. Each column in a data frame has to be one of R’s many types of ‘vector.’ Typically, these are simple things, like numeric or character vectors, but other kinds of vector can be used (e.g. dates and intervals of times). The data it contains are said to be <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy</a> when each column of a data frame corresponds to a statistical variable, and each row corresponds to a single observation (a cell, a tissue sample, an animal, etc).</p>
+<p>Data sets are often stored in data frames when working with R. A data frame can be thought of as having rows and columns. Each column in a data frame has to be one of R’s many types of ‘vector’. Typically, these are simple things, like numeric or character vectors, but other kinds of vector can be used (e.g. dates and intervals of times). The data it contains are said to be <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">tidy</a> when each column of a data frame corresponds to a statistical variable, and each row corresponds to a single observation (a cell, a tissue sample, an animal, etc).</p>
 <p>This simple connection between abstract statistical concepts and concrete objects in R is not a coincidence. Its structures and abstractions reflect the fact that R was designed first and foremost to analyse data.</p>
 </div>
 <div class="infobox information">
 <p><strong>The data are or the data is?</strong></p>
-<p>Strictly speaking, the word data is the plural of datum (a single piece of information), so we should say “the data are…” not “the data is….” That said, the use of the word in the singular has become widespread, despite the objections of <a href="http://www.urbandictionary.com/define.php?term=Grammar%20Nazi">Grammar Nazis</a>, and to be perfectly honest, either usage is fine these days. We lean towards plural usage with ‘data,’ but both forms appear in this book…</p>
+<p>Strictly speaking, the word data is the plural of datum (a single piece of information), so we should say “the data are…” not “the data is…”. That said, the use of the word in the singular has become widespread, despite the objections of <a href="http://www.urbandictionary.com/define.php?term=Grammar%20Nazi">Grammar Nazis</a>, and to be perfectly honest, either usage is fine these days. We lean towards plural usage with ‘data’, but both forms appear in this book…</p>
 </div>
 </div>
-<div id="var-types" class="section level2" number="2.2">
-<h2><span class="header-section-number">2.2</span> Revision: Types of variable</h2>
+<div id="var-types" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Revision: Types of variable<a href="data-variables.html#var-types" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When designing an experiment or carrying out some data analysis, it is vital to understand what sort of data we need, or have, as this affects what we can do with it. The variables in a data set are often classified as being either <strong>numeric</strong> or <strong>categorical</strong>:</p>
 <ul>
-<li>Numeric variables have values that describe a measurable quantity as a number, like ‘how many’ or ‘how much.’</li>
-<li>Categorical variables have values that describe a characteristic of an observation, like ‘what type’ or ‘which category.’</li>
+<li>Numeric variables have values that describe a measurable quantity as a number, like ‘how many’ or ‘how much’.</li>
+<li>Categorical variables have values that describe a characteristic of an observation, like ‘what type’ or ‘which category’.</li>
 </ul>
 <p>Numeric variables can be further characterised according to the type of scale they are measured on: <strong>interval</strong> vs. <strong>ratio</strong> scales. Categorical variables can be further characterised according to whether or not they have a natural order: <strong>nominal</strong> vs. <strong>ordinal</strong> variables.</p>
 <p>This is probably the minimal classification scheme we need to learn if we want to analyse our data well. Let’s take a closer look at this scheme.</p>
-<div id="nominal-categorical-variables" class="section level3" number="2.2.1">
-<h3><span class="header-section-number">2.2.1</span> Nominal (categorical) variables</h3>
+<div id="nominal-categorical-variables" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">2.2.1</span> Nominal (categorical) variables<a href="data-variables.html#nominal-categorical-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Nominal variables arise when observations are recorded as categories that have no natural ordering relative to one other. For example:</p>
 <table>
 <tbody>
@@ -672,8 +672,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Variables of this type are common in surveys where, for example, a record is made of the ‘type of thing’ (e.g. the species) observed.</p>
 </div>
-<div id="ordinal-categorical-data" class="section level3" number="2.2.2">
-<h3><span class="header-section-number">2.2.2</span> Ordinal (categorical) data</h3>
+<div id="ordinal-categorical-data" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">2.2.2</span> Ordinal (categorical) data<a href="data-variables.html#ordinal-categorical-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ordinal variables occur where observations can be assigned some meaningful order but the exact ‘distance’ between items is not fixed, or even known. For example, if we are studying the behaviour of an animal when it meets a conspecific, it may not be possible to obtain quantitative data about the interaction, but we might be able to score the behaviours in order of aggressiveness:</p>
 <table>
 <tbody>
@@ -712,12 +712,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The take home message: Always use words (e.g., ‘female’ vs. ‘male’), not numbers, to describe categories in R.</p>
 </div>
 </div>
-<div id="ratio-scale-numeric-variables" class="section level3" number="2.2.3">
-<h3><span class="header-section-number">2.2.3</span> Ratio scale (numeric) variables</h3>
+<div id="ratio-scale-numeric-variables" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">2.2.3</span> Ratio scale (numeric) variables<a href="data-variables.html#ratio-scale-numeric-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Ratio scale numeric variables have a true zero and a known and consistent mathematical relationship between any points on the measurement scale. For example, there is a temperature scale that has a true zero: the Kelvin scale. Zero K is absolute zero, where matter has no thermal energy whatsoever. Temperature measurements in degrees K are on a ratio scale, i.e. it <strong>does</strong> make sense to say that 60 K is twice as hot as 30 K. Ratio scale numeric variables are quite familiar, because the physical quantities that crop up in science are usually measured on a ratio scale: length, weight, and numbers of objects are good examples.</p>
 </div>
-<div id="interval-scale-numeric-variables" class="section level3" number="2.2.4">
-<h3><span class="header-section-number">2.2.4</span> Interval scale (numeric) variables</h3>
+<div id="interval-scale-numeric-variables" class="section level3 hasAnchor" number="2.2.4">
+<h3><span class="header-section-number">2.2.4</span> Interval scale (numeric) variables<a href="data-variables.html#interval-scale-numeric-variables" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Interval scale variables take values on a consistent numeric scale, but where that scale starts at an arbitrary point. Differences between values on an interval scale are meaningful, whereas ratios are not. The temperature on the Celsius scale is a good example of interval data. We can say that 60º C is hotter than 50º C, and we can say that the difference in temperature between 60º C and 70º C is the same as that between -20º C and -10º C. We cannot say that 60º C is twice as hot as 30º C. This is because temperature on the Celsius scale has an artificial zero value—the freezing point of water. The idea becomes obvious when we consider that temperature can equally well be measured on the Fahrenheit scale (where the freezing point of water is 32º F).</p>
 <div class="infobox information">
 <p><strong>Continuous or discrete?</strong></p>
@@ -725,21 +725,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>However, the distinction between continuous and discrete data is often not clear cut – even ‘continuous’ variables such as weight are made discrete in reality by the fact that our measuring apparatus is of limited resolution (i.e. a balance may weigh to the nearest 0.01 g). So… keep in mind that the fact that data look (or really are) discrete does not mean they are necessarily truly discrete data.</p>
 </div>
 </div>
-<div id="why-does-the-distinction-matter" class="section level3" number="2.2.5">
-<h3><span class="header-section-number">2.2.5</span> Why does the distinction matter?</h3>
+<div id="why-does-the-distinction-matter" class="section level3 hasAnchor" number="2.2.5">
+<h3><span class="header-section-number">2.2.5</span> Why does the distinction matter?<a href="data-variables.html#why-does-the-distinction-matter" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The measurement scale affects what we can do mathematically to a numeric variable. We can add and subtract interval scale variables, but we can not divide or multiply them and arrive a meaningful result. In contrast, we can add, subtract, multiply or divide ratio scale variables. Put another way, differences and distances are meaningful for both interval and ratio scales, but ratios are only meaningful for ratio variables (yes, the clue is in the name).</p>
 </div>
-<div id="which-is-best" class="section level3" number="2.2.6">
-<h3><span class="header-section-number">2.2.6</span> Which is best?</h3>
+<div id="which-is-best" class="section level3 hasAnchor" number="2.2.6">
+<h3><span class="header-section-number">2.2.6</span> Which is best?<a href="data-variables.html#which-is-best" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All types of data can be useful, but it is important to be aware that not all types of data can be used with all statistical models. This is one very good reason for why it is worth having a clear idea of the statistical tools we intend to use when designing a study.</p>
 <p>In general, ratio variables are best suited to statistical analysis. However, biological systems often cannot be readily represented as ratio data, or the work involved in collecting good ratio data may be vastly greater than the resources allow, or the question we are interested in may not demand ratio data to achieve a perfectly satisfactory answer. It is this last question that should come first when thinking about a study. What sort of data do we need to answer the question we are interested in? Suppose it is clear at the outset that data on a rank scale will not be sufficiently detailed to enable us to answer the question. In that case, we must either develop a better way of collecting the data, or abandon that approach altogether. If we know the data we’re able to collect cannot address the question, we should do something else.</p>
 <p>An obvious but important point: we can always convert measurements taken on a ratio scale to an interval scale, but we cannot do the reverse. Similarly, we can convert interval scale data to ordinal data, but we cannot do the reverse. That said, it’s good practice to avoid such conversions as they inevitably result in a loss of information.</p>
 </div>
 </div>
-<div id="accuracy-precision" class="section level2" number="2.3">
-<h2><span class="header-section-number">2.3</span> Accuracy and precision</h2>
-<div id="what-do-they-mean" class="section level3" number="2.3.1">
-<h3><span class="header-section-number">2.3.1</span> What do they mean?</h3>
+<div id="accuracy-precision" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Accuracy and precision<a href="data-variables.html#accuracy-precision" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-do-they-mean" class="section level3 hasAnchor" number="2.3.1">
+<h3><span class="header-section-number">2.3.1</span> What do they mean?<a href="data-variables.html#what-do-they-mean" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The two terms accuracy and precision are used more or less synonymously in everyday speech, but they have quite distinct meanings in scientific investigation.</p>
 <p><strong>Accuracy</strong> – how close a measurement is to the true value of whatever it is you are trying to measure.</p>
 <p><strong>Precision</strong> – how repeatable a measure is, irrespective of whether it is close to the actual value.</p>
@@ -752,18 +752,18 @@ Figure 2.1: Accuracy and precision
 </div>
 <p>It’s important to know how accurate and how precise our data are. The ideal is the situation in the top left target in the diagram. Still, high precision is not possible in many circumstances, and it is usually preferable to make measurements whose accuracy we can be reasonably confident (bottom left), than more precise measurements, whose accuracy may be suspect (top right). Taking an average of the values for the bottom left target would produce a value pretty close to the centre; taking an average for the top right target wouldn’t help the accuracy at all.</p>
 </div>
-<div id="implied-precision-significant-figures" class="section level3" number="2.3.2">
-<h3><span class="header-section-number">2.3.2</span> Implied precision – significant figures</h3>
+<div id="implied-precision-significant-figures" class="section level3 hasAnchor" number="2.3.2">
+<h3><span class="header-section-number">2.3.2</span> Implied precision – significant figures<a href="data-variables.html#implied-precision-significant-figures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s worth being aware that when we state results, we’re making implicit statements about the precision of the measurement. The number of significant figures we use suggests something about the precision of the result. A result quoted as 12.375 mm implies the measurement is more precise than one quoted as 12.4 mm. A value of 12.4 actually measured with the same precision as 12.735 should properly be written 12.400. When quoting results, look at the original data to decide how many significant figures to use—generally, the same number of significant figures will be appropriate.</p>
 <p>These considerations do not apply in the same way when working with discrete data, e.g. precision of measurement is not an issue in recording the number of eggs in a nest. We use 4 not 4.0, but since 4 eggs implies 4.0 eggs it’s fine to quote average clutch size from several nests as 4.3 eggs. However, even with discrete data, if numbers are large then obviously precision is an issue again … a figure of 300 000 ants in a nest is likely to imply a precision of plus or minus 50 000. A figure of 320987 ants implies an improbably precise measurement.</p>
 </div>
-<div id="how-precise-should-measurements-be" class="section level3" number="2.3.3">
-<h3><span class="header-section-number">2.3.3</span> How precise should measurements be?</h3>
+<div id="how-precise-should-measurements-be" class="section level3 hasAnchor" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> How precise should measurements be?<a href="data-variables.html#how-precise-should-measurements-be" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The appropriate precision to use when making measurements is largely common sense. It will depend on practicality and the use to which we wish to put the data. It may not be possible to weigh an elephant to the nearest 0.001g, but if we want to know whether the elephant will cause a 10-tonne bridge to collapse, then the nearest tonne will be good enough. On the other hand, if we want to compare the mean sizes of male and female elephants, then the nearest 100 kg may be sufficient, but if we plan to monitor the progress of a pregnant female elephant, then the nearest 10 kg or less might be desirable.</p>
 <p>As a rough guide aim, where possible, for a scale where the number of measurement steps is between 30 and 300 over the expected range of the data. For example, in a study of the variation in shell thickness of dogwhelks on a 300 m transect up a shore, it would be adequate to measure the position of each sampling point on the transect to the nearest metre, but shell thickness will almost certainly need to be measured to the nearest 0.1 mm.</p>
 </div>
-<div id="error-bias-and-prejudice" class="section level3" number="2.3.4">
-<h3><span class="header-section-number">2.3.4</span> Error, bias and prejudice</h3>
+<div id="error-bias-and-prejudice" class="section level3 hasAnchor" number="2.3.4">
+<h3><span class="header-section-number">2.3.4</span> Error, bias and prejudice<a href="data-variables.html#error-bias-and-prejudice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Error is present in almost all biological data, but not all error is equally problematic. Usually, the worst form of error is bias. Bias is a systematic lack of accuracy—i.e. the data are not just inaccurate—but all tend to deviate from the true measurements in the same direction (situations B and D in the ‘target’ analogy above). Thus there is an important distinction in statistics between the situation where the measurements differ from the true value at random and those where they differ systematically. Measurements lacking some precision, such as the situation illustrated in C, may still yield a reasonable estimate of the true value if the mean of a number of values is taken.</p>
 <p>Avoiding bias in the collection of data is one of the most important skills in designing scientific investigations. Some forms of bias are obvious, others more subtle and hard to spot:</p>
 <ul>
@@ -843,7 +843,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

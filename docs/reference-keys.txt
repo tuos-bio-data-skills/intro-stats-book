@@ -22,7 +22,7 @@ fig:drug-not-linked
 fig:glyco-diffs
 fig:chi-dist-1-eg
 fig:chi-test-eg
-tab:unnamed-chunk-203
+tab:unnamed-chunk-199
 fig:stats-key
 scientific-process
 stages-scientific-process
@@ -193,6 +193,7 @@ fitted-values
 checking-the-linearity-assumption
 checking-the-normality-assumption
 checking-the-constant-variance-assumption
+summary-of-the-diagnostic-checks
 assumptions-of-one-way-anova
 regression-diagnostics-in-r
 diagnostics-for-regression

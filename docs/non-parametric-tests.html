@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 26 Non-parametric tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 26 Non-parametric tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="contingency-tables.html"/>
 <link rel="next" href="choosing-models-and-tests.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,10 +605,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="non-parametric-tests" class="section level1" number="26">
-<h1><span class="header-section-number">Chapter 26</span> Non-parametric tests</h1>
-<div id="what-is-non-par" class="section level2" number="26.1">
-<h2><span class="header-section-number">26.1</span> What is a non-parametric test?</h2>
+<div id="non-parametric-tests" class="section level1 hasAnchor" number="26">
+<h1><span class="header-section-number">Chapter 26</span> Non-parametric tests<a href="non-parametric-tests.html#non-parametric-tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="what-is-non-par" class="section level2 hasAnchor" number="26.1">
+<h2><span class="header-section-number">26.1</span> What is a non-parametric test?<a href="non-parametric-tests.html#what-is-non-par" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The majority of procedures we have been using to evaluate statistical significance require various assumptions about population distributions to be satisfied. We call these parametric methods because they are underpinned by a mathematical model of the population(s) (we discussed this idea in the <a href="parametric-statistics.html#parametric-statistics">Parametric statistics</a> chapter). For this reason, the statistical tests associated with these methods—e.g. global significance tests and multiple comparisons tests in ANOVA—are called <strong>parametric tests</strong>.</p>
 <p><strong>Non-parametric tests</strong> are a class of statistical tests that make much weaker assumptions. The advantage of non-parametric tests is that they can be employed with a much wider range of forms of data than their parametric cousins. Although non-parametric tests are less restrictive in their assumptions, they are not, as is sometimes stated, assumption-free. The term non-parametric is just a catch-all term that applies to any test which doesn’t assume the data are drawn from a <em>specific</em> distribution. We have already seen several examples of non-parametric tests:</p>
 <ul>
@@ -617,10 +617,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>In this chapter, we are will look at some new non-parametric tests that perform analyses equivalent to <em>t</em>-tests, correlation analysis, and the global significance test in one-way ANOVA. But why do we need these in the first place?</p>
 </div>
-<div id="why-when" class="section level2" number="26.2">
-<h2><span class="header-section-number">26.2</span> Why use non-parametric tests … and when?</h2>
-<div id="what-are-the-advantages" class="section level3" number="26.2.1">
-<h3><span class="header-section-number">26.2.1</span> What are the advantages?</h3>
+<div id="why-when" class="section level2 hasAnchor" number="26.2">
+<h2><span class="header-section-number">26.2</span> Why use non-parametric tests … and when?<a href="non-parametric-tests.html#why-when" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="what-are-the-advantages" class="section level3 hasAnchor" number="26.2.1">
+<h3><span class="header-section-number">26.2.1</span> What are the advantages?<a href="non-parametric-tests.html#what-are-the-advantages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Non-parametric tests make relatively weak assumptions about the distribution of the data, meaning they are useful in situations where our data are not well suited to parametric tests. When the assumptions of a particular parametric test are violated, a non-parametric version may be a better bet. For example, many non-parametric tests can be used to analyse data originally collected in ordinal, or rank, form. This is useful in investigations where the data cannot be collected any other way, for example:</p>
 <ul>
 <li>Subjects in a psychology experiment might be asked to rank a series of photographs of people in order of attractiveness.</li>
@@ -628,15 +628,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Encounters between animals might be scored on the basis of the aggressive behaviours shown which can be put in rank order.</li>
 </ul>
 </div>
-<div id="what-are-the-disadvantages" class="section level3" number="26.2.2">
-<h3><span class="header-section-number">26.2.2</span> What are the disadvantages?</h3>
+<div id="what-are-the-disadvantages" class="section level3 hasAnchor" number="26.2.2">
+<h3><span class="header-section-number">26.2.2</span> What are the disadvantages?<a href="non-parametric-tests.html#what-are-the-disadvantages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Given the advantages of non-parametric tests, there has to be a catch. Otherwise, everyone would use non-parametric tests all the time. In fact, they are usually used as a last resort. One problem with non-parametric tests is that if the data are actually appropriate for a parametric test the equivalent non-parametric test will be less powerful (i.e. less likely to find a difference even if there really is one). For this reason, an appropriate transformation followed by a parametric test will yield a more powerful analysis.</p>
 <p>A second limitation of non-parametric tests is that they are less informative than parametric tests. For example, suppose we find a significant difference between group medians using a non-parametric test (see below). In that case, it can be difficult to understand which differences are driving the significant effect. On the other hand, if we can determine a suitable transformation and use an ANOVA model, we can deploy tools such as multiple comparison tests to understand the data better.</p>
 <p>Parametric models make stronger distributional assumptions about the data. Still, they are much more flexible in some ways than non-parametric tests, i.e. there are non-parametric equivalents to some parametric tests. Still, there are many parametric tests for which there is no readily available non-parametric equivalent (e.g., the more complex designs of ANOVA). There is a non-parametric equivalent to ANOVA for complete randomised block design with one treatment factor, called <em>Friedman’s test</em> (available via the <code>friedman.test</code> function in R), but beyond that, the options are very limited unless we know how to use advanced techniques such as the bootstrap.</p>
 </div>
 </div>
-<div id="non-par-intro" class="section level2" number="26.3">
-<h2><span class="header-section-number">26.3</span> How does a non-parametric test work?</h2>
+<div id="non-par-intro" class="section level2 hasAnchor" number="26.3">
+<h2><span class="header-section-number">26.3</span> How does a non-parametric test work?<a href="non-parametric-tests.html#non-par-intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The key thing about the non-parametric tests in this chapter is that the calculations are done using the rank order of the data, whatever the type of the original data—-ratio, interval, or ordinal. The general principle of such a test can be easily illustrated with the following example. Imagine that we want to compare two samples to determine whether they differ in their central tendency. That is, we want to know if the values in one sample tend to be larger or smaller than the values in a second sample. For example:</p>
 <table>
 <tbody>
@@ -772,8 +772,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Obviously, the greater the difference in the rank totals, the less likely it is that the two samples could have come from the same distribution of values—i.e. the more likely it is that difference between them may be statistically significant.</p>
 <p>The important thing to notice in such a procedure is that the original data could have been replaced with quite different values which, provided the ordering was the same, would have given exactly the same result. In other words the outcome of the test is reasonably insensitive to the underlying distribution of the data.</p>
 </div>
-<div id="non-parametric-equivalents" class="section level2" number="26.4">
-<h2><span class="header-section-number">26.4</span> Non-parametric equivalents</h2>
+<div id="non-parametric-equivalents" class="section level2 hasAnchor" number="26.4">
+<h2><span class="header-section-number">26.4</span> Non-parametric equivalents<a href="non-parametric-tests.html#non-parametric-equivalents" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Several non-parametric procedures provide similar types of tests to the simple parametric tests we have seen already. The actual calculations for the different tests are a little more involved than the general outline above, but they work from the same basic principle: find the rank order of all the data and then use the ranks in different groups to assess the statistical significance of the observed differences. As always, we have to specify some kind of null hypothesis (e.g. the medians of two samples are the same) to make the significance calculation work.</p>
 <p>The four tests discussed here are:</p>
 <ol style="list-style-type: decimal">
@@ -787,8 +787,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><strong>Spearman’s Rank correlation</strong>: This is equivalent to Pearson’s correlation—it tests for an association between two variables.</p></li>
 </ol>
 <p>Notice that we haven’t said anything about <em>what kind</em> of differences among samples these evaluate, i.e. we didn’t specify the null hypothesis. We’ll address this question as we discuss each test.</p>
-<div id="so-many-names" class="section level4 unnumbered infobox warning">
-<h4>So many names!</h4>
+<div id="so-many-names" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>So many names!<a href="non-parametric-tests.html#so-many-names" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>One of the challenges that come with learning about non-parametric tests is that a particular test often has more than one name. For example:</p>
 <ol style="list-style-type: decimal">
 <li><strong>Wilcoxon signed-rank test</strong>: This also goes by the name of the Wilcoxon one-sample test, the Wilcoxon matched-pairs test, or the Wilcoxon paired-sample test.</li>
@@ -797,20 +797,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Keep this in mind when reading about non-parametric tests. It often feels like there are many different tests out there, when in fact, they’re all the same test under a different guise!</p>
 </div>
 </div>
-<div id="wilcoxon-signed-rank-test" class="section level2" number="26.5">
-<h2><span class="header-section-number">26.5</span> Wilcoxon signed-rank test</h2>
+<div id="wilcoxon-signed-rank-test" class="section level2 hasAnchor" number="26.5">
+<h2><span class="header-section-number">26.5</span> Wilcoxon signed-rank test<a href="non-parametric-tests.html#wilcoxon-signed-rank-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The most widely used non-parametric equivalent to the one-sample <em>t</em>-test is the Wilcoxon signed-rank test. The test can be used for any situation requiring a test to compare the median of a sample against a single value. However, it is almost always used to analyse data collected using a paired-sample design, so we’ll focus on that particular application of the test. The Wilcoxon signed-rank test makes less stringent assumptions than the <em>t</em>-test, but it does make some assumptions:</p>
 <ul>
 <li><p>The variable being tested is measured on ordinal, interval, or ratio scales</p></li>
-<li><p>The (population) distribution of the variable is approximately symmetric<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>.</p></li>
+<li><p>The (population) distribution of the variable is approximately symmetric<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a>.</p></li>
 </ul>
 <p>The first assumption is simple enough—the variable can be anything but nominal. The second assumption essentially means that it doesn’t matter what form the distribution of the variable looks like as long as it is symmetric—it would not be satisfied if the distribution were strongly right- or left-skewed.</p>
 <p>As with the <em>t</em>-test, when applied to paired-sample data, the Wilcoxon signed-rank test starts by finding the differences between all the pairs and then tests whether these differences are significantly different from zero. The distribution under consideration is the <em>distribution of differences</em> between the pairs. Remember, this distribution will often be approximately normal even when the connected samples are not drawn from a normal distribution. This means that even if the samples have odd distributions, we may still find that we can use a paired-sample <em>t</em>-test if differences have a perfectly acceptable distribution. However, if the distribution of differences is not normal, then the Wilcoxon signed-rank test provides an alternative.</p>
 <p>The following is an example of a situation where the Wilcoxon signed-rank test would be appropriate.</p>
-<div id="leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae" class="section level3" number="26.5.1">
-<h3><span class="header-section-number">26.5.1</span> Leaf damage, plant defences and feeding by winter moth larvae</h3>
+<div id="leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae" class="section level3 hasAnchor" number="26.5.1">
+<h3><span class="header-section-number">26.5.1</span> Leaf damage, plant defences and feeding by winter moth larvae<a href="non-parametric-tests.html#leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It has been hypothesised that plants respond to physical damage to their leaves from herbivores such as lepidopteran larvae by increasing the production of defensive compounds such as phenolics. In an experiment to test this effect, birch saplings were subjected to artificial leaf damage (hole punching) on half the leaves on selected branches. After 24 h, undamaged leaves from both the branches with hole-punched leaves and others distant from the damage site were collected and used in a choice test experiment with winter moth larvae. Twenty trials were carried out with a single caterpillar in each trial, offered one of each leaf type (i.e. one leaf from close to the damage site and one from an undamaged area). The percentage of each leaf consumed was estimated (to the nearest 5%) after 24h.</p>
-<div id="section-21" class="section level4 unnumbered infobox action">
+<div id="section-19" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data for this example live in the ‘LEAF_DAMAGE.CSV’ file. The code below assumes those data have been read into a tibble called <code>leaves</code>. Set that up if you plan to work along.</p>
 </div>
@@ -821,10 +821,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ LeafType &lt;chr&gt; &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notd…
 ## $ Damage   &lt;dbl&gt; 65, 0, 10, 45, 55, 45, 0, 10, 5, 70, 55, 40, 0, 70, 65, 35, 6…</code></pre>
 <p>As always, it’s a good idea to visualise the data:</p>
-<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="non-parametric-tests.html#cb218-1" aria-hidden="true" tabindex="-1"></a>jitter <span class="ot">&lt;-</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> <span class="dv">1</span>)</span>
-<span id="cb218-2"><a href="non-parametric-tests.html#cb218-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaves, <span class="fu">aes</span>(<span class="at">x =</span> LeafType, <span class="at">y =</span> Damage, <span class="at">group =</span> ID)) <span class="sc">+</span></span>
-<span id="cb218-3"><a href="non-parametric-tests.html#cb218-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> jitter) <span class="sc">+</span> </span>
-<span id="cb218-4"><a href="non-parametric-tests.html#cb218-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">position =</span> jitter) </span></code></pre></div>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="non-parametric-tests.html#cb222-1" aria-hidden="true" tabindex="-1"></a>jitter <span class="ot">&lt;-</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> <span class="dv">1</span>)</span>
+<span id="cb222-2"><a href="non-parametric-tests.html#cb222-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaves, <span class="fu">aes</span>(<span class="at">x =</span> LeafType, <span class="at">y =</span> Damage, <span class="at">group =</span> ID)) <span class="sc">+</span></span>
+<span id="cb222-3"><a href="non-parametric-tests.html#cb222-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> jitter) <span class="sc">+</span> </span>
+<span id="cb222-4"><a href="non-parametric-tests.html#cb222-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">position =</span> jitter) </span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/winter-moth-damage-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>We used a new trick here: we ‘jittered’ the vertical position of the <code>Damage</code> values to deal with the overplotting (using the <code>position_jitter</code> function). This adds a bit of random noise to the y-axis position so that those with the same values end up being plotted in different places. This plot highlights that:</p>
 <ol style="list-style-type: decimal">
@@ -832,22 +832,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>there is a tendency for larvae to prefer the undamaged leaves, though the pattern is not overwhelming.</li>
 </ol>
 <p>We need a statistical test. The data are paired, so a paired sample <em>t</em>-test or a Wilcoxon signed-rank test are our two options. We can visualise the damage distribution of <em>within larvae</em> <em>differences</em> to assess which test might be best:</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="non-parametric-tests.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1 -- calculate the differences</span></span>
-<span id="cb219-2"><a href="non-parametric-tests.html#cb219-2" aria-hidden="true" tabindex="-1"></a>leaves_diff <span class="ot">&lt;-</span> </span>
-<span id="cb219-3"><a href="non-parametric-tests.html#cb219-3" aria-hidden="true" tabindex="-1"></a>  leaves <span class="sc">%&gt;%</span> </span>
-<span id="cb219-4"><a href="non-parametric-tests.html#cb219-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> </span>
-<span id="cb219-5"><a href="non-parametric-tests.html#cb219-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">DiffDamage =</span> <span class="fu">diff</span>(Damage))</span>
-<span id="cb219-6"><a href="non-parametric-tests.html#cb219-6" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2 -- make the plot</span></span>
-<span id="cb219-7"><a href="non-parametric-tests.html#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaves_diff, <span class="fu">aes</span>(<span class="at">x =</span> DiffDamage)) <span class="sc">+</span> </span>
-<span id="cb219-8"><a href="non-parametric-tests.html#cb219-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="non-parametric-tests.html#cb223-1" aria-hidden="true" tabindex="-1"></a><span class="co"># step 1 -- calculate the differences</span></span>
+<span id="cb223-2"><a href="non-parametric-tests.html#cb223-2" aria-hidden="true" tabindex="-1"></a>leaves_diff <span class="ot">&lt;-</span> </span>
+<span id="cb223-3"><a href="non-parametric-tests.html#cb223-3" aria-hidden="true" tabindex="-1"></a>  leaves <span class="sc">%&gt;%</span> </span>
+<span id="cb223-4"><a href="non-parametric-tests.html#cb223-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> </span>
+<span id="cb223-5"><a href="non-parametric-tests.html#cb223-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">DiffDamage =</span> <span class="fu">diff</span>(Damage))</span>
+<span id="cb223-6"><a href="non-parametric-tests.html#cb223-6" aria-hidden="true" tabindex="-1"></a><span class="co"># step 2 -- make the plot</span></span>
+<span id="cb223-7"><a href="non-parametric-tests.html#cb223-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(leaves_diff, <span class="fu">aes</span>(<span class="at">x =</span> DiffDamage)) <span class="sc">+</span> </span>
+<span id="cb223-8"><a href="non-parametric-tests.html#cb223-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/winter-moth-damage-diff-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>There are large differences in both directions, and the distribution does not seem to be normal. The problem here is that caterpillars often spend time feeding on the first leaf they encounter, which is a more or less random choice; some may change leaves quickly in response to the quality of the leaf, others may feed for some time before leaving the leaf. We might still expect those on better-defended leaves to feed less, as the leaves should be less palatable, but they may not make the behavioural decision to switch leaf during the short period of the experiment (the experiment cannot go on for longer because the leaves change chemically the longer they are detached from the plant).</p>
-<p>The distribution may not be normal, but it is roughly symmetrical. The symmetry assumption of the Wilcoxon signed-rank test seems to be satisfied, so we can use this test to examine whether there is any difference in caterpillar feeding on leaves from damaged areas and undamaged areas. We carry out the test using the <code>wilcox.test</code> function in R<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a>. This works like the <code>t.test</code> function for a paired-sample design:</p>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="non-parametric-tests.html#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Damage <span class="sc">~</span> LeafType, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> leaves)</span></code></pre></div>
-<pre><code>## Warning in wilcox.test.default(x = c(5, 25, 30, 40, 15, 5, 35, 45, 30, 10, :
-## cannot compute exact p-value with ties</code></pre>
-<pre><code>## Warning in wilcox.test.default(x = c(5, 25, 30, 40, 15, 5, 35, 45, 30, 10, :
-## cannot compute exact p-value with zeroes</code></pre>
+<p>The distribution may not be normal, but it is roughly symmetrical. The symmetry assumption of the Wilcoxon signed-rank test seems to be satisfied, so we can use this test to examine whether there is any difference in caterpillar feeding on leaves from damaged areas and undamaged areas. We carry out the test using the <code>wilcox.test</code> function in R<a href="#fn31" class="footnote-ref" id="fnref31"><sup>31</sup></a>. This works like the <code>t.test</code> function for a paired-sample design:</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="non-parametric-tests.html#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Damage <span class="sc">~</span> LeafType, <span class="at">paired =</span> <span class="cn">TRUE</span>, <span class="at">data =</span> leaves)</span></code></pre></div>
+<pre><code>## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+## compute exact p-value with ties</code></pre>
+<pre><code>## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+## compute exact p-value with zeroes</code></pre>
 <pre><code>## 
 ##  Wilcoxon signed rank test with continuity correction
 ## 
@@ -865,8 +865,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 </div>
 </div>
-<div id="mann-whitney" class="section level2" number="26.6">
-<h2><span class="header-section-number">26.6</span> The Mann-Whitney <em>U</em>-test</h2>
+<div id="mann-whitney" class="section level2 hasAnchor" number="26.6">
+<h2><span class="header-section-number">26.6</span> The Mann-Whitney <em>U</em>-test<a href="non-parametric-tests.html#mann-whitney" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Mann-Whitney <em>U</em>-test is the non-parametric equivalent to the independent two-sample <em>t</em>-test. The test can be used for any situation requiring a test to compare the median of two samples. The assumptions of the Mann-Whitney <em>U</em>-test are:</p>
 <ul>
 <li>The variable being tested is measured on ordinal, interval, or ratio scales</li>
@@ -878,25 +878,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>This assumption essentially means that it doesn’t matter what the distributions of the two samples are like as long as they are roughly similar. For example, it would not be satisfied if we plan to compare data from a strongly right-skewed distribution with data from a strongly left-skewed distribution.</p>
 <p>When all three of the above assumptions are satisfied, the Mann-Whitney <em>U</em>-test is used to look for differences between the central tendency of two distributions. A two-sample <em>t</em>-test evaluates the statistical significance of differences between two means. The null hypothesis of the Mann-Whitney <em>U</em>-test is that the two distributions have the same median. A significant p-value, therefore, indicates that the medians are likely to be different (not the means!).</p>
-<div id="ant-foraging" class="section level3" number="26.6.1">
-<h3><span class="header-section-number">26.6.1</span> Ant foraging</h3>
-<p>Let’s use the Red wood ants example from the chapter on transformations to see how to carry out the Mann-Whitney <em>U</em>-test. Recall that this study measured the total biomass of prey being transported—the rate of food collection per ant per half hour—on three different tree species (rowan, sycamore and oak). Since the Mann-Whitney <em>U</em>-test only compares two samples, we will only use on the oak and sycamore cases to illustrate the test<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a>.</p>
-<div id="section-22" class="section level4 unnumbered infobox action">
+<div id="ant-foraging" class="section level3 hasAnchor" number="26.6.1">
+<h3><span class="header-section-number">26.6.1</span> Ant foraging<a href="non-parametric-tests.html#ant-foraging" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s use the Red wood ants example from the chapter on transformations to see how to carry out the Mann-Whitney <em>U</em>-test. Recall that this study measured the total biomass of prey being transported—the rate of food collection per ant per half hour—on three different tree species (rowan, sycamore and oak). Since the Mann-Whitney <em>U</em>-test only compares two samples, we will only use on the oak and sycamore cases to illustrate the test<a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a>.</p>
+<div id="section-20" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data for this example live in the ‘ANTS1.CSV’ file. The code below assumes they have been read into a tibble called <code>ants</code>. We also assume the rowan cases have already been removed, using <code>filter</code>, for example:</p>
 <p>Set all that up if you plan to work along.</p>
 </div>
 <p>The <code>Tree</code> variable contains the identities, and the <code>Food</code> variable contains the food collection rates:</p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="non-parametric-tests.html#cb225-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="non-parametric-tests.html#cb229-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
 <pre><code>## Rows: 53
 ## Columns: 2
 ## $ Food &lt;dbl&gt; 20.1, 47.4, 85.6, 17.1, 5.7, 7.8, 28.8, 18.8, 12.1, 62.0, 4.9, 57…
 ## $ Tree &lt;chr&gt; &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;O…</code></pre>
 <p>Carrying out a Mann-Whitney <em>U</em>-test in R is simple enough. However, somewhat confusingly, we have to use the <code>wilcox.test</code> function again. This is because, as we noted above, the Mann-Whitney <em>U</em>-test is also known as a <strong>two-sample Wilcoxon test</strong>.</p>
 <p>The <code>wilcox.test</code> function for an independent two-sample design works just like the corresponding analysis with the <code>t.test</code> function. The first argument should be a formula, and the second should be the data frame containing the relevant variables:</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="non-parametric-tests.html#cb227-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
-<pre><code>## Warning in wilcox.test.default(x = c(20.1, 47.4, 85.6, 17.1, 5.7, 7.8, 28.8, :
-## cannot compute exact p-value with ties</code></pre>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="non-parametric-tests.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
+<pre><code>## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
+## compute exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Wilcoxon rank sum test with continuity correction
 ## 
@@ -911,15 +911,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>The rates of removal of prey biomass were not significantly different between ants foraging in oak and in sycamore (Mann-Whitney <em>U</em>-test: U=453.5, n<sub>1</sub>=26, n<sub>2</sub>=27, <em>p</em>=0.07).</p>
 </blockquote>
-<p>Notice how the statistics were reported. Because we are describing the test as a Mann-Whitney <em>U</em>-test, it is conventional to quote the test statistic as ‘U,’ rather than ‘W.’ If we had decided to present the test as a two-sample Wilcoxon test, the test could be summarised:</p>
+<p>Notice how the statistics were reported. Because we are describing the test as a Mann-Whitney <em>U</em>-test, it is conventional to quote the test statistic as ‘U’, rather than ‘W’. If we had decided to present the test as a two-sample Wilcoxon test, the test could be summarised:</p>
 <blockquote>
 <p>The rates of removal of prey biomass were not significantly different between ants foraging in oak and in sycamore (two-sample Wilcoxon test: <em>W</em>=453.5, n<sub>1</sub>=26, n<sub>2</sub>=27, <em>p</em>=0.07).</p>
 </blockquote>
 <p>…remembering to change the name (‘two-sample Wilcoxon test’) and label (‘W’) used to describe the test statistic. In any case, we also have to provide the sample sizes associated with each tree group so that a reader can judge how powerful the test was.</p>
 </div>
 </div>
-<div id="the-kruskal-wallis-test" class="section level2" number="26.7">
-<h2><span class="header-section-number">26.7</span> The Kruskal-Wallis test</h2>
+<div id="the-kruskal-wallis-test" class="section level2 hasAnchor" number="26.7">
+<h2><span class="header-section-number">26.7</span> The Kruskal-Wallis test<a href="non-parametric-tests.html#the-kruskal-wallis-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The Kruskal-Wallis is the non-parametric equivalent to one-way ANOVA. The Kruskal-Wallis test allows us to test for differences among more than two samples. Like the other rank-based tests we have encountered, it has some assumptions, but these are less restrictive than those for ANOVA. The assumptions are essentially the same as those for the Mann-Whitney <em>U</em>-test:</p>
 <ul>
 <li><p>The variable being tested is measured on an ordinal, interval, or ratio scale.</p></li>
@@ -928,27 +928,27 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>The third assumption is important, particularly with respect to the skewness of the distributions. The test is at least reasonably robust to differences in the dispersion, but the Kruskal-Wallis test should not be used if the skewness of the variable is different among groups is very different. The reason for this is—just as with Mann-Whitney <em>U</em>-test—that a significant result is hard to interpret.</p>
 <p>When all three of the above assumptions are satisfied, the Kruskal-Wallis is used to look for differences in the central tendency of two or more groups. A one-way ANOVA evaluates the statistical significance of differences between means of these groups. The null hypothesis of the Kruskal-Wallis test (if all three of the above assumptions) is that the groups have the same median. A significant <em>p</em>-value, therefore, indicates that the medians are likely to be different.</p>
-<div id="learning-in-cuttlefish" class="section level3" number="26.7.1">
-<h3><span class="header-section-number">26.7.1</span> Learning in cuttlefish</h3>
+<div id="learning-in-cuttlefish" class="section level3 hasAnchor" number="26.7.1">
+<h3><span class="header-section-number">26.7.1</span> Learning in cuttlefish<a href="non-parametric-tests.html#learning-in-cuttlefish" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>In a study of cuttlefish learning, an experiment was conducted to determine how the length of exposure to a situation influenced the learning process. Cuttlefish feed on prawns. If they are presented with prawns in a glass tube, they strike at them but fail to capture the prey. Not surprisingly, after a period of this fruitless activity, they give up striking at the prawns.</p>
 <p>In the experiment, 50 cuttlefish were divided at random into 5 groups of 10 and cuttlefish from each group were presented with prawns in glass tubes for different lengths of time: 2 min., 4 min., 8 min., 15 min., and 30 min. for the 5 groups respectively. After 24 hours, the same cuttlefish were presented with prawns again, and the number of strikes they made (over a fixed period) were recorded.</p>
-<div id="section-23" class="section level4 unnumbered infobox action">
+<div id="section-21" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data for this example live in the ‘CUTTLEFISH.CSV’ file. The code below assumes those data have been read into a tibble called <code>cuttlefish</code>. Set that up if you plan to work along.</p>
 </div>
 <p>There are two variables: <code>Strikes</code> contains the number of strikes recorded and <code>Time</code> identifies the groups (period of previous exposure):</p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="non-parametric-tests.html#cb231-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(cuttlefish)</span></code></pre></div>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="non-parametric-tests.html#cb235-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(cuttlefish)</span></code></pre></div>
 <pre><code>## Rows: 50
 ## Columns: 2
 ## $ Strikes &lt;dbl&gt; 5, 12, 11, 4, 1, 6, 8, 3, 0, 5, 0, 13, 0, 3, 0, 7, 3, 4, 6, 11…
 ## $ Time    &lt;chr&gt; &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;,…</code></pre>
 <p>We need a visualisation to explore the data. Dot plots for each treatment work well here:</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="non-parametric-tests.html#cb233-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cuttlefish, <span class="fu">aes</span>(<span class="at">x =</span> Strikes)) <span class="sc">+</span> </span>
-<span id="cb233-2"><a href="non-parametric-tests.html#cb233-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Time)</span></code></pre></div>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="non-parametric-tests.html#cb237-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(cuttlefish, <span class="fu">aes</span>(<span class="at">x =</span> Strikes)) <span class="sc">+</span> </span>
+<span id="cb237-2"><a href="non-parametric-tests.html#cb237-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Time)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/cuttlefish-strikes-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The data are very variable. The combination of the apparent skew and the fact that the data are generally small whole numbers with several equal values in each sample means that we may not be very successful in using a transformation to beat the data into shape. Let’s try the Kruskal-Wallis test instead.</p>
 <p>Predictably, the R function to carry out a Kruskal-Wallis test is called <code>kruskal.test</code>, and it is used in exactly the same way as every other statistical modelling function we have looked at:</p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="non-parametric-tests.html#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Strikes <span class="sc">~</span> Time, <span class="at">data =</span> cuttlefish)</span></code></pre></div>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="non-parametric-tests.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(Strikes <span class="sc">~</span> Time, <span class="at">data =</span> cuttlefish)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -957,9 +957,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And… one more time… the elements of the output should be easy to work out. These are statements of the test used and the data, followed by the results: a test statistic (another type of <span class="math inline">\(\chi^2\)</span> statistic), a degrees of freedom, and the all-important <em>p</em>-value.</p>
 <p>We report all of these when writing up results of a Kruskal-Wallis test. However, there is some variation about how people report a Kruskal-Wallis test—some report the test statistic as a <span class="math inline">\(\chi^2\)</span>, while others refer to it as an ‘H’ statistic. We will follow the common convention of reporting it as an ‘H’ value.</p>
 <p>The test (as with ANOVA) tells us that there is at least one difference among the groups, but it doesn’t tell where the difference or differences are. The output does not give the medians so we cannot judge how the samples are ordered. We can use <code>dplyr</code> to calculate the group-specific medians, though:</p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="non-parametric-tests.html#cb236-1" aria-hidden="true" tabindex="-1"></a>cuttlefish <span class="sc">%&gt;%</span> </span>
-<span id="cb236-2"><a href="non-parametric-tests.html#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Time) <span class="sc">%&gt;%</span> </span>
-<span id="cb236-3"><a href="non-parametric-tests.html#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Median =</span> <span class="fu">median</span>(Strikes))</span></code></pre></div>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="non-parametric-tests.html#cb240-1" aria-hidden="true" tabindex="-1"></a>cuttlefish <span class="sc">%&gt;%</span> </span>
+<span id="cb240-2"><a href="non-parametric-tests.html#cb240-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Time) <span class="sc">%&gt;%</span> </span>
+<span id="cb240-3"><a href="non-parametric-tests.html#cb240-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Median =</span> <span class="fu">median</span>(Strikes))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   Time  Median
 ##   &lt;chr&gt;  &lt;dbl&gt;
@@ -975,8 +975,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If it was important to know exactly which treatments were significantly different, then a multiple comparison test would be useful. There are no non-parametric multiple comparison tests available in base R, but they are implemented in the package called <strong>nparcomp</strong>.</p>
 </div>
 </div>
-<div id="spearmans-rank-correlation" class="section level2" number="26.8">
-<h2><span class="header-section-number">26.8</span> Spearman’s rank correlation</h2>
+<div id="spearmans-rank-correlation" class="section level2 hasAnchor" number="26.8">
+<h2><span class="header-section-number">26.8</span> Spearman’s rank correlation<a href="non-parametric-tests.html#spearmans-rank-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Spearman’s rank correlation (<span class="math inline">\(\rho\)</span>) tests for an association between two numeric variables. It is equivalent to Pearson’s correlation. The advantages of using Spearman’s rank correlation are: 1) the two variables do not need to be normally distributed, and 2) ordinal data can be used. This means we can use Spearman’s rank correlation with data having skewed (or other odd) distributions, or with data originally collected on a rank/ordinal scale.</p>
 <p>The key assumptions of Spearman’s rank correlation are:</p>
 <ul>
@@ -985,22 +985,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>A monotonic relationship occurs when, in general, the variables increase in value together, or when the values of one variable increase, the other variable tends to decrease. What this means in practice is that we should not use Spearman’s rank correlation if a scatter plot of the data forms a clear ‘hill’ or ‘valley’ shape.</p>
 <p>Spearman’s rank correlation is somewhat less powerful (roughly 91% in some evaluations) than Pearson’s method when the data are suitable for the latter. Otherwise, it may even be more powerful. We’ll work through an example to learn about Spearman’s correlation.</p>
-<div id="grouse-lekking" class="section level3" number="26.8.1">
-<h3><span class="header-section-number">26.8.1</span> Grouse lekking</h3>
+<div id="grouse-lekking" class="section level3 hasAnchor" number="26.8.1">
+<h3><span class="header-section-number">26.8.1</span> Grouse lekking<a href="non-parametric-tests.html#grouse-lekking" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Some bird species form ‘leks’—gatherings of birds, with males each defending a small area of ground, displaying, and each mating with such females as he is successful in attracting. In general, in leks, a few birds secure many matings, and most birds secure relatively few. In a study of lekking in black grouse, a biologist is interested in whether birds that secure many matings in one season also do better the following year. Using a population with many colour-ringed birds, he gathers data for a reasonable number of males from two leks in successive years.</p>
-<div id="section-24" class="section level4 unnumbered infobox action">
+<div id="section-22" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data for this example live in the ‘GROUSE.CSV’ file. The code below assumes those data have been read into a tibble called <code>grouse</code>. Set that up if you plan to work along.</p>
 </div>
 <p>Each row of the data is the number of matings for a male in the two successive leks: <code>Year1</code> (year 1) and <code>Year2</code> (year 2):</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="non-parametric-tests.html#cb238-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(grouse)</span></code></pre></div>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="non-parametric-tests.html#cb242-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(grouse)</span></code></pre></div>
 <pre><code>## Rows: 20
 ## Columns: 2
 ## $ Year1 &lt;dbl&gt; 3, 15, 4, 3, 4, 9, 1, 0, 2, 7, 3, 2, 6, 0, 1, 12, 2, 1, 5, 10
 ## $ Year2 &lt;dbl&gt; 6, 8, 0, 0, 2, 10, 5, 4, 1, 4, 3, 7, 6, 2, 5, 17, 0, 0, 6, 7</code></pre>
 <p>The first thing we might do is summarise the distribution of each number of matings variable:</p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="non-parametric-tests.html#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year1)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
-<span id="cb240-2"><a href="non-parametric-tests.html#cb240-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year2)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="non-parametric-tests.html#cb244-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year1)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
+<span id="cb244-2"><a href="non-parametric-tests.html#cb244-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year2)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/grouse-years-dist-1.png" width="40%" /><img src="intro-bio-stats-book_files/figure-html/grouse-years-dist-2.png" width="40%" /></p>
 <p>Notice that the data are integer-valued because they are counts. These distributions seems to tie in with the biological observation that the distribution of matings is right-skewed: in both years there are only a few males that have high mating success, with most males securing only a handful of matings.</p>
 <p>Now we need to visualise the association between the number of matings in successive years:</p>
@@ -1009,9 +1009,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>How do we know to use a correlation analysis with these data?</strong> Although there seems to be an association between the counts, it is not obvious that success in one year ‘causes’ success in another year and neither variable is controlled by the investigator. We’re also not interested in using the success measure in year 1 to predict success in year 2. This indicates that correlation analysis is the appropriate method to evaluate the significance of the association.</p>
 <p><strong>Why are we using Spearman’s correlation?</strong> The relationship appears roughly linear, so in that regard, Pearson’s correlation might be appropriate. However, the distribution of each count variable is right-skewed, which means the normality assumption is probably suspect in this instance. We play it safe and use Spearman’s correlation.</p>
 <p>Carrying out a correlation analysis using Spearman’s rank correlation in R is simple. Again, we use the <code>cor.test</code> function to do this:</p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="non-parametric-tests.html#cb241-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Year1 <span class="sc">+</span> Year2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">data =</span> grouse)</span></code></pre></div>
-<pre><code>## Warning in cor.test.default(x = c(3, 15, 4, 3, 4, 9, 1, 0, 2, 7, 3, 2, 6, :
-## Cannot compute exact p-value with ties</code></pre>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="non-parametric-tests.html#cb245-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Year1 <span class="sc">+</span> Year2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">data =</span> grouse)</span></code></pre></div>
+<pre><code>## Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): Cannot compute
+## exact p-value with ties</code></pre>
 <pre><code>## 
 ##  Spearman&#39;s rank correlation rho
 ## 
@@ -1021,7 +1021,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## sample estimates:
 ##       rho 
 ## 0.5547952</code></pre>
-<p>The only other thing we had to change, compared to the Pearson’s correlation example, was to set <code>method = "spearman"</code> to specify the use of Spearman’s rank correlation. Notice the warning message: ‘Cannot compute exact p-value with ties.’ This is generally not something we need to worry about for this particular test.</p>
+<p>The only other thing we had to change, compared to the Pearson’s correlation example, was to set <code>method = "spearman"</code> to specify the use of Spearman’s rank correlation. Notice the warning message: ‘Cannot compute exact p-value with ties’. This is generally not something we need to worry about for this particular test.</p>
 <p>The output is very similar to that produced by <code>cor.test</code> when using Pearson’s correlation. Once again, the <code>S = 592.12, p-value = 0.01112</code> line is the one we care about. The main difference is that instead of a <em>t</em>-statistic, we end up working with a different kind of test statistic (‘<em>S</em>’). We aren’t going to explain where this comes from because it’s quite technical. Next we see the <em>p</em>-value. This is generated under the null hypothesis of zero correlation (<span class="math inline">\(\rho = 0\)</span>). Since <em>p</em> &lt; 0.05, we conclude that there is a statistically significant correlation between mating success in successive years. Wait, where are the degrees of freedom? Simple—there aren’t any for a Spearman’s correlation test.</p>
 <p>What is the correlation between mating success? That’s given at the bottom of the test output again: <span class="math inline">\(+0.55\)</span>. This says that there is a moderate, positive association between mating success in successive years, which is what we expect from the scatter plot.</p>
 <p>When using the Spearman method, it is fine to report just the value of the correlation coefficient, the sample size, and the <em>p</em>-value (there is no need to report the test statistic). Here’s how to report the results of this analysis:</p>
@@ -1030,8 +1030,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 </div>
 </div>
-<div id="parting-words" class="section level2" number="26.9">
-<h2><span class="header-section-number">26.9</span> Parting words</h2>
+<div id="parting-words" class="section level2 hasAnchor" number="26.9">
+<h2><span class="header-section-number">26.9</span> Parting words<a href="non-parametric-tests.html#parting-words" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Inappropriately distributed data can result in incorrectly high or low <em>p</em>-values. We should choose a statistical model based on how well our data align with the model’s assumptions. On the principle that biological data rarely, if ever, fully comply with the assumptions of parametric tests, it is sometimes advocated that non-parametric tests should always be used. This is not very good advice. Use both approaches as appropriate and be aware of the strengths and weaknesses of each. There is more to statistics than just calculating <em>p</em>-values, and where possible, we prefer readily-interpretable models to more ‘black box’ approaches.</p>
 
 </div>
@@ -1042,10 +1042,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="footnotes">
 <hr />
-<ol start="31">
-<li id="fn31"><p>There is an alternative to the Wilcoxon test which doesn’t make an assumption about the distribution being symmetrical—called the sign test. This can be done in R, but there isn’t a dedicated function for the sign test, and in any case, it is not very powerful with smaller sample sizes.<a href="non-parametric-tests.html#fnref31" class="footnote-back">↩︎</a></p></li>
-<li id="fn32"><p>There are two different ways to use the <code>wilcox.test</code> function for a paired design. These are analogous to the two methods used to carry out a paired sample <em>t</em>-test: the first uses the raw data and makes use of the R’s formula system. The second supplies the function with a vector of differences<a href="non-parametric-tests.html#fnref32" class="footnote-back">↩︎</a></p></li>
-<li id="fn33"><p>Of course, if we really were interested in the difference between sycamore, oak <em>and</em> rowan we should use a different test!<a href="non-parametric-tests.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<ol start="30">
+<li id="fn30"><p>There is an alternative to the Wilcoxon test which doesn’t make an assumption about the distribution being symmetrical—called the sign test. This can be done in R, but there isn’t a dedicated function for the sign test, and in any case, it is not very powerful with smaller sample sizes.<a href="non-parametric-tests.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<li id="fn31"><p>There are two different ways to use the <code>wilcox.test</code> function for a paired design. These are analogous to the two methods used to carry out a paired sample <em>t</em>-test: the first uses the raw data and makes use of the R’s formula system. The second supplies the function with a vector of differences<a href="non-parametric-tests.html#fnref31" class="footnote-back">↩︎</a></p></li>
+<li id="fn32"><p>Of course, if we really were interested in the difference between sycamore, oak <em>and</em> rowan we should use a different test!<a href="non-parametric-tests.html#fnref32" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1114,7 +1114,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

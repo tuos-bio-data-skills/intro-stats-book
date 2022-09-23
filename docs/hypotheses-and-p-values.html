@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Hypotheses and p-values | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Hypotheses and p-values | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="statistical-comparisons.html"/>
 <link rel="next" href="parametric-statistics.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,55 +605,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="hypotheses-and-p-values" class="section level1" number="7">
-<h1><span class="header-section-number">Chapter 7</span> Hypotheses and <em>p</em>-values</h1>
+<div id="hypotheses-and-p-values" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">Chapter 7</span> Hypotheses and <em>p</em>-values<a href="hypotheses-and-p-values.html#hypotheses-and-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:jellybeans"></span>
 <img src="images/significant_xkcd.png" alt="Significant: [xkcd.com](https://xkcd.com/882)" width="50%" />
 <p class="caption">
 Figure 7.1: Significant: <a href="https://xkcd.com/882">xkcd.com</a>
 </p>
 </div>
-<div id="a-few-words-about-the-null-hypothesis" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> A few words about the null hypothesis</h2>
+<div id="a-few-words-about-the-null-hypothesis" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> A few words about the null hypothesis<a href="hypotheses-and-p-values.html#a-few-words-about-the-null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>When using frequentist statistics, we are always asking what would happen if we continually sampled from a population <em>where the effect we are interested in is not present</em>. This idea of an hypothetical ‘no effect’ situation is so important that it has a special name; it is called <strong>the null hypothesis</strong>. Every kind of statistical test (in this book at least) works by first specifying a particular null hypothesis. It is hard to understand a statistical test’s result if we don’t know its null hypothesis.</p>
-<div id="hypotheses-and-null-hypotheses" class="section level3" number="7.1.1">
-<h3><span class="header-section-number">7.1.1</span> Hypotheses and null hypotheses</h3>
+<div id="hypotheses-and-null-hypotheses" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">7.1.1</span> Hypotheses and null hypotheses<a href="hypotheses-and-p-values.html#hypotheses-and-null-hypotheses" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When discussing <a href="scientific-process.html#stages-hypotheses">the scientific process</a>, we said that an hypothesis is a statement of a proposed process or mechanism responsible for an observed pattern or effect. We have also seen that in statistics, we encounter ‘hypothesis’ used differently. In particular, we often see <strong>null hypotheses</strong> (often written in statistics books as H<sub>0</sub>).</p>
 <p>The null hypothesis is a statement of what we would expect to see if there is no effect of the factor we are looking at (e.g., plant morphology) on the variable that we measure (e.g., dry weight biomass). So in the second plant morph example, our null hypothesis was <em>There is no difference in mean biomass of purple and green plants</em>. All frequentist statistical tests work by specifying a null hypothesis and then evaluating the observed data to see if they deviate from the null hypothesis in a way that is inconsistent with sampling variation. This may seem like a rather odd approach, but this is how frequentist tests work.</p>
 <p>It is important to be aware of what a null hypothesis is, and what it is used for, so that we can interpret the results of statistical tests. However, in a general discussion of an analysis, we normally refer to the effect we are actually interested in. This is called the <em>test hypothesis</em> or the <em>alternative hypothesis</em> (often denoted H<sub>1</sub> in statistics books). The alternative hypothesis is essentially a statement of the effect we are expecting (or hoping!) to see, e.g., purple and green plants differ in their mean size. It is a statement of whatever is implied if the null hypothesis is not true.</p>
 <p>Having sorted out the different types of hypotheses in play, we can use a particular frequentist technique to evaluate the observed result against that expected if the null hypothesis was true. The test gives us a probability (<em>p</em>-value) telling us how likely it is that we would have got the result we observe, or a more extreme result, if the null hypothesis was really true. If the value is sufficiently small we judge it unlikely that we would have seen this result if the null hypothesis was true. Consequently, we say we <em>reject the null hypothesis</em> (i.e. reject the notion that there is no difference). This is not the same as ‘proving’ the alternative hypothesis is true. We can’t prove anything by collecting data or carrying out an experiment.</p>
-<p>If the <em>p</em>-value is large, then it is quite likely that we could have ended up with the observed result if the null hypothesis was true, i.e. it is probably due to sampling variation. In this case, we cannot reject the null hypothesis. Note that we say that we “<em>do not reject the null hypothesis</em>.” This is not the same as accepting that the null hypothesis is true, paradoxical though this may seem. One possible reason for this is that if we only have a small sample, there may be an effect of the factor we are looking at, but we can’t detect it because we don’t have enough data.</p>
-<div id="a-p-value-is-not-an-evidence-summary" class="section level4 unnumbered infobox information">
-<h4>A <em>p</em>-value is not an evidence summary</h4>
+<p>If the <em>p</em>-value is large, then it is quite likely that we could have ended up with the observed result if the null hypothesis was true, i.e. it is probably due to sampling variation. In this case, we cannot reject the null hypothesis. Note that we say that we “<em>do not reject the null hypothesis</em>”. This is not the same as accepting that the null hypothesis is true, paradoxical though this may seem. One possible reason for this is that if we only have a small sample, there may be an effect of the factor we are looking at, but we can’t detect it because we don’t have enough data.</p>
+<div id="a-p-value-is-not-an-evidence-summary" class="section level4 unnumbered hasAnchor infobox information">
+<h4>A <em>p</em>-value is not an evidence summary<a href="hypotheses-and-p-values.html#a-p-value-is-not-an-evidence-summary" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>A null hypothesis significance test gives us a probability (the <em>p</em>-value) of how likely it is that we would have got the result we observe, or a more extreme result, if the null hypothesis was true. The ‘result’ is a property of the data and the test describes how likely the data are under a null hypothesis. A <em>p</em>-value is <strong>not</strong> a measure of evidence in the conventional sense or a statement about the likelihood that any particular hypothesis is true or not.</p>
 </div>
 </div>
-<div id="report-the-null-hypothesis" class="section level3" number="7.1.2">
-<h3><span class="header-section-number">7.1.2</span> Report the null hypothesis?</h3>
+<div id="report-the-null-hypothesis" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">7.1.2</span> Report the null hypothesis?<a href="hypotheses-and-p-values.html#report-the-null-hypothesis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>It’s important to realise that we <strong>do not report null hypotheses when communicating science</strong>. The null hypothesis is nothing more a device for setting up a frequentist statistical test. It is not an interesting or useful hypothesis in its own right. Again, for the avoidance of doubt… there’s absolutely no need to state the null hypothesis of each and every test we use in a report or a presentation. Focus on substantive biological hypotheses instead.</p>
 </div>
 </div>
-<div id="interpreting-and-reporting-p-values" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> Interpreting and reporting <em>p</em>-values</h2>
+<div id="interpreting-and-reporting-p-values" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Interpreting and reporting <em>p</em>-values<a href="hypotheses-and-p-values.html#interpreting-and-reporting-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>It is important to understand the meaning of the probabilities generated by frequentist tests. We have already said a <em>p</em>-value is the proportion of occasions on which we would expect to see a result at least as extreme as the one you actually observed if the null hypothesis (of no effect) was true. Conventionally, we accept a result as statistically significant if <em>p</em> &lt; 0.05 (also expressed as 5%). This threshold is called the <strong>significance level</strong> of a test. We’ve said it before, but it is worth repeating: there is nothing special about the <em>p</em> &lt; 0.05 significance level! It is just a widely used convention.</p>
 <div id="section-2" class="section level4 unnumbered infobox warning">
 <h4 class="unnumbered"></h4>
 <p>We will always use the <em>p</em> = 0.05 threshold in this book. Try to remember this—we won’t constantly remind you of it. Why use that significance level? There’s no particularly special reason. We’re simply following a somewhat arbitrary convention that applies to simple analyses of small datasets.</p>
 </div>
 <p>A probability of 0.05 is a chance of 1 in 20. This means that if there really was no effect of the factor we are investigating, we would expect to get a result significant at <em>p</em>=0.05 about 5 times in 100 samples. To envisage it more easily, it is slightly less than the chance of tossing a coin 4 times and getting 4 heads in a row (<em>p</em>=0.0625). It’s not all that rare, really. This puts a ‘significant’ result into context. Would we launch a new drug on the market on the evidence of the strength of four heads coming up in a row when a coin is tossed? Probably not!</p>
-<div id="careful-with-those-p-values" class="section level3" number="7.2.1">
-<h3><span class="header-section-number">7.2.1</span> Careful with those <em>p</em>-values</h3>
+<div id="careful-with-those-p-values" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">7.2.1</span> Careful with those <em>p</em>-values<a href="hypotheses-and-p-values.html#careful-with-those-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is a good time to issue an important warning about <em>p</em>-values. Frequentist <em>p</em>-values are counter-intuitive quantities that are easily (and often) misinterpreted. Whole books have been written about the problems associated with them. We don’t have time to really cover the issues here, but here are a few key observations:</p>
 <ul>
-<li><p>Scientists tend to use <em>p</em>=0.05 to define ‘significance,’ but <em>p</em>=0.055 is really no different from <em>p</em>=0.045. It would be irrational to reject an idea completely just on the basis of a result of <em>p</em>=0.055, while at the same time being prepared to invest large amounts of time and money implementing policies based on a result of <em>p</em>=0.045.</p></li>
+<li><p>Scientists tend to use <em>p</em>=0.05 to define ‘significance’, but <em>p</em>=0.055 is really no different from <em>p</em>=0.045. It would be irrational to reject an idea completely just on the basis of a result of <em>p</em>=0.055, while at the same time being prepared to invest large amounts of time and money implementing policies based on a result of <em>p</em>=0.045.</p></li>
 <li><p>The exact value of <em>p</em> is affected by the size of the true effect being studied, the amount of data being analysed, and how appropriate a statistical model is for those data. It’s very easy to arrive at a tiny <em>p</em>-value, when an effect is weak or even absent, by using a statistical model that is inappropriate for the data in hand.</p></li>
 <li><p>A significance test works out how likely our data are under a null hypothesis. The resulting <em>p</em>-value is not a measure of evidence or a statement about the likelihood a hypothesis is true or not. That’s a shame, because those latter kinds of probabilities are the sort of thing most of us have in mind when we think about evaluating hypotheses. That doesn’t change the fact that a <em>p</em>-value is not the thing we want it to be!</p></li>
 <li><p>A consequence of the previous point is that the relationship between the ‘strength of an effect’ and its associated <em>p</em>-value is complicated. It is simply not correct to equate the size of a <em>p</em>-value with the weight of evidence for the effect being present, nor is correct to interpret a <em>p</em>-value a statement about how big the effect is.</p></li>
 </ul>
 <p>The take-home message: <em>p</em>-values are hard to interpret and only represent one possible (non-intuitive) source of information when answering scientific questions. They are not the ‘final word’ on truth.</p>
 </div>
-<div id="presenting-p-values" class="section level3" number="7.2.2">
-<h3><span class="header-section-number">7.2.2</span> Presenting <em>p</em>-values</h3>
+<div id="presenting-p-values" class="section level3 hasAnchor" number="7.2.2">
+<h3><span class="header-section-number">7.2.2</span> Presenting <em>p</em>-values<a href="hypotheses-and-p-values.html#presenting-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R will typically display <em>p</em>-values from a statistical significance test to six decimal places (e.g. <em>p</em> = 0.003672). However, when we write about them, the results from tests are usually presented as one of the following four categories:</p>
 <ul>
 <li><p><em>p</em> &gt; 0.05, for results which are not statistically significant (sometimes also written as ‘NS’),</p></li>
@@ -662,13 +662,13 @@ Figure 7.1: Significant: <a href="https://xkcd.com/882">xkcd.com</a>
 <li><p><em>p</em> &lt; 0.001 for results where <em>p</em> &lt; 0.001,</p></li>
 </ul>
 <p>This presentation stems from the fact that statistical tests often had to be calculated by hand in the days before everyone had access to a computer. The significance of the result was difficult to calculate directly, so it would have been looked up in a special table. We still use this style because the value of <em>p</em> does not have a simple interpretation in terms of weight of evidence or effect sizes. Knowing which category a <em>p</em>-value falls into provides sufficient information to roughly judge ‘how significant’ the result is.</p>
-<div id="significance-thresholds-vs.-p-values" class="section level4 unnumbered infobox warning">
-<h4>Significance thresholds vs. <em>p</em>-values</h4>
-<p>The significance level is used to determine whether or not a result is deemed to be ‘statistically significant.’ We use <em>p</em> &lt; 0.05 in this book, and we will generally adopt the above categories to report the results of a test. Don’t confuse the category used to report the <em>p</em>-value with the actual significance level an investigator is using. Just because someone writes ‘<em>p</em> &lt; 0.01’ when they report the results of a test, it does not mean that they were working at the 1% significance level (<em>p</em> = 0.01).</p>
+<div id="significance-thresholds-vs.-p-values" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Significance thresholds vs. <em>p</em>-values<a href="hypotheses-and-p-values.html#significance-thresholds-vs.-p-values" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The significance level is used to determine whether or not a result is deemed to be ‘statistically significant’. We use <em>p</em> &lt; 0.05 in this book, and we will generally adopt the above categories to report the results of a test. Don’t confuse the category used to report the <em>p</em>-value with the actual significance level an investigator is using. Just because someone writes ‘<em>p</em> &lt; 0.01’ when they report the results of a test, it does not mean that they were working at the 1% significance level (<em>p</em> = 0.01).</p>
 </div>
 <p>It’s usually sufficient to use the four categories above when writing about the significance of a statistical test, though occasionally, giving the actual probability can be appropriate. For example, it can be informative to know that a test yielded <em>p</em> = 0.06 rather than simply quoting it just as <em>p</em> &gt; 0.05 or NS. This is because <em>p</em> is so close to the significance threshold. While not wholly convincing, it is still suggestive of the possibility that an effect is present.</p>
-<div id="the-asterisks-convention" class="section level4 unnumbered infobox information">
-<h4>The asterisks convention</h4>
+<div id="the-asterisks-convention" class="section level4 unnumbered hasAnchor infobox information">
+<h4>The asterisks convention<a href="hypotheses-and-p-values.html#the-asterisks-convention" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>It is common to see ranges of probabilities coded with asterisks in tables and figures:</p>
 <ul>
 <li><code>*</code> for <em>p</em> = 0.05…0.01,</li>
@@ -679,8 +679,8 @@ Figure 7.1: Significant: <a href="https://xkcd.com/882">xkcd.com</a>
 </div>
 </div>
 </div>
-<div id="biological-vs.-statistical-significance" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> Biological vs. statistical significance</h2>
+<div id="biological-vs.-statistical-significance" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Biological vs. statistical significance<a href="hypotheses-and-p-values.html#biological-vs.-statistical-significance" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A final, but vital, point: do not confuse statistical significance with biological significance. A result may be statistically highly significant (say <em>p</em> &lt; 0.001) but biologically trivial. To give a real example, in a study of the factors determining the distribution of freshwater invertebrates in a river, the pH of water was measured in the open water and in the middle of the beds of submerged vegetation. There was a statistically significant difference in pH (<em>p</em> &lt; 0.01) but the mean pH values were 7.1 in the open water and 6.9 in the weeds. This is a very small effect, and almost certainly of no importance at all to the invertebrates.</p>
 <p>The significance of a result depends on a combination of three things (1) the size of the true effect in the population, (2) the variability of the data, and (3) the sample size. Even a tiny effect can be significant if the sample size is very large. Do not automatically equate a significant result with a large biological effect. Plot the data, inspect the estimates, and consider the biological implications of the difference. The statistical results provide some guidance in separating genuine differences from random variation, but they can’t tell us whether the difference is biologically interesting or important—that’s the scientist’s job!</p>
 
@@ -756,7 +756,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

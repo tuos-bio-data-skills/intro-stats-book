@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 19 ANOVA for randomised block designs | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 19 ANOVA for randomised block designs | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="paired-sample-t-test.html"/>
 <link rel="next" href="assumptions-and-diagnostics.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,16 +605,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="anova-for-randomised-block-designs" class="section level1" number="19">
-<h1><span class="header-section-number">Chapter 19</span> ANOVA for randomised block designs</h1>
+<div id="anova-for-randomised-block-designs" class="section level1 hasAnchor" number="19">
+<h1><span class="header-section-number">Chapter 19</span> ANOVA for randomised block designs<a href="anova-for-randomised-block-designs.html#anova-for-randomised-block-designs" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>Block what you can; randomize what you cannot.</em></p>
 <p>George Box</p>
 </blockquote>
-<div id="randomised-complete-block-designs" class="section level2" number="19.1">
-<h2><span class="header-section-number">19.1</span> Randomised Complete Block Designs</h2>
+<div id="randomised-complete-block-designs" class="section level2 hasAnchor" number="19.1">
+<h2><span class="header-section-number">19.1</span> Randomised Complete Block Designs<a href="anova-for-randomised-block-designs.html#randomised-complete-block-designs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We have only considered one type of experimental ANOVA design up until now: the <strong>Completely Randomised Design</strong> (CRD). The defining feature of a CRD is that treatments are assigned completely at random to experimental units. This is the simplest type of experimental design. Randomisation is a good thing because it prevents systematic biases from creeping in. A CRD approach is often ‘good enough’ in many situations. However, it isn’t necessarily the most powerful design—if at all possible, we should use <strong>blocking</strong> to account for <strong>nuisance factors</strong>. A nuisance factor affects the response—it creates variation—but is of no interest to the experimenter. The variability induced by nuisance factors should be accounted for at the design stage of an experiment if possible. Let’s consider a hypothetical experiment to remind ourselves how blocking works.</p>
-<p>Imagine we’re evaluating the effect of three different fertiliser application rates on wheat yields (t/ha). We suspect that our experimental fields’ soil type and management histories are quite different, leading to significant ‘field effects’ on yield. We don’t care about these field effects—they are a nuisance—but we’d like to account for them. There are two factors in play in this setting: the first is the set of experimental treatments (fertiliser application rate); the second is the source of nuisance variation (field). Fertiliser application rate is the ‘treatment factor,’ and field is the ‘blocking factor.’</p>
+<p>Imagine we’re evaluating the effect of three different fertiliser application rates on wheat yields (t/ha). We suspect that our experimental fields’ soil type and management histories are quite different, leading to significant ‘field effects’ on yield. We don’t care about these field effects—they are a nuisance—but we’d like to account for them. There are two factors in play in this setting: the first is the set of experimental treatments (fertiliser application rate); the second is the source of nuisance variation (field). Fertiliser application rate is the ‘treatment factor’, and field is the ‘blocking factor’.</p>
 <p>Here is one way to block the experiment. The essence of the design is that a set of fields are chosen, which may differ in various unknown conditions (soil water, aspect, disturbance, etc.), and within each field, three plots are set up. Each plot receives one of the three fertiliser rate treatments at random. If we chose to work with eight fields, the resulting data might look like this:</p>
 <table>
 <thead>
@@ -685,22 +685,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>Each treatment level is represented in each field (block), but only once. The experiment is ‘blocked by field.’ Now consider these two questions:</p>
+<p>Each treatment level is represented in each field (block), but only once. The experiment is ‘blocked by field’. Now consider these two questions:</p>
 <ul>
 <li><p>Why is this design useful? Blocking allows us to partition out the environmental variation due to different field conditions. For example, the three treatments in field 5 produced a relatively high yield, while the yields in field 7 are consistently below average within each treatment. This among field variation is real, and if we hadn’t blocked the experiment, it would appear as a ‘noise’ component of our analysis. But since we blocked the experiment, and every treatment is present in every block, we can ‘remove’ the block variation from the noise. Less noise means more statistical power.</p></li>
 <li><p>Why is each treatment level represented only once within blocks? This design gives us the best chance of generalising our results. If we are interested in the overall effect of fertiliser, we should prefer to put our effort into including a range of possible environmental conditions. If we only did the experiment in one field, the results might turn out to be rather unusual. We are not interested in the environmental variation as such. We want to know for a range of conditions, whatever they might be, whether there are consistent differences between fertiliser application rates.</p></li>
 </ul>
 <p>There are many different ways to introduce blocking into an experiment. The most commonly used design—and the one that is easiest to analyse—is called a <strong>Randomised Complete Block Design</strong>. The defining feature of this design is that <em>each block sees each treatment exactly once</em>. The fertiliser study is an example of a Randomised Complete Block Design (RCBD). The obvious question is: How do we analyse an RCBD? We’ll explore that in moment. First, a small detour….</p>
 </div>
-<div id="analysing-an-rcbd-experiment" class="section level2" number="19.2">
-<h2><span class="header-section-number">19.2</span> Analysing an RCBD experiment</h2>
+<div id="analysing-an-rcbd-experiment" class="section level2 hasAnchor" number="19.2">
+<h2><span class="header-section-number">19.2</span> Analysing an RCBD experiment<a href="anova-for-randomised-block-designs.html#analysing-an-rcbd-experiment" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Let’s consider a new example to drive home how an RCBD works. We want to assess whether there is a difference in the impact that the predatory larvae of three damselfly species (<em>Enallagma</em>, <em>Lestes</em> and <em>Pyrrhosoma</em>) have on the abundance of midge larvae in a pond. We plan to conduct an experiment in which small (1 m<sup>2</sup>) nylon mesh cages are set up in the pond. All damselfly larvae will be removed from the cages and each cage will then be stocked with 20 individuals of one of the species. After 3 weeks, we will sample the cages and count the density of midge larvae in each. We have 12 cages altogether, so four replicates of each of the three species can be established.</p>
 <p>On the face of it, this looks like a one-way design with each species as a treatment. The only problem to resolve is how to distribute the enclosures in the pond. The pond is unlikely to be uniform in depth, substrate, temperature, shade, etc… Some of the variation will be obvious, some will not. We have two options: 1) use a CRD and distribute the cages at random, or 2) adopt an RCBD by grouping the cages into clusters of three, placing each cluster at a randomly chosen location, and assigning the three treatments to cages at random within each cluster. These are illustrated below (left = CRD, right = RCBD):</p>
 <p><img src="images/damselfly-expt-layouts.png" width="75%" style="display: block; margin: auto;" /></p>
-<p>What are the consequences of the two alternatives? If the cages are distributed at random (CRD), they will cover a wide range of variation in these factors. These sources of variation will almost certainly cause the density of midge larvae to vary around the pond unpredictably, increasing the noise in the data. If we group sets of treatments into clusters, we are creating ‘spatial blocks.’ There may be considerable differences between blocks, but these won’t obscure differences between the treatments because all three treatments are present in every block.</p>
+<p>What are the consequences of the two alternatives? If the cages are distributed at random (CRD), they will cover a wide range of variation in these factors. These sources of variation will almost certainly cause the density of midge larvae to vary around the pond unpredictably, increasing the noise in the data. If we group sets of treatments into clusters, we are creating ‘spatial blocks’. There may be considerable differences between blocks, but these won’t obscure differences between the treatments because all three treatments are present in every block.</p>
 </div>
-<div id="carrying-out-the-analysis-with-r" class="section level2" number="19.3">
-<h2><span class="header-section-number">19.3</span> Carrying out the analysis with R</h2>
+<div id="carrying-out-the-analysis-with-r" class="section level2 hasAnchor" number="19.3">
+<h2><span class="header-section-number">19.3</span> Carrying out the analysis with R<a href="anova-for-randomised-block-designs.html#carrying-out-the-analysis-with-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll now illustrate how to analyse data from an RCBD experiment using the damselfly predation example.</p>
 <div id="section-11" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
@@ -717,8 +717,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="anova-for-randomised-block-designs.html#cb128-1" aria-hidden="true" tabindex="-1"></a>damsels.model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Midge <span class="sc">~</span> Species <span class="sc">+</span> Block, <span class="at">data =</span> damsels)</span>
 <span id="cb128-2"><a href="anova-for-randomised-block-designs.html#cb128-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(damsels.model)</span></code></pre></div>
 <p>We suppressed the output for now. Notice that we have put two factors on the right-hand side of the <code>~</code> symbol. This tells R that we want to fit a model that accounts for the main effects of <code>Species</code> and <code>Block</code>. We have to put a <code>+</code> between terms to delineate them (this is not optional).</p>
-<div id="careful-with-your-and" class="section level4 unnumbered infobox warning">
-<h4>Careful with your <code>+</code> and <code>*</code></h4>
+<div id="careful-with-your-and" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Careful with your <code>+</code> and <code>*</code><a href="anova-for-randomised-block-designs.html#careful-with-your-and" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Notice that we used the ‘plus’ symbol (<code>+</code>) to include the blocking factor in the model: <code>Species + Block</code>. R also allows us to use the ‘times’ symbol (<code>*</code>) in a model formula, e.g. <code>Species * Block</code>. However, this formulation is not appropriate for including block effects. It is used to set up models for more complicated designs that involve something called an interaction term. We’re not going to cover those in this book, so for now, make a mental note of the fact that blocking factors must be included via the <code>+</code> symbol.</p>
 <p>And by the way… the <code>+</code> has nothing to do with addition when working a model specification in R.</p>
 </div>
@@ -756,18 +756,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## Residuals  9 223303 24811.4</code></pre>
 <p>Look at the degrees of freedom and the sums of squares of the residual (error). How do these compare to the previous model that accounted for the block effect? The degrees of freedom is higher. In principle, this is a good thing because it means we have more power to detect a significant difference among the treatment means. However, the error sum of squares is also much higher when we ignore the block effect. We accounted for much less noise by ignoring the block effect. As a result, the error mean square is a lot lower, and so the <em>F</em>-statistic associated with the treatment effect is also much lower. The take-home message is that designing a blocked experiment and properly accounting for the blocked structure will result in a more powerful analysis.</p>
 </div>
-<div id="are-there-disadvantages-to-randomised-block-designs" class="section level2" number="19.4">
-<h2><span class="header-section-number">19.4</span> Are there disadvantages to randomised block designs?</h2>
+<div id="are-there-disadvantages-to-randomised-block-designs" class="section level2 hasAnchor" number="19.4">
+<h2><span class="header-section-number">19.4</span> Are there disadvantages to randomised block designs?<a href="anova-for-randomised-block-designs.html#are-there-disadvantages-to-randomised-block-designs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The short answer is no, not really. There are instances when a randomised block design might appear to be disadvantageous at first glance, but these don’t stand up to criticism:</p>
 <ol style="list-style-type: decimal">
-<li><p>What if we want to know if the effect of treatment varies across blocks? For example, we might be interested in whether or not damselfly effects on the midge densities are consistent in all habitat areas (e.g. some species may forage more effectively in muddy areas, others where there are more leaves). If this is the question we are trying to answer, we should have designed a different experiment. For example, a design in which we consider treatment combinations of different midge species and habitat characteristics might be appropriate. Fundamentally, the goal of blocking is to account for <em>uncontrolled</em> variation. Designing a blocked experiment and then lamenting the fact that we can’t fully evaluate differences among blocks is a good example of trying to “have our cake and eat it too.”</p></li>
-<li><p>If the blocking term does not account for some variation, the analysis may be slightly less powerful than just using a one-way ANOVA. This is because there are fewer error degrees of freedom associated with the blocked analysis (we lose a few to the block effects). This argument only works if the block effect accounts for minimal variation. We can never know before we start an experiment whether or not blocking is needed, but we do know that biological systems are inherently noisy, with many sources of uncontrolled variation coming into play. In most experimental settings, we can be fairly sure that blocking will ‘work.’ If we choose not to block an experiment, there is no way to account for uncontrolled variation, and we will almost certainly lose statistical power as a result.</p></li>
+<li><p>What if we want to know if the effect of treatment varies across blocks? For example, we might be interested in whether or not damselfly effects on the midge densities are consistent in all habitat areas (e.g. some species may forage more effectively in muddy areas, others where there are more leaves). If this is the question we are trying to answer, we should have designed a different experiment. For example, a design in which we consider treatment combinations of different midge species and habitat characteristics might be appropriate. Fundamentally, the goal of blocking is to account for <em>uncontrolled</em> variation. Designing a blocked experiment and then lamenting the fact that we can’t fully evaluate differences among blocks is a good example of trying to “have our cake and eat it too”.</p></li>
+<li><p>If the blocking term does not account for some variation, the analysis may be slightly less powerful than just using a one-way ANOVA. This is because there are fewer error degrees of freedom associated with the blocked analysis (we lose a few to the block effects). This argument only works if the block effect accounts for minimal variation. We can never know before we start an experiment whether or not blocking is needed, but we do know that biological systems are inherently noisy, with many sources of uncontrolled variation coming into play. In most experimental settings, we can be fairly sure that blocking will ‘work’. If we choose not to block an experiment, there is no way to account for uncontrolled variation, and we will almost certainly lose statistical power as a result.</p></li>
 </ol>
 <p>The advice contained in the quote at the beginning of this chapter is probably the best experimental design advice ever dished out: “Block what you can; randomize what you cannot.”</p>
 </div>
-<div id="multiple-blocking-factors" class="section level2" number="19.5">
-<h2><span class="header-section-number">19.5</span> Multiple blocking factors</h2>
-<p>It is common to find ourselves in a situation whereby we need to account for more than one blocking factor. The simplest option is to combine the nuisance factors into a single factor. However, this isn’t always possible or even desirable. Consider an instance where there is a single factor of primary interest (the treatment factor) and two nuisance factors. For example, imagine that we want to test the efficacy of three drugs (A, B and C) to alleviate the symptoms of a disease. Three patients are available for a trial, and each will be available for three weeks. Testing a single drug requires a week, meaning an experimental unit is a ‘patient-week.’ The obvious question is, how should we randomise treatments across ‘patient-weeks?’</p>
+<div id="multiple-blocking-factors" class="section level2 hasAnchor" number="19.5">
+<h2><span class="header-section-number">19.5</span> Multiple blocking factors<a href="anova-for-randomised-block-designs.html#multiple-blocking-factors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>It is common to find ourselves in a situation whereby we need to account for more than one blocking factor. The simplest option is to combine the nuisance factors into a single factor. However, this isn’t always possible or even desirable. Consider an instance where there is a single factor of primary interest (the treatment factor) and two nuisance factors. For example, imagine that we want to test the efficacy of three drugs (A, B and C) to alleviate the symptoms of a disease. Three patients are available for a trial, and each will be available for three weeks. Testing a single drug requires a week, meaning an experimental unit is a ‘patient-week’. The obvious question is, how should we randomise treatments across ‘patient-weeks’?</p>
 <p>We have to design an experiment like this with great care, or there is a risk that we will not be able to statistically separate the treatment effects (drug) and block effects (week &amp; patient). The most appropriate design for this kind of experiment has the following structure:</p>
 <table>
 <thead>
@@ -913,7 +913,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

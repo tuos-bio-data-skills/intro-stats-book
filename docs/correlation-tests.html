@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 11 Correlation tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 11 Correlation tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="two-sample-t-test.html"/>
 <link rel="next" href="relationships-and-regression.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,8 +605,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="correlation-tests" class="section level1" number="11">
-<h1><span class="header-section-number">Chapter 11</span> Correlation tests</h1>
+<div id="correlation-tests" class="section level1 hasAnchor" number="11">
+<h1><span class="header-section-number">Chapter 11</span> Correlation tests<a href="correlation-tests.html#correlation-tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>We’re going to consider ‘correlation’ in this chapter. A correlation is a statistical measure of <strong>association</strong> between two variables. An association is any relationship between the variables that makes them dependent in some way: knowing the value of one variable gives you information about the possible values of the other.</p>
 <p>The terms ‘association’ and ‘correlation’ are often used interchangeably but strictly speaking, correlation has a narrower definition. Correlation analysis quantifies the degree to which an association tends to a certain pattern via a measure called a <strong>correlation coefficient</strong>. For example, the correlation coefficient studied below—Pearson’s correlation coefficient—measures the degree to which two variables tend toward a straight line relationship.</p>
 <p>There are different methods for quantifying correlation, but these all share a number of properties:</p>
@@ -620,19 +620,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>A correlation coefficient doesn’t tell us whether an association is likely to be ‘real’ or not. We have to use a statistical significance test to evaluate whether a correlation may be different from zero. Like any statistical test, this requires certain assumptions about the variables to be met.</p></li>
 </ol>
 <p>We’re going to make sense of all this by studying one particular correlation coefficient in this chapter: <strong>Pearson’s product-moment correlation coefficient</strong> (<span class="math inline">\(r\)</span>). Various measures of association exist, so why focus on this one? Well… once you know how to work with one type of correlation in R, it isn’t hard to use another. Pearson’s product-moment correlation coefficient is the most well-known, which means it is as good a place as any to learn about correlation analysis.</p>
-<div id="pearsons-product-moment-correlation" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> Pearson’s product-moment correlation</h2>
-<p>What do we need to know about Pearson’s product-moment correlation? Let’s start with the naming conventions. People often use “Pearson’s correlation coefficient” or “Pearson’s correlation” as a convenient shorthand because writing “Pearson’s product-moment correlation coefficient” all the time soon becomes tedious. If we want to be concise, we can use the standard mathematical symbol to denote Pearson’s correlation coefficient—lower case ‘<span class="math inline">\(r\)</span>.’</p>
+<div id="pearsons-product-moment-correlation" class="section level2 hasAnchor" number="11.1">
+<h2><span class="header-section-number">11.1</span> Pearson’s product-moment correlation<a href="correlation-tests.html#pearsons-product-moment-correlation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>What do we need to know about Pearson’s product-moment correlation? Let’s start with the naming conventions. People often use “Pearson’s correlation coefficient” or “Pearson’s correlation” as a convenient shorthand because writing “Pearson’s product-moment correlation coefficient” all the time soon becomes tedious. If we want to be concise, we can use the standard mathematical symbol to denote Pearson’s correlation coefficient—lower case ‘<span class="math inline">\(r\)</span>’.</p>
 <p>The one thing we absolutely have to know about Pearson’s correlation coefficient is that it is <strong>a measure of linear association between numeric variables</strong>. This means Pearson’s correlation is appropriate when numeric variables follow a ‘straight-line’ relationship. That doesn’t mean they have to be perfectly related, by the way. It simply means there shouldn’t be any ‘curviness’ to their pattern of association<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>.</p>
 <p>Finally, calculating Pearson’s correlation coefficient serves to <em>estimate</em> the strength of an association. An estimate can’t tell us whether that association is likely to be ‘real’ or not. We need a statistical test to tackle that question. There is a standard parametric test associated with Pearson’s correlation coefficient. Unfortunately, this does not have its own name. We will call it “Pearson’s correlation test” to distinguish the test from the coefficient. Just keep in mind these are not ‘official’ names.</p>
-<div id="pearsons-correlation-test" class="section level3" number="11.1.1">
-<h3><span class="header-section-number">11.1.1</span> Pearson’s correlation test</h3>
+<div id="pearsons-correlation-test" class="section level3 hasAnchor" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> Pearson’s correlation test<a href="correlation-tests.html#pearsons-correlation-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The logic underpinning Pearson’s correlation test is the same as we’ve seen in previous tests:</p>
 <ol style="list-style-type: decimal">
 <li>Define a null hypothesis.</li>
 <li>Calculate an appropriate test statistic.</li>
 <li>Work out the null distribution of that statistic.</li>
-<li>Use this to calculate a <em>p</em>-value from the observed coefficient.</li>
+<li>Use this to calculate a <em>p</em>-value from the observed coefficient.</li>
 </ol>
 <p>We won’t work through the details other than to note a few important aspects:</p>
 <ul>
@@ -640,88 +640,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>The test statistic associated with <span class="math inline">\(r\)</span> turns out to be a <em>t</em>-statistic. This has nothing to do with comparing means—<em>t</em>-statistics pop up all the time in frequentist statistics.</li>
 </ul>
 <p>Like any parametric technique, Pearson’s correlation test makes several assumptions. These need to be met in order for the statistical test to be reliable. The assumptions are:</p>
-<ul>
+<ol style="list-style-type: decimal">
 <li>Both variables are measured on an interval or ratio scale.</li>
 <li>The two variables are normally distributed (in the population).</li>
 <li>The relationship between the variables is linear.</li>
-</ul>
+</ol>
 <p>The first two requirements should not need any further explanation at this point—we’ve seen them before in the context of the one- and two-sample <em>t</em>-tests. The third one stems from Pearson’s correlation coefficient being a measure of linear association.</p>
 <p>Only the linearity assumption needs to be met for Pearson’s correlation coefficient (<span class="math inline">\(r\)</span>) to be a valid measure of association. As long as the relationship between two variables is linear, <span class="math inline">\(r\)</span> produces a sensible measure of association. However, the first two assumptions need to be met for the associated statistical test to be appropriate.</p>
 <p>That’s enough background and abstract concepts. Let’s see how to perform correlation analysis in R using Pearson’s correlation coefficient.</p>
 </div>
 </div>
-<div id="pearsons-product-moment-correlation-coefficient-in-r" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> Pearson’s product-moment correlation coefficient in R</h2>
+<div id="pearsons-product-moment-correlation-coefficient-in-r" class="section level2 hasAnchor" number="11.2">
+<h2><span class="header-section-number">11.2</span> Pearson’s product-moment correlation coefficient in R<a href="correlation-tests.html#pearsons-product-moment-correlation-coefficient-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="section-5" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
-<p>We will use a new data set to demonstrate correlation analysis. The data live in a file called ‘BRACKEN.CSV.’ The code below assumes those data have been read into a tibble called <code>bracken</code>. Set that up if you plan to work along.</p>
+<p>We will use a new data set to demonstrate correlation analysis. The data live in a file called ‘ALZHEIMERS.CSV’. The code below assumes those data have been read into a tibble called <code>alzheimers</code>. Set that up if you plan to work along.</p>
 </div>
-<p>The plant morph example is not suitable for correlation analysis. We need a new example to motivate a workflow for correlation tests in R. The example we’re going use is about the association between ferns and heather…</p>
-<p>Bracken fern (<em>Pteridium aquilinum</em>) is a common plant in many upland areas. A land manager needs to know whether there is any association between bracken and heather (<em>Calluna vulgaris</em>) in these areas. To determine whether the two species are associated, she sampled 22 plots at random and estimated the density of bracken and heather in each plot. The data are the mean <em>Calluna</em> standing crop (g m<sup>-2</sup>) and the number of bracken fronds per m<sup>2</sup>.</p>
-<div id="visualising-the-data-and-checking-the-assumptions-2" class="section level3" number="11.2.1">
-<h3><span class="header-section-number">11.2.1</span> Visualising the data and checking the assumptions</h3>
-<p>We can start by printing some information about the <code>bracken</code> data:</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="correlation-tests.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(bracken)</span></code></pre></div>
-<pre><code>## Rows: 22
+<p>The plant morph example is not suitable for correlation analysis. We need a new example to review the workflow for correlation tests in R. The example we’re going use is about the association a plasma biomarker with cognitive impairment in patients with Alzheimer’s disease.</p>
+<p>In Alzheimer's disease (AD) patients, brain degeneration is associated with the accumulation of tau protein tangles in the brain. Studies have shown that total tau (t-Tau) levels are higher in the plasma of AD patients than in healthy subjects. A group of biomedical researchers are interested in using plasma t-Tau to assess the extent of AD progression. They have designed a sensitive assay to measure plasma t-Tau. The team recruits 40 AD patients to a pilot study designed to evaluate the new assay. Each patient is undergoes a mini-mental state examination (MMSE) to assess the degree of cognitive impairment (defined as score &lt; 26). Their t-Tau levels are then measured using the new assay.</p>
+<div id="visualising-the-data-and-checking-the-assumptions-2" class="section level3 hasAnchor" number="11.2.1">
+<h3><span class="header-section-number">11.2.1</span> Visualising the data and checking the assumptions<a href="correlation-tests.html#visualising-the-data-and-checking-the-assumptions-2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>We can start by printing some information about the <code>alzheimers</code> data:</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="correlation-tests.html#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(alzheimers)</span></code></pre></div>
+<pre><code>## Rows: 40
 ## Columns: 2
-## $ Calluna &lt;dbl&gt; 980, 760, 613, 489, 498, 416, 589, 510, 459, 680, 471, 145, 25…
-## $ Bracken &lt;dbl&gt; 2.3, 1.4, 4.0, 3.6, 4.3, 4.0, 6.3, 6.5, 8.3, 8.2, 8.1, 9.1, 8.…</code></pre>
-<p>There are 22 observations (rows) and two variables (columns) in this data set. The two variables, <code>Calluna</code> and <code>Bracken</code>, contain the estimates of heather and bracken abundance in each plot, respectively.</p>
-<p>We should always explore the data thoroughly before carrying out any kind of statistical analysis. To begin, we can visualise the form of the association with a scatter plot:</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="correlation-tests.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna, <span class="at">y =</span> Bracken)) <span class="sc">+</span></span>
+## $ MMSE &lt;dbl&gt; 25, 20, 22, 14, 25, 22, 28, 23, 20, 16, 19, 30, 21, 12, 30, 19, 2…
+## $ tTau &lt;dbl&gt; 19.0, 24.8, 23.1, 26.9, 26.0, 21.6, 17.0, 27.9, 32.7, 28.2, 15.9,…</code></pre>
+<p>There are 40 observations (rows) and two variables (columns) in this data set. The two variables, <code>MMSE</code> and <code>tTau</code>, contain patient’s MMSE scores and t-Tau protein concentrations, respectively.</p>
+<p>Always explore the data thoroughly before carrying out a statistical analysis. To begin, we can visualise the form of the association with a scatter plot:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="correlation-tests.html#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alzheimers, <span class="fu">aes</span>(<span class="at">x =</span> MMSE, <span class="at">y =</span> tTau)) <span class="sc">+</span></span>
 <span id="cb57-2"><a href="correlation-tests.html#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-scatter-1.png" width="336" style="display: block; margin: auto;" /></p>
-<p>There appears to be a strong negative association between the species’ abundances, and the relationship seems to follow a ‘straight line’ pattern. It looks like Pearson’s correlation is a reasonable measure of association for these data.</p>
-<p>We will confirm this with a significance test. Is it appropriate to carry out the test? We’re dealing with numeric variables measured in ratio scale (assumption 1). What about their distributions (assumptions 2)? Here’s a quick visual summary:</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="correlation-tests.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Calluna)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">100</span>)</span>
-<span id="cb58-2"><a href="correlation-tests.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(bracken, <span class="fu">aes</span>(<span class="at">x =</span> Bracken)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-dist-1.png" width="40%" /><img src="intro-bio-stats-book_files/figure-html/bracken-calluna-dist-2.png" width="40%" /></p>
-<p>These dot plots suggest the normality assumption is met, i.e. both distributions are roughly ‘bell-shaped.’</p>
-<p>That’s all three assumptions met—the variables are on a ratio scale, dot the normality assumption is met, and the abundance relationship is linear. It looks like the statistical test will give reliable results.</p>
+<p><img src="intro-bio-stats-book_files/figure-html/mmse-ttau-scatter-1.png" width="336" style="display: block; margin: auto;" /></p>
+<p>There appears to be a negative association between cognitive performance and the assayed t-Tau levels. The relationship seems to follow a ‘straight line’ pattern, meaning Pearson’s correlation may be a reasonable measure of association for these data (assumptions #3).</p>
+<p>Before confirming the association with a Pearson correlation test, we should determine if it is appropriate to carry out the planned test. We are working with numeric variables measured in ratio scale—that’s assumption #1 dealt with. What about their distributions (assumptions #2)? Here’s a quick visual summary:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="correlation-tests.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alzheimers, <span class="fu">aes</span>(<span class="at">x =</span> MMSE)) <span class="sc">+</span> </span>
+<span id="cb58-2"><a href="correlation-tests.html#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
+<span id="cb58-3"><a href="correlation-tests.html#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(alzheimers, <span class="fu">aes</span>(<span class="at">x =</span> tTau)) <span class="sc">+</span> </span>
+<span id="cb58-4"><a href="correlation-tests.html#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="intro-bio-stats-book_files/figure-html/mmse-ttau-dist-1.png" width="40%" /><img src="intro-bio-stats-book_files/figure-html/mmse-ttau-dist-2.png" width="40%" /></p>
+<p>It is impossible to be 100% sure with such a small data set, but these plots suggest there is no obvious problem with the normality assumption—both distributions are roughly ‘bell-shaped’.</p>
+<p>That’s all three assumptions met: 1) the variables are on a ratio scale, 2) the normality assumption is met, and 3) the abundance relationship is linear. It looks like the statistical test should give reliable results.</p>
 </div>
-<div id="doing-the-test" class="section level3" number="11.2.2">
-<h3><span class="header-section-number">11.2.2</span> Doing the test</h3>
-<p>Let’s proceed with the analysis… Carrying out a correlation analysis in R is straightforward. We use the <code>cor.test</code> function to do this:</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="correlation-tests.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Calluna <span class="sc">+</span> Bracken, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">data =</span> bracken)</span></code></pre></div>
+<div id="doing-the-test" class="section level3 hasAnchor" number="11.2.2">
+<h3><span class="header-section-number">11.2.2</span> Doing the test<a href="correlation-tests.html#doing-the-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Let’s proceed with the correlation analysis. We use the <code>cor.test</code> function to do this in R:</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="correlation-tests.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> MMSE <span class="sc">+</span> tTau, <span class="at">method =</span> <span class="st">&quot;pearson&quot;</span>, <span class="at">data =</span> alzheimers)</span></code></pre></div>
 <p>We have suppressed the output here to focus on how the function works:</p>
 <ul>
-<li><p>We use the R formula syntax to determine which pair of variables are analysed. The <code>cor.test</code> function expects the two variable names to appear to the right of the <code>~</code>, separated by a <code>+</code> symbol, with nothing on the left.</p></li>
-<li><p>We use <code>method = "pearson"</code> to control which type of correlation coefficient was calculated. The default method is Pearson’s correlation, but it never hurts to be explicit, so we wrote <code>method = "pearson"</code> anyway.</p></li>
-<li><p>When we use the formula syntax, as we are doing here, we have to tell the function where to find the variables. That’s the <code>data = bracken</code> part.</p></li>
+<li>We use the R formula syntax to determine which pair of variables are analysed. The <code>cor.test</code> function expects the two variable names to appear to the right of the <code>~</code>, separated by a <code>+</code> symbol, with nothing on the left.</li>
+<li>We use <code>method = "pearson"</code> to control which type of correlation coefficient was calculated. The default method is Pearson’s correlation, but it never hurts to be explicit, so we wrote <code>method = "pearson"</code> anyway.</li>
+<li>When we use the formula syntax, as we are doing here, we have to tell the function where to find the variables. That’s the <code>data = alzheimers</code> part.</li>
 </ul>
-<p>Notice <code>cor.test</code> uses a different convention from the <code>t.test</code> function for the formula argument of. <code>t.test</code> places one variable on the left and the other variable on the right-hand side of the <code>~</code> (e.g. <code>Calluna ~ Bracken</code>), whereas <code>cor.test</code> requires both two variables to appear to the right of the <code>~</code>, separated by a <code>+</code> symbol. This convention exists to emphasise the absence of ‘directionality’ in correlations, i.e. neither variable has a special status. This will probably make more sense after covering ‘regression’ in later chapters.</p>
-<p>The output from the <code>cor.test</code> is, however, very similar to that produced by the <code>t.test</code> function. Here it is:</p>
+<p>Notice that <code>cor.test</code> uses a different convention from <code>t.test</code> to specify the formula. <code>t.test</code> places one variable on the left and the other variable on the right-hand side of the <code>~</code> (e.g. <code>MMSE ~ tTau</code>), whereas <code>cor.test</code> requires both two variables to appear to the right of the <code>~</code>, separated by a <code>+</code> symbol. This convention exists to emphasise the absence of ‘directionality’ in correlations—neither variable has a special status.</p>
+<p>The output from <code>cor.test</code> is, however, very similar to that produced by the <code>t.test</code> function. Here it is:</p>
 <pre><code>## 
 ##  Pearson&#39;s product-moment correlation
 ## 
-## data:  Calluna and Bracken
-## t = -5.2706, df = 20, p-value = 3.701e-05
+## data:  MMSE and tTau
+## t = -3.4685, df = 38, p-value = 0.001317
 ## alternative hypothesis: true correlation is not equal to 0
 ## 95 percent confidence interval:
-##  -0.8960509 -0.5024069
+##  -0.6956181 -0.2111049
 ## sample estimates:
 ##        cor 
-## -0.7625028</code></pre>
-<p>We won’t step through most of this as its meaning should be clear. The <code>t = -5.2706, df = 20, p-value = 3.701e-05</code> line is the one we really care about:</p>
+## -0.4903671</code></pre>
+<p>We won’t step through most of this as its meaning should be clear. The <code>t = -3.4685, df = 38, p-value = 0.001317</code> line is the one we really care about:</p>
 <ul>
-<li>The first part says that the test statistic associated with the test is a <em>t</em>-statistic, where <code>t = -5.27</code>. Remember, this has nothing to do with ‘comparing means.’</li>
-<li>Next, we see the degrees of freedom for the test. Can you see where this comes from? It is <span class="math inline">\(n-2\)</span>, where <span class="math inline">\(n\)</span> is the sample size. Together, the degrees of freedom and the <em>t</em>-statistic determine the <em>p</em>-value.</li>
-<li>The <em>t</em>-statistic and associated <em>p</em>-value are generated under the null hypothesis of zero correlation (<span class="math inline">\(r = 0\)</span>). Since <em>p</em> &lt; 0.05, we conclude that there is a statistically significant correlation between bracken and heather.</li>
+<li>The first part says that the test statistic associated with the test is a <em>t</em>-statistic, where <code>t = -3.4685</code>. Remember, this has nothing to do with ‘comparing means’.</li>
+<li>Next, we see the degrees of freedom for the test. Can you see where this comes from? It is <span class="math inline">\(n-2\)</span>, where <span class="math inline">\(n\)</span> is the sample size. R uses the degrees of freedom and the <em>t</em>-statistic determine the <em>p</em>-value.</li>
+<li>The <em>p</em>-value is generated under the null hypothesis of zero correlation (<span class="math inline">\(r = 0\)</span>). Since <em>p</em> &lt; 0.05, we conclude that there is a statistically significant negative correlation between t-Tau levels and MMSE.</li>
 </ul>
-<p>What is the actual correlation between bracken and heather densities? That’s given at the bottom of the test output: <span class="math inline">\(-0.76\)</span>. As expected from the scatter plot, there is quite a strong negative association between bracken and heather densities.</p>
+<p>What is the correlation between t-Tau levels and MMSE? That’s given at the bottom of the test output: <span class="math inline">\(-0.49\)</span>. As expected from the scatter plot, there is a moderate negative association between the two measurements.</p>
 </div>
-<div id="reporting-the-result" class="section level3" number="11.2.3">
-<h3><span class="header-section-number">11.2.3</span> Reporting the result</h3>
+<div id="reporting-the-result" class="section level3 hasAnchor" number="11.2.3">
+<h3><span class="header-section-number">11.2.3</span> Reporting the result<a href="correlation-tests.html#reporting-the-result" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When using Pearson’s method, we should report the value of the correlation coefficient, the sample size, and the <em>p</em>-value<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>. Here’s how to report the results of this analysis:</p>
 <blockquote>
-<p>There is a negative correlation between bracken and heather among the study plots (r=-0.76, n=22, p &lt; 0.001).</p>
+<p>There is a negative correlation between t-Tau and MMSE scores among patients (r=-0.49, n=38, p &lt; 0.01).</p>
 </blockquote>
-<p>Notice that we stated the direction of the association. After all, that’s what matters to the land manager.</p>
+<p>Notice that we stated the direction of the association. It is important to do that because both the direction and strength of the association are relevant to the clinical context. As hoped, elevated plasma t-Tau levels determined by the new assay are associated with reduced cognitive performance.</p>
 </div>
 </div>
-<div id="next-steps" class="section level2" number="11.3">
-<h2><span class="header-section-number">11.3</span> Next steps</h2>
-<p>When we summarised the result, we did not say that bracken is having a negative <em>effect</em> on the heather, or <em>vice versa</em>. It might well be true that bracken has a negative effect on heather. However, our correlation analysis only characterises the association between bracken and heather<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. If we want to make statements about one species is related to the other, we need use a different kind of analysis. That’s the focus of our next topic: simple linear regression.</p>
+<div id="next-steps" class="section level2 hasAnchor" number="11.3">
+<h2><span class="header-section-number">11.3</span> Next steps<a href="correlation-tests.html#next-steps" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Our correlation analysis only characterises the strength and direction of the association between t-Tau and MMSE scores. We would need to use a different kind of analysis to say anything about how MMSE scores change with t-Tau concentration. That’s the focus of our next topic: simple linear regression.</p>
 
 </div>
 </div>
@@ -729,8 +731,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <hr />
 <ol start="5">
 <li id="fn5"><p>If non-linear associations <em>are</em> apparent it’s generally better to use a different correlation coefficient (we’ll consider one alternative later in the book).<a href="correlation-tests.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>People occasionally report the value of the correlation coefficient, the <em>t</em>-statistic, the degrees of freedom, and the <em>p</em>-value. We won’t do this.<a href="correlation-tests.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>There is a second subtler limitation to this analysis: it was conducted using data from an observational study. If we want to say something about how bracken <em>affects</em> heather then we have to conduct an experimental manipulation (e.g. removing bracken from some plots).<a href="correlation-tests.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Some people like to report the the <em>t</em>-statistic alongside the correlation coefficient, the degrees of freedom, and the <em>p</em>-value. There’s no need to do this though because the <em>t</em>-statistic is calculated directly from the correlation coefficient and the degrees of freedom.<a href="correlation-tests.html#fnref6" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -799,7 +800,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

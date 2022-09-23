@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B Writing a scientific report | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B Writing a scientific report | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="choosing-models-and-tests.html"/>
 
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,21 +605,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="writing-a-scientific-report" class="section level1" number="28">
-<h1><span class="header-section-number">B</span> Writing a scientific report</h1>
+<div id="writing-a-scientific-report" class="section level1 hasAnchor" number="28">
+<h1><span class="header-section-number">B</span> Writing a scientific report<a href="writing-a-scientific-report.html#writing-a-scientific-report" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>“The question is,” said Alice, “whether you can make words mean so many different things.”</em> <BR></p>
 <p>“The question is,” said Humpty Dumpty, “which is to be master – that’s all.”</p>
 <p>Lewis Carroll, <em>Through the Looking Glass</em> (1871)</p>
 </blockquote>
-<div id="introduction-5" class="section level2" number="28.1">
-<h2><span class="header-section-number">B.1</span> Introduction</h2>
+<div id="introduction-5" class="section level2 hasAnchor" number="28.1">
+<h2><span class="header-section-number">B.1</span> Introduction<a href="writing-a-scientific-report.html#introduction-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Scientific information is communicated in various ways: through talks and seminars, through posters at meetings, but mainly through scientific papers. Papers published in books or journals provide the main route by which scientific findings are made available to others for evaluation and subsequent use. Over time the scientific paper has developed into a reasonably formal method of communication, with certain structures, styles and conventions. Information is presented in a standardised way, meaning particular bits of information can be extracted more easily by a knowledgeable reader.</p>
 <p>In this chapter, we will examine the structure and conventions of a biological paper, using an example of a field study of the territorial behaviour of a damselfly. We aim to illustrate the typical form and content of a scientific paper. Of course, papers vary in their exact requirements, and no one example can cover all the possibilities. Read recent papers in a relevant subject area and analyse their styles and structures to see which work best.</p>
 <p>The conventions discussed below are not rules and should be flexibly interpreted under the guiding principle that the aim is to present information as clearly, concisely and unambiguously as possible. Although taking the scientific paper as a model, the principles apply to other, less formal project write-ups and reports.</p>
 </div>
-<div id="the-structure-of-a-scientific-report" class="section level2" number="28.2">
-<h2><span class="header-section-number">B.2</span> The structure of a scientific report</h2>
+<div id="the-structure-of-a-scientific-report" class="section level2 hasAnchor" number="28.2">
+<h2><span class="header-section-number">B.2</span> The structure of a scientific report<a href="writing-a-scientific-report.html#the-structure-of-a-scientific-report" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The normal scientific report has a standard structure (parts in parentheses are optional):</p>
 <ol style="list-style-type: decimal">
 <li>Title</li>
@@ -632,8 +632,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Literature cited</li>
 <li>(Appendix)</li>
 </ol>
-<div id="title" class="section level3" number="28.2.1">
-<h3><span class="header-section-number">B.2.1</span> Title</h3>
+<div id="title" class="section level3 hasAnchor" number="28.2.1">
+<h3><span class="header-section-number">B.2.1</span> Title<a href="writing-a-scientific-report.html#title" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although not really a section of the paper, it is worth giving the title some thought. Aim for something that gives a fairly specific description of the topic of the paper, and possibly the essential result, but without being too long:</p>
 <blockquote>
 <p>Diurnal changes in the depth distribution of copepods in lakes with and without planktivorous fish: evidence of a predator avoidance mechanism?</p>
@@ -657,8 +657,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Don’t put irrelevant specific information in the title. It might be irrelevant to say that we carried out a study in a particular river—that detail is probably not important for the question we’re asking. However, the reference to the North York Moors above is relevant because the study is of an area-specific problem (the study is primarily of use to people who want to know about bracken in that area).</p>
 </div>
-<div id="abstract-or-summary" class="section level3" number="28.2.2">
-<h3><span class="header-section-number">B.2.2</span> Abstract or Summary</h3>
+<div id="abstract-or-summary" class="section level3 hasAnchor" number="28.2.2">
+<h3><span class="header-section-number">B.2.2</span> Abstract or Summary<a href="writing-a-scientific-report.html#abstract-or-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The purpose of an abstract is to present a factual summary of the main purpose, results and conclusions of the report which is short and makes sense on its own. Often it is best (and some journals require it) to do this as 3-6 numbered points comprising some, or all, the following:</p>
 <ul>
 <li>The scope and purpose of the study</li>
@@ -677,8 +677,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </blockquote>
 </div>
-<div id="introduction-6" class="section level3" number="28.2.3">
-<h3><span class="header-section-number">B.2.3</span> Introduction</h3>
+<div id="introduction-6" class="section level3 hasAnchor" number="28.2.3">
+<h3><span class="header-section-number">B.2.3</span> Introduction<a href="writing-a-scientific-report.html#introduction-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The introduction should:</p>
 <ul>
 <li>Set the background to the question, using the literature (Why is it interesting? Why is it important?).</li>
@@ -703,8 +703,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Don’t separate out the question, hypothesis and predictions as special statements in bold or whatever, or put them under separate headings. Although they provide vitally important context to a study, they should simply appear where necessary as part of the normal text.</p>
 </div>
-<div id="methods" class="section level3" number="28.2.4">
-<h3><span class="header-section-number">B.2.4</span> Methods</h3>
+<div id="methods" class="section level3 hasAnchor" number="28.2.4">
+<h3><span class="header-section-number">B.2.4</span> Methods<a href="writing-a-scientific-report.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Methods section should provide enough information about how the study was carried out to enable the reader to evaluate the validity of the results.</p>
 <ul>
 <li>What was done?</li>
@@ -735,8 +735,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Experimental manipulations of flow rate</strong></p>
 </blockquote>
 </div>
-<div id="results" class="section level3" number="28.2.5">
-<h3><span class="header-section-number">B.2.5</span> Results</h3>
+<div id="results" class="section level3 hasAnchor" number="28.2.5">
+<h3><span class="header-section-number">B.2.5</span> Results<a href="writing-a-scientific-report.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The central goal of a results section is to provide a clear account of the material factual findings of the investigation, using a combination of text, summarised data, and figures. If different parts of the study are covered under different subheadings in the Methods, then use the same subheadings to organize the Results.</p>
 <p>The Results section should focus on explaining clearly what the results are, but should not contain discussion of the biological implications of the results.</p>
 <p>Results are presented in a variety of different ways:</p>
@@ -802,8 +802,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>can comprise a single graph or diagram, but a single figure can also comprise several graphs – in which case each should be labelled: a, b, c, etc.</p></li>
 </ul>
 </div>
-<div id="discussion" class="section level3" number="28.2.6">
-<h3><span class="header-section-number">B.2.6</span> Discussion</h3>
+<div id="discussion" class="section level3 hasAnchor" number="28.2.6">
+<h3><span class="header-section-number">B.2.6</span> Discussion<a href="writing-a-scientific-report.html#discussion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The function of the discussion is to consider the meaning of the results and the light they throw on the original question; to assess the results in the context of other studies; and, if appropriate, to consider the limitations of the work and future directions for study. The exact structure and content of the Discussion will vary somewhat depending on the particular study and what the results show, but usually the following components should be included.</p>
 <p>It is usually helpful to start the discussion with a short paragraph, or so, summarizing the key results. e.g.,</p>
 <blockquote>
@@ -817,7 +817,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p>Although the results do implicate flow rate as a determinant of oviposition site, it is not clear whether females are responding directly to flow rate, or whether males are assessing flow rate and females are selecting the higher quality males (presumably those that occupy the best patches) assessed in some other way. This would require a separate experiment where females were allowed to select oviposition sites in the absence of males.</p>
 </blockquote>
-<p>Don’t just grumble and don’t make stock criticisms without good reason (e.g., don’t automatically say it would have been better to have a larger sample size—this may be true, but it may not—large sample sizes don’t solve everything). There may be unresolved, or unsolvable, problems. Be honest about these, but also be positive: if the author don’t seem to be sure that a study is worth reporting, how will anyone else be convinced? A report does not require a section headed ‘Experimental Error.’ Similarly don’t attribute any problems that can’t be explained to experimental error; everyone knows measurements aren’t perfect so it doesn’t explain anything.</p>
+<p>Don’t just grumble and don’t make stock criticisms without good reason (e.g., don’t automatically say it would have been better to have a larger sample size—this may be true, but it may not—large sample sizes don’t solve everything). There may be unresolved, or unsolvable, problems. Be honest about these, but also be positive: if the author don’t seem to be sure that a study is worth reporting, how will anyone else be convinced? A report does not require a section headed ‘Experimental Error’. Similarly don’t attribute any problems that can’t be explained to experimental error; everyone knows measurements aren’t perfect so it doesn’t explain anything.</p>
 <p>Finally, bring out the wider implications (but be realistic about the significance of the work) and future directions, e.g.</p>
 <blockquote>
 <p>These results indicate selection of oviposition sites, by females, on the basis of flow rate, but the reasons for such selectivity are not known. Flow rate has been implicated in other studies of aquatic insects as being of importance for preventing low oxygen conditions developing (a stress to which developing eggs may be particularly sensitive) (Armherst 1989). High flow may also reduce the ability of egg parasitoids to search the plants (Girton and Jenner 1976). A critical part of assessing the basis of site choice, and evaluating the role of the underwater environment will be measurement of egg and larval survival in weed beds of different flow rates. <BR> <BR> It seems likely that the patterns observed in <em>Calopteryx</em> in a single section of the river may also be important in determining choice of habitat between different river sections or even different rivers with high or flow rates. This also raises the unwelcome possibility that quite subtle changes in flow caused by water abstraction and river regulation (a problem on a neighbouring stream to the study site) could cause marked interference with <em>Calopteryx</em> breeding and even loss of the species from a river system.</p>
@@ -825,20 +825,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Discussion should not contain new results (except occasionally for small additional analyses of the data that have arisen as a direct consequence of interpretation of the main results - and that shed light upon the questions in the paper). Also avoid over-extending the implications of what was found. A slight trend in the results from one particular experiment may not be an entirely sound basis from which to challenge the fundamental tenets of evolutionary biology. (On the other hand it just could be; the skill is in spotting the few occasions when it is!).</p>
 <p>Overall, keep the focus of the discussion firmly on the results, don’t wander off into ten pages of philosophical discourse on the state of the field in general. And keep the volume and depth of the discussion in proportion to the rest of the paper, and to the significance (biological rather than statistical) of the results.</p>
 </div>
-<div id="acknowledgements" class="section level3" number="28.2.7">
-<h3><span class="header-section-number">B.2.7</span> Acknowledgements</h3>
+<div id="acknowledgements" class="section level3 hasAnchor" number="28.2.7">
+<h3><span class="header-section-number">B.2.7</span> Acknowledgements<a href="writing-a-scientific-report.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is the place to acknowledge persons or organizations who have made significant contributions to the execution of the work. For example: funding bodies, people who have contributed ideas or assisted with some of the actual work, landowners giving access to sites, specialists who have made identifications and people who have read and commented on the manuscript. Don’t get carried away—there’s no need to thank every friend, relation and loved one for general help through life’s little crises.</p>
 </div>
-<div id="literature-cited-references" class="section level3" number="28.2.8">
-<h3><span class="header-section-number">B.2.8</span> Literature cited / References</h3>
+<div id="literature-cited-references" class="section level3 hasAnchor" number="28.2.8">
+<h3><span class="header-section-number">B.2.8</span> Literature cited / References<a href="writing-a-scientific-report.html#literature-cited-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This section should provide a complete listing of all, and only, references cited in the text of the report. There are three things to consider here:</p>
 <ul>
 <li><p>What to cite</p></li>
 <li><p>How to cite it in the text</p></li>
 <li><p>How to construct a reference list</p></li>
 </ul>
-<div id="what-to-cite" class="section level4" number="28.2.8.1">
-<h4><span class="header-section-number">B.2.8.1</span> What to cite</h4>
+<div id="what-to-cite" class="section level4 hasAnchor" number="28.2.8.1">
+<h4><span class="header-section-number">B.2.8.1</span> What to cite<a href="writing-a-scientific-report.html#what-to-cite" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We should cite appropriate references wherever a point of substance (fact, or opinion) is made that is not our own or may not be regarded as common knowledge. e.g.</p>
 <p>Facts:</p>
 <blockquote>
@@ -857,8 +857,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Damselflies are predatory both in the larval and adult stages.</p>
 </blockquote>
 </div>
-<div id="styles-of-citation" class="section level4" number="28.2.8.2">
-<h4><span class="header-section-number">B.2.8.2</span> Styles of citation</h4>
+<div id="styles-of-citation" class="section level4 hasAnchor" number="28.2.8.2">
+<h4><span class="header-section-number">B.2.8.2</span> Styles of citation<a href="writing-a-scientific-report.html#styles-of-citation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If writing a manuscript for publication in a scientific journal, obviously use the style of the journal in question (exactly—including punctuation). When writing any other type of report, we can choose our own style, but if in doubt the easiest approach is probably to follow the style of a major journal in the appropriate subject area. There are two main styles in widespread use:</p>
 <p>The most common (and most straightforward) cites references in the text using names and dates, and lists all references alphabetically in the reference list.</p>
 <p>In the text, e.g.</p>
@@ -914,18 +914,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In the list we should then give the full citation for Smith (1987), not Jones (1928).</p>
 <p>There are standard abbreviations for journal names. These are often given in the journal itself, and are available on a list in the Library, or can be found by looking up the journal on Biological Abstracts. If we don’t know what the standard abbreviation is, and it is not obvious, then it’s best to use the full name rather than making up a new abbreviation.</p>
 </div>
-<div id="use-a-reference-manager" class="section level4 unnumbered infobox information">
-<h4>Use a reference manager!</h4>
+<div id="use-a-reference-manager" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Use a reference manager!<a href="writing-a-scientific-report.html#use-a-reference-manager" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Managing citations and generating reference lists can be a painful process, especially when everything is done ‘manually’ (cut and paste, cut and paste, cut and paste…). These days a number of reasonably good reference managers (software packages) are available to help with the process of managing references, inserting citations, formatting, and generating reference lists. Endnote, Paperpile and Zotero are among the most popular, but there <a href="https://en.wikipedia.org/wiki/Comparison_of_reference_management_software">are many different options</a>. Choose one, and learn how to use it. This will save a huge amount of effort in the long run.</p>
 </div>
 </div>
-<div id="appendices" class="section level3" number="28.2.9">
-<h3><span class="header-section-number">B.2.9</span> Appendices</h3>
+<div id="appendices" class="section level3 hasAnchor" number="28.2.9">
+<h3><span class="header-section-number">B.2.9</span> Appendices<a href="writing-a-scientific-report.html#appendices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use appendices for large amounts of raw data, long species lists, detailed mathematical or laboratory working, of a non-standard method, or (short) program listings, but only where the inclusion of such information markedly enhances the usefulness of the paper. Normally such appendices are not required. Avoid using them just to show how much work went into a study!</p>
 </div>
 </div>
-<div id="presenting-species-names" class="section level2" number="28.3">
-<h2><span class="header-section-number">B.3</span> Presenting species names</h2>
+<div id="presenting-species-names" class="section level2 hasAnchor" number="28.3">
+<h2><span class="header-section-number">B.3</span> Presenting species names<a href="writing-a-scientific-report.html#presenting-species-names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A final thing worth noting, is the correct way to present species names (there is an example of it in the passage above). This causes a great deal of confusion, largely because it is not always appreciated that specific meaning attaches to the conventions used for presenting species names. The name above, <em>Calopteryx virgo</em> Linnaeus, has several distinct elements in its presentation (italics, upper case initial letter(s) etc.). <strong>These elements matter</strong>. The full meanings of each of the various elements one might find in a scientific name are too extensive to cover here, but the following guidelines should cover most situations.</p>
 <p>Presentation of common names is less fixed by convention than of scientific binomials but, in general, common names can be written with lower case initial letters unless the name itself contains a proper name (e.g. Norway spruce). Common names are written in the same typeface as the normal text. Common names can be used in reports, but the scientific binomial is a unique identifier that provides a standard, internationally recognized, label for a species. A report should always include the scientific name of the species we’re dealing with.</p>
 <p>Obviously it is important ensure the scientific name is spelled correctly. Fortunately systematists’ scientific latin is fairly simple phonetically, but nonetheless it is best to check the name from a reliable source when writing it for the first time (try searching for ‘calopterix’ on the web!). So now the spelling is right let’s look at the parts of the name and how to present them. In typeset documents we usually see:</p>
@@ -937,7 +937,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <blockquote>
 <p><em>Calopteryx virgo</em> (Odonata: Calopterygidae)</p>
 </blockquote>
-<p>The names on the right (though they could equally well be on the left) are the higher taxonomic classification (order and family in this case) and are sometimes presented to enable a reader to easily place the organism. Just having a species name is not always very informative unless the reader already knows what sort of organisms are being discussed. These are written in normal text, but with an upper case initial letter. Just to confuse things though, when we write the informal derivative version of such names such as ‘odonate’ or ‘calopterygid,’ e.g.</p>
+<p>The names on the right (though they could equally well be on the left) are the higher taxonomic classification (order and family in this case) and are sometimes presented to enable a reader to easily place the organism. Just having a species name is not always very informative unless the reader already knows what sort of organisms are being discussed. These are written in normal text, but with an upper case initial letter. Just to confuse things though, when we write the informal derivative version of such names such as ‘odonate’ or ‘calopterygid’, e.g.</p>
 <blockquote>
 <p>…calopterygids, unlike other odonates…</p>
 </blockquote>
@@ -954,8 +954,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>There is only one correct way of abbreviating the name: shorten the genus to its initial letter (plus full stop) and keep the full specific name; <strong>never do the reverse</strong> (<em>Calopteryx v.</em>). If there is a subspecies name then it’s fine to abbreviate both generic and specific names, e.g., <em>C. s. xanthostoma</em>.</p>
 </div>
-<div id="approaches-to-writing" class="section level2" number="28.4">
-<h2><span class="header-section-number">B.4</span> Approaches to writing</h2>
+<div id="approaches-to-writing" class="section level2 hasAnchor" number="28.4">
+<h2><span class="header-section-number">B.4</span> Approaches to writing<a href="writing-a-scientific-report.html#approaches-to-writing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Everyone tackles the task of writing a report in different ways, dictated by a combination of personal preference and practical constraints. That said, we can still provide some useful suggestions for approaching a scientific writing task.</p>
 <p>Most importantly, separate the process of writing, editing and revising—these are not the same thing. Begin with a clear written plan of what to say before starting, but expect to go through several cycles of writing, editing and revising a report before it is satisfactory (it is impossible to get everything right the first time):</p>
 <ul>
@@ -968,8 +968,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Keep the writing simple, clear and concise. Science writing is about clear communication, not verbal acrobatics. Explain things to an appropriate level for the intended audience. This is harder than it sounds. By the time we reach the writing stage, we have usually spent a good deal of time thinking about the problem we’re discussing. Things that seem ‘obvious’ may not be so obvious to a naive reader.</p>
 <p>Find a critical friend to read a draft when it’s ready (and be prepared to accept their honest comments!). It is of value to have the manuscript read by people who know the field and those who don’t; they will pick up different things.</p>
 <p>Finally, whenever possible, it is worth putting the report away for a couple of weeks and doing something else, then going back and rereading it. A report’s faults are much easier to spot after a break from working on it.</p>
-<div id="a-last-piece-of-advice" class="section level3" number="28.4.1">
-<h3><span class="header-section-number">B.4.1</span> A last piece of advice…</h3>
+<div id="a-last-piece-of-advice" class="section level3 hasAnchor" number="28.4.1">
+<h3><span class="header-section-number">B.4.1</span> A last piece of advice…<a href="writing-a-scientific-report.html#a-last-piece-of-advice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>No discussion can cover all the different sorts of report a scientist may be required to write at one time or another, but the ideas above provide a guide to one of the commonest. It is only a guide, and some circumstances will require a different approach or structure.</p>
 <p>Writing isn’t easy. Like any complex skill, it takes a great deal of time and effort to develop. People learn to write in different ways, and what works for one person may not work for another. Nonetheless, two pieces of advice from experienced writers crop up time and time again:</p>
 <p><strong>Read actively.</strong> It’s impossible to become a competent writer without first becoming a regular and active reader. Reading provides an opportunity to develop scientific writing skills by critically evaluating the papers we read, not just in terms of the science they present but the effectiveness of their presentation. We can decide what works well and what doesn’t and then adopt good ideas. Of course, this only works if we spend time reading the scientific literature in the first place!</p>
@@ -978,7 +978,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 </div>
-
 
 
 
@@ -1086,7 +1085,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

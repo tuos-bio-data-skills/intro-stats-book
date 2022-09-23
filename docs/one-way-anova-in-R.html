@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 15 One-way ANOVA in R | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 15 One-way ANOVA in R | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="introduction-to-one-way-anova.html"/>
 <link rel="next" href="multiple-comparison-tests-chapter.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,18 +605,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="one-way-anova-in-R" class="section level1" number="15">
-<h1><span class="header-section-number">Chapter 15</span> One-way ANOVA in R</h1>
+<div id="one-way-anova-in-R" class="section level1 hasAnchor" number="15">
+<h1><span class="header-section-number">Chapter 15</span> One-way ANOVA in R<a href="one-way-anova-in-R.html#one-way-anova-in-R" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Our goal in this chapter is to learn how to work with one-way ANOVA models in R. As we did with regression, we’ll do this by working through an example. We’ll start with the problem and the data, then work through model fitting, significance testing, and finally, present the results.</p>
-<div id="introduction-3" class="section level2" number="15.1">
-<h2><span class="header-section-number">15.1</span> Introduction</h2>
+<div id="introduction-3" class="section level2 hasAnchor" number="15.1">
+<h2><span class="header-section-number">15.1</span> Introduction<a href="one-way-anova-in-R.html#introduction-3" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We will use the corncrake example from the last chapter to demonstrate how to conduct a one-way ANOVA in R. Recall that these data show the results of an experiment comparing the weight gain of eight corncrake hatchlings on each of four supplements and one control diet.</p>
 <div id="section-8" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>The data live in the ‘CORN_CRAKE.CSV’ file. The code below assumes those data have been read into a tibble called <code>corn_crake</code>. Set that up if you plan to work along.</p>
 </div>
-<div id="first-steps-1" class="section level3" number="15.1.1">
-<h3><span class="header-section-number">15.1.1</span> First steps</h3>
+<div id="first-steps-1" class="section level3 hasAnchor" number="15.1.1">
+<h3><span class="header-section-number">15.1.1</span> First steps<a href="one-way-anova-in-R.html#first-steps-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>What lives inside the <code>corn_crake</code> data set? There are no surprises:</p>
 <div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="one-way-anova-in-R.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(corn_crake)</span></code></pre></div>
 <pre><code>## Rows: 40
@@ -625,32 +625,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ WeightGain &lt;dbl&gt; 13, 20, 17, 16, 15, 14, 10, 20, 15, 18, 10, 22, 23, 19, 25,…</code></pre>
 <p>There are 40 observations in the data set and 2 variables (columns), called <code>Supplement</code> and <code>WeightGain</code>.</p>
 </div>
-<div id="visualising-the-data-1" class="section level3" number="15.1.2">
-<h3><span class="header-section-number">15.1.2</span> Visualising the data</h3>
+<div id="visualising-the-data-1" class="section level3 hasAnchor" number="15.1.2">
+<h3><span class="header-section-number">15.1.2</span> Visualising the data<a href="one-way-anova-in-R.html#visualising-the-data-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We should plot our data before we even consider fitting a model. One way to do this is by creating a boxplot:</p>
 <div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="one-way-anova-in-R.html#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(corn_crake, <span class="fu">aes</span>(<span class="at">x =</span> Supplement, <span class="at">y =</span> WeightGain)) <span class="sc">+</span> </span>
 <span id="cb88-2"><a href="one-way-anova-in-R.html#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-104-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>At this point, we just want to get an idea of what our data look like. We don’t need to worry about customising the plot to make it look nice.</p>
-<div id="examine-the-plot" class="section level4 unnumbered infobox action">
-<h4>Examine the plot</h4>
+<div id="examine-the-plot" class="section level4 unnumbered hasAnchor infobox action">
+<h4>Examine the plot<a href="one-way-anova-in-R.html#examine-the-plot" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Have a look at the plot and think about what it means biologically. Which supplement seems to have had the biggest effect? Do all of the supplements increase growth relative to the control?</p>
 </div>
 </div>
 </div>
-<div id="model-fitting-and-significance-tests-1" class="section level2" number="15.2">
-<h2><span class="header-section-number">15.2</span> Model fitting and significance tests</h2>
+<div id="model-fitting-and-significance-tests-1" class="section level2 hasAnchor" number="15.2">
+<h2><span class="header-section-number">15.2</span> Model fitting and significance tests<a href="one-way-anova-in-R.html#model-fitting-and-significance-tests-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Carrying out ANOVA in R is quite simple, but as with regression, there is more than one step.</p>
 <p>The first involves a process known as <em>fitting the model</em> (or just <em>model fitting</em>). This is the step where R calculates the relevant means and the additional information needed to generate the results in step two. We call this step model fitting because an ANOVA is a type of model for our data: it is a model that allows the mean of a variable to vary among groups.</p>
-<p>How do we fit an ANOVA model in R? We use the <code>lm</code> function again. Remember what the letters ‘lm’ stand for? They stand for ‘(general) linear model.’ An ANOVA model is just another special case of that general linear model. Here is how we fit a one-way ANOVA in R, using the corncrake data:</p>
+<p>How do we fit an ANOVA model in R? We use the <code>lm</code> function again. Remember what the letters ‘lm’ stand for? They stand for ‘(general) linear model’. An ANOVA model is just another special case of that general linear model. Here is how we fit a one-way ANOVA in R, using the corncrake data:</p>
 <div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="one-way-anova-in-R.html#cb89-1" aria-hidden="true" tabindex="-1"></a>corncrake_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span></code></pre></div>
 <p>By now, this kind of thing is probably starting to look familiar. We have to assign two arguments:</p>
 <ol style="list-style-type: decimal">
 <li><p>The first argument is a formula. We know this because it includes a ‘tilde’ symbol: <code>~</code>. The variable name on the left of the <code>~</code> must be the numeric response variable whose means we want to compare among groups. The variable on the right should be the indicator (or predictor) variable that says which group each observation belongs to. These are <code>WeightGain</code> and <code>Supplement</code>, respectively.</p></li>
 <li><p>The second argument is the name of the data frame that contains the two variables listed in the formula.</p></li>
 </ol>
-<div id="how-does-r-know-which-model-to-use" class="section level4 unnumbered infobox information">
-<h4>How does R know which model to use?</h4>
+<div id="how-does-r-know-which-model-to-use" class="section level4 unnumbered hasAnchor infobox information">
+<h4>How does R know which model to use?<a href="one-way-anova-in-R.html#how-does-r-know-which-model-to-use" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>How does R know we want to use an ANOVA model? After all, we didn’t specify this anywhere. The answer is that R looks at what type of vector <code>Supplement</code> is. It is a categorical character vector, and so R carries out an ANOVA. It would do the same if <code>Supplement</code> had been a factor. However, if the values of <code>Supplement</code> had been stored as numbers then R would not have fitted an ANOVA. Instead, it would have assumed we meant to fit a regression model, which is seldom appropriate. <strong>This is why we never store categorical variables as numbers in R.</strong></p>
 <p>Avoid using numbers to encode the values of a categorical variable if you want to avoid making mistakes when fitting models!</p>
 </div>
@@ -666,12 +666,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##      SupplementNone   SupplementSizefast  
 ##               1.375                4.750</code></pre>
 <p>Not a great deal. Printing a fitted model object to the console is not very useful when working with ANOVA. We just see a summary of the model we fitted and some information about the model coefficients. Yes, an ANOVA model has coefficients, just like a regression does.</p>
-<div id="assumptions-1" class="section level4 unnumbered infobox warning">
-<h4>Assumptions</h4>
+<div id="assumptions-1" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Assumptions<a href="one-way-anova-in-R.html#assumptions-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The one-way ANOVA model has a series of assumptions about how the data are generated. This point in the workflow would be a good place to evaluate whether or not these may have been violated. However, we’re going to tackle this later in the <a href="#assumptions-diagnostics">Assumptions</a> and <a href="#regression-diagnostics">Diagnostics</a> chapters. For now, it is enough to be aware that there are assumptions associated with one-way ANOVA and that you should evaluate these when working with your own data.</p>
 </div>
-<div id="interpreting-the-results" class="section level3" number="15.2.1">
-<h3><span class="header-section-number">15.2.1</span> Interpreting the results</h3>
+<div id="interpreting-the-results" class="section level3 hasAnchor" number="15.2.1">
+<h3><span class="header-section-number">15.2.1</span> Interpreting the results<a href="one-way-anova-in-R.html#interpreting-the-results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We really want a <em>p</em>-value to help us determine whether there is statistical support for a difference among the group means. That is, we need to calculate things like degrees of freedom, sums of squares, mean squares, and the <em>F</em>-ratio. This is step 2.</p>
 <p>We use the <code>anova</code> function to do this:</p>
 <div class="sourceCode" id="cb92"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb92-1"><a href="one-way-anova-in-R.html#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(corncrake_model)</span></code></pre></div>
@@ -694,12 +694,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>So far so good. The test that we have just carried out is called the <strong>global test of significance</strong>. It goes by this name because it doesn’t tell us anything about which means are different. The analyses suggest that there is an effect of supplement on weight gain. Still, some uncertainty remains because we have only established that there are differences among at least some supplements. A global test doesn’t say which supplements are better or worse. This could be very important. If the significant result is generated by all supplements being equally effective (hence differing from the control but not from each other) we would draw very different conclusions than if the result was a consequence of one supplement being very effective and all the others being useless. Our result could even be produced by the supplements all being less effective than the control!</p>
 <p>So having got a significant result in the ANOVA, we should always look at the means of the treatments to understand where the differences actually lie. We did this in the previous chapter but here is the figure again anyway:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-summary-all-1.png" width="384" style="display: block; margin: auto;" /></p>
-<p>What looking at the means tells us is that the effect of the supplements is generally to increase weight gain (with one exception, ‘Allvit’) relative to the control group (‘None’), and that it looks as though ‘Earlybird’ is the most effective, followed by ‘Sizefast’ and ‘Linseed.’</p>
+<p>What looking at the means tells us is that the effect of the supplements is generally to increase weight gain (with one exception, ‘Allvit’) relative to the control group (‘None’), and that it looks as though ‘Earlybird’ is the most effective, followed by ‘Sizefast’ and ‘Linseed’.</p>
 <p>Often inspection of the means in this way will tell us all we need to know and no further work will be required. However, sometimes it is desirable to have a more rigorous way of testing where the significant differences between treatments occur. A number of tests exist as ‘add ons’ to ANOVA which enable you to do this. These are called <strong>post hoc multiple comparison tests</strong> (sometimes just ‘multiple comparison tests’). We’ll see how to conduct these later.</p>
 </div>
 </div>
-<div id="summarise-results-anova" class="section level2" number="15.3">
-<h2><span class="header-section-number">15.3</span> Presenting results</h2>
+<div id="summarise-results-anova" class="section level2 hasAnchor" number="15.3">
+<h2><span class="header-section-number">15.3</span> Presenting results<a href="one-way-anova-in-R.html#summarise-results-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>As with all tests, it will be necessary to summarise the result in a written form. With an ANOVA on several treatments, we always need to at least summarise the result of the global test of significance, for example:</p>
 <blockquote>
 <p>There was a significant effect of supplement on the weight gain of the corncrake hatchlings (ANOVA: F=5.1; d.f.= 4,35; p&lt;0.01).</p>
@@ -748,8 +748,8 @@ SE = \frac{\text{Standard deviation of the sample}}{\sqrt{\text{Sample size}}} =
 <span id="cb97-14"><a href="one-way-anova-in-R.html#cb97-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/diet-summary-initial-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>First, notice that we set the <code>data</code> argument in <code>ggplot</code> to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: <code>x</code>, <code>y</code>, <code>ymin</code> and <code>ymax</code>. Third, we added one layer using <code>geom_point</code>. This adds the individual points based on the <code>x</code> and <code>y</code> mappings. Fourth, we added a second layer using <code>geom_errorbar</code>. This adds the error bars based on the <code>x</code>, <code>ymin</code> and <code>ymax</code> mappings. Finally we adjusted the y limits and the labels (this last step is optional). Ask a demonstrator to step through this with you if you are confused by it.</p>
-<div id="factors" class="section level4 unnumbered infobox information">
-<h4>Factors</h4>
+<div id="factors" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Factors<a href="one-way-anova-in-R.html#factors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Now is good time to take a short detour to remind ourselves about factors. In the world of experimental design, the word ‘factor’ is used to describe a controlled variable where the levels—i.e. its different values or categories—are set by the experimenter. R includes a special type of vector for representing factors. This is called, rather sensibly, a factor. One can get quite a long way in R-land without using factors. However, we inevitably end up using them because so much of R’s plotting and statistical modelling machinery rely on factors. We are going to need to them to help us reorder the groups in our plot.</p>
 </div>
 <p>Take a close look at that last figure. Is there anything wrong with it? The control group in this study is the no diet group (‘None’). Conventionally, we display the control groups first. R hasn’t done this because the different categories of <code>Supplement</code> are presented in alphabetical order by default. One way to change that order if by converting <code>Supplement</code> to a factor and define the order we want as we do so. Here is how to do this using <code>dplyr</code> and a function called <code>factor</code>:</p>
@@ -843,7 +843,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

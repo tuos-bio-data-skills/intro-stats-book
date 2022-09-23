@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 
 <link rel="next" href="scientific-process.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -608,30 +608,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introductory Biostatistics with R</h1>
 <p class="author"><em>Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren</em></p>
-<p class="date"><em>2022-01-21</em></p>
+<p class="date"><em>2022-09-23</em></p>
 </div>
-<div id="course-information-and-overview" class="section level1 unnumbered">
-<h1>Course information and overview</h1>
+<div id="overview" class="section level1 unnumbered hasAnchor">
+<h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>This book provides a self-contained introduction to the analysis of biological data using the R programming language. Topics include principles of experimental design principles of frequentist statistics, simple statistical tests, analysis of variance, regression, analysis of categorical data, and non-parametric statistics.</p>
-<div id="why-do-a-data-analysis-course" class="section level2 unnumbered">
-<h2>Why do a data analysis course?</h2>
+<div id="why-do-a-data-analysis-course" class="section level2 unnumbered hasAnchor">
+<h2>Why do a data analysis course?<a href="index.html#why-do-a-data-analysis-course" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>To do science yourself, or to understand the science other people do, you need to understand the principles of experimental design, data collection, statistical analysis and scientific presentation. That does not mean becoming a maths wizard or a computer genius. It means knowing how to make sensible decisions about designing studies and collecting data and then interpreting those data correctly. Sometimes the methods required are straightforward, sometimes more complex. You aren’t expected to get to grips with all of them, but what we hope to do in the course is to give you a good practical grasp of the core techniques that are widely used in biology. You should then be equipped to use these techniques intelligently and, equally importantly, know when they are inappropriate and when you need to seek help to find the correct way to design or analyse your study.</p>
 <p>With some work on your part, you should acquire a set of skills that you can apply in practicals, field courses, and project work. These same skills will almost certainly also be useful in other situations, whether doing biology, or something completely different. We live in a world increasingly flooded with data, and people who know how to make sense of this are in high demand.</p>
 </div>
-<div id="programming-prerequisites" class="section level2 unnumbered">
-<h2>Programming prerequisites</h2>
+<div id="programming-prerequisites" class="section level2 unnumbered hasAnchor">
+<h2>Programming prerequisites<a href="index.html#programming-prerequisites" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This book assumes you have used R and RStudio before and that you are comfortable with the material given in the associated <a href="https://tuos-bio-data-skills.github.io/intro-eda-book/">Exploratory Data Analysis with R</a> book. What follows is a quick summary of what you need to know.</p>
-<div id="r-and-rstudio" class="section level3 unnumbered">
-<h3>R and RStudio</h3>
+<div id="r-and-rstudio" class="section level3 unnumbered hasAnchor">
+<h3>R and RStudio<a href="index.html#r-and-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R is a programming language designed first and foremost to support <strong>data analysis</strong>. We use it to carry out all the statistical analyses covered in this book. R is a fully-fledged programming language, meaning that we have to interact with it by writing computer code. Essentially, R sits and waits for instructions in the form of text (R code). A user can type in those instructions, or they can be sent to it from another helper program. This book assumes you have written R code before and know how to ‘run it’ via these two routes.</p>
 <p>We strongly recommend that you use a helper program when working with R. We like RStudio. RStudio makes R a more pleasant and productive tool. RStudio provides a Source Code Editor for working with R code. It also provides a visual, point-and-click means of accessing various language-specific features, such as install packages (see below).</p>
-<div id="r-and-rstudio-are-not-the-same-things" class="section level4 unnumbered infobox warning">
-<h4>R and RStudio are not the same things</h4>
+<div id="r-and-rstudio-are-not-the-same-things" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>R and RStudio are not the same things<a href="index.html#r-and-rstudio-are-not-the-same-things" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>RStudio is a different program from R—it is installed separately and occupies its own place in the Programs menu (Windows PC) or Applications folder (Mac). You can run R without RStudio but you cannot run RStudio without R.</p>
 </div>
 </div>
-<div id="using-packages" class="section level3 unnumbered">
-<h3>Using packages</h3>
+<div id="using-packages" class="section level3 unnumbered hasAnchor">
+<h3>Using packages<a href="index.html#using-packages" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>R packages extend the basic functionality of R so that we can do more with it. They bundle together R code, data, and documentation in a standardised way that makes it easy to use and share with others. This book uses a subset of the <a href="https://www.tidyverse.org">tidyverse</a> ecosystem of packages:</p>
 <ul>
 <li>The <strong>readr</strong> package for reading data into R</li>
@@ -643,18 +643,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <p>Alternatively, use the simple RStudio menu interface to install packages. This is accessed via the <strong>Install</strong> button in the packages tab of the lower right window in RStudio. Loading and attaching a package so that it can be used in a given session happens via the <code>library</code> function, e.g.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
-<div id="what-goes-in-your-script" class="section level4 unnumbered infobox warning">
-<h4>What goes in your script?</h4>
+<div id="what-goes-in-your-script" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>What goes in your script?<a href="index.html#what-goes-in-your-script" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We should not routinely leave <code>install.packages</code> lines in our scripts. Why? Because we don’t usually need to install a package every time we run a script—installing packages is a slow ‘do once’ operation. We do usually place one or more <code>library</code> lines at the start of a script to ensure the required packages available in the current R session every time we run the script.</p>
 </div>
 </div>
-<div id="working-with-data" class="section level3 unnumbered">
-<h3>Working with data</h3>
+<div id="working-with-data" class="section level3 unnumbered hasAnchor">
+<h3>Working with data<a href="index.html#working-with-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>All the examples use data sets that are stored in CSV files. You can get these by <a href="mailto:d.childs@sheffield.ac.uk">emailing the lead author</a>. We assume you know how to use a function like <code>read_csv</code> from the <strong>readr</strong> package to get those data into R. Remember, when using <code>read_csv</code> we end up with a ‘tibble’: the <strong>tidyverse</strong> version of a data frame. You could also use the base R <code>read_csv</code> function to read CSV data into a standard base R data frame—the differences don’t matter in this book.</p>
 <p>Tibbles and data frame are a table-like objects with rows and columns. They collect together different variables, storing each of them as a named column. We always assume that the data inside these objects are organised according to <a href="http://vita.had.co.nz/papers/tidy-data.pdf">tidy data</a> conventions. Tidy data has a specific structure that makes it easy to manipulate, model and visualise. A tidy data set is one where each variable is only found in one column, and each row contains one unique observation.</p>
 </div>
-<div id="data-wrangling-with-dplyr" class="section level3 unnumbered">
-<h3>Data wrangling with <strong>dplyr</strong></h3>
+<div id="data-wrangling-with-dplyr" class="section level3 unnumbered hasAnchor">
+<h3>Data wrangling with <strong>dplyr</strong><a href="index.html#data-wrangling-with-dplyr" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We assume you know how to manipulate data frames and tibbles using the <strong>dplyr</strong> package. The <strong>dplyr</strong> package makes it easy to manipulate ‘rectangular data’ that lives in tibbles and data frames. <strong>dplyr</strong> is orientated around a few core functions, each designed to do one thing well. These <strong>dplyr</strong> functions are sometimes referred to as its ‘verbs’ to reflect the fact that they ‘do something’ to data. For example:</p>
 <ul>
 <li><code>select</code> obtains a subset of variables,</li>
@@ -665,8 +665,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Notice that the names are chosen to reflect what each function does to the input data. We’ll routinely use these—along with a few additional functions such as <code>rename</code> and <code>group_by</code>—to create new variables, subset data based on some criteria, and calculate summaries for different subsets of data.</p>
 </div>
-<div id="plotting-with-ggplot2" class="section level3 unnumbered">
-<h3>Plotting with <strong>ggplot2</strong></h3>
+<div id="plotting-with-ggplot2" class="section level3 unnumbered hasAnchor">
+<h3>Plotting with <strong>ggplot2</strong><a href="index.html#plotting-with-ggplot2" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We assume you know how to create data visualisations using the <strong>ggplot2</strong> package. A visualisation is created by defining one or more layers, where each layer is associated with some data and a set of rules for how to display the data. We assume you know how to use the <strong>ggplot2</strong> ‘grammar’ to set up:</p>
 <ol style="list-style-type: decimal">
 <li>one or more <strong>layers</strong>,</li>
@@ -680,19 +680,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>visualise associations between pairs of variables using scatter plots (numeric vs numeric), bar plots (categorical vs categorical), and box plots (numeric vs categorical).</li>
 </ul>
 <p>We also assume you know how to make more informative plots by defining additional aesthetic mappings (e.g. <code>colour</code> and <code>fill</code>), or using faceting to construct a multi-panel plot according to the values of categorical variables.</p>
-<div id="a-dplyr-cheat-sheet" class="section level4 unnumbered infobox information">
-<h4>A <strong>dplyr</strong> cheat sheet</h4>
+<div id="a-dplyr-cheat-sheet" class="section level4 unnumbered hasAnchor infobox information">
+<h4>A <strong>dplyr</strong> cheat sheet<a href="index.html#a-dplyr-cheat-sheet" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The developers of RStudio have produced very usable <a href="http://www.rstudio.com/resources/cheatsheets/">cheat sheats</a> that summarise the core packages in the <strong>tidyverse</strong> ecosystem.</p>
-<p><img src="images/data-transformation.jpg" width="1146" /></p>
+<p><img src="images/data-transformation.jpg" /><!-- --></p>
 <p>Download these, print out a copy, and refer to it when you need to do something with <strong>dplyr</strong> or <strong>ggplot2</strong>.</p>
 </div>
 </div>
 </div>
-<div id="how-the-book-is-formatted" class="section level2 unnumbered">
-<h2>How the book is formatted</h2>
+<div id="how-the-book-is-formatted" class="section level2 unnumbered hasAnchor">
+<h2>How the book is formatted<a href="index.html#how-the-book-is-formatted" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We have adopted several formatting conventions in this book to distinguish between normal text, R code, file names, and so on. You need to be aware to make best use of the book.</p>
-<div id="text-instructions-and-explanations" class="section level3 unnumbered">
-<h3>Text, instructions, and explanations</h3>
+<div id="text-instructions-and-explanations" class="section level3 unnumbered hasAnchor">
+<h3>Text, instructions, and explanations<a href="index.html#text-instructions-and-explanations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Normal text—instructions, explanations and so on—are written in the same type as this document. We will tend to use bold for emphasis and italics to highlight specific technical terms when they are first introduced. In addition:</p>
 <ul>
 <li><code>This typeface</code> is used to distinguish R code within a sentence of text: e.g. “We use the <code>mutate</code> function to change or add new variables.”</li>
@@ -700,21 +700,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>File names referred to in the general text are given in upper case in the normal typeface: e.g. MYFILE.CSV.</li>
 </ul>
 <p>At various points, you will come across text in different coloured boxes. These are designed to highlight stand-alone exercises or little pieces of supplementary information that might otherwise break the flow. There are three different kinds of boxes:</p>
-<div id="action" class="section level4 unnumbered infobox action">
-<h4>Action!</h4>
+<div id="action" class="section level4 unnumbered hasAnchor infobox action">
+<h4>Action!<a href="index.html#action" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is an <strong>action</strong> box. We use these when we want you to do something. Do not ignore these boxes.</p>
 </div>
-<div id="information" class="section level4 unnumbered infobox information">
-<h4>Information!</h4>
+<div id="information" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Information!<a href="index.html#information" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is an <strong>information</strong> box. These aim to offer a discussion of why something works the way it does.</p>
 </div>
-<div id="warning" class="section level4 unnumbered infobox warning">
-<h4>Warning!</h4>
+<div id="warning" class="section level4 unnumbered hasAnchor infobox warning">
+<h4>Warning!<a href="index.html#warning" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>This is a <strong>warning</strong> box. These usually highlight a common ‘gotcha’ that might trip up new users.</p>
 </div>
 </div>
-<div id="r-code-and-output" class="section level3 unnumbered">
-<h3>R code and output</h3>
+<div id="r-code-and-output" class="section level3 unnumbered hasAnchor">
+<h3>R code and output<a href="index.html#r-code-and-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We try to illustrate ideas using snippets of real R code where possible. Stand alone snippets are formatted like this:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tmp)</span></code></pre></div>
@@ -794,7 +794,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 25 Contingency tables | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 25 Contingency tables | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
-  
   
   <meta property="og:description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
   <meta name="github-repo" content="tuos-bio-data-skills/intro-stats-book" />
@@ -24,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-01-21" />
+<meta name="date" content="2022-09-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="goodness-of-fit-tests.html"/>
 <link rel="next" href="non-parametric-tests.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -51,8 +49,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -137,7 +136,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">Introductory Biostatistics with R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Course information and overview</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Overview</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#why-do-a-data-analysis-course"><i class="fa fa-check"></i>Why do a data analysis course?</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#programming-prerequisites"><i class="fa fa-check"></i>Programming prerequisites</a>
@@ -145,8 +144,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#r-and-rstudio"><i class="fa fa-check"></i>R and RStudio</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#using-packages"><i class="fa fa-check"></i>Using packages</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#working-with-data"><i class="fa fa-check"></i>Working with data</a></li>
-<li><a href="index.html#data-wrangling-with-dplyr">Data wrangling with <strong>dplyr</strong></a></li>
-<li><a href="index.html#plotting-with-ggplot2">Plotting with <strong>ggplot2</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#data-wrangling-with-dplyr"><i class="fa fa-check"></i>Data wrangling with <strong>dplyr</strong></a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#plotting-with-ggplot2"><i class="fa fa-check"></i>Plotting with <strong>ggplot2</strong></a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-the-book-is-formatted"><i class="fa fa-check"></i>How the book is formatted</a>
 <ul>
@@ -229,7 +228,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="6.2.1" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#permutation-tests"><i class="fa fa-check"></i><b>6.2.1</b> Permutation tests</a></li>
 <li class="chapter" data-level="6.2.2" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#carrying-out-a-permutation-test"><i class="fa fa-check"></i><b>6.2.2</b> Carrying out a permutation test</a></li>
-<li><a href="statistical-comparisons.html#calculating-the-p-value">Calculating the <em>p</em>-value</a></li>
+<li class="chapter" data-level="" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#calculating-the-p-value"><i class="fa fa-check"></i>Calculating the <em>p</em>-value</a></li>
 </ul></li>
 <li class="chapter" data-level="6.3" data-path="statistical-comparisons.html"><a href="statistical-comparisons.html#what-have-we-learned"><i class="fa fa-check"></i><b>6.3</b> What have we learned?</a></li>
 </ul></li>
@@ -433,6 +432,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="20.3.2" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption"><i class="fa fa-check"></i><b>20.3.2</b> Checking the linearity assumption</a></li>
 <li class="chapter" data-level="20.3.3" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-normality-assumption"><i class="fa fa-check"></i><b>20.3.3</b> Checking the normality assumption</a></li>
 <li class="chapter" data-level="20.3.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#checking-the-constant-variance-assumption"><i class="fa fa-check"></i><b>20.3.4</b> Checking the constant variance assumption</a></li>
+<li class="chapter" data-level="20.3.5" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#summary-of-the-diagnostic-checks"><i class="fa fa-check"></i><b>20.3.5</b> Summary of the diagnostic checks</a></li>
 </ul></li>
 <li class="chapter" data-level="20.4" data-path="assumptions-and-diagnostics.html"><a href="assumptions-and-diagnostics.html#assumptions-of-one-way-anova"><i class="fa fa-check"></i><b>20.4</b> Assumptions of one-way ANOVA</a></li>
 </ul></li>
@@ -605,10 +605,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="contingency-tables" class="section level1" number="25">
-<h1><span class="header-section-number">Chapter 25</span> Contingency tables</h1>
-<div id="when-do-we-use-a-chi-square-contingency-table-test" class="section level2" number="25.1">
-<h2><span class="header-section-number">25.1</span> When do we use a chi-square contingency table test?</h2>
+<div id="contingency-tables" class="section level1 hasAnchor" number="25">
+<h1><span class="header-section-number">Chapter 25</span> Contingency tables<a href="contingency-tables.html#contingency-tables" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="when-do-we-use-a-chi-square-contingency-table-test" class="section level2 hasAnchor" number="25.1">
+<h2><span class="header-section-number">25.1</span> When do we use a chi-square contingency table test?<a href="contingency-tables.html#when-do-we-use-a-chi-square-contingency-table-test" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A <span class="math inline">\(\chi^{2}\)</span> contingency table test is appropriate in situations where we are studying <em>two or more</em> categorical variables—each object is classified according to more than one categorical variable—and we want to evaluate whether categories are associated. Here are a couple of examples:</p>
 <ul>
 <li><p>Returning to the data on biology students, we suggested that we might want to know if eye colour was related to sex in any way. That is, we want to know whether brown and blue eyes occur in different proportions among males and females. If we recorded the sex and eye colour of male and female students, we could use a <span class="math inline">\(\chi^{2}\)</span> contingency table test to evaluate whether eye colour is associated with sex.</p></li>
@@ -636,12 +636,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<p>This is called a two-way contingency table. It is a <em>two-way</em> contingency table because it summarises the frequency distribution of two categorical variables at the same time<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>. If we had measured three variables, we would have a <em>three-way</em> contingency table (e.g. 2 x 2 x 2).</p>
-<p>A contingency table takes its name from the fact that it captures the ‘contingencies’ among the categorical variables: it summarises how the frequencies of one categorical variable are associated with the categories of another. The term association is used here to describe the non-independence of categories among categorical variables. Other terms used to refer to the same idea include ‘linkage,’ ‘non-independence,’ and ‘interaction.’</p>
+<p>This is called a two-way contingency table. It is a <em>two-way</em> contingency table because it summarises the frequency distribution of two categorical variables at the same time<a href="#fn26" class="footnote-ref" id="fnref26"><sup>26</sup></a>. If we had measured three variables, we would have a <em>three-way</em> contingency table (e.g. 2 x 2 x 2).</p>
+<p>A contingency table takes its name from the fact that it captures the ‘contingencies’ among the categorical variables: it summarises how the frequencies of one categorical variable are associated with the categories of another. The term association is used here to describe the non-independence of categories among categorical variables. Other terms used to refer to the same idea include ‘linkage’, ‘non-independence’, and ‘interaction’.</p>
 <p>Associations are evident when the proportions of objects in one set of categories (e.g. R1 and R2) depends on a second set of categories (e.g. C1 and C2). Here are two possibilities:</p>
 <table class="kable_wrapper">
 <caption>
-<span id="tab:unnamed-chunk-203">Table 25.1: </span>Contingency tables without an association (left table),
+<span id="tab:unnamed-chunk-199">Table 25.1: </span>Contingency tables without an association (left table),
 and with an association (right table), among two categorical variables
 </caption>
 <tbody>
@@ -699,10 +699,10 @@ and with an association (right table), among two categorical variables
 <li><p>There is no evidence of association in the first table (left): the numbers in category R1 are 1/4 of those in category R2, whether the observations are in category C1 or C2. Notice that this reasoning isn’t about the total numbers in each category—there are 100 category C2 cases and only 50 category C1 cases.</p></li>
 <li><p>There is evidence of an association in the second table (right): the proportion of observations in R1 changes markedly depending on whether we are looking at observations for category C1 or category C2. The R1 cases are less frequent in the C1 column relative to the C2 column. Again, it is the proportions that matter, not the raw numbers.</p></li>
 </ul>
-<p>We can ask a variety of different questions of data in a contingency table, but they are usually used to test for associations between the variables they summarise. That’s the topic of this chapter. There are different ways to carry out such tests of association. We’ll focus on the most widely used tool—the ‘Pearson’s Chi Square’ ($\chi^{2}$) contingency table test<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a>.</p>
+<p>We can ask a variety of different questions of data in a contingency table, but they are usually used to test for associations between the variables they summarise. That’s the topic of this chapter. There are different ways to carry out such tests of association. We’ll focus on the most widely used tool—the ‘Pearson’s Chi Square’ ($\chi^{2}$) contingency table test<a href="#fn27" class="footnote-ref" id="fnref27"><sup>27</sup></a>.</p>
 </div>
-<div id="how-does-the-chi-square-contingency-table-test-work" class="section level2" number="25.2">
-<h2><span class="header-section-number">25.2</span> How does the chi-square contingency table test work?</h2>
+<div id="how-does-the-chi-square-contingency-table-test-work" class="section level2 hasAnchor" number="25.2">
+<h2><span class="header-section-number">25.2</span> How does the chi-square contingency table test work?<a href="contingency-tables.html#how-does-the-chi-square-contingency-table-test-work" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <span class="math inline">\(\chi^{2}\)</span> contingency table test uses data in the form of a contingency table to address questions about the dependence between two or more different <em>kinds</em> of outcomes, or events. We start to tackle this question by setting up the appropriate null hypothesis. The null hypothesis is always the same for the standard contingency table test of association: it proposes that different events are independent of one another. This means the occurrence of one kind of event does not depend on the other type of event, i.e. they are <em>not</em> associated.</p>
 <p>Once the null hypothesis has been worked out, the remaining calculations are no different from those used in a goodness of fit test. We calculate the frequencies expected in each cell under the null hypothesis, we calculate a <span class="math inline">\(\chi^{2}\)</span> test statistic to summarise the mismatch between observed and expected values and then use this to assess how likely the observed result is under the null hypothesis, resulting in the <em>p</em>-value.</p>
 <p>We’ll continue with the two-spot ladybird (<em>Adalia bipunctata</em>) example from the beginning of this chapter. The dark (melanic) form is under the control of a single gene. Melanic and red types occur at different frequencies in different areas. Two observations are pertinent to this study:</p>
@@ -784,18 +784,18 @@ and with an association (right table), among two categorical variables
 </ul>
 <p><span class="math display">\[p(\text{Black}) = \frac{g}{k}\]</span></p>
 <ul>
-<li>Calculate the probability that a randomly chosen individual is both ‘Rural’ and ‘Black,’ <em>assuming</em> these events are ‘independent’ . This is given by the product of the probabilities from steps 1 and 2:</li>
+<li>Calculate the probability that a randomly chosen individual is both ‘Rural’ and ‘Black’, <em>assuming</em> these events are ‘independent’ . This is given by the product of the probabilities from steps 1 and 2:</li>
 </ul>
 <p><span class="math display">\[p(\text{Rural, Black}) = \frac{e}{k} \times \frac{g}{k}\]</span></p>
 <ul>
-<li>Convert this to the expected number of individuals that are ‘Rural’ and ‘Black,’ under the independence assumption. This is the probability from step 3 multiplied by the grand total (<span class="math inline">\(k\)</span>):</li>
+<li>Convert this to the expected number of individuals that are ‘Rural’ and ‘Black’, under the independence assumption. This is the probability from step 3 multiplied by the grand total (<span class="math inline">\(k\)</span>):</li>
 </ul>
 <p><span class="math display">\[E(\text{Rural, Black}) = \frac{e}{k} \times \frac{g}{k} \times {k} = \frac{g \times e}{k}\]</span></p>
 <p>In general, the expected value for any particular cell in a contingency table is given by multiplying the associated row and column totals and then dividing by the grand total.</p>
 <p><strong>Step 2</strong> Calculate the <span class="math inline">\(\chi^{2}\)</span> test statistic from the four observed cell counts and their expected values. The resulting <span class="math inline">\(\chi^{2}\)</span> statistic summarises—across all the cells—how likely the observed frequencies are under the null hypothesis of no association (= independence).</p>
 <p><strong>Step 3</strong> Compare the <span class="math inline">\(\chi^{2}\)</span> statistic to the theoretical predictions of the <span class="math inline">\(\chi^{2}\)</span> distribution in order to assess the statistical significance of the difference between observed and expected counts. This <em>p</em>-value is the probability we would see the observed pattern of cell counts, or a more strongly associated pattern, under the null hypothesis of no association. A low <em>p</em>-value represents evidence against the null hypothesis.</p>
-<div id="assumptions-of-the-chi-square-contingency-table-test" class="section level3" number="25.2.1">
-<h3><span class="header-section-number">25.2.1</span> Assumptions of the chi-square contingency table test</h3>
+<div id="assumptions-of-the-chi-square-contingency-table-test" class="section level3 hasAnchor" number="25.2.1">
+<h3><span class="header-section-number">25.2.1</span> Assumptions of the chi-square contingency table test<a href="contingency-tables.html#assumptions-of-the-chi-square-contingency-table-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The assumptions of the <span class="math inline">\(\chi^{2}\)</span> goodness of fit test are essentially the same as those of the goodness of fit test:</p>
 <ol style="list-style-type: decimal">
 <li><p>The observations are independent counts. For example, it would not be appropriate to apply a <span class="math inline">\(\chi^{2}\)</span> goodness of fit test where observations are taken before and after an experimental intervention is applied to the same objects.</p></li>
@@ -803,48 +803,48 @@ and with an association (right table), among two categorical variables
 </ol>
 </div>
 </div>
-<div id="carrying-out-a-chi-square-contingency-table-test-in-r" class="section level2" number="25.3">
-<h2><span class="header-section-number">25.3</span> Carrying out a chi-square contingency table test in R</h2>
+<div id="carrying-out-a-chi-square-contingency-table-test-in-r" class="section level2 hasAnchor" number="25.3">
+<h2><span class="header-section-number">25.3</span> Carrying out a chi-square contingency table test in R<a href="contingency-tables.html#carrying-out-a-chi-square-contingency-table-test-in-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We’ll use the ladybird colour and habitat type example to demonstrate how to conduct a chi-square contingency table test in R.</p>
-<div id="section-20" class="section level4 unnumbered infobox action">
+<div id="section-18" class="section level4 unnumbered infobox action">
 <h4 class="unnumbered"></h4>
 <p>Three versions of the ladybird data will be used: LADYBIRDS1.CSV, LADYBIRDS2.CSV, and LADYBIRDS3.CSV. These all contain the same information. They only differ in how it is organised. We assume that each of these has been read into tibbles called <code>lady_bird_df1</code>, <code>lady_bird_df2</code> and <code>lady_bird_df3</code>. For example:</p>
-<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="contingency-tables.html#cb190-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS1.CSV&quot;</span>)</span>
-<span id="cb190-2"><a href="contingency-tables.html#cb190-2" aria-hidden="true" tabindex="-1"></a>lady_bird_df2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS2.CSV&quot;</span>)</span>
-<span id="cb190-3"><a href="contingency-tables.html#cb190-3" aria-hidden="true" tabindex="-1"></a>lady_bird_df3 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS3.CSV&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="contingency-tables.html#cb194-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS1.CSV&quot;</span>)</span>
+<span id="cb194-2"><a href="contingency-tables.html#cb194-2" aria-hidden="true" tabindex="-1"></a>lady_bird_df2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS2.CSV&quot;</span>)</span>
+<span id="cb194-3"><a href="contingency-tables.html#cb194-3" aria-hidden="true" tabindex="-1"></a>lady_bird_df3 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="at">file =</span> <span class="st">&quot;LADYBIRDS3.CSV&quot;</span>)</span></code></pre></div>
 </div>
-<p>Carrying out a <span class="math inline">\(\chi^{2}\)</span> contingency table test in R is very simple: we use the <code>chisq.test</code> function again. The only snag is that we have to ensure the data are correctly formatted. When we read data into R using a function like <code>read_csv</code> (or <code>read.csv</code>), we end up with a tibble (or ordinary data frame). Unfortunately, the <code>chisq.test</code> function is one of the few statistical functions not designed to work with data frames. We have to convert our data to a special contingency table object to use it with <code>chisq.test</code>.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<p>Carrying out a <span class="math inline">\(\chi^{2}\)</span> contingency table test in R is very simple: we use the <code>chisq.test</code> function again. The only snag is that we have to ensure the data are correctly formatted. When we read data into R using a function like <code>read_csv</code> (or <code>read.csv</code>), we end up with a tibble (or ordinary data frame). Unfortunately, the <code>chisq.test</code> function is one of the few statistical functions not designed to work with data frames. We have to convert our data to a special contingency table object to use it with <code>chisq.test</code>.<a href="#fn28" class="footnote-ref" id="fnref28"><sup>28</sup></a></p>
 <p>How do we construct a contingency table object? We use a function called <code>xtabs</code>. The <code>xtabs</code> function does categorical ‘cross tabulation’—it sums up the number of occurrences of different combinations of categories among variables. We need to see how to use <code>xtabs</code> before running through the chi-square contingency table test.</p>
-<div id="step-1.-get-the-data-into-the-correct-format" class="section level3" number="25.3.1">
-<h3><span class="header-section-number">25.3.1</span> Step 1. Get the data into the correct format</h3>
+<div id="step-1.-get-the-data-into-the-correct-format" class="section level3 hasAnchor" number="25.3.1">
+<h3><span class="header-section-number">25.3.1</span> Step 1. Get the data into the correct format<a href="contingency-tables.html#step-1.-get-the-data-into-the-correct-format" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The usage of <code>xtabs</code> depends upon how the raw data are organised. There are possible cases.</p>
-<div id="case-1-raw-data" class="section level4" number="25.3.1.1">
-<h4><span class="header-section-number">25.3.1.1</span> <strong>Case 1: Raw data</strong></h4>
+<div id="case-1-raw-data" class="section level4 hasAnchor" number="25.3.1.1">
+<h4><span class="header-section-number">25.3.1.1</span> <strong>Case 1: Raw data</strong><a href="contingency-tables.html#case-1-raw-data" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Data suitable for analysis with a <span class="math inline">\(\chi^{2}\)</span> contingency table test are often represented in a data set with one column per categorical variable and one row per observation. This is the version of the ladybird data in the <code>lady_bird_df1</code>:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="contingency-tables.html#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df1)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="contingency-tables.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df1)</span></code></pre></div>
 <pre><code>## Rows: 300
 ## Columns: 2
 ## $ Habitat &lt;chr&gt; &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;,…
 ## $ Colour  &lt;chr&gt; &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;,…</code></pre>
 <p>This data frame contains 300 rows (one for each ladybirds) and two columns (<code>Habitat</code> and <code>Colour</code>). Each column is a categorical variable containing information about the ladybirds. Each one has two unique values:</p>
-<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="contingency-tables.html#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lady_bird_df1<span class="sc">$</span>Habitat)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="contingency-tables.html#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lady_bird_df1<span class="sc">$</span>Habitat)</span></code></pre></div>
 <pre><code>## [1] &quot;Rural&quot;      &quot;Industrial&quot;</code></pre>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="contingency-tables.html#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lady_bird_df1<span class="sc">$</span>Colour)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="contingency-tables.html#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(lady_bird_df1<span class="sc">$</span>Colour)</span></code></pre></div>
 <pre><code>## [1] &quot;Black&quot; &quot;Red&quot;</code></pre>
 <p>We require a two-way table that contains the total counts in each combination of categories. This is what <code>xtabs</code> does. It takes two arguments: the first is a formula (involving the <code>~</code> symbol) that specifies the required contingency table; the second is the name of the data frame containing the raw data. When working with data in the above format—one observation per row—we use a formula that only contains the names of the categorical variables on the right hand side of the <code>~</code> (<code>~ Habitat + Colour</code>):</p>
-<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="contingency-tables.html#cb197-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df1)</span></code></pre></div>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="contingency-tables.html#cb201-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(<span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df1)</span></code></pre></div>
 <p>When used like this, <code>xtabs</code> sums up the number of observations with each combination of <code>Habitat</code> and <code>Colour</code>.</p>
 <p>We called the output <code>lady_bird_table</code> to emphasise that the data from <code>xtabs</code> are now stored in a contingency table. When we print this to the console we see that <code>lady_bird_table</code> does indeed refer to something that looks like a 2 x 2 contingency table of counts:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="contingency-tables.html#cb198-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
+<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="contingency-tables.html#cb202-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
 <pre><code>##             Colour
 ## Habitat      Black Red
 ##   Industrial   115  85
 ##   Rural         30  70</code></pre>
 </div>
-<div id="case-2-partial-counts" class="section level4" number="25.3.1.2">
-<h4><span class="header-section-number">25.3.1.2</span> <strong>Case 2: Partial counts</strong></h4>
+<div id="case-2-partial-counts" class="section level4 hasAnchor" number="25.3.1.2">
+<h4><span class="header-section-number">25.3.1.2</span> <strong>Case 2: Partial counts</strong><a href="contingency-tables.html#case-2-partial-counts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Sometimes data suitable for analysis with a <span class="math inline">\(\chi^{2}\)</span> contingency table test are partially summarised into counts. For example, imagine that we visited five rural and five urban sites and recorded the numbers of red and black colour forms found at each site. This is the version of the ladybird data in the <code>lady_bird_df2</code>:</p>
-<div class="sourceCode" id="cb200"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb200-1"><a href="contingency-tables.html#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df2)</span></code></pre></div>
+<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="contingency-tables.html#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df2)</span></code></pre></div>
 <pre><code>## Rows: 20
 ## Columns: 4
 ## $ Habitat &lt;chr&gt; &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;, &quot;Rural&quot;,…
@@ -852,7 +852,7 @@ and with an association (right table), among two categorical variables
 ## $ Colour  &lt;chr&gt; &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Red&quot;, &quot;Red&quot;, &quot;Re…
 ## $ Number  &lt;dbl&gt; 10, 3, 4, 7, 6, 15, 18, 9, 12, 16, 32, 25, 25, 17, 16, 17, 23,…</code></pre>
 <p>It’s a bit easier to see how the data are organised if we print the <code>lady_bird_df2</code> object:</p>
-<div class="sourceCode" id="cb202"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb202-1"><a href="contingency-tables.html#cb202-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df2</span></code></pre></div>
+<div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="contingency-tables.html#cb206-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df2</span></code></pre></div>
 <pre><code>## # A tibble: 20 × 4
 ##    Habitat    Site  Colour Number
 ##    &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;
@@ -877,26 +877,26 @@ and with an association (right table), among two categorical variables
 ## 19 Industrial U4    Red         9
 ## 20 Industrial U5    Red        15</code></pre>
 <p>The counts at each site are in the <code>Number</code> variable, and the site identities are in the <code>Site</code> variable. We need to sum over the sites to get the total number within each combination of <code>Habitat</code> and <code>Colour</code>. We use <code>xtabs</code> again, but this time we also tell it which variable to sum over (<code>Number ~ Habitat + Colour</code>):</p>
-<div class="sourceCode" id="cb204"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb204-1"><a href="contingency-tables.html#cb204-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Number <span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df2)</span></code></pre></div>
+<div class="sourceCode" id="cb208"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb208-1"><a href="contingency-tables.html#cb208-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Number <span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df2)</span></code></pre></div>
 <p>When working with partially summed counts data we have to use a formula where the name of the variable containing the counts is on left hand side of the <code>~</code>, and the names of the categorical variables to sum over are on the right hand side of the <code>~</code>. The <code>lady_bird_table</code> object produced by <code>xtabs</code> is no different than before:</p>
-<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="contingency-tables.html#cb205-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="contingency-tables.html#cb209-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
 <pre><code>##             Colour
 ## Habitat      Black Red
 ##   Industrial   115  85
 ##   Rural         30  70</code></pre>
 <p>Good! These are the same data.</p>
 </div>
-<div id="case-3-complete-counts" class="section level4" number="25.3.1.3">
-<h4><span class="header-section-number">25.3.1.3</span> <strong>Case 3: Complete counts</strong></h4>
+<div id="case-3-complete-counts" class="section level4 hasAnchor" number="25.3.1.3">
+<h4><span class="header-section-number">25.3.1.3</span> <strong>Case 3: Complete counts</strong><a href="contingency-tables.html#case-3-complete-counts" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>Data suitable for analysis with a <span class="math inline">\(\chi^{2}\)</span> contingency table test are sometimes already summed into the required total counts. This is the version of the ladybird data in the <code>lady_bird_df3</code>:</p>
-<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="contingency-tables.html#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df3)</span></code></pre></div>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="contingency-tables.html#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lady_bird_df3)</span></code></pre></div>
 <pre><code>## Rows: 4
 ## Columns: 3
 ## $ Habitat &lt;chr&gt; &quot;Industrial&quot;, &quot;Industrial&quot;, &quot;Rural&quot;, &quot;Rural&quot;
 ## $ Colour  &lt;chr&gt; &quot;Black&quot;, &quot;Red&quot;, &quot;Black&quot;, &quot;Red&quot;
 ## $ Number  &lt;dbl&gt; 115, 85, 30, 70</code></pre>
 <p>Again, we can see how the data are organised by printing the <code>lady_bird_df3</code> object:</p>
-<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="contingency-tables.html#cb209-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df3</span></code></pre></div>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="contingency-tables.html#cb213-1" aria-hidden="true" tabindex="-1"></a>lady_bird_df3</span></code></pre></div>
 <pre><code>## # A tibble: 4 × 3
 ##   Habitat    Colour Number
 ##   &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;
@@ -906,8 +906,8 @@ and with an association (right table), among two categorical variables
 ## 4 Rural      Red        70</code></pre>
 <p>The total counts are already in the <code>Number</code> variable, meaning there is no need to sum over anything to get the total for each combination of <code>Habitat</code> and <code>Colour</code>.</p>
 <p>However, we still need to convert the data to a contingency table object so we can feed it to <code>chisq.test</code>. One way to do this is by using <code>xtabs</code> again, exactly as before:</p>
-<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="contingency-tables.html#cb211-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Number <span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df3)</span>
-<span id="cb211-2"><a href="contingency-tables.html#cb211-2" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="contingency-tables.html#cb215-1" aria-hidden="true" tabindex="-1"></a>lady_bird_table <span class="ot">&lt;-</span> <span class="fu">xtabs</span>(Number <span class="sc">~</span> Habitat <span class="sc">+</span> Colour, <span class="at">data =</span> lady_bird_df3)</span>
+<span id="cb215-2"><a href="contingency-tables.html#cb215-2" aria-hidden="true" tabindex="-1"></a>lady_bird_table</span></code></pre></div>
 <pre><code>##             Colour
 ## Habitat      Black Red
 ##   Industrial   115  85
@@ -915,23 +915,23 @@ and with an association (right table), among two categorical variables
 <p>In this case <code>xtabs</code> doesn’t change the data because it’s just ‘summing’ over one value in each combination of categories. We’re only using <code>xtabs</code> to convert it to a contingency table object. The resulting <code>lady_bird_table</code> object is the same as before.</p>
 </div>
 </div>
-<div id="step-2.-do-the-test" class="section level3" number="25.3.2">
-<h3><span class="header-section-number">25.3.2</span> Step 2. Do the test</h3>
+<div id="step-2.-do-the-test" class="section level3 hasAnchor" number="25.3.2">
+<h3><span class="header-section-number">25.3.2</span> Step 2. Do the test<a href="contingency-tables.html#step-2.-do-the-test" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Once we have the data in the form of a contingency table the associated <span class="math inline">\(\chi^{2}\)</span> test of independence between the two categorical variables is easy to carry out:</p>
-<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="contingency-tables.html#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(lady_bird_table)</span></code></pre></div>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="contingency-tables.html#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(lady_bird_table)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test with Yates&#39; continuity correction
 ## 
 ## data:  lady_bird_table
 ## X-squared = 19.103, df = 1, p-value = 1.239e-05</code></pre>
 <p>That’s it. Just pass one argument to <code>chisq.test</code>: the contingency table.</p>
-<p>This output should make sense in the light of what we saw in the previous chapter. R first prints a reminder of the test employed (<code>Pearson's Chi-squared test with Yates' continuity correction</code>) and the data used (<code>data:  lady_bird_table</code>). We’ll come back to the “Yates’ continuity correction” bit in a moment. R then summarises the <span class="math inline">\(\chi^{2}\)</span> value, the degrees of freedom, and the <em>p</em>-value: <code>X-squared = 19.103, df = 1, p-value = 1.239e-05</code> The <em>p</em>-value is highly significant (<em>p</em>&lt;0.001) indicating that the colour type frequency varies among the two kinds of habitats.<a href="#fn30" class="footnote-ref" id="fnref30"><sup>30</sup></a></p>
-<div id="degrees-of-freedom-for-a-chi2-contingency-table-test" class="section level4 unnumbered infobox information">
-<h4>Degrees of freedom for a <span class="math inline">\(\chi^{2}\)</span> contingency table test</h4>
+<p>This output should make sense in the light of what we saw in the previous chapter. R first prints a reminder of the test employed (<code>Pearson's Chi-squared test with Yates' continuity correction</code>) and the data used (<code>data:  lady_bird_table</code>). We’ll come back to the “Yates’ continuity correction” bit in a moment. R then summarises the <span class="math inline">\(\chi^{2}\)</span> value, the degrees of freedom, and the <em>p</em>-value: <code>X-squared = 19.103, df = 1, p-value = 1.239e-05</code> The <em>p</em>-value is highly significant (<em>p</em>&lt;0.001) indicating that the colour type frequency varies among the two kinds of habitats.<a href="#fn29" class="footnote-ref" id="fnref29"><sup>29</sup></a></p>
+<div id="degrees-of-freedom-for-a-chi2-contingency-table-test" class="section level4 unnumbered hasAnchor infobox information">
+<h4>Degrees of freedom for a <span class="math inline">\(\chi^{2}\)</span> contingency table test<a href="contingency-tables.html#degrees-of-freedom-for-a-chi2-contingency-table-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We need to know the degrees of freedom associated with the test: in a two-way <span class="math inline">\(\chi^{2}\)</span> contingency table test these are <span class="math inline">\((n_A-1) \times (n_B-1)\)</span>, where <span class="math inline">\(n_A-1\)</span> is the number of categories in the first variable, and <span class="math inline">\(n_B-1\)</span> is the number of categories in the second variable. So if we’re working with a 2 x 2 table the d.f. are 1, if we’re working with a 2 x 3 table the d.f. are 2, if we’re working with a 3 x 3 table the d.f. are 4, and so on.</p>
 </div>
-<p>What was that “Yates’ continuity correction” all about? The reasoning behind using this correction is a bit beyond this course, but in a nutshell, it generates more reliable <em>p</em>-values under certain circumstances. By default, the <code>chisq.test</code> function applies this correction to all 2 x 2 contingency tables. We can force R to use the standard calculation by setting <code>correct = FALSE</code> if we want to:</p>
-<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="contingency-tables.html#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(lady_bird_table, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
+<p>What was that “Yates’ continuity correction” all about? The reasoning behind using this correction is a bit beyond this book, but in a nutshell, it generates more reliable <em>p</em>-values under certain circumstances. By default, the <code>chisq.test</code> function applies this correction to all 2 x 2 contingency tables. We can force R to use the standard calculation by setting <code>correct = FALSE</code> if we want to:</p>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="contingency-tables.html#cb219-1" aria-hidden="true" tabindex="-1"></a><span class="fu">chisq.test</span>(lady_bird_table, <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -940,8 +940,8 @@ and with an association (right table), among two categorical variables
 <p>Both methods give similar results in this example, though they aren’t exactly the same—the <span class="math inline">\(\chi^{2}\)</span> value calculated when <code>correct = FALSE</code> is very slightly higher than the value found when using the correction.</p>
 <p>Don’t use the <code>correct = FALSE</code> option! The default correction is a safer option for 2 x 2 tables.</p>
 </div>
-<div id="summarising-the-result-3" class="section level3" number="25.3.3">
-<h3><span class="header-section-number">25.3.3</span> Summarising the result</h3>
+<div id="summarising-the-result-3" class="section level3 hasAnchor" number="25.3.3">
+<h3><span class="header-section-number">25.3.3</span> Summarising the result<a href="contingency-tables.html#summarising-the-result-3" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We have obtained the result, so now we need to write the conclusion. As always, we go back to the original question to write the conclusion. In this case the appropriate conclusion is:</p>
 <blockquote>
 <p>There is a significant association between the colour of <em>Adalia bipunctata</em> individuals and habitat, such that black individuals are more likely to be found in industrial areas (<span class="math inline">\(\chi^{2}\)</span> = 19.1, d.f. = 1, <em>p</em> &lt; 0.001).</p>
@@ -949,8 +949,8 @@ and with an association (right table), among two categorical variables
 <p>Notice that we summarised the nature of the association alongside the statistical result. This is easy to do in the text when describing the results of a 2 x 2 contingency table test. It’s much harder to summarise the association in written form when working with larger tables. Instead, we often present a table or a bar chart showing the observed counts.</p>
 </div>
 </div>
-<div id="working-with-larger-tables" class="section level2" number="25.4">
-<h2><span class="header-section-number">25.4</span> Working with larger tables</h2>
+<div id="working-with-larger-tables" class="section level2 hasAnchor" number="25.4">
+<h2><span class="header-section-number">25.4</span> Working with larger tables<a href="contingency-tables.html#working-with-larger-tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Interpreting the results of a contingency table test is fairly straightforward in the case of a 2 x 2 table. We can certainly use contingency table tests with larger two-way tables (e.g. 3 x 2, 3 x 3, 3 x 4, etc), and higher-dimensional tables (e.g. 2 x 2 x 2), but the results become progressively harder to understand as the tables increase in size. If you get a significant result, it is often best to compare the observed and expected counts for each cell and look for the highest differences to try and establish what is driving the significant association. Visualising the data with a bar chart can also help with interpretation.</p>
 <p>There are ways of subdividing large tables to make subsequent <span class="math inline">\(\chi^{2}\)</span> tests on individual parts of a table to establish specific effects, but these are not detailed here. Note that, unless we had planned to make more detailed comparisons before collecting the data, it is hard to justify such <em>post hoc</em> analysis.</p>
 
@@ -958,11 +958,11 @@ and with an association (right table), among two categorical variables
 </div>
 <div class="footnotes">
 <hr />
-<ol start="27">
-<li id="fn27"><p>This is called their ‘joint distribution,’ in case you were wondering.<a href="contingency-tables.html#fnref27" class="footnote-back">↩︎</a></p></li>
-<li id="fn28"><p>This is the same Pearson who invented the correlation coefficient for measuring linear associations by the way.<a href="contingency-tables.html#fnref28" class="footnote-back">↩︎</a></p></li>
-<li id="fn29"><p>The table objects produced by <code>xtabs</code> are <strong>not</strong> the same as the <strong>dplyr</strong> table-like objects: ‘tibbles.’ This is one reason why <strong>dplyr</strong> adopted the name ‘tibble.’ The overlap in names is unfortunate, but we’ll have to live with it—there are only so many ways to name things that look like tables.<a href="contingency-tables.html#fnref29" class="footnote-back">↩︎</a></p></li>
-<li id="fn30"><p>We could have summarised the result as: habitat type varies among the two colour types. This way of explaining the result seems odd though. Ladybirds are found within habitats, not the other way around. Just keep in mind that this is a semantic issue. The contingency table test doesn’t make a distinction between directions of effects.<a href="contingency-tables.html#fnref30" class="footnote-back">↩︎</a></p></li>
+<ol start="26">
+<li id="fn26"><p>This is called their ‘joint distribution’, in case you were wondering.<a href="contingency-tables.html#fnref26" class="footnote-back">↩︎</a></p></li>
+<li id="fn27"><p>This is the same Pearson who invented the correlation coefficient for measuring linear associations by the way.<a href="contingency-tables.html#fnref27" class="footnote-back">↩︎</a></p></li>
+<li id="fn28"><p>The table objects produced by <code>xtabs</code> are <strong>not</strong> the same as the <strong>dplyr</strong> table-like objects: ‘tibbles’. This is one reason why <strong>dplyr</strong> adopted the name ‘tibble’. The overlap in names is unfortunate, but we’ll have to live with it—there are only so many ways to name things that look like tables.<a href="contingency-tables.html#fnref28" class="footnote-back">↩︎</a></p></li>
+<li id="fn29"><p>We could have summarised the result as: habitat type varies among the two colour types. This way of explaining the result seems odd though. Ladybirds are found within habitats, not the other way around. Just keep in mind that this is a semantic issue. The contingency table test doesn’t make a distinction between directions of effects.<a href="contingency-tables.html#fnref29" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -1031,7 +1031,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:")
       if (/^https?:/.test(src))
         src = src.replace(/^https?:/, '');

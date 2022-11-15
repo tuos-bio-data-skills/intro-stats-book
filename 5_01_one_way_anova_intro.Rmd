@@ -229,7 +229,7 @@ One thing to be aware of is that the *F*-tests are typically global tests of sig
 
 There are many different flavours of ANOVA model. The one we've just been learning about is called a one-way ANOVA. It's called one-way ANOVA because it involves only one factor: supplement type (this includes the control). If we had considered two factors---e.g. supplement type and amount of food---we would have to use something called a two-way ANOVA. A design with three factors is called a three-way ANOVA, and... you get the idea.
 
-There are many other ANOVA models, each of which is used to analyse a specific type of experimental design. We will only consider three different types of ANOVA in this book: one-way ANOVA, two-way ANOVA, and ANOVA for one-way, blocked design experiments.
+There are many other ANOVA models, each of which is used to analyse a specific type of experimental design. We will only consider two different types of ANOVA in this book: one-way ANOVA and ANOVA for one-way, blocked design experiments.
 
 ## Some common questions about ANOVA {#questions}
 

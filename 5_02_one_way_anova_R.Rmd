@@ -187,7 +187,7 @@ ggplot(data = corncrake_stats,
   theme_bw()
 ```
 
-First, notice that we set the `data` argument in `ggplot` to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: `x`, `y`, `ymin` and `ymax`. Third, we added one layer using `geom_point`. This adds the individual points based on the `x` and `y` mappings. Fourth, we added a second layer using `geom_errorbar`. This adds the error bars based on the `x`, `ymin` and `ymax` mappings. Finally we adjusted the y limits and the labels (this last step is optional). Ask a demonstrator to step through this with you if you are confused by it.
+First, notice that we set the `data` argument in `ggplot` to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: `x`, `y`, `ymin` and `ymax`. Third, we added one layer using `geom_point`. This adds the individual points based on the `x` and `y` mappings. Fourth, we added a second layer using `geom_errorbar`. This adds the error bars based on the `x`, `ymin` and `ymax` mappings. Finally we adjusted the y limits and the labels (this last step is optional).
 
 ::: {.infobox .information data-latex="{information}"}
 #### Factors {.unnumbered}

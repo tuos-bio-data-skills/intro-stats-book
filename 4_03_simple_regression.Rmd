@@ -190,7 +190,7 @@ To use `predict`, we have to let R know the values of the predictor variable for
 pred_data <- data.frame(Temperature = seq(2, 20, length.out = 25))
 ```
 
-We learned about the `seq` function last year. Here, we used it to make a sequence of 25 evenly spaced numbers from 2 to 20. If you can't remember what it does, ask a demonstrator to explain it to you (and use `View` to look at `pred_data`). Notice that we gave the sequence the exact same name as the predictor variable in the regression (`Temperature`). **This is important**: the name of the numeric sequence we plan to make predictions from has to match the name of the predictor variable in the fitted model object.
+This uses `seq` to make a sequence of 25 evenly spaced numbers from 2 to 20. Notice that we gave the sequence the exact same name as the predictor variable in the regression (`Temperature`). **This is important**: the name of the numeric sequence we plan to make predictions from has to match the name of the predictor variable in the fitted model object.
 
 Once we have set up a data frame to predict from (`pred_data`) we are ready to use the `predict` function:
 
@@ -200,7 +200,7 @@ predict(vicia_model, pred_data)
 
 This take two arguments: the first is the name of the model object (`vicia_model`); the second is the data frame (`pred_data`) containing the values of the predictor variable at which we want to make predictions. The predict function generated the predicted values in a numeric vector and printed these to the console.
 
-To be useful, we need to capture these somehow, and because we want to use **ggplot2**, these need to be kept inside a data frame. We can use mutate to do this:
+To be useful, we need to capture these somehow, and because we want to use **ggplot2**, these need to be kept inside a data frame. We can use `mutate` to do this:
 
 ```{r}
 pred_data <- mutate(pred_data, Glucose = predict(vicia_model, pred_data))

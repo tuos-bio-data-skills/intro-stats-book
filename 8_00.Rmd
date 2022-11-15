@@ -1,2 +1,2 @@
-# (PART) Frequency Data and Non-parametric Tests {-}
+# (PART) Non-linear Regression {-}
 

@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -467,74 +467,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.6" data-path="transformations-chapter.html"><a href="transformations-chapter.html#what-about-other-kinds-of-models"><i class="fa fa-check"></i><b>22.6</b> What about other kinds of models?</a></li>
 <li class="chapter" data-level="22.7" data-path="transformations-chapter.html"><a href="transformations-chapter.html#final-thoughts"><i class="fa fa-check"></i><b>22.7</b> Final thoughts</a></li>
 </ul></li>
-<li class="part"><span><b>VIII Frequency Data and Non-parametric Tests</b></span></li>
-<li class="chapter" data-level="23" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html"><i class="fa fa-check"></i><b>23</b> Categorical data</a>
+<li class="part"><span><b>VIII Non-linear Regression</b></span></li>
+<li class="chapter" data-level="23" data-path="types-of-models.html"><a href="types-of-models.html"><i class="fa fa-check"></i><b>23</b> Linear vs non-linear models</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#a-new-kind-of-distribution"><i class="fa fa-check"></i><b>23.1</b> A new kind of distribution</a></li>
-<li class="chapter" data-level="23.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#types-of-test"><i class="fa fa-check"></i><b>23.2</b> Types of test</a>
+<li class="chapter" data-level="23.1" data-path="types-of-models.html"><a href="types-of-models.html#introduction-5"><i class="fa fa-check"></i><b>23.1</b> Introduction</a></li>
+<li class="chapter" data-level="23.2" data-path="types-of-models.html"><a href="types-of-models.html#the-relationship-between-regression-and-anova"><i class="fa fa-check"></i><b>23.2</b> The relationship between regression and ANOVA</a></li>
+<li class="chapter" data-level="23.3" data-path="types-of-models.html"><a href="types-of-models.html#linear-models"><i class="fa fa-check"></i><b>23.3</b> Linear models</a></li>
+<li class="chapter" data-level="23.4" data-path="types-of-models.html"><a href="types-of-models.html#non-linear-models"><i class="fa fa-check"></i><b>23.4</b> Non-linear models</a></li>
+<li class="chapter" data-level="23.5" data-path="types-of-models.html"><a href="types-of-models.html#why-do-we-need-non-linear-regression-models"><i class="fa fa-check"></i><b>23.5</b> Why do we need non-linear regression models?</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html"><i class="fa fa-check"></i><b>24</b> Non-linear regression in R</a>
 <ul>
-<li class="chapter" data-level="23.2.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-goodness-of-fit-test"><i class="fa fa-check"></i><b>23.2.1</b> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test</a></li>
-<li class="chapter" data-level="23.2.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-contingency-table-test"><i class="fa fa-check"></i><b>23.2.2</b> <span class="math inline">\(\chi^{2}\)</span> contingency table test</a></li>
-<li class="chapter" data-level="23.2.3" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#the-assumptions-and-requirements-of-chi2-tests"><i class="fa fa-check"></i><b>23.2.3</b> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests</a></li>
+<li class="chapter" data-level="24.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#introduction-6"><i class="fa fa-check"></i><b>24.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="24.1.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#first-steps-2"><i class="fa fa-check"></i><b>24.1.1</b> First steps</a></li>
+<li class="chapter" data-level="24.1.2" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#visualising-the-data-2"><i class="fa fa-check"></i><b>24.1.2</b> Visualising the data</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#model-fitting"><i class="fa fa-check"></i><b>24.2</b> Model fitting</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#custom-functions"><i class="fa fa-check"></i><b>24.2.1</b> Custom functions</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#checking-the-assumptions"><i class="fa fa-check"></i><b>24.3</b> Checking the assumptions</a></li>
+<li class="chapter" data-level="24.4" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#what-about-significance-tests"><i class="fa fa-check"></i><b>24.4</b> What about significance tests?</a></li>
+<li class="chapter" data-level="24.5" data-path="regression-in-R.html"><a href="regression-in-R.html#present-results"><i class="fa fa-check"></i><b>24.5</b> Presenting results</a>
+<ul>
+<li class="chapter" data-level="24.5.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#plotting-the-fitted-line-and-the-data-1"><i class="fa fa-check"></i><b>24.5.1</b> Plotting the fitted line and the data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html"><i class="fa fa-check"></i><b>24</b> Goodness of fit tests</a>
+<li class="part"><span><b>IX Frequency Data and Non-parametric Tests</b></span></li>
+<li class="chapter" data-level="25" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html"><i class="fa fa-check"></i><b>25</b> Categorical data</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#when-do-we-use-a-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>24.1</b> When do we use a chi-square goodness of fit test?</a></li>
-<li class="chapter" data-level="24.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#how-does-the-chi-square-goodness-of-fit-test-work"><i class="fa fa-check"></i><b>24.2</b> How does the chi-square goodness of fit test work?</a>
+<li class="chapter" data-level="25.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#a-new-kind-of-distribution"><i class="fa fa-check"></i><b>25.1</b> A new kind of distribution</a></li>
+<li class="chapter" data-level="25.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#types-of-test"><i class="fa fa-check"></i><b>25.2</b> Types of test</a>
 <ul>
-<li class="chapter" data-level="24.2.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#assumptions-of-the-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>24.2.1</b> Assumptions of the chi-square goodness of fit test</a></li>
+<li class="chapter" data-level="25.2.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-goodness-of-fit-test"><i class="fa fa-check"></i><b>25.2.1</b> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test</a></li>
+<li class="chapter" data-level="25.2.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-contingency-table-test"><i class="fa fa-check"></i><b>25.2.2</b> <span class="math inline">\(\chi^{2}\)</span> contingency table test</a></li>
+<li class="chapter" data-level="25.2.3" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#the-assumptions-and-requirements-of-chi2-tests"><i class="fa fa-check"></i><b>25.2.3</b> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#carrying-out-a-chi-square-goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>24.3</b> Carrying out a chi-square goodness of fit test in R</a>
-<ul>
-<li class="chapter" data-level="24.3.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#summarising-the-result-2"><i class="fa fa-check"></i><b>24.3.1</b> Summarising the result</a></li>
-<li class="chapter" data-level="24.3.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#a-bit-more-about-goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>24.3.2</b> A bit more about goodness of fit tests in R</a></li>
-<li class="chapter" data-level="24.3.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#doing-it-the-long-way"><i class="fa fa-check"></i><b>24.3.3</b> Doing it the long way…</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#determining-appropriate-expected-values"><i class="fa fa-check"></i><b>24.4</b> Determining appropriate expected values</a></li>
-</ul></li>
-<li class="chapter" data-level="25" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>25</b> Contingency tables</a>
+<li class="chapter" data-level="26" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html"><i class="fa fa-check"></i><b>26</b> Goodness of fit tests</a>
 <ul>
-<li class="chapter" data-level="25.1" data-path="contingency-tables.html"><a href="contingency-tables.html#when-do-we-use-a-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>25.1</b> When do we use a chi-square contingency table test?</a></li>
-<li class="chapter" data-level="25.2" data-path="contingency-tables.html"><a href="contingency-tables.html#how-does-the-chi-square-contingency-table-test-work"><i class="fa fa-check"></i><b>25.2</b> How does the chi-square contingency table test work?</a>
+<li class="chapter" data-level="26.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#when-do-we-use-a-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>26.1</b> When do we use a chi-square goodness of fit test?</a></li>
+<li class="chapter" data-level="26.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#how-does-the-chi-square-goodness-of-fit-test-work"><i class="fa fa-check"></i><b>26.2</b> How does the chi-square goodness of fit test work?</a>
 <ul>
-<li class="chapter" data-level="25.2.1" data-path="contingency-tables.html"><a href="contingency-tables.html#assumptions-of-the-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>25.2.1</b> Assumptions of the chi-square contingency table test</a></li>
+<li class="chapter" data-level="26.2.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#assumptions-of-the-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>26.2.1</b> Assumptions of the chi-square goodness of fit test</a></li>
 </ul></li>
-<li class="chapter" data-level="25.3" data-path="contingency-tables.html"><a href="contingency-tables.html#carrying-out-a-chi-square-contingency-table-test-in-r"><i class="fa fa-check"></i><b>25.3</b> Carrying out a chi-square contingency table test in R</a>
+<li class="chapter" data-level="26.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#carrying-out-a-chi-square-goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>26.3</b> Carrying out a chi-square goodness of fit test in R</a>
 <ul>
-<li class="chapter" data-level="25.3.1" data-path="contingency-tables.html"><a href="contingency-tables.html#step-1.-get-the-data-into-the-correct-format"><i class="fa fa-check"></i><b>25.3.1</b> Step 1. Get the data into the correct format</a></li>
-<li class="chapter" data-level="25.3.2" data-path="contingency-tables.html"><a href="contingency-tables.html#step-2.-do-the-test"><i class="fa fa-check"></i><b>25.3.2</b> Step 2. Do the test</a></li>
-<li class="chapter" data-level="25.3.3" data-path="contingency-tables.html"><a href="contingency-tables.html#summarising-the-result-3"><i class="fa fa-check"></i><b>25.3.3</b> Summarising the result</a></li>
+<li class="chapter" data-level="26.3.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#summarising-the-result-2"><i class="fa fa-check"></i><b>26.3.1</b> Summarising the result</a></li>
+<li class="chapter" data-level="26.3.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#a-bit-more-about-goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>26.3.2</b> A bit more about goodness of fit tests in R</a></li>
+<li class="chapter" data-level="26.3.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#doing-it-the-long-way"><i class="fa fa-check"></i><b>26.3.3</b> Doing it the long way…</a></li>
 </ul></li>
-<li class="chapter" data-level="25.4" data-path="contingency-tables.html"><a href="contingency-tables.html#working-with-larger-tables"><i class="fa fa-check"></i><b>25.4</b> Working with larger tables</a></li>
+<li class="chapter" data-level="26.4" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#determining-appropriate-expected-values"><i class="fa fa-check"></i><b>26.4</b> Determining appropriate expected values</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html"><i class="fa fa-check"></i><b>26</b> Non-parametric tests</a>
+<li class="chapter" data-level="27" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>27</b> Contingency tables</a>
 <ul>
-<li class="chapter" data-level="26.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-is-non-par"><i class="fa fa-check"></i><b>26.1</b> What is a non-parametric test?</a></li>
-<li class="chapter" data-level="26.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#why-when"><i class="fa fa-check"></i><b>26.2</b> Why use non-parametric tests … and when?</a>
+<li class="chapter" data-level="27.1" data-path="contingency-tables.html"><a href="contingency-tables.html#when-do-we-use-a-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>27.1</b> When do we use a chi-square contingency table test?</a></li>
+<li class="chapter" data-level="27.2" data-path="contingency-tables.html"><a href="contingency-tables.html#how-does-the-chi-square-contingency-table-test-work"><i class="fa fa-check"></i><b>27.2</b> How does the chi-square contingency table test work?</a>
 <ul>
-<li class="chapter" data-level="26.2.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-advantages"><i class="fa fa-check"></i><b>26.2.1</b> What are the advantages?</a></li>
-<li class="chapter" data-level="26.2.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-disadvantages"><i class="fa fa-check"></i><b>26.2.2</b> What are the disadvantages?</a></li>
+<li class="chapter" data-level="27.2.1" data-path="contingency-tables.html"><a href="contingency-tables.html#assumptions-of-the-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>27.2.1</b> Assumptions of the chi-square contingency table test</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-par-intro"><i class="fa fa-check"></i><b>26.3</b> How does a non-parametric test work?</a></li>
-<li class="chapter" data-level="26.4" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-parametric-equivalents"><i class="fa fa-check"></i><b>26.4</b> Non-parametric equivalents</a></li>
-<li class="chapter" data-level="26.5" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>26.5</b> Wilcoxon signed-rank test</a>
+<li class="chapter" data-level="27.3" data-path="contingency-tables.html"><a href="contingency-tables.html#carrying-out-a-chi-square-contingency-table-test-in-r"><i class="fa fa-check"></i><b>27.3</b> Carrying out a chi-square contingency table test in R</a>
 <ul>
-<li class="chapter" data-level="26.5.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae"><i class="fa fa-check"></i><b>26.5.1</b> Leaf damage, plant defences and feeding by winter moth larvae</a></li>
+<li class="chapter" data-level="27.3.1" data-path="contingency-tables.html"><a href="contingency-tables.html#step-1.-get-the-data-into-the-correct-format"><i class="fa fa-check"></i><b>27.3.1</b> Step 1. Get the data into the correct format</a></li>
+<li class="chapter" data-level="27.3.2" data-path="contingency-tables.html"><a href="contingency-tables.html#step-2.-do-the-test"><i class="fa fa-check"></i><b>27.3.2</b> Step 2. Do the test</a></li>
+<li class="chapter" data-level="27.3.3" data-path="contingency-tables.html"><a href="contingency-tables.html#summarising-the-result-3"><i class="fa fa-check"></i><b>27.3.3</b> Summarising the result</a></li>
 </ul></li>
-<li class="chapter" data-level="26.6" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#mann-whitney"><i class="fa fa-check"></i><b>26.6</b> The Mann-Whitney <em>U</em>-test</a>
+<li class="chapter" data-level="27.4" data-path="contingency-tables.html"><a href="contingency-tables.html#working-with-larger-tables"><i class="fa fa-check"></i><b>27.4</b> Working with larger tables</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html"><i class="fa fa-check"></i><b>28</b> Non-parametric tests</a>
 <ul>
-<li class="chapter" data-level="26.6.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#ant-foraging"><i class="fa fa-check"></i><b>26.6.1</b> Ant foraging</a></li>
-</ul></li>
-<li class="chapter" data-level="26.7" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#the-kruskal-wallis-test"><i class="fa fa-check"></i><b>26.7</b> The Kruskal-Wallis test</a>
+<li class="chapter" data-level="28.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-is-non-par"><i class="fa fa-check"></i><b>28.1</b> What is a non-parametric test?</a></li>
+<li class="chapter" data-level="28.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#why-when"><i class="fa fa-check"></i><b>28.2</b> Why use non-parametric tests … and when?</a>
 <ul>
-<li class="chapter" data-level="26.7.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#learning-in-cuttlefish"><i class="fa fa-check"></i><b>26.7.1</b> Learning in cuttlefish</a></li>
+<li class="chapter" data-level="28.2.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-advantages"><i class="fa fa-check"></i><b>28.2.1</b> What are the advantages?</a></li>
+<li class="chapter" data-level="28.2.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-disadvantages"><i class="fa fa-check"></i><b>28.2.2</b> What are the disadvantages?</a></li>
 </ul></li>
-<li class="chapter" data-level="26.8" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>26.8</b> Spearman’s rank correlation</a>
+<li class="chapter" data-level="28.3" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-par-intro"><i class="fa fa-check"></i><b>28.3</b> How does a non-parametric test work?</a></li>
+<li class="chapter" data-level="28.4" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-parametric-equivalents"><i class="fa fa-check"></i><b>28.4</b> Non-parametric equivalents</a></li>
+<li class="chapter" data-level="28.5" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>28.5</b> Wilcoxon signed-rank test</a>
 <ul>
-<li class="chapter" data-level="26.8.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#grouse-lekking"><i class="fa fa-check"></i><b>26.8.1</b> Grouse lekking</a></li>
+<li class="chapter" data-level="28.5.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae"><i class="fa fa-check"></i><b>28.5.1</b> Leaf damage, plant defences and feeding by winter moth larvae</a></li>
 </ul></li>
-<li class="chapter" data-level="26.9" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#parting-words"><i class="fa fa-check"></i><b>26.9</b> Parting words</a></li>
+<li class="chapter" data-level="28.6" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#mann-whitney"><i class="fa fa-check"></i><b>28.6</b> The Mann-Whitney <em>U</em>-test</a>
+<ul>
+<li class="chapter" data-level="28.6.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#ant-foraging"><i class="fa fa-check"></i><b>28.6.1</b> Ant foraging</a></li>
+</ul></li>
+<li class="chapter" data-level="28.7" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#the-kruskal-wallis-test"><i class="fa fa-check"></i><b>28.7</b> The Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="28.7.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#learning-in-cuttlefish"><i class="fa fa-check"></i><b>28.7.1</b> Learning in cuttlefish</a></li>
+</ul></li>
+<li class="chapter" data-level="28.8" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>28.8</b> Spearman’s rank correlation</a>
+<ul>
+<li class="chapter" data-level="28.8.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#grouse-lekking"><i class="fa fa-check"></i><b>28.8.1</b> Grouse lekking</a></li>
+</ul></li>
+<li class="chapter" data-level="28.9" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#parting-words"><i class="fa fa-check"></i><b>28.9</b> Parting words</a></li>
 </ul></li>
 <li class="appendix"><span><b>Supplementary Material</b></span></li>
 <li class="chapter" data-level="A" data-path="choosing-models-and-tests.html"><a href="choosing-models-and-tests.html"><i class="fa fa-check"></i><b>A</b> Choosing models and tests</a>
@@ -566,12 +593,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html"><i class="fa fa-check"></i><b>B</b> Writing a scientific report</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-5"><i class="fa fa-check"></i><b>B.1</b> Introduction</a></li>
+<li class="chapter" data-level="B.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-7"><i class="fa fa-check"></i><b>B.1</b> Introduction</a></li>
 <li class="chapter" data-level="B.2" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#the-structure-of-a-scientific-report"><i class="fa fa-check"></i><b>B.2</b> The structure of a scientific report</a>
 <ul>
 <li class="chapter" data-level="B.2.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#title"><i class="fa fa-check"></i><b>B.2.1</b> Title</a></li>
 <li class="chapter" data-level="B.2.2" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#abstract-or-summary"><i class="fa fa-check"></i><b>B.2.2</b> Abstract or Summary</a></li>
-<li class="chapter" data-level="B.2.3" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-6"><i class="fa fa-check"></i><b>B.2.3</b> Introduction</a></li>
+<li class="chapter" data-level="B.2.3" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-8"><i class="fa fa-check"></i><b>B.2.3</b> Introduction</a></li>
 <li class="chapter" data-level="B.2.4" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#methods"><i class="fa fa-check"></i><b>B.2.4</b> Methods</a></li>
 <li class="chapter" data-level="B.2.5" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#results"><i class="fa fa-check"></i><b>B.2.5</b> Results</a></li>
 <li class="chapter" data-level="B.2.6" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#discussion"><i class="fa fa-check"></i><b>B.2.6</b> Discussion</a></li>
@@ -605,12 +632,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="choosing-models-and-tests" class="section level1 hasAnchor" number="27">
+<div id="choosing-models-and-tests" class="section level1 hasAnchor" number="29">
 <h1><span class="header-section-number">A</span> Choosing models and tests<a href="choosing-models-and-tests.html#choosing-models-and-tests" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="intro" class="section level2 hasAnchor" number="27.1">
+<div id="intro" class="section level2 hasAnchor" number="29.1">
 <h2><span class="header-section-number">A.1</span> Introduction<a href="introduction-to-one-way-anova.html#intro" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the more difficult skills in data analysis is deciding which statistical models and tests to use in a particular situation. This book has introduced a range of different approaches and has demonstrated various biological questions that can be addressed with these tools. Here we draw together the statistical analyses we’ve encountered and explain how to match them to particular kinds of questions or hypotheses. However, there are a few things to consider before diving into an analysis.</p>
-<div id="do-we-need-to-carry-out-a-statistical-analysis" class="section level3 hasAnchor" number="27.1.1">
+<div id="do-we-need-to-carry-out-a-statistical-analysis" class="section level3 hasAnchor" number="29.1.1">
 <h3><span class="header-section-number">A.1.1</span> Do we need to carry out a statistical analysis?<a href="choosing-models-and-tests.html#do-we-need-to-carry-out-a-statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This may seem like an odd question to ask, having just spent a considerable amount of time learning statistics. But it is an important one. There are many situations in which we don’t need, or can’t use, statistical tools. Here are two common ones:</p>
 <ol style="list-style-type: decimal">
@@ -620,7 +647,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Also in the category of superfluous statistics are situations where we are using statistics in a technically correct way, but we’re evaluating effects that are not interesting or relevant to the question at hand. This often arises from a misplaced worry that unless we have lots of statistics in our study, it somehow isn’t ‘scientific’, so we apply them to everything in the hope that a reader will be impressed. Resist the temptation! This strategy will have the opposite effect—a knowledgeable reader will assume you don’t know what you’re doing if they see a load of pointless analyses.</p>
 </div>
 </div>
-<div id="getting-started" class="section level2 hasAnchor" number="27.2">
+<div id="getting-started" class="section level2 hasAnchor" number="29.2">
 <h2><span class="header-section-number">A.2</span> Getting started<a href="choosing-models-and-tests.html#getting-started" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>If there is a need for statistical analysis, then the first thing to do is read the data into R and then… resist the temptation to start generating <em>p</em>-values! There are several things to run through before leaping into a statistical analysis:</p>
 <ol style="list-style-type: decimal">
@@ -635,7 +662,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 <p>Steps 1-3 are all critical components of ‘real world’ data analysis. It may be tempting to skip these and just get on with the statistics, especially when pressed for time. Don’t do this! The ‘skip to the stats’ strategy will waste time because we fail to spot potential problems and carry out an inappropriate analysis.</p>
 </div>
-<div id="a-key-to-choosing-statistical-models-and-tests" class="section level2 hasAnchor" number="27.3">
+<div id="a-key-to-choosing-statistical-models-and-tests" class="section level2 hasAnchor" number="29.3">
 <h2><span class="header-section-number">A.3</span> A key to choosing statistical models and tests<a href="choosing-models-and-tests.html#a-key-to-choosing-statistical-models-and-tests" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The choice of appropriate statistical model/test is affected by two things:</p>
 <ol style="list-style-type: decimal">
@@ -655,7 +682,7 @@ Figure A.1: A key for choosing statistical models and tests.
 </div>
 <p>The notes that follow the key expand on some of the issues it summarises and explain some of the trickier elements of deciding what to do. The key is quite large, so it is hard to read easily on a web browser (it also doesn’t render very well in Firefox for some reason). Either download a <a href="./images/stats_key.pdf">PDF copy of the key</a> or open it on its own in a new tab and zoom in.</p>
 </div>
-<div id="four-questions" class="section level2 hasAnchor" number="27.4">
+<div id="four-questions" class="section level2 hasAnchor" number="29.4">
 <h2><span class="header-section-number">A.4</span> Four main types of question<a href="choosing-models-and-tests.html#four-questions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p><strong>Question 1</strong>: Are there significant differences between the means or medians (‘central tendency’) of a variable in two or more groups, or between a single mean or median and a theoretical value?</p>
 <p>This first question is relevant when we have measurements of one variable (e.g. plant height) on each experimental unit (e.g. individual plants), and experimental units are in different groups. If there is more than one group, one or more variables (factors) are used to encode group membership (given by the factor levels). Remember that these grouping factors are distinct from the variable being analysed—they essentially describe the study design. This type of question includes anything where a comparison is being made between the variable in one group and:</p>
@@ -672,23 +699,23 @@ Figure A.1: A key for choosing statistical models and tests.
 <p><strong>Question 3</strong>: Are there significant differences between the observed and expected number of objects or events classified by one or more categorical variables?</p>
 <p>Question 3 is the only question that is focused on the analysis of categorical variables. Here we have situations where the ‘measurements’ on objects can be things like colour, species, sex, etc. In these situations, we analyse the data by counting how many of the objects fall into each category or combination of categories. The frequency of counts across the categories can then be tested against some predicted pattern.</p>
 </div>
-<div id="qu1" class="section level2 hasAnchor" number="27.5">
+<div id="qu1" class="section level2 hasAnchor" number="29.5">
 <h2><span class="header-section-number">A.5</span> Question 1 — Comparison of group means or medians<a href="choosing-models-and-tests.html#qu1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="question-1-how-many-groups" class="section level3 hasAnchor" number="27.5.1">
+<div id="question-1-how-many-groups" class="section level3 hasAnchor" number="29.5.1">
 <h3><span class="header-section-number">A.5.1</span> Question 1 How many groups?<a href="choosing-models-and-tests.html#question-1-how-many-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Within the set of situations covered by Question 1, there are some further subdivisions: we need to decide whether: we have one group only (and a theoretical or expected value to compare it against), we have two groups, or we have more than two groups. Usually, this should be a fairly straightforward decision.</p>
 </div>
-<div id="question-1-single-group" class="section level3 hasAnchor" number="27.5.2">
+<div id="question-1-single-group" class="section level3 hasAnchor" number="29.5.2">
 <h3><span class="header-section-number">A.5.2</span> [Question 1] Single group<a href="choosing-models-and-tests.html#question-1-single-group" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>When we have a <strong>single group</strong> (<strong>1a</strong>) the only thing that remains to be done is check the type and distribution of the variable. If the data are approximately normally distributed, then the obvious test is a <strong>one-sample <em>t</em>-test</strong>. If the data are not suitable for a <em>t</em>-test, even after transformation, then we could use a <strong>Wilcoxon test</strong> (we studied this in terms of a paired design, but remember, a paired experimental design is ultimately reduced to a one-sample test).</p>
 </div>
-<div id="question-1-two-groups" class="section level3 hasAnchor" number="27.5.3">
+<div id="question-1-two-groups" class="section level3 hasAnchor" number="29.5.3">
 <h3><span class="header-section-number">A.5.3</span> [Question 1] Two groups<a href="choosing-models-and-tests.html#question-1-two-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If we have two groups, then there is a further choice: whether there is a logical pairing between the variable measured in the two groups or whether the data are independent. This sometimes causes problems, particularly where the pairing is not of the obvious sort. One useful rule-of-thumb is to ask whether the data could be ‘paired’ in more than one way. If there is any uncertainty about how the pairing should be done, that is probably an indication that it isn’t a paired situation. The most common problem, however, is failing to recognise pairing when it exists.</p>
 <p>When faced with paired design, the test involves first deriving a new variable from the differences among pairs and then using this variable in a one-sample test. Either a <strong>one-sample <em>t</em>-test</strong> or <strong>Wilcoxon paired-sample test</strong> is required, depending on whether the new variable (the differences) is approximately normally distributed or not.</p>
 <p>If the data are independent, then a <strong>two-sample <em>t</em>-test</strong> or <strong>Mann-Whitney -test</strong> will be the best approach.</p>
 </div>
-<div id="question-1-more-than-two-groups" class="section level3 hasAnchor" number="27.5.4">
+<div id="question-1-more-than-two-groups" class="section level3 hasAnchor" number="29.5.4">
 <h3><span class="header-section-number">A.5.4</span> [Question 1] More than two groups<a href="choosing-models-and-tests.html#question-1-more-than-two-groups" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The first decision here is about the structure of the data. This sometimes causes problems. There are various situations in which we may be interested in testing for differences between several means (or perhaps medians). These will often involve either a one-way comparison in which each observation can be classified as coming from one set of treatments (one factor), or a two-way comparison in which each value comes from a combination of two different sets of treatments (two factors). It is easy to mix these situations up if we’re not paying attention.</p>
 <p>One way to try and establish the structure of the data is to draw up a table. If the data fit neatly into the sort of table below, where there is one factor (e.g. factor ‘A’) that has two or more levels (e.g. level 1, 2, 3) then we have a <em>one-way design</em>. The treatments designated by the levels of the factor in this situation are typically related in some way (e.g. concentrations of pesticide, temperatures). The only question it makes sense to address with these data is whether there are differences among the means of the three treatments.</p>
@@ -760,10 +787,10 @@ Figure A.1: A key for choosing statistical models and tests.
 <p>Finally, we should consider the option of multiple comparison tests. These should only be used if the global significance test from an ANOVA is significant.</p>
 </div>
 </div>
-<div id="qu2" class="section level2 hasAnchor" number="27.6">
+<div id="qu2" class="section level2 hasAnchor" number="29.6">
 <h2><span class="header-section-number">A.6</span> Question 2 – Associations between two variables?<a href="choosing-models-and-tests.html#qu2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Assuming it is an association we’re after—not a difference between groups (see box below)—then the main decision we need to make is whether to use a correlation or regression analysis.</p>
-<div id="question-2-testing-y-as-a-function-of-x-or-an-association-between-x-and-y" class="section level3 hasAnchor" number="27.6.1">
+<div id="question-2-testing-y-as-a-function-of-x-or-an-association-between-x-and-y" class="section level3 hasAnchor" number="29.6.1">
 <h3><span class="header-section-number">A.6.1</span> [Question 2] Testing <span class="math inline">\(y\)</span> as a function of <span class="math inline">\(x\)</span>, or an association between <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>?<a href="choosing-models-and-tests.html#question-2-testing-y-as-a-function-of-x-or-an-association-between-x-and-y" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The choice between regression and correlation techniques depends on the nature of the data <em>and</em> the purpose of the analysis. Suppose the purpose of the analysis is to describe (mathematically) the relationship that captures the dependence of one variable (<span class="math inline">\(y\)</span>) on another (<span class="math inline">\(x\)</span>). This scenario points to <strong>simple regression</strong> being the most appropriate technique. On the other hand, if we only want to know whether there is an association between two variables, then this would suggest <strong>correlation</strong>.</p>
 <p>However, it is not just the goal of an analysis that matters, unfortunately! The two techniques also make different assumptions about the data. For example, regression assumes that the <span class="math inline">\(x\)</span>-variable is measured with little error relative to the <span class="math inline">\(y\)</span>-variable, but doesn’t require the <span class="math inline">\(x\)</span>-variable to be normally distributed. Pearson’s correlation assumes that both <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are normally distributed (or our sample is very large).</p>
@@ -784,21 +811,21 @@ Figure A.1: A key for choosing statistical models and tests.
 </div>
 </div>
 </div>
-<div id="qu4" class="section level2 hasAnchor" number="27.7">
+<div id="qu4" class="section level2 hasAnchor" number="29.7">
 <h2><span class="header-section-number">A.7</span> Question 3 — Frequencies of categorical data<a href="choosing-models-and-tests.html#qu4" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>This kind of question relates to categorical or qualitative data, (e.g. the number of male versus female offspring, the number of black versus red ladybirds, the number of plants of different species). The data are counts/frequencies of the number of objects or events belonging to each category. The principle of testing such data is that the observed frequencies in each category are compared with expected (predicted) frequencies in each category.</p>
 <p>Deciding between goodness of fit tests and contingency tables is generally fairly straightforward once we’ve determined whether counts are classified by a single categorical variable, or more than one categorical variable. If there is more than one categorical variable, then it should be possible to classify each observation into one category of each categorical variable, and that allocation should be unique. Each observation should fit in only one combination of categories.</p>
 <p>There is a further difference which may also affect our choice. In the case of a single factor, the question we ask is whether the numbers of objects in each category differ from some expected value. The expected values might be that there are equal numbers in each category, but could be something more complicated—it is entirely dependent on the question we’re asking. In the case of the two-variable classification, the test addresses one specific question: is there an association between the two factors? The expected numbers are generated automatically based on what would be expected if the frequencies of objects in the different categories of one factor were unaffected by their classification by the other factor.</p>
 </div>
-<div id="var-cat" class="section level2 hasAnchor" number="27.8">
+<div id="var-cat" class="section level2 hasAnchor" number="29.8">
 <h2><span class="header-section-number">A.8</span> Variables or categories?<a href="choosing-models-and-tests.html#var-cat" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One final issue that sometimes causes questions is when a variable is treated as categorical when it is really a continuous measure or when a continuous variable is made into categories. There is indeed some blurring of the boundaries here. Two situations are discussed below.</p>
-<div id="anova-vs.-regression" class="section level3 hasAnchor" number="27.8.1">
+<div id="anova-vs.-regression" class="section level3 hasAnchor" number="29.8.1">
 <h3><span class="header-section-number">A.8.1</span> ANOVA vs. regression<a href="choosing-models-and-tests.html#anova-vs.-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many situations in which data may be suitable for analysis by regression or one-way ANOVA, even though they are different kinds of models. For example, if a farmer wishes to determine the optimal amount of fertiliser to add to fields to achieve maximum crop yield, she might set up a trial with 5 control plots and 5 replicate plots for each of 4 levels of fertiliser treatment: 10, 20, 40 and 80 kg ha NPK (nitrogen, phosphorus and potassium fertiliser) and measure the crop yield in each replicate plot at the end of the growing season (kg ha year).</p>
 <p>If we are simply interested in determining whether there is a significant difference in yields from different fertiliser treatments, and if so, which dose is best, then ANOVA (and multiple comparisons) is probably the best technique. On the other hand, we might be interested in working out the general relationship between fertiliser dose and yield, perhaps to be able to make predictions about the yield at other doses than those we have tested. We could use regression to determine whether there was a significant relationship between the two and describe it mathematically<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a>.</p>
 </div>
-<div id="making-categories-out-of-continuous-measures" class="section level3 hasAnchor" number="27.8.2">
+<div id="making-categories-out-of-continuous-measures" class="section level3 hasAnchor" number="29.8.2">
 <h3><span class="header-section-number">A.8.2</span> Making categories out of continuous measures<a href="choosing-models-and-tests.html#making-categories-out-of-continuous-measures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Sometimes you will have data that are, at least in principle, continuous measurements (e.g. the abundance of an organism at different sites) but have been grouped into categories (e.g. abundance categories such as 1-100, 101-200, 201-300, etc. ). One question is whether these count as categories and whether, for example, you could look at the association between abundance categories and habitat using a contingency table test. The answer is that this would indeed be a legitimate procedure (though it may not be the most powerful).</p>
 <p>It is good not to group numeric data into categories if we can avoid it because this throws away information. However, it isn’t always possible to make a proper measurement, though we can assign observations to ordinal categories. For example, when observing flocks of birds, we might find that it’s impossible to count them properly, but we can reliably place the numbers of birds in a flock into abundance categories (1-100, 101-200, etc. ). Many variables that we treat as ordinal categories could, in principle, be measured in a more continuous form: ‘unpigmented’, ‘lightly pigmented’, ‘heavily pigmented’; ‘yellow’, ‘orange’, ‘red’; ‘large’, ‘small’… These are all convenient categories, but in one sense, they are fairly arbitrary. This doesn’t mean that we can’t construct an analysis using these categories. However, one thing to bear in mind is that when we divide a continuous variable into categories, decisions about where to draw the boundaries will affect the pattern of the results.</p>

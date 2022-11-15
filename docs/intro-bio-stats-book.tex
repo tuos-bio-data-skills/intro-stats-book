@@ -147,7 +147,7 @@
 
 \title{Introductory Biostatistics with R}
 \author{Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren}
-\date{2022-09-23}
+\date{2022-11-15}
 
 \begin{document}
 \maketitle
@@ -2758,7 +2758,7 @@ We will use a new data set to demonstrate correlation analysis. The data live in
 
 The plant morph example is not suitable for correlation analysis. We need a new example to review the workflow for correlation tests in R. The example we're going use is about the association a plasma biomarker with cognitive impairment in patients with Alzheimer's disease.
 
-In Alzheimer's disease (AD) patients, brain degeneration is associated with the accumulation of tau protein tangles in the brain. Studies have shown that total tau (t-Tau) levels are higher in the plasma of AD patients than in healthy subjects. A group of biomedical researchers are interested in using plasma t-Tau to assess the extent of AD progression. They have designed a sensitive assay to measure plasma t-Tau. The team recruits 40 AD patients to a pilot study designed to evaluate the new assay. Each patient is undergoes a mini-mental state examination (MMSE) to assess the degree of cognitive impairment (defined as score \textless{} 26). Their t-Tau levels are then measured using the new assay.
+In Alzheimer\textquotesingle s disease (AD) patients, brain degeneration is associated with the accumulation of tau protein tangles in the brain. Studies have shown that total tau (t-Tau) levels are higher in the plasma of AD patients than in healthy subjects. A group of biomedical researchers are interested in using plasma t-Tau to assess the extent of AD progression. They have designed a sensitive assay to measure plasma t-Tau. The team recruits 40 AD patients to a pilot study designed to evaluate the new assay. Each patient is undergoes a mini-mental state examination (MMSE) to assess the degree of cognitive impairment (defined as score \textless{} 26). Their t-Tau levels are then measured using the new assay.
 
 \hypertarget{visualising-the-data-and-checking-the-assumptions-2}{%
 \subsection{Visualising the data and checking the assumptions}\label{visualising-the-data-and-checking-the-assumptions-2}}
@@ -3493,7 +3493,7 @@ To use \texttt{predict}, we have to let R know the values of the predictor varia
 \end{Highlighting}
 \end{Shaded}
 
-We learned about the \texttt{seq} function last year. Here, we used it to make a sequence of 25 evenly spaced numbers from 2 to 20. If you can't remember what it does, ask a demonstrator to explain it to you (and use \texttt{View} to look at \texttt{pred\_data}). Notice that we gave the sequence the exact same name as the predictor variable in the regression (\texttt{Temperature}). \textbf{This is important}: the name of the numeric sequence we plan to make predictions from has to match the name of the predictor variable in the fitted model object.
+This uses \texttt{seq} to make a sequence of 25 evenly spaced numbers from 2 to 20. Notice that we gave the sequence the exact same name as the predictor variable in the regression (\texttt{Temperature}). \textbf{This is important}: the name of the numeric sequence we plan to make predictions from has to match the name of the predictor variable in the fitted model object.
 
 Once we have set up a data frame to predict from (\texttt{pred\_data}) we are ready to use the \texttt{predict} function:
 
@@ -3516,7 +3516,7 @@ Once we have set up a data frame to predict from (\texttt{pred\_data}) we are re
 
 This take two arguments: the first is the name of the model object (\texttt{vicia\_model}); the second is the data frame (\texttt{pred\_data}) containing the values of the predictor variable at which we want to make predictions. The predict function generated the predicted values in a numeric vector and printed these to the console.
 
-To be useful, we need to capture these somehow, and because we want to use \textbf{ggplot2}, these need to be kept inside a data frame. We can use mutate to do this:
+To be useful, we need to capture these somehow, and because we want to use \textbf{ggplot2}, these need to be kept inside a data frame. We can use \texttt{mutate} to do this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3777,7 +3777,7 @@ One thing to be aware of is that the \emph{F}-tests are typically global tests o
 
 There are many different flavours of ANOVA model. The one we've just been learning about is called a one-way ANOVA. It's called one-way ANOVA because it involves only one factor: supplement type (this includes the control). If we had considered two factors---e.g.~supplement type and amount of food---we would have to use something called a two-way ANOVA. A design with three factors is called a three-way ANOVA, and\ldots{} you get the idea.
 
-There are many other ANOVA models, each of which is used to analyse a specific type of experimental design. We will only consider three different types of ANOVA in this book: one-way ANOVA, two-way ANOVA, and ANOVA for one-way, blocked design experiments.
+There are many other ANOVA models, each of which is used to analyse a specific type of experimental design. We will only consider two different types of ANOVA in this book: one-way ANOVA and ANOVA for one-way, blocked design experiments.
 
 \hypertarget{questions}{%
 \section{Some common questions about ANOVA}\label{questions}}
@@ -4060,7 +4060,7 @@ We have a couple of different options for making a good summary figure. The firs
 
 \begin{center}\includegraphics{intro-bio-stats-book_files/figure-latex/diet-summary-initial-1} \end{center}
 
-First, notice that we set the \texttt{data} argument in \texttt{ggplot} to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: \texttt{x}, \texttt{y}, \texttt{ymin} and \texttt{ymax}. Third, we added one layer using \texttt{geom\_point}. This adds the individual points based on the \texttt{x} and \texttt{y} mappings. Fourth, we added a second layer using \texttt{geom\_errorbar}. This adds the error bars based on the \texttt{x}, \texttt{ymin} and \texttt{ymax} mappings. Finally we adjusted the y limits and the labels (this last step is optional). Ask a demonstrator to step through this with you if you are confused by it.
+First, notice that we set the \texttt{data} argument in \texttt{ggplot} to be the data frame containing the summary statistics (not the original raw data). Second, we set up four aesthetic mappings: \texttt{x}, \texttt{y}, \texttt{ymin} and \texttt{ymax}. Third, we added one layer using \texttt{geom\_point}. This adds the individual points based on the \texttt{x} and \texttt{y} mappings. Fourth, we added a second layer using \texttt{geom\_errorbar}. This adds the error bars based on the \texttt{x}, \texttt{ymin} and \texttt{ymax} mappings. Finally we adjusted the y limits and the labels (this last step is optional).
 
 \begin{infobox}{information}
 
@@ -6151,6 +6151,820 @@ Keep in mind that this is often an iterative process. We might have to go throug
 
 Evaluating assumptions and picking transformations is as much `art' as science. It takes time and experience to learn how to do it. R makes it easy to try out different options, so don't be afraid to do this. Frequently, with biological data, no straightforward transformation improves the data, or in correcting one problem, we generate another. Fortunately, in many cases where the assumptions of a test are not reasonably well fulfilled, there is an alternative approach--- which we will discuss in the \protect\hyperlink{non-parametric-tests}{non-parametric tests} chapter.
 
+\hypertarget{part-non-linear-regression}{%
+\part{Non-linear Regression}\label{part-non-linear-regression}}
+
+\hypertarget{types-of-models}{%
+\chapter{Linear vs non-linear models}\label{types-of-models}}
+
+\hypertarget{introduction-5}{%
+\section{Introduction}\label{introduction-5}}
+
+We have seen how to use simple linear regression to characterise the dependence of one numeric variable on another. The most obvious assumption of that model is that the dependence between the two variables follows a straight line. What should we do when the relationship of interest is not so simple and instead follows a non-linear curve of some kind?
+
+One option is to transform one or both variables to enforce a straight-line relationship. Sometimes this works well, but on other occasions, it can prove tricky to identify a transformation that works. In any case, for some kinds of problems, we prefer to work with variables on the scale we measured them because this makes it easier to interpret the relationship.
+
+This is where \textbf{non-linear regression} is useful. Non-linear relationships arise all the time in biology. Our goal in this chapter is to set out what we mean by the term `non-linear' when dealing with regression models. To do this, we will establish the link between two models we have already studied: ANOVA and linear regression. Once that linkage is clear, it is relatively straightforward to define linear and non-linear models. The next chapter will cover the practical details of working with non-linear regression models in R.
+
+\hypertarget{the-relationship-between-regression-and-anova}{%
+\section{The relationship between regression and ANOVA}\label{the-relationship-between-regression-and-anova}}
+
+Though not apparent at first, ANOVA models can be viewed as a kind of regression analysis. We will look at the corncrake growth data again to understand this idea. This was the study where scientists wanted to determine how four different diet supplements affected the initial growth of captive-bred corncrake hatchlings.
+
+Imagine that we have read these data into a data frame called \texttt{corn\_crake}. The weight gain measurements are stored in the \texttt{WeightGain} variable, and the food supplement treatments are encoded in the categorical \texttt{Supplement} variable:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(corn\_crake)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 40
+## Columns: 2
+## $ Supplement <chr> "None", "None", "None", "None", "None", "None", "None", "No~
+## $ WeightGain <dbl> 13, 20, 17, 16, 15, 14, 10, 20, 15, 18, 10, 22, 23, 19, 25,~
+\end{verbatim}
+
+We can repeat the one-way ANOVA global significance test with these data using the usual R code:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{diet\_model }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(WeightGain }\SpecialCharTok{\textasciitilde{}}\NormalTok{ Supplement, }\AttributeTok{data =}\NormalTok{ corn\_crake)}
+\FunctionTok{anova}\NormalTok{(diet\_model)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Response: WeightGain
+##            Df Sum Sq Mean Sq F value   Pr(>F)   
+## Supplement  4 357.65  89.413  5.1281 0.002331 **
+## Residuals  35 610.25  17.436                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+This shows a significant effect of supplement on the weight gain of the corncrake hatchlings (\emph{F}=, d.f.=4,35; \emph{p}\textless0.01).
+
+Now let's look at how this same analysis can be carried out using a type of regression model with numeric predictors. There are four steps to this.
+
+\hypertarget{step-1}{%
+\subsubsection{Step 1}\label{step-1}}
+
+We need to construct a new representation of the data. Rather than including one categorical variable that labels the observations from each supplement (+control), we construct a series of binary (i.e.~0/1) \emph{indicator variables}. We need one indicator variable for each supplement category. Each indicator variable takes the value `1' if an observation belongs to its corresponding supplement and `0' otherwise.
+
+Here is one way to create these data using R:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{corn\_crake\_reg }\OtherTok{\textless{}{-}} 
+  \FunctionTok{mutate}\NormalTok{(corn\_crake,}
+         \AttributeTok{Allvit    =} \FunctionTok{ifelse}\NormalTok{(Supplement }\SpecialCharTok{==} \StringTok{"Allvit"}\NormalTok{,    }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Earlybird =} \FunctionTok{ifelse}\NormalTok{(Supplement }\SpecialCharTok{==} \StringTok{"Earlybird"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Linseed   =} \FunctionTok{ifelse}\NormalTok{(Supplement }\SpecialCharTok{==} \StringTok{"Linseed"}\NormalTok{,   }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{Sizefast  =} \FunctionTok{ifelse}\NormalTok{(Supplement }\SpecialCharTok{==} \StringTok{"Sizefast"}\NormalTok{,  }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{),}
+         \AttributeTok{None      =} \FunctionTok{ifelse}\NormalTok{(Supplement }\SpecialCharTok{==} \StringTok{"None"}\NormalTok{,      }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Supplement)}
+\end{Highlighting}
+\end{Shaded}
+
+This code creates a tibble called \texttt{corn\_crake\_reg} containing the original \texttt{WeightGain} variable and five new indicator variables called \texttt{Allvit}, \texttt{Earlybird}, \texttt{Linseed}, \texttt{Sizefast} and \texttt{None}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(corn\_crake\_reg, }\AttributeTok{n =} \DecValTok{40}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 40 x 6
+##    WeightGain Allvit Earlybird Linseed Sizefast  None
+##         <dbl>  <dbl>     <dbl>   <dbl>    <dbl> <dbl>
+##  1         13      0         0       0        0     1
+##  2         20      0         0       0        0     1
+##  3         17      0         0       0        0     1
+##  4         16      0         0       0        0     1
+##  5         15      0         0       0        0     1
+##  6         14      0         0       0        0     1
+##  7         10      0         0       0        0     1
+##  8         20      0         0       0        0     1
+##  9         15      0         0       0        1     0
+## 10         18      0         0       0        1     0
+## 11         10      0         0       0        1     0
+## 12         22      0         0       0        1     0
+## 13         23      0         0       0        1     0
+## 14         19      0         0       0        1     0
+## 15         25      0         0       0        1     0
+## 16         20      0         0       0        1     0
+## 17         20      0         0       1        0     0
+## 18         24      0         0       1        0     0
+## 19         17      0         0       1        0     0
+## 20         16      0         0       1        0     0
+## 21         20      0         0       1        0     0
+## 22         20      0         0       1        0     0
+## 23         15      0         0       1        0     0
+## 24         16      0         0       1        0     0
+## 25         22      1         0       0        0     0
+## 26          5      1         0       0        0     0
+## 27         10      1         0       0        0     0
+## 28         16      1         0       0        0     0
+## 29         11      1         0       0        0     0
+## 30         17      1         0       0        0     0
+## 31         20      1         0       0        0     0
+## 32         13      1         0       0        0     0
+## 33         17      0         1       0        0     0
+## 34         25      0         1       0        0     0
+## 35         24      0         1       0        0     0
+## 36         25      0         1       0        0     0
+## 37         25      0         1       0        0     0
+## 38         19      0         1       0        0     0
+## 39         27      0         1       0        0     0
+## 40         21      0         1       0        0     0
+\end{verbatim}
+
+Take a look at the last column (\texttt{None}). The first eight values are `1', reflecting the fact that the first eight rows of the data set are the control cases (i.e.~no supplement). The remaining values of \texttt{None} are all `0' because they correspond to rows with data from chicks that received a supplement. The same logic applies to the other four indicator variables.
+
+The information in the data is unchanged. All we have done is alter how the different supplement identities are represented.
+
+\hypertarget{step-2}{%
+\subsubsection{Step 2}\label{step-2}}
+
+The next step is to fit a minimal model to the data, called an `intercept only' or `null' model. We fit this using the \texttt{lm} function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod\_null }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(WeightGain }\SpecialCharTok{\textasciitilde{}} \DecValTok{1}\NormalTok{, }\AttributeTok{data =}\NormalTok{ corn\_crake\_reg)}
+\end{Highlighting}
+\end{Shaded}
+
+The formula \texttt{WeightGain\ \textasciitilde{}\ 1} tells R to fit a model with exactly one coefficient---the overall grand mean of all the data. In graphical terms we can visualise this using one of the plots we made to explore how ANOVA works:
+
+\begin{center}\includegraphics{intro-bio-stats-book_files/figure-latex/unnamed-chunk-199-1} \end{center}
+
+The intercept (i.e.~the grand mean) is shown by the vertical position dashed red line. The vertical lines show the distance between each observation and the grand mean. Therefore, the vertical lines are residuals from the `intercept only' model. These capture the total variation in the data.
+
+\hypertarget{step-3}{%
+\subsubsection{Step 3}\label{step-3}}
+
+In the third step, we use \texttt{lm} to fit a regression model using the indicator variable version of the data set. We have to include the indicator variables as separate terms when we do this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mod\_mreg }\OtherTok{\textless{}{-}} \FunctionTok{lm}\NormalTok{(WeightGain }\SpecialCharTok{\textasciitilde{}} \DecValTok{0} \SpecialCharTok{+}\NormalTok{ Allvit }\SpecialCharTok{+}\NormalTok{ Earlybird }\SpecialCharTok{+}\NormalTok{ Linseed }\SpecialCharTok{+}\NormalTok{ Sizefast }\SpecialCharTok{+}\NormalTok{ None, }\AttributeTok{data =}\NormalTok{ corn\_crake\_reg)}
+\end{Highlighting}
+\end{Shaded}
+
+The unusual `0' in the formula is a trick to force R to fit the particular model we want. \texttt{lm} fits a regression because the indicator variables contain numeric values (i.e.~0 or 1). This model can be thought of as something called a \textbf{multiple regression}. It is a multiple regression because the model involves more than one predictor variable.
+
+This model involves five regression coefficients (a.k.a. `slopes'). Each of these describes the change in weight gain that occurs if we alter the corresponding indicator variable by one unit. Since the indicator variables only take values of `0' or `1', these coefficients describe the mean weight gain associated with each supplement. We can see those values by printing the model object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(mod\_mreg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = WeightGain ~ 0 + Allvit + Earlybird + Linseed + 
+##     Sizefast + None, data = corn_crake_reg)
+## 
+## Coefficients:
+##    Allvit  Earlybird    Linseed   Sizefast       None  
+##     14.25      22.88      18.50      19.00      15.62
+\end{verbatim}
+
+Those are the supplement group means. We can visualise this model as follows:
+
+\begin{center}\includegraphics{intro-bio-stats-book_files/figure-latex/unnamed-chunk-202-1} \end{center}
+
+The coefficients of the regression model are denoted by the vertical positions of the horizontal blue lines, i.e.~the mean weight gain associated with each supplement group. The variability of those means around the overall grand mean is the the \emph{among} group variability. This describes the variation explained by the indicator variable model. The vertical lines capture the variation due to differences among individual chicks \emph{within} each group after accounting for the mean supplement effect.
+
+This figure was used earlier in the book to explain how ANOVA works. That is no coincidence. Fitting an ANOVA model really is nothing more than `regression with indicator variables'.
+
+\hypertarget{step-4}{%
+\subsubsection{Step 4}\label{step-4}}
+
+The final step is to evaluate the significance of the supplement effect. We do this with the \texttt{anova} function. However, we have to use \texttt{anova} in a new way by passing it \emph{two} models---the intercept-only model and the regression-with-indicators model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{anova}\NormalTok{(mod\_null, mod\_mreg)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Analysis of Variance Table
+## 
+## Model 1: WeightGain ~ 1
+## Model 2: WeightGain ~ 0 + Allvit + Earlybird + Linseed + Sizefast + None
+##   Res.Df    RSS Df Sum of Sq      F   Pr(>F)   
+## 1     39 967.90                                
+## 2     35 610.25  4    357.65 5.1281 0.002331 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+\end{verbatim}
+
+When passed two like this, \texttt{anova} uses the models to construct a statistical significance test. Here is the logic of that test:
+
+\begin{itemize}
+\tightlist
+\item
+  The null hypothesis is embodied by the simpler of the two models. This has to be a special case of the more complex model.
+\item
+  The more complex model incorporates the additional effects we are interested in testing (e.g.~differences between groups).
+\item
+  \texttt{anova} uses the variability explained by the two models to construct an \emph{F}-test of the significance of the target effect.
+\end{itemize}
+
+In this example, the simpler model (\texttt{mod\_null}) only contains the grand mean. This is equivalent to assuming no effect of diet supplement on weight gain. The more complex model (\texttt{mod\_mreg}) allows weight gain to vary according to supplement. Therefore, if the \emph{F}-test produced by \texttt{anova} is significant, this is taken as evidence that supplement affects weight gain. That is what we find: the test reveals a significant effect of supplement on the weight gain of corncrake hatchlings (F=5.1; d.f.= 4,35; p\textless0.01).
+
+Look at the \emph{p}-value, the test statistic (\emph{F}) and the degrees of freedom from the test. These are the same as those produced by the standard one-way ANOVA global significance test. This is because the convoluted regression-with-indicators analysis and standard ANOVA analyses are functionally identical.
+
+Linear regression and ANOVA are not so different after all. Whenever we work with an ANOVA in R, \texttt{lm} uses the formula we supply to make something called a `design matrix' behind the scenes. The design matrix is a representation of the model with the series of 0/1 indicator variables required to estimate the associated group means (or, more usually, differences between means).
+
+\hypertarget{linear-models}{%
+\section{Linear models}\label{linear-models}}
+
+It turns out that many of the statistical models we have seen so far are special cases of something called the General Linear Model. The only thing that distinguishes the different cases is the type of predictor variables they accommodate:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{One-way ANOVA}: one categorical predictor
+\item
+  \textbf{Multi-way ANOVA}: two or more categorical predictors
+\item
+  \textbf{Simple Regression}: one numeric predictor
+\item
+  \textbf{Multiple Regression}: two or more numeric predictors
+\item
+  \textbf{ANCOVA}: mixture of categorical and numeric predictors
+\end{itemize}
+
+Every one of these is a special case of the General Linear Model. To understand the key properties of the General Linear Model, we need to express it in mathematical terms. Think back to the earlier chapter on parametric statistics. We introduced the idea of a statistical model as a device to describe how samples of data are generated from a hypothetical population. We also mentioned a particular model for the relationship between two numeric variables:
+
+\[y_i = a + b \times x_i + \epsilon_i\]
+That equation is the mathematical representation of a simple linear regression model, where \(y_i\) is the response variable and \(x_i\) is the predictor variable. This model has two parts:
+
+\begin{itemize}
+\tightlist
+\item
+  The systematic component (\(a + b \times x_i\)) describes the general relationship between the \(y_i\) and \(x_i\). This is the equation of a straight line with an intercept \(a\) and slope \(b\) parameter. Those two parameters are known as the coefficients of the model.
+\item
+  The random component (\(\epsilon_i\)) describes how the individual \(y_i\) values deviate from their expected values on the line. Those are the residuals. These residuals are assumed to follow a normal distribution in a regression model.
+\end{itemize}
+
+Fitting a regression model boils down to finding the values of \(a\) and \(b\) that minimise the variability associated with \(\epsilon_i\). The normality assumption justifies using \emph{F} tests to carry out statistical significance tests with the model.
+
+We can take that basic model description and expand it to represent a more complex model with multiple predictors:
+
+\[y_i = a + b_1 \times x_{1i} + b_2 \times x_{2i} + b_3 \times x_{3i} + ... + \epsilon_i\]
+Compared to the simpler model, the thing that has changed is the systematic part of the model:
+
+\begin{itemize}
+\tightlist
+\item
+  The \(x_{1i}\), \(x_{2i}\), \(x_{3i}\) represent a set of predictor variables used to explain variation in the response variable, \(y_i\).
+\item
+  The \(a\), \(b_1\), \(b_2\), \(b_3\) are the model coefficients. These describe the relationship between the response and predictors.
+\item
+  The \(+ ... +\) is a generic placeholder for all other predictors. We wrote out the first three, but there could be many more.
+\end{itemize}
+
+The random component (\(\epsilon_i\)) is the same as before. That describes the deviations of the \(y_i\) values from their expected values given by the systematic part of the model.
+
+Now we arrive at the important part of this section. If we assume the \(\epsilon_i\) come from a normal distribution, then that equation describes the General Linear Model. The various models listed above can all be written in the form of that equation. Numeric predictors enter into the model unchanged. Categorical predictors are included by expanding them into a series of 0/1 indicator variables.
+
+The word `general' in the name of the General Linear Model refers to the fact that the model encompasses various different special cases. The word `linear' needs more unpacking. That relates to the mathematical form of the model. To be precise, it relates to systematic part of the model, which is called as the \textbf{linear predictor}.
+
+A linear predictor is made up of multiple parts, where each part is the product of a parameter and an associated predictor or derived index variable. The value of the linear predictor is found by adding those parts together. That's exactly how the General Linear Model equation works:
+
+\[y_i = a + b_1 \times x_{1i} + b_2 \times x_{2i} + b_3 \times x_{3i} + ... + \epsilon_i\]
+
+Whenever the systematic part of a statistical model can be expressed in that form, the model is said to be `linear in its parameters'. This linearity feature of the parameters allows mathematicians to use well-established, robust methods to identify best-fitting models and construct statistical significance tests. That's one reason why the General Linear Model is so widely used.
+
+People often abbreviate the name to `Linear Model' or `LM' because saying General Linear Model all the time soon gets tedious. This is where the \texttt{lm} function gets its name.
+
+\hypertarget{non-linear-models}{%
+\section{Non-linear models}\label{non-linear-models}}
+
+Now that we know what makes a linear model a linear model, we can finally address the actual topic of this chapter---non-linear regression models. A non-linear regression model is any parametric model for which the systematic component is \textbf{not} linear in its parameters. This is best understood by example.
+
+There are many ways to express non-linear regression models, ranging from comparatively simple to very complex. At their simplest, they look like this:
+
+\[y_i = f(x_i) + \epsilon_i\]
+In this formulation, there is one predictor variable. The \(x_i\) are the values of that predictor variable, the \(y_i\) are the corresponding values of the response variable, \(f\) is a non-linear function describing the systematic part of the model, and the \(\epsilon_i\) are the residual deviations.
+
+Here are a few concrete examples of what we might use for the function \(f\):
+
+\emph{Power function}:
+
+\[f(x_i) = a \times x_i^b\]
+Raising the \(x_i\) to the power of the parameter \(b\) is what makes this a non-linear regression model.
+
+\emph{Exponential function}:
+
+\[f(x_i) = a \times e^{b \times x_i}\]
+The exponentiation of the \(b \times x_i\) is what makes this a non-linear regression model.
+
+\emph{Michaelis--Menten equation for enzyme kinetics}:
+
+\[f(x_i) = V_{max}\frac{x_i}{K_m + x_i}\]
+The parameters of this model are the maximum reaction rate (\(V_{max}\)) and the Michaelis constant \(K_m\). The non-linearity arises from the ratio of the terms involving the predictor variable.
+
+What happens if we fix the values of parameters \(b\) or \(K_m\) in those examples, meaning they do not have to be estimated from data? Those three models could then be rewritten as:
+
+\[f(x_i) = a \times z_i\]
+
+\ldots where \(z_i\) is the part of the equation involving \(x_i\). For example, if \(b\) set to 2 in the power function, then \(z_i = x_i^2\). In that scenario, the function \(f(x_i)\) is now linear in its parameters because we only need to estimate \(a\).
+
+This observation highlights an important point---it is the linearity of the \emph{unknown parameters} that distinguishes linear and non-linear regression models.
+
+\hypertarget{why-do-we-need-non-linear-regression-models}{%
+\section{Why do we need non-linear regression models?}\label{why-do-we-need-non-linear-regression-models}}
+
+Non-linear regression models are useful because they allow us to model relationships that involve \textbf{curves}. For example, the Michaelis--Menten equation looks like this:
+
+\begin{center}\includegraphics[width=0.5\linewidth]{intro-bio-stats-book_files/figure-latex/michaelis–menten-plot-1} \end{center}
+
+The Michaelis--Menten equation describes the dependence of an enzyme's reaction rate (\(y\)) on its substrate concentration (\(x\)). This is a saturating function --- reaction rate increases a lot with small increases in substrate at low concentrations, but the rate of increase tails off at higher concentrations. That kind of relationship obviously requires a non-linear model.
+
+We can't cover every important aspect of non-linear regression modelling in a book like this. What we can do is develop a workflow for dealing with simple non-linear regression models in R and highlight some of the key concepts along the way. We will do that in the next chapter.
+
+\hypertarget{non-linear-regression-in-R}{%
+\chapter{Non-linear regression in R}\label{non-linear-regression-in-R}}
+
+Our goal in this chapter is to learn how to work with non-linear regression models in R. We'll start with the example problem and the data, then discuss model fitting, evaluating assumptions, significance testing, and finally, presenting the results.
+
+\hypertarget{introduction-6}{%
+\section{Introduction}\label{introduction-6}}
+
+The enzyme-linked immunosorbent assay (ELISA) is a standard assay for detecting and quantifying soluble substances such as proteins, antibodies, and hormones. The direct form of ELISA works as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  Antigens from a test sample are attached to a surface, and a matching antibody is applied to bind the antigen.
+\item
+  The antibody is linked to a reporter enzyme, and any unbound antibodies are removed.
+\item
+  The reporter enzyme's substrate is added, and the subsequent reaction produces a detectable signal if there was binding.
+\end{itemize}
+
+The activity of the reporter enzyme is measured using spectrophotometry, such that the concentration of the target substance is associated with a standardised \textbf{optical density} measurement.
+
+A biochemist is developing direct ELISA for a new recombinant protein. To investigate how well it works, she ran the assay using a series of standardised protein concentrations (measured in \(ng\ ml^{-1}\)). The next step is to quantify how the optical density readings depend on protein concentration.
+
+\begin{infobox}{action}
+
+\hypertarget{section-16}{%
+\subsubsection*{}\label{section-16}}
+\addcontentsline{toc}{subsubsection}{}
+
+We will be using this new data set to demonstrate how to conduct non-linear regression in R. The data live in the `ELISA.CSV' file. The code below assumes those data have been read into a tibble called \texttt{ELISA.CSV}. Set that up if you plan to work along.
+
+\end{infobox}
+
+\hypertarget{first-steps-2}{%
+\subsection{First steps}\label{first-steps-2}}
+
+We start by using \texttt{glimpse} to see which variables reside within \texttt{elisa\_assay}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(elisa\_assay)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 9
+## Columns: 2
+## $ pconc   <dbl> 0.04882812, 0.19531250, 0.39062500, 0.78125000, 1.56250000, 3.~
+## $ density <dbl> 0.017500, 0.122500, 0.210500, 0.375500, 0.611500, 1.010000, 1.~
+\end{verbatim}
+
+The first column (\texttt{pconc}) contains the information about about the protein concentration (\(ng\ ml^{-1}\)). The second column (\texttt{density}) contain the optimal density measurements registered by the assay. These are both numeric ratio variables.
+
+Our goal is to predict optimal density from protein concentration, meaning \texttt{pconc} will be the response variable and \texttt{density} will be the predictor variable.
+
+\hypertarget{visualising-the-data-2}{%
+\subsection{Visualising the data}\label{visualising-the-data-2}}
+
+We need to visualise the data to help us understand it. A scatter plot is a reasonable option here:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(elisa\_assay, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pconc, }\AttributeTok{y =}\NormalTok{ density)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-1-1} \end{center}
+
+Since \texttt{density} will be the response and \texttt{pconc} will be the predictor, we place them on the \(y\) and \(x\) axes, respectively. The plot reveals the form of the relationship between the two variables. The plot suggests there is a tight, non-linear positive association between optical density and protein concentration. It is obvious we need a non-linear model as well --- the relationship cannot be captured by a straight line.
+
+The plot also contains a clue about how to analyse these data. Look carefully at the spacings between successive protein concentrations. These are not even. Instead, most increments are associated with a rough doubling of the lower value. When we see a sequence of values that arise by repeatedly multiplying by a factor, it is often a sign they should be analysed on a \emph{logarithmic} scale.
+
+With that in mind, let's make a new scatter plot using a natural log transformation of protein concentration:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(elisa\_assay, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{log}\NormalTok{(pconc), }\AttributeTok{y =}\NormalTok{ density)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-2-1} \end{center}
+
+This shows that the relationship between optical density and log protein concentration is initially shallow, steepens toward the middle, and then becomes more shallow again at higher protein concentrations. In other words, the relationship follows an ``S''-shaped sigmoid function.
+
+There are a \href{https://en.wikipedia.org/wiki/Sigmoid_function}{many different sigmoid functions} that can describe this kind of relationship. We'll work with the most the commonly-used one: the \textbf{logistic function}.
+
+\hypertarget{model-fitting}{%
+\section{Model fitting}\label{model-fitting}}
+
+Carrying out non-linear regression analysis in R is similar to simple linear regression. The first step involves fitting the model to find the best fit line and calculating various bits of additional information needed to use the model. However, since we are no longer in linear model land we cannot use \texttt{lm} to do this.
+
+There are many different packages and functions for working with non-linear models in R. We will use the base R \texttt{nls} function because it is simple, flexible and readily available.
+
+\begin{infobox}{information}
+
+\hypertarget{how-does-nls-work}{%
+\subsubsection*{\texorpdfstring{How does \texttt{nls} work?}{How does nls work?}}\label{how-does-nls-work}}
+\addcontentsline{toc}{subsubsection}{How does \texttt{nls} work?}
+
+The letters in \texttt{nls} stand for `non-linear least squares'. This is a reference to the method used to identify the best-fitting curve through the data. Non-linear least squares aims to find the parameter set that minimises the `sum of squares' of the model residuals (i.e.~the residual sum of squares). If that sounds familiar, it is because this is the same idea that underpins how general linear models like regression and one-way ANOVA work. The only difference is that non-linear modelling tools like \texttt{nls} has to use fancier algorithms than \texttt{lm} to cope with the non-linearity in the parameters.
+
+\end{infobox}
+
+Before we use \texttt{nls} to fit the logistic model to the ELISA data, we need to understand the model parameters. In mathematical terms, the logistic model can be written down like this:
+
+\[y = \frac{\phi_1}{1 + e^{ (\phi_2 - x) / \phi_3 }}\]
+
+The model has three parameters:
+
+\begin{itemize}
+\tightlist
+\item
+  \(\phi_1\) is the value the function approaches as the predictor variable \(x\) gets very large (i.e.~the asymptote). Inspection of the scatter plot suggests this is some number greater than 2 in the ELISA example.
+\item
+  \(\phi_2\) is the value of \(x\) at which the logistic function is exactly half its maximum value (i.e.~the midpoint). This value is also the inflection point, i.e.~where the rate of change is greatest. It looks like this is roughly 1 in the ELISA example.
+\item
+  \(\phi_3\) is a scale parameter that controls how rapidly the function transitions from low to high values as \(x\) changes. It is the inverse of the rate of change of the function at the inflection point. This one is a little harder to guess from plot.
+\end{itemize}
+
+Now that we know a bit about how the logistic model works we can fit it to the ELISA data. There are a few different ways to do this with \texttt{nls}. The easiest looks like this:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{elisa\_mod1 }\OtherTok{\textless{}{-}}
+  \FunctionTok{nls}\NormalTok{(density }\SpecialCharTok{\textasciitilde{}} \FunctionTok{SSlogis}\NormalTok{(}\FunctionTok{log}\NormalTok{(pconc), phi\_1, phi\_2, phi\_3), }
+      \AttributeTok{data =}\NormalTok{ elisa\_assay)}
+\end{Highlighting}
+\end{Shaded}
+
+We had to assign at least two arguments:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The first argument is a \textbf{formula} because it includes a `tilde' symbol: \texttt{\textasciitilde{}}. The variable named to the left of the \texttt{\textasciitilde{}} is the response variable (\texttt{density}). The part to the right of the \texttt{\textasciitilde{}} defines the non-linear model. We will come back to how this works this in a moment. For now, notice that the the predictor variable (\texttt{pconc}) appears on the right-hand side of the formula. Just as with an \texttt{lm} model, it is essential to ensure the predictor and response variables are in the correct position when setting up a non-linear regression model.
+\item
+  The second \texttt{data} argument is just the name of the data frame or tibble object that contains the two variables listed in the formula (\texttt{elisa\_assay}).
+\end{enumerate}
+
+What is the \texttt{SSlogis} function doing in the formula? The `logis' part of the name tells \texttt{nls} to fit a logistic function to the data. What about the `SS' part? That stands for `self-starting'. Non-linear models can be tricky to work with because the algorithms that search for the best fit curve are prone to failure in some circumstances. One such circumstance arises when the algorithm starts its search with a set of parameters that are too far away from their best fit values. The self-starting functions automatically identify good starting values so that \texttt{nls} users don't have to worry about that problem.
+
+That leaves us with the arguments of \texttt{SSlogis} to worry about:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The first argument is the predictor variable. Our predictor variable is protein concentration (\texttt{pconc}). However, since we decided to model the dependence of optimal density on the \emph{logarithm} of protein concentration, we applied the \texttt{log} function to \texttt{pconc} to ensure the model works on the correct scale.
+\item
+  The next three arguments are the names used to label the model's three parameters. We can use any name we like for these arguments. We chose \texttt{phi\_1}, \texttt{phi\_2} and \texttt{phi\_3} to match the equation above, but we could have used something like \texttt{Asym}, \texttt{xmid} and \texttt{scal} to reflect the meaning of each parameter (those happen to be the labels used in the \texttt{SSlogis} help file).
+\end{enumerate}
+
+Keep in mind that \texttt{SSlogis} uses the position of the three names in the argument list to match them with their roles in the logistic function. If we swapped \texttt{phi\_1} and \texttt{phi\_2} around in \texttt{SSlogis}, the labels in the model output would no longer match their role in the equation. That would be very confusing because \(\phi_1\) would be labelled \texttt{phi\_2} and \(\phi_2\) would be labelled \texttt{phi\_1} in the model output.
+
+Now we have fitted the logistic model to the ELISA data and called the resulting model object \texttt{elisa\_mod1}. What happens if we print this model object to the console?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{print}\NormalTok{(elisa\_mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Nonlinear regression model
+##   model: density ~ SSlogis(log(pconc), phi_1, phi_2, phi_3)
+##    data: elisa_assay
+## phi_1 phi_2 phi_3 
+## 2.247 1.384 1.009 
+##  residual sum-of-squares: 0.002415
+## 
+## Number of iterations to convergence: 0 
+## Achieved convergence tolerance: 1.019e-07
+\end{verbatim}
+
+This prints out a summary of the fitted model, the values of the best-fit parameters, and a bit of technical information that we can usually ignore. Notice that the labelling of the parameters reflects the names we provided to \texttt{SSlogis}.
+
+We often fit non-linear models because their parameters relate to a particular biological, chemical or physical process. When that is the case, it is important to think about what those numbers mean. For example:
+
+\begin{itemize}
+\tightlist
+\item
+  The asymptote of the fitted function (\(\phi_1\)) is about 2.2 units. This is the maximum optical density value produced by the assay when it is saturated with protein.
+\item
+  The midpoint of the fitted function (\(\phi_2\)) is reached at around 1.4 \(ng\ ml^{-1}\). This is the threshold protein concentration at which the optical density is half its maximum.
+\item
+  The inverse of the rate of change at the midpoint value (\(\phi_3\)) is about 1.0 \(ng\ ml^{-1}\). We can use this to understand the sensitivity of the ELISA. When this value is very small, it means there is a tight threshold in the response.
+\end{itemize}
+
+\hypertarget{custom-functions}{%
+\subsection{Custom functions}\label{custom-functions}}
+
+There are self-starting functions for many common non-linear relationships. If one is available for the model we want to use, it is a good idea to use it. But what do we do if there is no self-starting function for the relationship we want to model? In those circumstances, it is up to the user to define the curve.
+
+This is relatively easy. Here is an example of how to set up and fit the logistic model without using its self-starting function:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{elisa\_mod2 }\OtherTok{\textless{}{-}}
+  \FunctionTok{nls}\NormalTok{(density }\SpecialCharTok{\textasciitilde{}}\NormalTok{ phi\_1 }\SpecialCharTok{/}\NormalTok{ (}\DecValTok{1} \SpecialCharTok{+} \FunctionTok{exp}\NormalTok{((phi\_2 }\SpecialCharTok{{-}} \FunctionTok{log}\NormalTok{(pconc)) }\SpecialCharTok{/}\NormalTok{ phi\_3)),}
+      \AttributeTok{data =}\NormalTok{ elisa\_assay,}
+      \AttributeTok{start =} \FunctionTok{list}\NormalTok{(}\AttributeTok{phi\_1 =} \DecValTok{2}\NormalTok{, }\AttributeTok{phi\_2 =} \DecValTok{1}\NormalTok{, }\AttributeTok{phi\_3 =} \DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Now we have to set three arguments:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  The first argument is a formula with the response variable (\texttt{density}) to the left of the \texttt{\textasciitilde{}}. The part to the right of the \texttt{\textasciitilde{}} defines the model we want to fit, but we have to explicitly define the curve in terms of the relevant R functions. This is easy as long as we understand how to express mathematical calculations in R.
+\item
+  As usual, the \texttt{data} argument is again the name of the data frame or tibble object containing the variables listed in the formula (\texttt{elisa\_assay}).
+\item
+  The \texttt{start} argument provides some starting parameter values for \texttt{nls} to use when it begins searching for the best-fit curve. We have to provide a starting value for every parameter listed in the formula in something called a list. We do this by providing a series of comma-separated name-value pairs to the \texttt{list} function.
+\end{enumerate}
+
+A user must provide starting values to the \texttt{nls} function when not using a self-starting function. However, we can't choose any numbers we like because \texttt{nls} will fail if they generate a curve that is too far away from the best fit. How do we choose reasonable starting values? By looking at the data. We did that earlier when we discussed how the logistic model works. There's no simple shortcut for choosing starting values. We have to understand how a model's parameters relate to the relationship in the data. The good news is for simple models like the logistic function, the initial guess does not need to be that close to the best fit parameters for \texttt{nls} to work.
+
+\begin{infobox}{information}
+
+\hypertarget{which-self-starting-functions-are-available}{%
+\subsubsection*{Which self-starting functions are available?}\label{which-self-starting-functions-are-available}}
+\addcontentsline{toc}{subsubsection}{Which self-starting functions are available?}
+
+Many standard non-linear curves have been implemented as self-start functions:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{SSasymp} is a three-parameter asymptotic model that allows the curve to go through a non-zero intercept.
+\item
+  \texttt{SSasympOff} is another version of the asymptotic model that uses a different mathematical parametrisation.
+\item
+  \texttt{SSasympOrig} is the two-parameter version of the asymptotic model that forces the curve to go through the origin.
+\item
+  \texttt{SSbiexp} is a four-parameter model that creates a non-linear curve by adding two exponential curves.
+\item
+  \texttt{SSfpl} is a four-parameter model that generalises the logistic function to allow a non-zero lower bound.
+\item
+  \texttt{SSgompertz} is the three-parameter Gomertz growth curve that provides an alternative choice for S-shaped relationships.
+\item
+  \texttt{SSgompertz} is the four-parameter Weibull growth curve that provides another alternative to the logistic model.
+\item
+  \texttt{SSmicmen} is the two-parameter Michaelis-Menten curve for modelling enzyme kinetics.
+\end{itemize}
+
+The easiest way to quickly learn about these is to navigate to their help page (e.g.~\texttt{?SSmicmen}) and run all the example code at the end. That code creates a plot showing the shape of the curve along with some annotation revealing how the parameters control its shape.
+
+\end{infobox}
+
+\hypertarget{checking-the-assumptions}{%
+\section{Checking the assumptions}\label{checking-the-assumptions}}
+
+Like any parametric technique, non-linear regression makes assumptions about the nature of the data:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{Independence.} The residuals must be independent, such that each residual does not depend on any others.
+\item
+  \textbf{Measurement scale.} The response and predictor variables are both measured on an interval or ratio scale.
+\item
+  \textbf{Measurement error.} The values of the predictor variable are determined with negligible measurement error.
+\item
+  \textbf{Shape.} The general relationship between the predictor and response variable follows the assumed curve.
+\item
+  \textbf{Constant variance.} The variance of the residuals is not related to the value of the predictor variable.
+\item
+  \textbf{Normality.} The residuals are drawn from a normal distribution.
+\end{enumerate}
+
+These are almost identical to the assumptions of simple linear regression. The only practical difference is that now we need to assess whether the assumed curve is a good fit to the data rather than worrying about whether the relationship follows a straight line.
+
+The experimental design and data collection protocols affect the first three assumptions. We can only evaluate these by thinking about where the data come from. The remaining assumptions can be checked by using the fitted values and residuals from the fitted model to construct regression diagnostic plots.
+
+The fitted values and residuals of a non-linear regression are defined in the usual way:
+
+\begin{itemize}
+\tightlist
+\item
+  The fitted values are the predicted values of the response for each value of the predictor variable from the best-fit model.
+\item
+  The residuals are the deviations of each value of the response variable from their corresponding fitted values.
+\end{itemize}
+
+Base R has no simple facility for creating diagnostic plots with \texttt{nls} models. Fortunately, there \emph{is} a package that makes these. This is called \textbf{nlstools}. Once installed, we need to load and attach \textbf{nlstools} to use it:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(nlstools)}
+\end{Highlighting}
+\end{Shaded}
+
+Creating a regression diagnostic plot with \textbf{nlstools} is then a two-step process. To begin, use the \texttt{nlsResiduals} function to extract the required information from the fitted model object:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{elisa\_mod\_diag }\OtherTok{\textless{}{-}} \FunctionTok{nlsResiduals}\NormalTok{(elisa\_mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+We then plot the object produced by \texttt{nlsResiduals} to make different types of diagnostic plot. For example, we can look at the association between the residuals and fitted values from the model as follows:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(elisa\_mod\_diag, }\AttributeTok{which =} \DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.5\linewidth]{intro-bio-stats-book_files/figure-latex/non-linear-worked-diag-1-1} \end{center}
+
+This plot allows us to evaluate whether the shape of the relationship follows the assumed curve. There should be no obvious relationship between the residuals and fitted values if the non-linear model is appropriate for the data. There is no obvious pattern in that plot, indicating that that logistic model is a good fit for the ELISA data.
+
+Setting \texttt{which} to 3 creates a scale-location plot to assess the constant-variance assumption. Setting \texttt{which} to 6 creates a normal probability plot to assess the normality assumption. We won't make these here. They can be interpreted in the same way as the corresponding plots for a simple linear regression model. Refer to the `Checking and Fixing Models' section of the book for a reminder of how to use regression diagnostic plots.
+
+\hypertarget{what-about-significance-tests}{%
+\section{What about significance tests?}\label{what-about-significance-tests}}
+
+We know how to set up significance tests for linear models to assess whether a regression slope differs from zero or a set of means are different. Conceptually similar tests can be constructed for non-linear regression models. However, these kinds of analyses are more complex. There are two main reasons for this:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Comparing a non-linear model across treatments or some other set of groups requires us to investigate changes in the shape of the curve. These changes may involve differences in one or several model parameters. Deciding which comparisons to make and setting these up is not entirely straightforward.
+\item
+  Non-linear models often involve dependent data. For example, if we measured the body mass of individuals through time, each individual's measurements belong to their own curve. In this kind of situation, each curve becomes its own statistical unit and the independence assumption of the residuals no longer holds.
+\end{enumerate}
+
+We can use \texttt{nls} to deal with the first of these challenges---though it requires more work than something like \texttt{lm}---but \texttt{nls} definitely can't deal with the second kind of challenge. Instead, advanced tools such as the \textbf{nlme} package are required to construct comparisons and deal with non-independence in the data. These are well beyond the scope of this book, so we'll not consider significance tests for comparing non-linear models here.
+
+The one thing we can do with an \texttt{nls} model is extract the standard errors and significance tests for the model parameters. This can be useful when the parameters quantify something scientifically meaningful. For example, the scientist developing the new assay might want to know the protein concentration at which the optical density midpoint is reached. That is given by the \(\phi_2\) parameter.
+
+We use the \texttt{summary} function to extract these types of information from a fitted model:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(elisa\_mod1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Formula: density ~ SSlogis(log(pconc), phi_1, phi_2, phi_3)
+## 
+## Parameters:
+##       Estimate Std. Error t value Pr(>|t|)    
+## phi_1  2.24676    0.05276   42.58 1.12e-08 ***
+## phi_2  1.38398    0.06393   21.65 6.34e-07 ***
+## phi_3  1.00871    0.03473   29.05 1.10e-07 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.02006 on 6 degrees of freedom
+## 
+## Number of iterations to convergence: 0 
+## Achieved convergence tolerance: 1.019e-07
+\end{verbatim}
+
+This looks a lot like the output we get when using \texttt{summary} with an \texttt{lm} object. That is to be expected---the \texttt{summary} function typically provides a table of coefficients/parameters when used with regression models in R. There are four columns in the table:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \texttt{Estimate} gives the estimated parameter values of the best-fit model. This is the same information produced by printing the model object.
+\item
+  \texttt{Std.\ Error} gives the standard errors of the parameters to summarise their uncertainty.
+\item
+  \texttt{t\ value} provides a test statistic (= estimate / standard error) under the null hypothesis that the parameter value is 0.
+\item
+  \texttt{Pr(\textgreater{}\textbar{}t\textbar{})} gives the p-value associated with the null hypothesis that the parameter value is 0.
+\end{enumerate}
+
+Do we need to care about every column? Probably not. Unless there is a sound scientific reason to assess whether a parameter is significantly different from 0, we usually only care about the estimates and their standard errors. The latter are useful because they tell us how much confidence we can have in the estimated parameter values.
+
+\hypertarget{present-results}{%
+\section{Presenting results}\label{present-results}}
+
+If non-linear regression results are presented only in the text, it is often appropriate to specify the best fit parameter values and their standard errors. We might summarise the preceding analysis as follows:
+
+\begin{quote}
+The logistic model captured the relationship between log protein concentration (\(ng\ ml^{-1}\)) and optical density in the ELISA assay. The asymptotic optical density was 2.2 (s.e. = 0.053). The midpoint protein concentration of optical density was 1.4 (s.e. = 0.064). The inverse sensitivity of the assay was 1.0 (s.e. = 0.035).
+\end{quote}
+
+This allows the reader to understand the scientific relevance of the fitted non-linear model and use the equation in further calculations. When working with non-linear models, it is a good idea to also present the results as a figure showing the original data and the fitted curve.
+
+\hypertarget{plotting-the-fitted-line-and-the-data-1}{%
+\subsection{Plotting the fitted line and the data}\label{plotting-the-fitted-line-and-the-data-1}}
+
+The process of creating a visual summary of a non-linear model is straightforward. There is a predict function that works with \texttt{nls} model objects, which means we can use the same workflow as the simple linear regression case.
+
+The first step is to generate a sequence of values of the predictor (\texttt{pconc}) from which we will generate predictions, remembering to place the sequence in a data frame. We will make a sequence from 0.04 to 28 to span the range of protein concentrations in the data:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred\_data }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{pconc =} \FunctionTok{seq}\NormalTok{(}\FloatTok{0.04}\NormalTok{, }\DecValTok{28}\NormalTok{, }\AttributeTok{length.out =} \DecValTok{1000}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+We have to give the sequence the same name as the predictor variable (\texttt{pconc}) to ensure the \texttt{predict} function can find the column it needs when making predictions. We made a sequence with a very small distance between successive values by setting \texttt{length.out} to 1000. We did this because we will end up using a logarithmic scale for protein concentration, and we need to ensure the plotted curve is smooth at low concentrations.
+
+Now we can use the model object and prediction data frame with \texttt{predict}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{predicted\_density }\OtherTok{\textless{}{-}} \FunctionTok{predict}\NormalTok{(elisa\_mod1, pred\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+The predicted values need to be kept in a data frame alongside their corresponding values of \texttt{pconc} to be used with \textbf{ggplot2}. The easiest way to do this is to add the predictions to \texttt{pred\_data}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pred\_data }\OtherTok{\textless{}{-}} \FunctionTok{mutate}\NormalTok{(pred\_data, }\AttributeTok{density =}\NormalTok{ predicted\_density)}
+\end{Highlighting}
+\end{Shaded}
+
+We name the column containing the predictions \texttt{density} to ensure its name matches that used in the \texttt{elisa\_assay} data.
+
+The \texttt{pred\_data} object now has two columns called \texttt{pconc} and \texttt{density}, which contain the sequence of the protein concentrations and their predicted optical density values, respectively:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{glimpse}\NormalTok{(pred\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Rows: 1,000
+## Columns: 2
+## $ pconc   <dbl> 0.04000000, 0.06798799, 0.09597598, 0.12396396, 0.15195195, 0.~
+## $ density <dbl> 0.02319109, 0.03895943, 0.05444924, 0.06968449, 0.08468013, 0.~
+\end{verbatim}
+
+Now we can plot the predictions along with the data using \texttt{geom\_line} and \texttt{geom\_point}, respectively:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(pred\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pconc, }\AttributeTok{y =}\NormalTok{ density)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ elisa\_assay) }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Protein concentration (ng/ml)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Optical Density"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_bw}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.6\linewidth]{intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-1-1} \end{center}
+
+Setting up the column names of \texttt{pred\_data} to match the response and predictor variable names means we only have to set up one aesthetic mapping for the raw data and model prediction layers. However, when adding the points, we need to tell \textbf{ggplot2} to look inside \texttt{elisa\_assay} rather than use \texttt{pred\_data}.
+
+That worked fine, but it does not show protein concentration on a logarithmic scale. We used log-transformed values in the model, and in any case, the protein concentration values vary over several of orders of magnitude. Those are two good reasons to use a log scale on the x-axis.
+
+There is more than one way to achieve this. For example, we could plot log-transform \texttt{pconc} and then plot the transformed values. Alternatively, we can get \textbf{ggplot2} to handle the transformation for us. The advantage of this second approach is that it provides nicer axis labels:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(pred\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ pconc, }\AttributeTok{y =}\NormalTok{ density)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{data =}\NormalTok{ elisa\_assay) }\SpecialCharTok{+} 
+  \FunctionTok{xlab}\NormalTok{(}\StringTok{"Protein concentration (ng/ml)"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Optical Density"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{scale\_x\_continuous}\NormalTok{(}\AttributeTok{trans =} \StringTok{"log10"}\NormalTok{, }\AttributeTok{n.breaks =} \DecValTok{6}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_bw}\NormalTok{(}\AttributeTok{base\_size =} \DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.6\linewidth]{intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-2-1} \end{center}
+
+This uses the \texttt{scale\_x\_continuous} function set the x-axis to use a log\textsubscript{10} scale and the number of breaks used for labelling that axis. That one extra line produces what we want. Now we have a nice publicationn-ready plot.
+
 \hypertarget{part-frequency-data-and-non-parametric-tests}{%
 \part{Frequency Data and Non-parametric Tests}\label{part-frequency-data-and-non-parametric-tests}}
 
@@ -6168,8 +6982,8 @@ There are quite a few options for dealing with categorical data\footnote{e.g.~th
 
 \begin{infobox}{warning}
 
-\hypertarget{section-16}{%
-\subsubsection*{}\label{section-16}}
+\hypertarget{section-17}{%
+\subsubsection*{}\label{section-17}}
 \addcontentsline{toc}{subsubsection}{}
 
 The material in this chapter is provided for readers who like to have a sense of how statistics works. Don't worry too much if it seems confusing---you don't have to understand it to use the tests we'll cover in the next two chapters. In any case, this chapter is very short.
@@ -6355,8 +7169,8 @@ Let's remind ourselves about the assumptions of the \(\chi^{2}\) goodness of fit
 
 \begin{infobox}{action}
 
-\hypertarget{section-17}{%
-\subsubsection*{}\label{section-17}}
+\hypertarget{section-18}{%
+\subsubsection*{}\label{section-18}}
 \addcontentsline{toc}{subsubsection}{}
 
 There is no need to download any data to work through this example. Although it is generally a good idea to keep data and code separate, the data used in a \(\chi^{2}\) goodness of fit test are so simple we sometimes keep them in our R code. That's what we'll do here.
@@ -6542,7 +7356,7 @@ A contingency table takes its name from the fact that it captures the `contingen
 Associations are evident when the proportions of objects in one set of categories (e.g.~R1 and R2) depends on a second set of categories (e.g.~C1 and C2). Here are two possibilities:
 
 \begin{table}
-\caption{\label{tab:unnamed-chunk-199}Contingency tables without an association (left table), 
+\caption{\label{tab:unnamed-chunk-226}Contingency tables without an association (left table), 
              and with an association (right table), among two categorical variables}
 
 \centering
@@ -6675,6 +7489,8 @@ The assumptions of the \(\chi^{2}\) goodness of fit test are essentially the sam
   The expected counts are not too low. The rule of thumb is that the expected values (again, not the observed counts) should be greater than 5. If any of the expected values are below 5, the \emph{p}-values generated by the test start to become less reliable.
 \end{enumerate}
 
+The second assumption is not as critical as some people imagine. If we find ourselves in a situation where the expected value in one or more cells is less than 5 there is a simple fix---use a different test. We'll highlight one way to achieve this below.
+
 \hypertarget{carrying-out-a-chi-square-contingency-table-test-in-r}{%
 \section{Carrying out a chi-square contingency table test in R}\label{carrying-out-a-chi-square-contingency-table-test-in-r}}
 
@@ -6682,8 +7498,8 @@ We'll use the ladybird colour and habitat type example to demonstrate how to con
 
 \begin{infobox}{action}
 
-\hypertarget{section-18}{%
-\subsubsection*{}\label{section-18}}
+\hypertarget{section-19}{%
+\subsubsection*{}\label{section-19}}
 \addcontentsline{toc}{subsubsection}{}
 
 Three versions of the ladybird data will be used: LADYBIRDS1.CSV, LADYBIRDS2.CSV, and LADYBIRDS3.CSV. These all contain the same information. They only differ in how it is organised. We assume that each of these has been read into tibbles called \texttt{lady\_bird\_df1}, \texttt{lady\_bird\_df2} and \texttt{lady\_bird\_df3}. For example:
@@ -6961,6 +7777,35 @@ Both methods give similar results in this example, though they aren't exactly th
 
 Don't use the \texttt{correct\ =\ FALSE} option! The default correction is a safer option for 2 x 2 tables.
 
+\begin{infobox}{information}
+
+\hypertarget{what-should-we-do-when-the-expecetd-values-are-below-5}{%
+\subsubsection*{What should we do when the expecetd values are below 5?}\label{what-should-we-do-when-the-expecetd-values-are-below-5}}
+\addcontentsline{toc}{subsubsection}{What should we do when the expecetd values are below 5?}
+
+The expected cell counts all need to be greater than 5 when using the standard \(\chi^{2}\) contingency table test. If thsi assumption is not met, the \(\chi^{2}\) test statistic will deviate from its theoretical distribution and the test becomes unreliable.
+
+Fortunately, if we find ourselves in a situation with low cell counts, \texttt{chisq.test} can be used to carry out an alternative test. We can access this alternative by setting the \texttt{simulate.p.value} argument to \texttt{TRUE}:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{chisq.test}\NormalTok{(lady\_bird\_table, }\AttributeTok{simulate.p.value =} \ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Pearson's Chi-squared test with simulated p-value (based on 2000
+##  replicates)
+## 
+## data:  lady_bird_table
+## X-squared = 20.189, df = NA, p-value = 0.0004998
+\end{verbatim}
+
+What just happened? R used a simulation approach to construct the null distribution for the test. The details don't matter too much, but logic of the approach is a lot like bootstrapping or permutation tests. R generates many hypothetical sets of cell counts based on the null hypothesis of no association, and then compares the distribution of their \(\chi^{2}\) statistics to the value from the true data to calculate a \emph{p}-value.
+
+\end{infobox}
+
 \hypertarget{summarising-the-result-3}{%
 \subsection{Summarising the result}\label{summarising-the-result-3}}
 
@@ -7160,8 +8005,8 @@ It has been hypothesised that plants respond to physical damage to their leaves 
 
 \begin{infobox}{action}
 
-\hypertarget{section-19}{%
-\subsubsection*{}\label{section-19}}
+\hypertarget{section-20}{%
+\subsubsection*{}\label{section-20}}
 \addcontentsline{toc}{subsubsection}{}
 
 The data for this example live in the `LEAF\_DAMAGE.CSV' file. The code below assumes those data have been read into a tibble called \texttt{leaves}. Set that up if you plan to work along.
@@ -7297,8 +8142,8 @@ Let's use the Red wood ants example from the chapter on transformations to see h
 
 \begin{infobox}{action}
 
-\hypertarget{section-20}{%
-\subsubsection*{}\label{section-20}}
+\hypertarget{section-21}{%
+\subsubsection*{}\label{section-21}}
 \addcontentsline{toc}{subsubsection}{}
 
 The data for this example live in the `ANTS1.CSV' file. The code below assumes they have been read into a tibble called \texttt{ants}. We also assume the rowan cases have already been removed, using \texttt{filter}, for example:
@@ -7396,8 +8241,8 @@ In the experiment, 50 cuttlefish were divided at random into 5 groups of 10 and 
 
 \begin{infobox}{action}
 
-\hypertarget{section-21}{%
-\subsubsection*{}\label{section-21}}
+\hypertarget{section-22}{%
+\subsubsection*{}\label{section-22}}
 \addcontentsline{toc}{subsubsection}{}
 
 The data for this example live in the `CUTTLEFISH.CSV' file. The code below assumes those data have been read into a tibble called \texttt{cuttlefish}. Set that up if you plan to work along.
@@ -7506,8 +8351,8 @@ Some bird species form `leks'---gatherings of birds, with males each defending a
 
 \begin{infobox}{action}
 
-\hypertarget{section-22}{%
-\subsubsection*{}\label{section-22}}
+\hypertarget{section-23}{%
+\subsubsection*{}\label{section-23}}
 \addcontentsline{toc}{subsubsection}{}
 
 The data for this example live in the `GROUSE.CSV' file. The code below assumes those data have been read into a tibble called \texttt{grouse}. Set that up if you plan to work along.
@@ -7875,8 +8720,8 @@ It is good not to group numeric data into categories if we can avoid it because 
 Lewis Carroll, \emph{Through the Looking Glass} (1871)
 \end{quote}
 
-\hypertarget{introduction-5}{%
-\section{Introduction}\label{introduction-5}}
+\hypertarget{introduction-7}{%
+\section{Introduction}\label{introduction-7}}
 
 Scientific information is communicated in various ways: through talks and seminars, through posters at meetings, but mainly through scientific papers. Papers published in books or journals provide the main route by which scientific findings are made available to others for evaluation and subsequent use. Over time the scientific paper has developed into a reasonably formal method of communication, with certain structures, styles and conventions. Information is presented in a standardised way, meaning particular bits of information can be extracted more easily by a knowledgeable reader.
 
@@ -7982,8 +8827,8 @@ For example:
 \end{itemize}
 \end{quote}
 
-\hypertarget{introduction-6}{%
-\subsection{Introduction}\label{introduction-6}}
+\hypertarget{introduction-8}{%
+\subsection{Introduction}\label{introduction-8}}
 
 The introduction should:
 
@@ -8121,10 +8966,10 @@ Tables\ldots{}
 \end{itemize}
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1852}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2370}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2815}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2963}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1825}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2336}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2774}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2920}}@{}}
 \caption{ \textbf{Table 2}. The flow rates of the manipulated patches, and mean simultaneous number and turnover (number of different males per day) of territorial males on experimental patches. (Values in parentheses are standard errors for each mean).}\tabularnewline
 \toprule()
 \begin{minipage}[b]{\linewidth}\raggedright

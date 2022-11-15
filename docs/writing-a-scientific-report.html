@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-09-23" />
+<meta name="date" content="2022-11-15" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -92,7 +92,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -105,7 +105,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -467,74 +467,101 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="22.6" data-path="transformations-chapter.html"><a href="transformations-chapter.html#what-about-other-kinds-of-models"><i class="fa fa-check"></i><b>22.6</b> What about other kinds of models?</a></li>
 <li class="chapter" data-level="22.7" data-path="transformations-chapter.html"><a href="transformations-chapter.html#final-thoughts"><i class="fa fa-check"></i><b>22.7</b> Final thoughts</a></li>
 </ul></li>
-<li class="part"><span><b>VIII Frequency Data and Non-parametric Tests</b></span></li>
-<li class="chapter" data-level="23" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html"><i class="fa fa-check"></i><b>23</b> Categorical data</a>
+<li class="part"><span><b>VIII Non-linear Regression</b></span></li>
+<li class="chapter" data-level="23" data-path="types-of-models.html"><a href="types-of-models.html"><i class="fa fa-check"></i><b>23</b> Linear vs non-linear models</a>
 <ul>
-<li class="chapter" data-level="23.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#a-new-kind-of-distribution"><i class="fa fa-check"></i><b>23.1</b> A new kind of distribution</a></li>
-<li class="chapter" data-level="23.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#types-of-test"><i class="fa fa-check"></i><b>23.2</b> Types of test</a>
+<li class="chapter" data-level="23.1" data-path="types-of-models.html"><a href="types-of-models.html#introduction-5"><i class="fa fa-check"></i><b>23.1</b> Introduction</a></li>
+<li class="chapter" data-level="23.2" data-path="types-of-models.html"><a href="types-of-models.html#the-relationship-between-regression-and-anova"><i class="fa fa-check"></i><b>23.2</b> The relationship between regression and ANOVA</a></li>
+<li class="chapter" data-level="23.3" data-path="types-of-models.html"><a href="types-of-models.html#linear-models"><i class="fa fa-check"></i><b>23.3</b> Linear models</a></li>
+<li class="chapter" data-level="23.4" data-path="types-of-models.html"><a href="types-of-models.html#non-linear-models"><i class="fa fa-check"></i><b>23.4</b> Non-linear models</a></li>
+<li class="chapter" data-level="23.5" data-path="types-of-models.html"><a href="types-of-models.html#why-do-we-need-non-linear-regression-models"><i class="fa fa-check"></i><b>23.5</b> Why do we need non-linear regression models?</a></li>
+</ul></li>
+<li class="chapter" data-level="24" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html"><i class="fa fa-check"></i><b>24</b> Non-linear regression in R</a>
 <ul>
-<li class="chapter" data-level="23.2.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-goodness-of-fit-test"><i class="fa fa-check"></i><b>23.2.1</b> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test</a></li>
-<li class="chapter" data-level="23.2.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-contingency-table-test"><i class="fa fa-check"></i><b>23.2.2</b> <span class="math inline">\(\chi^{2}\)</span> contingency table test</a></li>
-<li class="chapter" data-level="23.2.3" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#the-assumptions-and-requirements-of-chi2-tests"><i class="fa fa-check"></i><b>23.2.3</b> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests</a></li>
+<li class="chapter" data-level="24.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#introduction-6"><i class="fa fa-check"></i><b>24.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="24.1.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#first-steps-2"><i class="fa fa-check"></i><b>24.1.1</b> First steps</a></li>
+<li class="chapter" data-level="24.1.2" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#visualising-the-data-2"><i class="fa fa-check"></i><b>24.1.2</b> Visualising the data</a></li>
+</ul></li>
+<li class="chapter" data-level="24.2" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#model-fitting"><i class="fa fa-check"></i><b>24.2</b> Model fitting</a>
+<ul>
+<li class="chapter" data-level="24.2.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#custom-functions"><i class="fa fa-check"></i><b>24.2.1</b> Custom functions</a></li>
+</ul></li>
+<li class="chapter" data-level="24.3" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#checking-the-assumptions"><i class="fa fa-check"></i><b>24.3</b> Checking the assumptions</a></li>
+<li class="chapter" data-level="24.4" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#what-about-significance-tests"><i class="fa fa-check"></i><b>24.4</b> What about significance tests?</a></li>
+<li class="chapter" data-level="24.5" data-path="regression-in-R.html"><a href="regression-in-R.html#present-results"><i class="fa fa-check"></i><b>24.5</b> Presenting results</a>
+<ul>
+<li class="chapter" data-level="24.5.1" data-path="non-linear-regression-in-R.html"><a href="non-linear-regression-in-R.html#plotting-the-fitted-line-and-the-data-1"><i class="fa fa-check"></i><b>24.5.1</b> Plotting the fitted line and the data</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="24" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html"><i class="fa fa-check"></i><b>24</b> Goodness of fit tests</a>
+<li class="part"><span><b>IX Frequency Data and Non-parametric Tests</b></span></li>
+<li class="chapter" data-level="25" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html"><i class="fa fa-check"></i><b>25</b> Categorical data</a>
 <ul>
-<li class="chapter" data-level="24.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#when-do-we-use-a-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>24.1</b> When do we use a chi-square goodness of fit test?</a></li>
-<li class="chapter" data-level="24.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#how-does-the-chi-square-goodness-of-fit-test-work"><i class="fa fa-check"></i><b>24.2</b> How does the chi-square goodness of fit test work?</a>
+<li class="chapter" data-level="25.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#a-new-kind-of-distribution"><i class="fa fa-check"></i><b>25.1</b> A new kind of distribution</a></li>
+<li class="chapter" data-level="25.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#types-of-test"><i class="fa fa-check"></i><b>25.2</b> Types of test</a>
 <ul>
-<li class="chapter" data-level="24.2.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#assumptions-of-the-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>24.2.1</b> Assumptions of the chi-square goodness of fit test</a></li>
+<li class="chapter" data-level="25.2.1" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-goodness-of-fit-test"><i class="fa fa-check"></i><b>25.2.1</b> <span class="math inline">\(\chi^{2}\)</span> goodness of fit test</a></li>
+<li class="chapter" data-level="25.2.2" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#chi2-contingency-table-test"><i class="fa fa-check"></i><b>25.2.2</b> <span class="math inline">\(\chi^{2}\)</span> contingency table test</a></li>
+<li class="chapter" data-level="25.2.3" data-path="categorical-data-intro-chapter.html"><a href="categorical-data-intro-chapter.html#the-assumptions-and-requirements-of-chi2-tests"><i class="fa fa-check"></i><b>25.2.3</b> The assumptions and requirements of <span class="math inline">\(\chi^{2}\)</span> tests</a></li>
 </ul></li>
-<li class="chapter" data-level="24.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#carrying-out-a-chi-square-goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>24.3</b> Carrying out a chi-square goodness of fit test in R</a>
-<ul>
-<li class="chapter" data-level="24.3.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#summarising-the-result-2"><i class="fa fa-check"></i><b>24.3.1</b> Summarising the result</a></li>
-<li class="chapter" data-level="24.3.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#a-bit-more-about-goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>24.3.2</b> A bit more about goodness of fit tests in R</a></li>
-<li class="chapter" data-level="24.3.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#doing-it-the-long-way"><i class="fa fa-check"></i><b>24.3.3</b> Doing it the long way…</a></li>
 </ul></li>
-<li class="chapter" data-level="24.4" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#determining-appropriate-expected-values"><i class="fa fa-check"></i><b>24.4</b> Determining appropriate expected values</a></li>
-</ul></li>
-<li class="chapter" data-level="25" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>25</b> Contingency tables</a>
+<li class="chapter" data-level="26" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html"><i class="fa fa-check"></i><b>26</b> Goodness of fit tests</a>
 <ul>
-<li class="chapter" data-level="25.1" data-path="contingency-tables.html"><a href="contingency-tables.html#when-do-we-use-a-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>25.1</b> When do we use a chi-square contingency table test?</a></li>
-<li class="chapter" data-level="25.2" data-path="contingency-tables.html"><a href="contingency-tables.html#how-does-the-chi-square-contingency-table-test-work"><i class="fa fa-check"></i><b>25.2</b> How does the chi-square contingency table test work?</a>
+<li class="chapter" data-level="26.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#when-do-we-use-a-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>26.1</b> When do we use a chi-square goodness of fit test?</a></li>
+<li class="chapter" data-level="26.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#how-does-the-chi-square-goodness-of-fit-test-work"><i class="fa fa-check"></i><b>26.2</b> How does the chi-square goodness of fit test work?</a>
 <ul>
-<li class="chapter" data-level="25.2.1" data-path="contingency-tables.html"><a href="contingency-tables.html#assumptions-of-the-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>25.2.1</b> Assumptions of the chi-square contingency table test</a></li>
+<li class="chapter" data-level="26.2.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#assumptions-of-the-chi-square-goodness-of-fit-test"><i class="fa fa-check"></i><b>26.2.1</b> Assumptions of the chi-square goodness of fit test</a></li>
 </ul></li>
-<li class="chapter" data-level="25.3" data-path="contingency-tables.html"><a href="contingency-tables.html#carrying-out-a-chi-square-contingency-table-test-in-r"><i class="fa fa-check"></i><b>25.3</b> Carrying out a chi-square contingency table test in R</a>
+<li class="chapter" data-level="26.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#carrying-out-a-chi-square-goodness-of-fit-test-in-r"><i class="fa fa-check"></i><b>26.3</b> Carrying out a chi-square goodness of fit test in R</a>
 <ul>
-<li class="chapter" data-level="25.3.1" data-path="contingency-tables.html"><a href="contingency-tables.html#step-1.-get-the-data-into-the-correct-format"><i class="fa fa-check"></i><b>25.3.1</b> Step 1. Get the data into the correct format</a></li>
-<li class="chapter" data-level="25.3.2" data-path="contingency-tables.html"><a href="contingency-tables.html#step-2.-do-the-test"><i class="fa fa-check"></i><b>25.3.2</b> Step 2. Do the test</a></li>
-<li class="chapter" data-level="25.3.3" data-path="contingency-tables.html"><a href="contingency-tables.html#summarising-the-result-3"><i class="fa fa-check"></i><b>25.3.3</b> Summarising the result</a></li>
+<li class="chapter" data-level="26.3.1" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#summarising-the-result-2"><i class="fa fa-check"></i><b>26.3.1</b> Summarising the result</a></li>
+<li class="chapter" data-level="26.3.2" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#a-bit-more-about-goodness-of-fit-tests-in-r"><i class="fa fa-check"></i><b>26.3.2</b> A bit more about goodness of fit tests in R</a></li>
+<li class="chapter" data-level="26.3.3" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#doing-it-the-long-way"><i class="fa fa-check"></i><b>26.3.3</b> Doing it the long way…</a></li>
 </ul></li>
-<li class="chapter" data-level="25.4" data-path="contingency-tables.html"><a href="contingency-tables.html#working-with-larger-tables"><i class="fa fa-check"></i><b>25.4</b> Working with larger tables</a></li>
+<li class="chapter" data-level="26.4" data-path="goodness-of-fit-tests.html"><a href="goodness-of-fit-tests.html#determining-appropriate-expected-values"><i class="fa fa-check"></i><b>26.4</b> Determining appropriate expected values</a></li>
 </ul></li>
-<li class="chapter" data-level="26" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html"><i class="fa fa-check"></i><b>26</b> Non-parametric tests</a>
+<li class="chapter" data-level="27" data-path="contingency-tables.html"><a href="contingency-tables.html"><i class="fa fa-check"></i><b>27</b> Contingency tables</a>
 <ul>
-<li class="chapter" data-level="26.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-is-non-par"><i class="fa fa-check"></i><b>26.1</b> What is a non-parametric test?</a></li>
-<li class="chapter" data-level="26.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#why-when"><i class="fa fa-check"></i><b>26.2</b> Why use non-parametric tests … and when?</a>
+<li class="chapter" data-level="27.1" data-path="contingency-tables.html"><a href="contingency-tables.html#when-do-we-use-a-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>27.1</b> When do we use a chi-square contingency table test?</a></li>
+<li class="chapter" data-level="27.2" data-path="contingency-tables.html"><a href="contingency-tables.html#how-does-the-chi-square-contingency-table-test-work"><i class="fa fa-check"></i><b>27.2</b> How does the chi-square contingency table test work?</a>
 <ul>
-<li class="chapter" data-level="26.2.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-advantages"><i class="fa fa-check"></i><b>26.2.1</b> What are the advantages?</a></li>
-<li class="chapter" data-level="26.2.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-disadvantages"><i class="fa fa-check"></i><b>26.2.2</b> What are the disadvantages?</a></li>
+<li class="chapter" data-level="27.2.1" data-path="contingency-tables.html"><a href="contingency-tables.html#assumptions-of-the-chi-square-contingency-table-test"><i class="fa fa-check"></i><b>27.2.1</b> Assumptions of the chi-square contingency table test</a></li>
 </ul></li>
-<li class="chapter" data-level="26.3" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-par-intro"><i class="fa fa-check"></i><b>26.3</b> How does a non-parametric test work?</a></li>
-<li class="chapter" data-level="26.4" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-parametric-equivalents"><i class="fa fa-check"></i><b>26.4</b> Non-parametric equivalents</a></li>
-<li class="chapter" data-level="26.5" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>26.5</b> Wilcoxon signed-rank test</a>
+<li class="chapter" data-level="27.3" data-path="contingency-tables.html"><a href="contingency-tables.html#carrying-out-a-chi-square-contingency-table-test-in-r"><i class="fa fa-check"></i><b>27.3</b> Carrying out a chi-square contingency table test in R</a>
 <ul>
-<li class="chapter" data-level="26.5.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae"><i class="fa fa-check"></i><b>26.5.1</b> Leaf damage, plant defences and feeding by winter moth larvae</a></li>
+<li class="chapter" data-level="27.3.1" data-path="contingency-tables.html"><a href="contingency-tables.html#step-1.-get-the-data-into-the-correct-format"><i class="fa fa-check"></i><b>27.3.1</b> Step 1. Get the data into the correct format</a></li>
+<li class="chapter" data-level="27.3.2" data-path="contingency-tables.html"><a href="contingency-tables.html#step-2.-do-the-test"><i class="fa fa-check"></i><b>27.3.2</b> Step 2. Do the test</a></li>
+<li class="chapter" data-level="27.3.3" data-path="contingency-tables.html"><a href="contingency-tables.html#summarising-the-result-3"><i class="fa fa-check"></i><b>27.3.3</b> Summarising the result</a></li>
 </ul></li>
-<li class="chapter" data-level="26.6" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#mann-whitney"><i class="fa fa-check"></i><b>26.6</b> The Mann-Whitney <em>U</em>-test</a>
+<li class="chapter" data-level="27.4" data-path="contingency-tables.html"><a href="contingency-tables.html#working-with-larger-tables"><i class="fa fa-check"></i><b>27.4</b> Working with larger tables</a></li>
+</ul></li>
+<li class="chapter" data-level="28" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html"><i class="fa fa-check"></i><b>28</b> Non-parametric tests</a>
 <ul>
-<li class="chapter" data-level="26.6.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#ant-foraging"><i class="fa fa-check"></i><b>26.6.1</b> Ant foraging</a></li>
-</ul></li>
-<li class="chapter" data-level="26.7" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#the-kruskal-wallis-test"><i class="fa fa-check"></i><b>26.7</b> The Kruskal-Wallis test</a>
+<li class="chapter" data-level="28.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-is-non-par"><i class="fa fa-check"></i><b>28.1</b> What is a non-parametric test?</a></li>
+<li class="chapter" data-level="28.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#why-when"><i class="fa fa-check"></i><b>28.2</b> Why use non-parametric tests … and when?</a>
 <ul>
-<li class="chapter" data-level="26.7.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#learning-in-cuttlefish"><i class="fa fa-check"></i><b>26.7.1</b> Learning in cuttlefish</a></li>
+<li class="chapter" data-level="28.2.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-advantages"><i class="fa fa-check"></i><b>28.2.1</b> What are the advantages?</a></li>
+<li class="chapter" data-level="28.2.2" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#what-are-the-disadvantages"><i class="fa fa-check"></i><b>28.2.2</b> What are the disadvantages?</a></li>
 </ul></li>
-<li class="chapter" data-level="26.8" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>26.8</b> Spearman’s rank correlation</a>
+<li class="chapter" data-level="28.3" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-par-intro"><i class="fa fa-check"></i><b>28.3</b> How does a non-parametric test work?</a></li>
+<li class="chapter" data-level="28.4" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#non-parametric-equivalents"><i class="fa fa-check"></i><b>28.4</b> Non-parametric equivalents</a></li>
+<li class="chapter" data-level="28.5" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#wilcoxon-signed-rank-test"><i class="fa fa-check"></i><b>28.5</b> Wilcoxon signed-rank test</a>
 <ul>
-<li class="chapter" data-level="26.8.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#grouse-lekking"><i class="fa fa-check"></i><b>26.8.1</b> Grouse lekking</a></li>
+<li class="chapter" data-level="28.5.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#leaf-damage-plant-defences-and-feeding-by-winter-moth-larvae"><i class="fa fa-check"></i><b>28.5.1</b> Leaf damage, plant defences and feeding by winter moth larvae</a></li>
 </ul></li>
-<li class="chapter" data-level="26.9" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#parting-words"><i class="fa fa-check"></i><b>26.9</b> Parting words</a></li>
+<li class="chapter" data-level="28.6" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#mann-whitney"><i class="fa fa-check"></i><b>28.6</b> The Mann-Whitney <em>U</em>-test</a>
+<ul>
+<li class="chapter" data-level="28.6.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#ant-foraging"><i class="fa fa-check"></i><b>28.6.1</b> Ant foraging</a></li>
+</ul></li>
+<li class="chapter" data-level="28.7" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#the-kruskal-wallis-test"><i class="fa fa-check"></i><b>28.7</b> The Kruskal-Wallis test</a>
+<ul>
+<li class="chapter" data-level="28.7.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#learning-in-cuttlefish"><i class="fa fa-check"></i><b>28.7.1</b> Learning in cuttlefish</a></li>
+</ul></li>
+<li class="chapter" data-level="28.8" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#spearmans-rank-correlation"><i class="fa fa-check"></i><b>28.8</b> Spearman’s rank correlation</a>
+<ul>
+<li class="chapter" data-level="28.8.1" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#grouse-lekking"><i class="fa fa-check"></i><b>28.8.1</b> Grouse lekking</a></li>
+</ul></li>
+<li class="chapter" data-level="28.9" data-path="non-parametric-tests.html"><a href="non-parametric-tests.html#parting-words"><i class="fa fa-check"></i><b>28.9</b> Parting words</a></li>
 </ul></li>
 <li class="appendix"><span><b>Supplementary Material</b></span></li>
 <li class="chapter" data-level="A" data-path="choosing-models-and-tests.html"><a href="choosing-models-and-tests.html"><i class="fa fa-check"></i><b>A</b> Choosing models and tests</a>
@@ -566,12 +593,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html"><i class="fa fa-check"></i><b>B</b> Writing a scientific report</a>
 <ul>
-<li class="chapter" data-level="B.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-5"><i class="fa fa-check"></i><b>B.1</b> Introduction</a></li>
+<li class="chapter" data-level="B.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-7"><i class="fa fa-check"></i><b>B.1</b> Introduction</a></li>
 <li class="chapter" data-level="B.2" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#the-structure-of-a-scientific-report"><i class="fa fa-check"></i><b>B.2</b> The structure of a scientific report</a>
 <ul>
 <li class="chapter" data-level="B.2.1" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#title"><i class="fa fa-check"></i><b>B.2.1</b> Title</a></li>
 <li class="chapter" data-level="B.2.2" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#abstract-or-summary"><i class="fa fa-check"></i><b>B.2.2</b> Abstract or Summary</a></li>
-<li class="chapter" data-level="B.2.3" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-6"><i class="fa fa-check"></i><b>B.2.3</b> Introduction</a></li>
+<li class="chapter" data-level="B.2.3" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#introduction-8"><i class="fa fa-check"></i><b>B.2.3</b> Introduction</a></li>
 <li class="chapter" data-level="B.2.4" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#methods"><i class="fa fa-check"></i><b>B.2.4</b> Methods</a></li>
 <li class="chapter" data-level="B.2.5" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#results"><i class="fa fa-check"></i><b>B.2.5</b> Results</a></li>
 <li class="chapter" data-level="B.2.6" data-path="writing-a-scientific-report.html"><a href="writing-a-scientific-report.html#discussion"><i class="fa fa-check"></i><b>B.2.6</b> Discussion</a></li>
@@ -605,20 +632,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="writing-a-scientific-report" class="section level1 hasAnchor" number="28">
+<div id="writing-a-scientific-report" class="section level1 hasAnchor" number="30">
 <h1><span class="header-section-number">B</span> Writing a scientific report<a href="writing-a-scientific-report.html#writing-a-scientific-report" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <blockquote>
 <p><em>“The question is,” said Alice, “whether you can make words mean so many different things.”</em> <BR></p>
 <p>“The question is,” said Humpty Dumpty, “which is to be master – that’s all.”</p>
 <p>Lewis Carroll, <em>Through the Looking Glass</em> (1871)</p>
 </blockquote>
-<div id="introduction-5" class="section level2 hasAnchor" number="28.1">
-<h2><span class="header-section-number">B.1</span> Introduction<a href="writing-a-scientific-report.html#introduction-5" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="introduction-7" class="section level2 hasAnchor" number="30.1">
+<h2><span class="header-section-number">B.1</span> Introduction<a href="writing-a-scientific-report.html#introduction-7" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Scientific information is communicated in various ways: through talks and seminars, through posters at meetings, but mainly through scientific papers. Papers published in books or journals provide the main route by which scientific findings are made available to others for evaluation and subsequent use. Over time the scientific paper has developed into a reasonably formal method of communication, with certain structures, styles and conventions. Information is presented in a standardised way, meaning particular bits of information can be extracted more easily by a knowledgeable reader.</p>
 <p>In this chapter, we will examine the structure and conventions of a biological paper, using an example of a field study of the territorial behaviour of a damselfly. We aim to illustrate the typical form and content of a scientific paper. Of course, papers vary in their exact requirements, and no one example can cover all the possibilities. Read recent papers in a relevant subject area and analyse their styles and structures to see which work best.</p>
 <p>The conventions discussed below are not rules and should be flexibly interpreted under the guiding principle that the aim is to present information as clearly, concisely and unambiguously as possible. Although taking the scientific paper as a model, the principles apply to other, less formal project write-ups and reports.</p>
 </div>
-<div id="the-structure-of-a-scientific-report" class="section level2 hasAnchor" number="28.2">
+<div id="the-structure-of-a-scientific-report" class="section level2 hasAnchor" number="30.2">
 <h2><span class="header-section-number">B.2</span> The structure of a scientific report<a href="writing-a-scientific-report.html#the-structure-of-a-scientific-report" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The normal scientific report has a standard structure (parts in parentheses are optional):</p>
 <ol style="list-style-type: decimal">
@@ -632,7 +659,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Literature cited</li>
 <li>(Appendix)</li>
 </ol>
-<div id="title" class="section level3 hasAnchor" number="28.2.1">
+<div id="title" class="section level3 hasAnchor" number="30.2.1">
 <h3><span class="header-section-number">B.2.1</span> Title<a href="writing-a-scientific-report.html#title" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Although not really a section of the paper, it is worth giving the title some thought. Aim for something that gives a fairly specific description of the topic of the paper, and possibly the essential result, but without being too long:</p>
 <blockquote>
@@ -657,7 +684,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Don’t put irrelevant specific information in the title. It might be irrelevant to say that we carried out a study in a particular river—that detail is probably not important for the question we’re asking. However, the reference to the North York Moors above is relevant because the study is of an area-specific problem (the study is primarily of use to people who want to know about bracken in that area).</p>
 </div>
-<div id="abstract-or-summary" class="section level3 hasAnchor" number="28.2.2">
+<div id="abstract-or-summary" class="section level3 hasAnchor" number="30.2.2">
 <h3><span class="header-section-number">B.2.2</span> Abstract or Summary<a href="writing-a-scientific-report.html#abstract-or-summary" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The purpose of an abstract is to present a factual summary of the main purpose, results and conclusions of the report which is short and makes sense on its own. Often it is best (and some journals require it) to do this as 3-6 numbered points comprising some, or all, the following:</p>
 <ul>
@@ -677,8 +704,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </blockquote>
 </div>
-<div id="introduction-6" class="section level3 hasAnchor" number="28.2.3">
-<h3><span class="header-section-number">B.2.3</span> Introduction<a href="writing-a-scientific-report.html#introduction-6" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="introduction-8" class="section level3 hasAnchor" number="30.2.3">
+<h3><span class="header-section-number">B.2.3</span> Introduction<a href="writing-a-scientific-report.html#introduction-8" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The introduction should:</p>
 <ul>
 <li>Set the background to the question, using the literature (Why is it interesting? Why is it important?).</li>
@@ -703,7 +730,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>Don’t separate out the question, hypothesis and predictions as special statements in bold or whatever, or put them under separate headings. Although they provide vitally important context to a study, they should simply appear where necessary as part of the normal text.</p>
 </div>
-<div id="methods" class="section level3 hasAnchor" number="28.2.4">
+<div id="methods" class="section level3 hasAnchor" number="30.2.4">
 <h3><span class="header-section-number">B.2.4</span> Methods<a href="writing-a-scientific-report.html#methods" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The Methods section should provide enough information about how the study was carried out to enable the reader to evaluate the validity of the results.</p>
 <ul>
@@ -735,7 +762,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>Experimental manipulations of flow rate</strong></p>
 </blockquote>
 </div>
-<div id="results" class="section level3 hasAnchor" number="28.2.5">
+<div id="results" class="section level3 hasAnchor" number="30.2.5">
 <h3><span class="header-section-number">B.2.5</span> Results<a href="writing-a-scientific-report.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The central goal of a results section is to provide a clear account of the material factual findings of the investigation, using a combination of text, summarised data, and figures. If different parts of the study are covered under different subheadings in the Methods, then use the same subheadings to organize the Results.</p>
 <p>The Results section should focus on explaining clearly what the results are, but should not contain discussion of the biological implications of the results.</p>
@@ -758,12 +785,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>use just horizontal lines as separators</p></li>
 <li><p>are labelled: Table 1, Table 2, etc.</p></li>
 </ul>
-<table>
+<table style="width:99%;">
 <caption><BR> <strong>Table 2</strong>. The flow rates of the manipulated patches, and mean simultaneous number and turnover (number of different males per day) of territorial males on experimental patches. (Values in parentheses are standard errors for each mean).</caption>
 <colgroup>
 <col width="18%" />
 <col width="23%" />
-<col width="28%" />
+<col width="27%" />
 <col width="29%" />
 </colgroup>
 <thead>
@@ -802,7 +829,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>can comprise a single graph or diagram, but a single figure can also comprise several graphs – in which case each should be labelled: a, b, c, etc.</p></li>
 </ul>
 </div>
-<div id="discussion" class="section level3 hasAnchor" number="28.2.6">
+<div id="discussion" class="section level3 hasAnchor" number="30.2.6">
 <h3><span class="header-section-number">B.2.6</span> Discussion<a href="writing-a-scientific-report.html#discussion" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The function of the discussion is to consider the meaning of the results and the light they throw on the original question; to assess the results in the context of other studies; and, if appropriate, to consider the limitations of the work and future directions for study. The exact structure and content of the Discussion will vary somewhat depending on the particular study and what the results show, but usually the following components should be included.</p>
 <p>It is usually helpful to start the discussion with a short paragraph, or so, summarizing the key results. e.g.,</p>
@@ -825,11 +852,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The Discussion should not contain new results (except occasionally for small additional analyses of the data that have arisen as a direct consequence of interpretation of the main results - and that shed light upon the questions in the paper). Also avoid over-extending the implications of what was found. A slight trend in the results from one particular experiment may not be an entirely sound basis from which to challenge the fundamental tenets of evolutionary biology. (On the other hand it just could be; the skill is in spotting the few occasions when it is!).</p>
 <p>Overall, keep the focus of the discussion firmly on the results, don’t wander off into ten pages of philosophical discourse on the state of the field in general. And keep the volume and depth of the discussion in proportion to the rest of the paper, and to the significance (biological rather than statistical) of the results.</p>
 </div>
-<div id="acknowledgements" class="section level3 hasAnchor" number="28.2.7">
+<div id="acknowledgements" class="section level3 hasAnchor" number="30.2.7">
 <h3><span class="header-section-number">B.2.7</span> Acknowledgements<a href="writing-a-scientific-report.html#acknowledgements" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This is the place to acknowledge persons or organizations who have made significant contributions to the execution of the work. For example: funding bodies, people who have contributed ideas or assisted with some of the actual work, landowners giving access to sites, specialists who have made identifications and people who have read and commented on the manuscript. Don’t get carried away—there’s no need to thank every friend, relation and loved one for general help through life’s little crises.</p>
 </div>
-<div id="literature-cited-references" class="section level3 hasAnchor" number="28.2.8">
+<div id="literature-cited-references" class="section level3 hasAnchor" number="30.2.8">
 <h3><span class="header-section-number">B.2.8</span> Literature cited / References<a href="writing-a-scientific-report.html#literature-cited-references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This section should provide a complete listing of all, and only, references cited in the text of the report. There are three things to consider here:</p>
 <ul>
@@ -837,7 +864,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>How to cite it in the text</p></li>
 <li><p>How to construct a reference list</p></li>
 </ul>
-<div id="what-to-cite" class="section level4 hasAnchor" number="28.2.8.1">
+<div id="what-to-cite" class="section level4 hasAnchor" number="30.2.8.1">
 <h4><span class="header-section-number">B.2.8.1</span> What to cite<a href="writing-a-scientific-report.html#what-to-cite" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We should cite appropriate references wherever a point of substance (fact, or opinion) is made that is not our own or may not be regarded as common knowledge. e.g.</p>
 <p>Facts:</p>
@@ -857,7 +884,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Damselflies are predatory both in the larval and adult stages.</p>
 </blockquote>
 </div>
-<div id="styles-of-citation" class="section level4 hasAnchor" number="28.2.8.2">
+<div id="styles-of-citation" class="section level4 hasAnchor" number="30.2.8.2">
 <h4><span class="header-section-number">B.2.8.2</span> Styles of citation<a href="writing-a-scientific-report.html#styles-of-citation" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If writing a manuscript for publication in a scientific journal, obviously use the style of the journal in question (exactly—including punctuation). When writing any other type of report, we can choose our own style, but if in doubt the easiest approach is probably to follow the style of a major journal in the appropriate subject area. There are two main styles in widespread use:</p>
 <p>The most common (and most straightforward) cites references in the text using names and dates, and lists all references alphabetically in the reference list.</p>
@@ -919,12 +946,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Managing citations and generating reference lists can be a painful process, especially when everything is done ‘manually’ (cut and paste, cut and paste, cut and paste…). These days a number of reasonably good reference managers (software packages) are available to help with the process of managing references, inserting citations, formatting, and generating reference lists. Endnote, Paperpile and Zotero are among the most popular, but there <a href="https://en.wikipedia.org/wiki/Comparison_of_reference_management_software">are many different options</a>. Choose one, and learn how to use it. This will save a huge amount of effort in the long run.</p>
 </div>
 </div>
-<div id="appendices" class="section level3 hasAnchor" number="28.2.9">
+<div id="appendices" class="section level3 hasAnchor" number="30.2.9">
 <h3><span class="header-section-number">B.2.9</span> Appendices<a href="writing-a-scientific-report.html#appendices" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Use appendices for large amounts of raw data, long species lists, detailed mathematical or laboratory working, of a non-standard method, or (short) program listings, but only where the inclusion of such information markedly enhances the usefulness of the paper. Normally such appendices are not required. Avoid using them just to show how much work went into a study!</p>
 </div>
 </div>
-<div id="presenting-species-names" class="section level2 hasAnchor" number="28.3">
+<div id="presenting-species-names" class="section level2 hasAnchor" number="30.3">
 <h2><span class="header-section-number">B.3</span> Presenting species names<a href="writing-a-scientific-report.html#presenting-species-names" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>A final thing worth noting, is the correct way to present species names (there is an example of it in the passage above). This causes a great deal of confusion, largely because it is not always appreciated that specific meaning attaches to the conventions used for presenting species names. The name above, <em>Calopteryx virgo</em> Linnaeus, has several distinct elements in its presentation (italics, upper case initial letter(s) etc.). <strong>These elements matter</strong>. The full meanings of each of the various elements one might find in a scientific name are too extensive to cover here, but the following guidelines should cover most situations.</p>
 <p>Presentation of common names is less fixed by convention than of scientific binomials but, in general, common names can be written with lower case initial letters unless the name itself contains a proper name (e.g. Norway spruce). Common names are written in the same typeface as the normal text. Common names can be used in reports, but the scientific binomial is a unique identifier that provides a standard, internationally recognized, label for a species. A report should always include the scientific name of the species we’re dealing with.</p>
@@ -954,7 +981,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </blockquote>
 <p>There is only one correct way of abbreviating the name: shorten the genus to its initial letter (plus full stop) and keep the full specific name; <strong>never do the reverse</strong> (<em>Calopteryx v.</em>). If there is a subspecies name then it’s fine to abbreviate both generic and specific names, e.g., <em>C. s. xanthostoma</em>.</p>
 </div>
-<div id="approaches-to-writing" class="section level2 hasAnchor" number="28.4">
+<div id="approaches-to-writing" class="section level2 hasAnchor" number="30.4">
 <h2><span class="header-section-number">B.4</span> Approaches to writing<a href="writing-a-scientific-report.html#approaches-to-writing" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Everyone tackles the task of writing a report in different ways, dictated by a combination of personal preference and practical constraints. That said, we can still provide some useful suggestions for approaching a scientific writing task.</p>
 <p>Most importantly, separate the process of writing, editing and revising—these are not the same thing. Begin with a clear written plan of what to say before starting, but expect to go through several cycles of writing, editing and revising a report before it is satisfactory (it is impossible to get everything right the first time):</p>
@@ -968,7 +995,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Keep the writing simple, clear and concise. Science writing is about clear communication, not verbal acrobatics. Explain things to an appropriate level for the intended audience. This is harder than it sounds. By the time we reach the writing stage, we have usually spent a good deal of time thinking about the problem we’re discussing. Things that seem ‘obvious’ may not be so obvious to a naive reader.</p>
 <p>Find a critical friend to read a draft when it’s ready (and be prepared to accept their honest comments!). It is of value to have the manuscript read by people who know the field and those who don’t; they will pick up different things.</p>
 <p>Finally, whenever possible, it is worth putting the report away for a couple of weeks and doing something else, then going back and rereading it. A report’s faults are much easier to spot after a break from working on it.</p>
-<div id="a-last-piece-of-advice" class="section level3 hasAnchor" number="28.4.1">
+<div id="a-last-piece-of-advice" class="section level3 hasAnchor" number="30.4.1">
 <h3><span class="header-section-number">B.4.1</span> A last piece of advice…<a href="writing-a-scientific-report.html#a-last-piece-of-advice" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>No discussion can cover all the different sorts of report a scientist may be required to write at one time or another, but the ideas above provide a guide to one of the commonest. It is only a guide, and some circumstances will require a different approach or structure.</p>
 <p>Writing isn’t easy. Like any complex skill, it takes a great deal of time and effort to develop. People learn to write in different ways, and what works for one person may not work for another. Nonetheless, two pieces of advice from experienced writers crop up time and time again:</p>

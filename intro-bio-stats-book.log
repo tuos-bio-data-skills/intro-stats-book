@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.18)  23 SEP 2022 15:21
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018) (preloaded format=xelatex 2019.3.18)  15 NOV 2022 12:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -933,6 +933,9 @@ File: bkm-dvipdfm.def 2016/05/17 v1.26 bookmark driver for dvipdfm (HO)
 Package: xurl 2018/01/09 v 0.03 modify URL breaks
 ) (./intro-bio-stats-book.aux
 
+LaTeX Warning: Label `present-results' multiply defined.
+
+
 LaTeX Warning: Label `intro' multiply defined.
 
 )
@@ -1293,7 +1296,10 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 7.01224pt on input line 2.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.98067pt on input line 2.
-[3] [4] [5] [6])
+[3] [4] [5]
+Underfull \vbox (badness 6461) has occurred while \output is active []
+
+[6])
 \tf@toc=\write4
 \openout4 = `intro-bio-stats-book.toc'.
 
@@ -2503,150 +2509,294 @@ Chapter 23.
 [267
 
 ]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6187--6187
+[]\TU/lmtt/m/n/10 ## $ Supplement <chr> "None", "None", "None", "None", "None",
+ "None", "None", "No~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6187--6187
+[]\TU/lmtt/m/n/10 ## $ WeightGain <dbl> 13, 20, 17, 16, 15, 14, 10, 20, 15, 18,
+ 10, 22, 23, 19, 25,~[] 
+ []
+
+[268]
+Underfull \hbox (badness 1533) in paragraph at lines 6233--6234
+[]\TU/lmr/m/n/10 This code creates a tibble called \TU/lmtt/m/n/10 corn_crake_r
+eg \TU/lmr/m/n/10 containing the origi-
+ []
+
+
+Underfull \vbox (badness 1776) has occurred while \output is active []
+
+[269]
+File: intro-bio-stats-book_files/figure-latex/unnamed-chunk-199-1.pdf Graphic f
+ile (type pdf)
+<use intro-bio-stats-book_files/figure-latex/unnamed-chunk-199-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[270] [271]
+File: intro-bio-stats-book_files/figure-latex/unnamed-chunk-202-1.pdf Graphic f
+ile (type pdf)
+<use intro-bio-stats-book_files/figure-latex/unnamed-chunk-202-1.pdf>
+[272]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 6369--6369
+[]\TU/lmtt/m/n/10 ## Model 2: WeightGain ~ 0 + Allvit + Earlybird + Linseed + S
+izefast + None[] 
+ []
+
+[273] [274] [275] [276]
+Underfull \hbox (badness 1147) in paragraph at lines 6488--6488
+[]\TU/lmr/bx/n/14.4 Why do we need non-linear regression
+ []
+
+File: intro-bio-stats-book_files/figure-latex/michaelis–menten-plot-1.pdf Graph
+ic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/michaelis–menten-plot-1.pdf>
+[277] [278
+
+]
+Chapter 24.
+[279]
+File: images/action.png Graphic file (type bmp)
+<images/action.png>
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6548--6548
+[]\TU/lmtt/m/n/10 ## $ pconc   <dbl> 0.04882812, 0.19531250, 0.39062500, 0.7812
+5000, 1.56250000, 3.~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6548--6548
+[]\TU/lmtt/m/n/10 ## $ density <dbl> 0.017500, 0.122500, 0.210500, 0.375500, 0.
+611500, 1.010000, 1.~[] 
+ []
+
+File: intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-1-1
+.pdf Graphic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-1-1.
+pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[280]
+File: intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-2-1
+.pdf Graphic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/non-linear-worked-scatterplot-2-1.
+pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[281]
+File: images/information.png Graphic file (type bmp)
+<images/information.png>
+[282] [283] [284] [285]
+File: images/information.png Graphic file (type bmp)
+<images/information.png>
+[286]
+File: intro-bio-stats-book_files/figure-latex/non-linear-worked-diag-1-1.pdf Gr
+aphic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/non-linear-worked-diag-1-1.pdf>
+
+Underfull \vbox (badness 1226) has occurred while \output is active []
+
+[287] [288] [289] [290]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6933--6933
+[]\TU/lmtt/m/n/10 ## $ pconc   <dbl> 0.04000000, 0.06798799, 0.09597598, 0.1239
+6396, 0.15195195, 0.~[] 
+ []
+
+
+Overfull \hbox (85.5pt too wide) in paragraph at lines 6933--6933
+[]\TU/lmtt/m/n/10 ## $ density <dbl> 0.02319109, 0.03895943, 0.05444924, 0.0696
+8449, 0.08468013, 0.~[] 
+ []
+
+File: intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-1-1.
+pdf Graphic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-1-1.p
+df>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[291]
+File: intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-2-1.
+pdf Graphic file (type pdf)
+<use intro-bio-stats-book_files/figure-latex/nonlinreg-worked-publication-2-1.p
+df>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[292] [293] [294
+
+] [295] [296]
+Chapter 25.
+[297
+
+]
 File: images/warning.png Graphic file (type bmp)
 <images/warning.png>
 File: intro-bio-stats-book_files/figure-latex/chi-dist-1-eg-1.pdf Graphic file 
 (type pdf)
 <use intro-bio-stats-book_files/figure-latex/chi-dist-1-eg-1.pdf>
-[268]
+[298]
 File: intro-bio-stats-book_files/figure-latex/chi-test-eg-1.pdf Graphic file (t
 ype pdf)
 <use intro-bio-stats-book_files/figure-latex/chi-test-eg-1.pdf>
-[269]
+[299]
 Underfull \vbox (badness 4556) has occurred while \output is active []
 
-[270] [271] [272]
-Chapter 24.
-[273
+[300] [301] [302]
+Chapter 26.
+[303
 
-] [274]
+] [304]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
-[275] [276]
+[305] [306]
 File: images/information.png Graphic file (type bmp)
 <images/information.png>
-[277]
-Overfull \hbox (54.0pt too wide) in paragraph at lines 6470--6470
+[307]
+Overfull \hbox (54.0pt too wide) in paragraph at lines 7284--7284
 []\TU/lmtt/m/n/10 ## Warning in chisq.test(c(2, 5, 7, 5, 5)): Chi-squared appro
 ximation may be[] 
  []
 
-[278] [279] [280
+[308] [309] [310
 
 ]
-Chapter 25.
+Chapter 27.
 
 Overfull \vbox (2.12392pt too high) has occurred while \output is active []
 
-[281]
+[311]
 Underfull \vbox (badness 1527) has occurred while \output is active []
 
-[282]
+[312]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Overfull \hbox (27.34233pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 25.2.  HOW DOES THE CHI-SQUARE CONTINGENCY TABLE TEST WORK? \TU
-/lmr/m/n/10 283
+\TU/lmr/m/sl/10 27.2.  HOW DOES THE CHI-SQUARE CONTINGENCY TABLE TEST WORK? \TU
+/lmr/m/n/10 313
  []
 
-[283] [284]
+[313] [314]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
 
 Overfull \hbox (20.86124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 25.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
-U/lmr/m/n/10 285
+\TU/lmr/m/sl/10 27.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
+U/lmr/m/n/10 315
  []
 
-[285]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6726--6726
+[315]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7542--7542
 []\TU/lmtt/m/n/10 ## $ Habitat <chr> "Rural", "Rural", "Rural", "Rural", "Rural
 ", "Rural", "Rural",~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6726--6726
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7542--7542
 []\TU/lmtt/m/n/10 ## $ Colour  <chr> "Black", "Black", "Black", "Black", "Black
 ", "Black", "Black",~[] 
  []
 
-[286]
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6793--6793
+[316]
+Overfull \hbox (20.86124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 27.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
+U/lmr/m/n/10 317
+ []
+
+[317]
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7609--7609
 []\TU/lmtt/m/n/10 ## $ Habitat <chr> "Rural", "Rural", "Rural", "Rural", "Rural
 ", "Rural", "Rural",~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6793--6793
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7609--7609
 []\TU/lmtt/m/n/10 ## $ Site    <chr> "R1", "R2", "R3", "R4", "R5", "R1", "R2", 
 "R3", "R4", "R5", "U~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6793--6793
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7609--7609
 []\TU/lmtt/m/n/10 ## $ Colour  <chr> "Black", "Black", "Black", "Black", "Black
 ", "Red", "Red", "Re~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 6793--6793
+Overfull \hbox (85.5pt too wide) in paragraph at lines 7609--7609
 []\TU/lmtt/m/n/10 ## $ Number  <dbl> 10, 3, 4, 7, 6, 15, 18, 9, 12, 16, 32, 25,
  25, 17, 16, 17, 23,~[] 
  []
 
-
+[318]
 Overfull \hbox (20.86124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 25.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
-U/lmr/m/n/10 287
+\TU/lmr/m/sl/10 27.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
+U/lmr/m/n/10 319
  []
 
-[287] [288]
-Overfull \hbox (20.86124pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 25.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
-U/lmr/m/n/10 289
- []
-
-[289]
-Underfull \hbox (badness 2990) in paragraph at lines 6932--6933
+[319]
+Underfull \hbox (badness 2990) in paragraph at lines 7748--7749
 \TU/lmtt/m/n/10 test with Yates[] continuity correction\TU/lmr/m/n/10 ) and the
  data used (\TU/lmtt/m/n/10 data:
  []
 
 File: images/information.png Graphic file (type bmp)
 <images/information.png>
-[290] [291] [292]
-Chapter 26.
+
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+[320]
+File: images/information.png Graphic file (type bmp)
+<images/information.png>
+
+Overfull \hbox (37.0pt too wide) in paragraph at lines 7803--7803
+ []\TU/lmtt/m/n/10 ##  Pearson[]s Chi-squared test with simulated p-value (base
+d on 2000[] 
+ []
+
+
+Overfull \hbox (20.86124pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 27.3.  CARRYING OUT A CHI-SQUARE CONTINGENCY TABLE TEST IN R \T
+U/lmr/m/n/10 321
+ []
+
+[321] [322] [323] [324
+
+]
+Chapter 28.
 
 Underfull \vbox (badness 2111) has occurred while \output is active []
 
-[293
-
-] [294] [295]
-Underfull \hbox (badness 1303) in paragraph at lines 7112--7113
+[325] [326] [327]
+Underfull \hbox (badness 1303) in paragraph at lines 7957--7958
 []\TU/lmr/bx/n/10 Spearman’s Rank correlation\TU/lmr/m/n/10 : This is equivalen
 t to Pearson’s
  []
 
 File: images/warning.png Graphic file (type bmp)
 <images/warning.png>
-[296] [297]
+[328] [329]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7179--7179
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8024--8024
 []\TU/lmtt/m/n/10 ## $ ID       <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 , 14, 15, 16, 17, 18~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7179--7179
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8024--8024
 []\TU/lmtt/m/n/10 ## $ LeafType <chr> "Notdamaged", "Notdamaged", "Notdamaged",
  "Notdamaged", "Notd~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7179--7179
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8024--8024
 []\TU/lmtt/m/n/10 ## $ Damage   <dbl> 65, 0, 10, 45, 55, 45, 0, 10, 5, 70, 55, 
 40, 0, 70, 65, 35, 6~[] 
  []
@@ -2657,54 +2807,54 @@ file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[298] [299]
+[330] [331]
 File: intro-bio-stats-book_files/figure-latex/winter-moth-damage-diff-1.pdf Gra
 phic file (type pdf)
 <use intro-bio-stats-book_files/figure-latex/winter-moth-damage-diff-1.pdf>
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 7235--7235
+Overfull \hbox (64.5pt too wide) in paragraph at lines 8080--8080
 []\TU/lmtt/m/n/10 ## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2
 L]], ...): cannot[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 7240--7240
+Overfull \hbox (64.5pt too wide) in paragraph at lines 8085--8085
 []\TU/lmtt/m/n/10 ## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2
 L]], ...): cannot[] 
  []
 
-[300] [301]
+[332] [333]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7323--7323
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8168--8168
 []\TU/lmtt/m/n/10 ## $ Food <dbl> 20.1, 47.4, 85.6, 17.1, 5.7, 7.8, 28.8, 18.8,
  12.1, 62.0, 4.9, 57~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7323--7323
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8168--8168
 []\TU/lmtt/m/n/10 ## $ Tree <chr> "Oak", "Oak", "Oak", "Oak", "Oak", "Oak", "Oa
 k", "Oak", "Oak", "O~[] 
  []
 
-[302]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 7338--7338
+[334]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 8183--8183
 []\TU/lmtt/m/n/10 ## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2
 L]], ...): cannot[] 
  []
 
-[303] [304]
+[335] [336]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7420--7420
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8265--8265
 []\TU/lmtt/m/n/10 ## $ Strikes <dbl> 5, 12, 11, 4, 1, 6, 8, 3, 0, 5, 0, 13, 0, 
 3, 0, 7, 3, 4, 6, 11~[] 
  []
 
 
-Overfull \hbox (85.5pt too wide) in paragraph at lines 7420--7420
+Overfull \hbox (85.5pt too wide) in paragraph at lines 8265--8265
 []\TU/lmtt/m/n/10 ## $ Time    <chr> "t02", "t02", "t02", "t02", "t02", "t02", 
 "t02", "t02", "t02",~[] 
  []
@@ -2715,17 +2865,17 @@ file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[305] [306] [307]
+[337] [338] [339]
 File: images/action.png Graphic file (type bmp)
 <images/action.png>
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 7530--7530
+Overfull \hbox (64.5pt too wide) in paragraph at lines 8375--8375
 []\TU/lmtt/m/n/10 ## $ Year1 <dbl> 3, 15, 4, 3, 4, 9, 1, 0, 2, 7, 3, 2, 6, 0, 1
 , 12, 2, 1, 5, 10[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 7530--7530
+Overfull \hbox (59.25pt too wide) in paragraph at lines 8375--8375
 []\TU/lmtt/m/n/10 ## $ Year2 <dbl> 6, 8, 0, 0, 2, 10, 5, 4, 1, 4, 3, 7, 6, 2, 5
 , 17, 0, 0, 6, 7[] 
  []
@@ -2739,87 +2889,87 @@ ile (type pdf)
 
 Underfull \vbox (badness 2547) has occurred while \output is active []
 
-[308]
+[340]
 File: intro-bio-stats-book_files/figure-latex/grouse-years-scatter-1.pdf Graphi
 c file (type pdf)
 <use intro-bio-stats-book_files/figure-latex/grouse-years-scatter-1.pdf>
-[309]
-Overfull \hbox (69.75pt too wide) in paragraph at lines 7566--7566
+[341]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 8411--8411
 []\TU/lmtt/m/n/10 ## Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ..
 .): Cannot compute[] 
  []
 
-[310] [311] [312
+[342] [343] [344
 
 ]
 Appendix A.
-[313] [314]
+[345] [346]
 File: ./images/stats_key.pdf Graphic file (type pdf)
 <use ./images/stats_key.pdf>
-[315] [316]
+[347] [348]
 Overfull \hbox (1.12344pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 A.5.  QUESTION 1 — COMPARISON OF GROUP MEANS OR MEDIANS \TU/lmr
-/m/n/10 317
+/m/n/10 349
  []
 
-[317]
+[349]
 Overfull \vbox (4.1559pt too high) has occurred while \output is active []
 
-[318]
+[350]
 File: images/information.png Graphic file (type bmp)
 <images/information.png>
-[319] [320]
+[351] [352]
 File: images/warning.png Graphic file (type bmp)
 <images/warning.png>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[321] [322] [323] [324
+[353] [354] [355] [356
 
 ]
 Appendix B.
-[325]
-Underfull \hbox (badness 7925) in paragraph at lines 7933--7934
+[357]
+Underfull \hbox (badness 7925) in paragraph at lines 8778--8779
 []\TU/lmr/m/n/10 Reverse transcription-PCR detection of LaCrosse virus in
  []
 
 
-Underfull \hbox (badness 4181) in paragraph at lines 7933--7934
+Underfull \hbox (badness 4181) in paragraph at lines 8778--8779
 \TU/lmr/m/n/10 mosquitoes and comparison with enzyme immunoassay and
  []
 
-[326] [327] [328] [329] [330]
-Overfull \hbox (1.56447pt too wide) in paragraph at lines 8131--8132
+[358] [359] [360] [361] [362]
+Overfull \hbox (2.39902pt too wide) in paragraph at lines 8976--8977
 []\TU/lmr/m/n/10 Experimental 
  []
 
 
-Overfull \hbox (1.56447pt too wide) in paragraph at lines 8143--8144
+Overfull \hbox (2.39902pt too wide) in paragraph at lines 8988--8989
 []\TU/lmr/m/n/10 Experimental 
  []
 
-[331] [332] [333] [334] [335]
+[363] [364] [365] [366] [367]
 File: images/information.png Graphic file (type bmp)
 <images/information.png>
-[336] [337] [338] [339] [340]
+[368] [369] [370] [371] [372]
 No file intro-bio-stats-book.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 8451.
-[341]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 8451.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 9296.
+[373]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 9296.
 (./intro-bio-stats-book.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 8451.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 8451.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 9296.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 9296.
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 27394 strings out of 492970
- 510416 string characters out of 6133938
- 732928 words of memory out of 5000000
- 31020 multiletter control sequences out of 15000+600000
+ 27463 strings out of 492970
+ 513260 string characters out of 6133938
+ 734279 words of memory out of 5000000
+ 31081 multiletter control sequences out of 15000+600000
  537794 words of font info for 96 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  58i,11n,117p,10415b,467s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on intro-bio-stats-book.pdf (341 pages).
+Output written on intro-bio-stats-book.pdf (373 pages).

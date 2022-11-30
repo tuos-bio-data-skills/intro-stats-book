@@ -34,7 +34,7 @@ glimpse(elisa_assay)
 
 The first column (`pconc`) contains the information about about the protein concentration ($ng\ ml^{-1}$). The second column (`density`) contain the optimal density measurements registered by the assay. These are both numeric ratio variables.
 
-Our goal is to predict optimal density from protein concentration, meaning `pconc` will be the response variable and `density` will be the predictor variable.
+Our goal is to predict optimal density from protein concentration, meaning `density` will be the response variable and `pconc` will be the predictor variable.
 
 ### Visualising the data
 

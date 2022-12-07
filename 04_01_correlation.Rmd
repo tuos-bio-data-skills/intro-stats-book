@@ -162,7 +162,7 @@ When using Pearson's method, we should report the value of the correlation coeff
 
 [^4_01_correlation-2]: Some people like to report the the *t*-statistic alongside the correlation coefficient, the degrees of freedom, and the *p*-value. There's no need to do this though because the *t*-statistic is calculated directly from the correlation coefficient and the degrees of freedom.
 
-> There is a negative correlation between t-Tau and MMSE scores among patients (r=-0.49, n=38, p \< 0.01).
+> There is a negative correlation between t-Tau and MMSE scores among patients (r=-0.49, n=40, p \< 0.01).
 
 Notice that we stated the direction of the association. It is important to do that because both the direction and strength of the association are relevant to the clinical context. As hoped, elevated plasma t-Tau levels determined by the new assay are associated with reduced cognitive performance.
 

@@ -415,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -750,31 +750,59 @@ Figure 18.3: Within-individual differences from glycolipid study
 <li><p>The sample of differences was used in the test, not the sample of paired observations. This means the degrees of freedom for a paired-sample <em>t</em> test are one less than the number of differences (= number of pairs); not one, or two, less than the total number of observations.</p></li>
 <li><p>Since we used a paired-sample design our conclusion stresses the fact that the use of the Drug B results in a lower glycolipid level in individual patients. It doesn’t say that the use of Drug B resulted in lower glycolipid concentrations for everyone given Drug B than for anyone given Drug A.</p></li>
 </ol>
-<div id="using-the-new-pair-interface-for-paired-t-tests" class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests<a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="using-the-pair-interface-for-paired-t-tests" class="section level3 hasAnchor" number="18.4.1">
+<h3><span class="header-section-number">18.4.1</span> Using the <code>Pair()</code> interface for paired <em>t</em>-tests<a href="paired-sample-t-test.html#using-the-pair-interface-for-paired-t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Since version 4.5, R provides a clearer and more explicit way to run paired-sample <em>t</em>-tests, using the <code>Pair()</code> interface. The logic is the same as before — we want to compare two measurements (Drug A vs. Drug B) taken from the <strong>same participants</strong> — but now we’ll make that pairing explicit in the data we give to <code>t.test()</code>.</p>
-<p>Our original <code>glycolipid</code> data are in <em>long</em> format: each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level. To use the new <code>Pair()</code> interface, we first need to reshape the data into <em>wide</em> format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.</p>
-<p>We can do this with the <code>pivot_wider()</code> function from the tidyverse <strong>tidyr</strong> package:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
-<pre><code>## 
-## Attaching package: &#39;tidyr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:magrittr&#39;:
-## 
-##     extract</code></pre>
-<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="paired-sample-t-test.html#cb127-1" tabindex="-1"></a>glycolipid_wide <span class="ot">&lt;-</span> glycolipid <span class="sc">%&gt;%</span></span>
-<span id="cb127-2"><a href="paired-sample-t-test.html#cb127-2" tabindex="-1"></a>  <span class="fu">select</span>(Patient, Drug, Glycolipid) <span class="sc">%&gt;%</span></span>
-<span id="cb127-3"><a href="paired-sample-t-test.html#cb127-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb127-4"><a href="paired-sample-t-test.html#cb127-4" tabindex="-1"></a>    <span class="at">names_from  =</span> Drug,</span>
-<span id="cb127-5"><a href="paired-sample-t-test.html#cb127-5" tabindex="-1"></a>    <span class="at">values_from =</span> Glycolipid</span>
-<span id="cb127-6"><a href="paired-sample-t-test.html#cb127-6" tabindex="-1"></a>  )</span></code></pre></div>
-<p>What does <code>pivot_wider</code> do here?</p>
+<p>Our original <code>glycolipid</code> data are in <em>long</em> format—each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level:</p>
+<pre><code>## # A tibble: 16 × 4
+##    Patient Sex    Drug  Glycolipid
+##      &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;      &lt;dbl&gt;
+##  1       1 Male   A           143.
+##  2       2 Female A           141.
+##  3       3 Male   A           145.
+##  4       4 Female A           144 
+##  5       5 Female A           142.
+##  6       6 Male   A           146 
+##  7       7 Female A           149.
+##  8       8 Female A           150.
+##  9       1 Male   B           139.
+## 10       2 Female B           136.
+## 11       3 Male   B           147.
+## 12       4 Female B           139.
+## 13       5 Female B           143 
+## 14       6 Male   B           142.
+## 15       7 Female B           142.
+## 16       8 Female B           148.</code></pre>
+<p>To use the new <code>Pair()</code> interface, we first need to reshape the data into <em>wide</em> format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.</p>
+<p>We can do this with the <code>pivot_wider()</code> function from the tidyverse <strong>tidyr</strong> package. We have to load and attach the package to use it:</p>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb125-1"><a href="paired-sample-t-test.html#cb125-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<p>Then we <code>select</code> the three variable we want to keep and use <code>pivot_wider</code> to reshape the data:</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="paired-sample-t-test.html#cb126-1" tabindex="-1"></a><span class="co"># convert to wide format data</span></span>
+<span id="cb126-2"><a href="paired-sample-t-test.html#cb126-2" tabindex="-1"></a>glycolipid_wide <span class="ot">&lt;-</span> glycolipid <span class="sc">%&gt;%</span></span>
+<span id="cb126-3"><a href="paired-sample-t-test.html#cb126-3" tabindex="-1"></a>  <span class="fu">select</span>(Patient, Drug, Glycolipid) <span class="sc">%&gt;%</span></span>
+<span id="cb126-4"><a href="paired-sample-t-test.html#cb126-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb126-5"><a href="paired-sample-t-test.html#cb126-5" tabindex="-1"></a>    <span class="at">names_from  =</span> Drug,</span>
+<span id="cb126-6"><a href="paired-sample-t-test.html#cb126-6" tabindex="-1"></a>    <span class="at">values_from =</span> Glycolipid</span>
+<span id="cb126-7"><a href="paired-sample-t-test.html#cb126-7" tabindex="-1"></a>  )</span></code></pre></div>
+<p>The wide format <code>glycolipid_wide</code> version of the data look like this:</p>
+<pre><code>## # A tibble: 8 × 3
+##   Patient     A     B
+##     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1       1  143.  139.
+## 2       2  141.  136.
+## 3       3  145.  147.
+## 4       4  144   139.
+## 5       5  142.  143 
+## 6       6  146   142.
+## 7       7  149.  142.
+## 8       8  150.  148.</code></pre>
+<p>How does <code>pivot_wider</code> work here?</p>
 <ul>
 <li><code>names_from = Drug</code> tells R to take the values in the <code>Drug</code> column (i.e. <code>"A"</code> and <code>"B"</code>) and turn them into new column names.</li>
 <li><code>values_from = Glycolipid</code> tells R to fill those new columns with the corresponding glycolipid measurements.</li>
 <li>Because we also keep <code>Patient</code>, each patient now appears once in the data, with both of their measurements side by side.</li>
 </ul>
 <p>Now that our data are in the right shape, we can run the paired <em>t</em>-test using the <code>Pair()</code> syntax:</p>
-<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="paired-sample-t-test.html#cb128-1" tabindex="-1"></a><span class="fu">t.test</span>(<span class="fu">Pair</span>(B, A) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> glycolipid_wide)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
@@ -786,7 +814,7 @@ Figure 18.3: Within-individual differences from glycolipid study
 ## sample estimates:
 ## mean difference 
 ##         -2.8375</code></pre>
-<p>This performs the same paired-sample <em>t</em>-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we’ll not discuss it again.</p>
+<p>This performs the same paired-sample <em>t</em>-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we’ll not discuss it again.</p>
 
 </div>
 </div>

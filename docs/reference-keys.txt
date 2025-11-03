@@ -22,7 +22,7 @@ fig:drug-not-linked
 fig:glyco-diffs
 fig:chi-dist-1-eg
 fig:chi-test-eg
-tab:unnamed-chunk-227
+tab:unnamed-chunk-230
 fig:stats-key
 scientific-process
 stages-scientific-process
@@ -178,7 +178,7 @@ why-do-we-use-a-paired-sample-design
 how-do-you-carry-out-a-t-test-on-paired-samples
 assumptions-of-the-paired-sample-t-test
 carrying-out-a-paired-sample-t-test-in-r
-using-the-new-pair-interface-for-paired-t-tests
+using-the-pair-interface-for-paired-t-tests
 anova-for-randomised-block-designs
 randomised-complete-block-designs
 analysing-an-rcbd-experiment

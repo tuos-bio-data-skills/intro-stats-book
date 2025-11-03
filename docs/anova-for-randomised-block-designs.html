@@ -415,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -739,15 +739,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The data live in the ‘DAMSELS.CSV’ file. The code below assumes those data have been read into a tibble called <code>damsels</code>. Set that up if you plan to work along.</p>
 </div>
 <p>The density of midge larvae in each enclosure after 3 weeks are in the <code>Midge</code> variable (number m<span class="math inline">\(^{-2}\)</span>); codes for species in the <code>Species</code> variable (levels: <em>Enallagma</em>, <em>Lestes</em> and <em>Pyrrhosoma</em>), and the block identities (A, B, C, D) in the third column:</p>
-<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="anova-for-randomised-block-designs.html#cb130-1" tabindex="-1"></a><span class="fu">glimpse</span>(damsels)</span></code></pre></div>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb129-1"><a href="anova-for-randomised-block-designs.html#cb129-1" tabindex="-1"></a><span class="fu">glimpse</span>(damsels)</span></code></pre></div>
 <pre><code>## Rows: 12
 ## Columns: 3
 ## $ Midge   &lt;dbl&gt; 304, 464, 320, 578, 509, 458, 680, 740, 630, 356, 390, 350
 ## $ Species &lt;chr&gt; &quot;Enallagma&quot;, &quot;Lestes&quot;, &quot;Pyrrhosoma&quot;, &quot;Enallagma&quot;, &quot;Lestes&quot;, &quot;P…
 ## $ Block   &lt;chr&gt; &quot;A&quot;, &quot;A&quot;, &quot;A&quot;, &quot;B&quot;, &quot;B&quot;, &quot;B&quot;, &quot;C&quot;, &quot;C&quot;, &quot;C&quot;, &quot;D&quot;, &quot;D&quot;, &quot;D&quot;</code></pre>
 <p>The process of analysing an RCBD experiment is essentially the same as any other type of ANOVA. First, we fit the model using the <code>lm</code> function, and then we use <code>anova</code> to calculate <em>F</em>-statistics, degrees of freedom, and <em>p</em>-values:</p>
-<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="anova-for-randomised-block-designs.html#cb132-1" tabindex="-1"></a>damsels.model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Midge <span class="sc">~</span> Species <span class="sc">+</span> Block, <span class="at">data =</span> damsels)</span>
-<span id="cb132-2"><a href="anova-for-randomised-block-designs.html#cb132-2" tabindex="-1"></a><span class="fu">anova</span>(damsels.model)</span></code></pre></div>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="anova-for-randomised-block-designs.html#cb131-1" tabindex="-1"></a>damsels.model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Midge <span class="sc">~</span> Species <span class="sc">+</span> Block, <span class="at">data =</span> damsels)</span>
+<span id="cb131-2"><a href="anova-for-randomised-block-designs.html#cb131-2" tabindex="-1"></a><span class="fu">anova</span>(damsels.model)</span></code></pre></div>
 <p>We suppressed the output for now. Notice that we have put two factors on the right-hand side of the <code>~</code> symbol. This tells R that we want to fit a model that accounts for the main effects of <code>Species</code> and <code>Block</code>. We have to put a <code>+</code> between terms to delineate them (this is not optional).</p>
 <div id="careful-with-your-and" class="section level4 unnumbered hasAnchor infobox warning">
 <h4>Careful with your <code>+</code> and <code>*</code><a href="anova-for-randomised-block-designs.html#careful-with-your-and" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -755,7 +755,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And by the way… the <code>+</code> has nothing to do with addition when working a model specification in R.</p>
 </div>
 <p>Here are the results of the global significance tests using the correct ANOVA model for our randomised block experiment:</p>
-<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="anova-for-randomised-block-designs.html#cb133-1" tabindex="-1"></a><span class="fu">anova</span>(damsels.model)</span></code></pre></div>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb132-1"><a href="anova-for-randomised-block-designs.html#cb132-1" tabindex="-1"></a><span class="fu">anova</span>(damsels.model)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: Midge
@@ -778,8 +778,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The <em>F</em>-ratio is the test statistic for each term. These provide a measure of how large and consistent the effects associated with each term are. Each <em>F</em>-ratio has a pair of degrees of freedom associated with it: one belonging to the term itself, the other due to the error (residual). Together, the <em>F</em>-ratio and its degrees of freedom determine the <em>p</em>-value.</p>
 <p>The <em>p</em>-value gives the probability that the differences between the set of means for each term in the model, or a more extreme difference, could have arisen through sampling variation under the null hypothesis of no difference. We take <em>p</em> &lt; 0.05 as evidence that at least one of the treatments is having an effect. Here, there is a significant effect of block (<em>p</em> &lt; 0.001), which says that the density of midge larvae varies across the lake. It looks like blocking was a good idea—there is a lot of spatial (nuisance) variation in midge larvae density. However, what we care about is the damselfly species effect. This term is not significant (<em>p</em> &gt; 0.05), so we conclude that there is no difference in the impact of the predatory larvae of three damselfly species.</p>
 <p>It is instructive to see what happens if we analyse the damselfly data as though they are from a one-way design. We do this by including only the experimental treatment term (Species) in the model:</p>
-<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="anova-for-randomised-block-designs.html#cb137-1" tabindex="-1"></a>damsels.oneway <span class="ot">&lt;-</span> <span class="fu">lm</span>(Midge <span class="sc">~</span> Species, <span class="at">data =</span> damsels)</span>
-<span id="cb137-2"><a href="anova-for-randomised-block-designs.html#cb137-2" tabindex="-1"></a><span class="fu">anova</span>(damsels.oneway)</span></code></pre></div>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb136-1"><a href="anova-for-randomised-block-designs.html#cb136-1" tabindex="-1"></a>damsels.oneway <span class="ot">&lt;-</span> <span class="fu">lm</span>(Midge <span class="sc">~</span> Species, <span class="at">data =</span> damsels)</span>
+<span id="cb136-2"><a href="anova-for-randomised-block-designs.html#cb136-2" tabindex="-1"></a><span class="fu">anova</span>(damsels.oneway)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: Midge

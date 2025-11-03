@@ -135,17 +135,28 @@ There are a couple of things to point out in interpreting the result of such a t
 
 2.  Since we used a paired-sample design our conclusion stresses the fact that the use of the Drug B results in a lower glycolipid level in individual patients. It doesn't say that the use of Drug B resulted in lower glycolipid concentrations for everyone given Drug B than for anyone given Drug A.
 
-### Using the new `Pair()` interface for paired *t*-tests
+### Using the `Pair()` interface for paired *t*-tests
 
 Since version 4.5, R provides a clearer and more explicit way to run paired-sample *t*-tests, using the `Pair()` interface. The logic is the same as before — we want to compare two measurements (Drug A vs. Drug B) taken from the **same participants** — but now we’ll make that pairing explicit in the data we give to `t.test()`.
 
-Our original `glycolipid` data are in *long* format: each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level. To use the new `Pair()` interface, we first need to reshape the data into *wide* format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.
+Our original `glycolipid` data are in *long* format---each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level:
 
-We can do this with the `pivot_wider()` function from the tidyverse **tidyr** package:
+```{r, echo = FALSE}
+print(glycolipid, n = 999)
+```
+
+To use the new `Pair()` interface, we first need to reshape the data into *wide* format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.
+
+We can do this with the `pivot_wider()` function from the tidyverse **tidyr** package. We have to load and attach the package to use it:
+
+```{r, message=FALSE}
+library(tidyr)
+```
+
+Then we `select` the three variable we want to keep and use `pivot_wider` to reshape the data:
 
 ```{r}
-library(tidyr)
-
+# convert to wide format data
 glycolipid_wide <- glycolipid %>%
   select(Patient, Drug, Glycolipid) %>%
   pivot_wider(
@@ -154,7 +165,13 @@ glycolipid_wide <- glycolipid %>%
   )
 ```
 
-What does `pivot_wider` do here?
+The wide format `glycolipid_wide` version of the data look like this:
+
+```{r, echo=FALSE}
+print(glycolipid_wide, n = 999)
+```
+
+How does `pivot_wider` work here? 
 
 -   `names_from = Drug` tells R to take the values in the `Drug` column (i.e. `"A"` and `"B"`) and turn them into new column names.
 -   `values_from = Glycolipid` tells R to fill those new columns with the corresponding glycolipid measurements.
@@ -162,8 +179,8 @@ What does `pivot_wider` do here?
 
 Now that our data are in the right shape, we can run the paired *t*-test using the `Pair()` syntax:
 
-```{r}
+```{r, echo=FALSE}
 t.test(Pair(B, A) ~ 1, data = glycolipid_wide)
 ```
 
-This performs the same paired-sample *t*-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we'll not discuss it again.
+This performs the same paired-sample *t*-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we'll not discuss it again.

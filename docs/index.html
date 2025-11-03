@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -635,7 +640,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introductory Biostatistics with R</h1>
 <p class="author"><em>Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren</em></p>
-<p class="date"><em>2022-12-07</em></p>
+<p class="date"><em>2025-11-03</em></p>
 </div>
 <div id="overview" class="section level1 unnumbered hasAnchor">
 <h1>Overview<a href="index.html#overview" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -667,9 +672,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>You need to understand R’s package system to use these. This means knowing that <strong>installing</strong> a package and <strong>loading</strong> the package are different operations. We only have to install a package onto our computer once, but we have to load the package every time we want to use it in a new R session. If that is confusing, revise the <a href="https://tuos-bio-data-skills.github.io/intro-eda-book/packages.html">package system</a> chapter Exploratory Data Analysis with R book.</p>
 <p>Installing a package can be done via the <code>install.packages</code> function, e.g. use this code to install the <strong>dplyr</strong> package:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <p>Alternatively, use the simple RStudio menu interface to install packages. This is accessed via the <strong>Install</strong> button in the packages tab of the lower right window in RStudio. Loading and attaching a package so that it can be used in a given session happens via the <code>library</code> function, e.g.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="index.html#cb2-1" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <div id="what-goes-in-your-script" class="section level4 unnumbered hasAnchor infobox warning">
 <h4>What goes in your script?<a href="index.html#what-goes-in-your-script" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We should not routinely leave <code>install.packages</code> lines in our scripts. Why? Because we don’t usually need to install a package every time we run a script—installing packages is a slow ‘do once’ operation. We do usually place one or more <code>library</code> lines at the start of a script to ensure the required packages available in the current R session every time we run the script.</p>
@@ -743,8 +748,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="r-code-and-output" class="section level3 unnumbered hasAnchor">
 <h3>R code and output<a href="index.html#r-code-and-output" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>We try to illustrate ideas using snippets of real R code where possible. Stand alone snippets are formatted like this:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" aria-hidden="true" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="dv">1</span></span>
-<span id="cb3-2"><a href="index.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(tmp)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="index.html#cb3-1" tabindex="-1"></a>tmp <span class="ot">&lt;-</span> <span class="dv">1</span></span>
+<span id="cb3-2"><a href="index.html#cb3-2" tabindex="-1"></a><span class="fu">print</span>(tmp)</span></code></pre></div>
 <pre><code>## [1] 1</code></pre>
 <p>The lines that start with <code>##</code> show us what R prints to the screen after it evaluates some R code; they show the output. The lines that <strong>do not</strong> start with <code>##</code> show us the R code; they show us the input. So remember, the absence of <code>##</code> shows us what we are asking R to do. Otherwise, we are looking at something R prints in response to these instructions.</p>
 
@@ -775,42 +780,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

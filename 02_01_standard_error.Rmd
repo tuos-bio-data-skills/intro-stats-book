@@ -23,7 +23,7 @@ freqs2 <- table(sample2$morph)
 samp2_est <- round(100*freqs2["purple"]/sampsize1)
 ```
 
-This time we ended up sampling `r freqs2["green"]` green plants and `r freqs2["purple"]` purple plants, so our second estimate of the purple morph frequency is `r samp2_est`%. This estimate is quite different from the first one. It is lower than that seen in the original study population. Our hypothesis that the purple morph is more prevalent in the new population is beginning to look a little shaky now.
+This time we ended up sampling `r freqs2["green"]` green plants and `r freqs2["purple"]` purple plants, so our second estimate of the purple morph frequency is `r samp2_est`%. This estimate is different from the first one but is again higher than the 25% expected from the original study population. The new sample is again consistent with our hypothesis that the purple morph is more prevalent in the new population.
 
 Nothing about the study population changed between the first and second samples. What's more, we used a completely reliable sampling scheme to generate these samples---there was nothing biased or incorrect about the way individuals were sampled. The two different estimates of purple morph frequency arise from nothing more than chance variation in the sampling process.
 

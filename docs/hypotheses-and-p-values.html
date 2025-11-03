@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Hypotheses and p-values | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Hypotheses and p-values | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -737,42 +742,42 @@ Figure 7.1: Significant: <a href="https://xkcd.com/882">xkcd.com</a>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

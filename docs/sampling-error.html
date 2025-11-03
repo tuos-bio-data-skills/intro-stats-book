@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 Sampling error | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 Sampling error | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -646,7 +651,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 Figure 4.1: Plants sampled on the second occasion
 </p>
 </div>
-<p>This time we ended up sampling 11 green plants and 9 purple plants, so our second estimate of the purple morph frequency is 45%. This estimate is quite different from the first one. It is lower than that seen in the original study population. Our hypothesis that the purple morph is more prevalent in the new population is beginning to look a little shaky now.</p>
+<p>This time we ended up sampling 11 green plants and 9 purple plants, so our second estimate of the purple morph frequency is 45%. This estimate is different from the first one but is again higher than the 25% expected from the original study population. The new sample is again consistent with our hypothesis that the purple morph is more prevalent in the new population.</p>
 <p>Nothing about the study population changed between the first and second samples. What’s more, we used a completely reliable sampling scheme to generate these samples—there was nothing biased or incorrect about the way individuals were sampled. The two different estimates of purple morph frequency arise from nothing more than chance variation in the sampling process.</p>
 <p>This variation–present whenever we observe a sample—has a special name. It is called <strong>sampling error</strong>. The word ‘error’ has nothing to do with mistakes or problems. In statistics, it used to refer to the variability or ‘noise’ in some process. Sampling error is the reason why we have to use statistics. Every time we estimate something, there’s some sampling error lurking in the estimate. If we ignore it, we risk drawing incorrect conclusions about the world.</p>
 <p>(By the way, another name for sampling error is ‘sampling variation’. We’ll use both terms in this book because they are both widely used)</p>
@@ -690,7 +695,8 @@ Figure 4.4: Distribution of number of purple morphs sampled (n = 80)
 <p>We plotted each of them over the full range of possible outcomes, i.e. the x axis runs from 0-40 and 0-80, respectively, in both plots. This is important because it allows us to compare the spread of each sampling distribution relative to the range of all possible outcomes. What do these two plots tell us about the effect of changing sample size?</p>
 <p>The range of outcomes in the first plot (n = 40) is roughly 6 to 26, corresponding to estimated purple morph frequencies in the range of 15-65%. The range of outcomes in the second plot (n = 80) is roughly 16 to 48, corresponding to estimated frequencies in the range of 20-60%. The implications of this basic assessment are clear: we reduced sampling error by increasing the sample size. This makes intuitive sense. The composition of a large sample should more closely approximate that of the true population than a small sample.</p>
 <p>How much data do we need to collect to accurately estimate a frequency? Here is the approximate sampling distribution of the purple morph frequency estimate when we sample 500 individuals:</p>
-<pre><code>## Warning: Removed 2 rows containing missing values (geom_bar).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values or values outside the scale
+## range (`geom_bar()`).</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:samp-dist-big"></span>
 <img src="intro-bio-stats-book_files/figure-html/samp-dist-big-1.png" alt="Distribution of number of purple morphs sampled (n = 500)" width="100%" />
 <p class="caption">
@@ -706,17 +712,17 @@ Figure 4.5: Distribution of number of purple morphs sampled (n = 500)
 <p>(It is common to use a shorthand abbreviations such “SE”, “S.E.”, “se” or “s.e.” in place of ‘standard error’ when referring to the standard error in text.)</p>
 <p>It’s much easier to make sense of something abstract, like a standard error, by looking at a concrete example. Let’s calculate the standard error of the estimated purple morph frequency. It is possible to do this using mathematical reasoning; however, it is much easier to understand what’s happening if we use ‘brute force’ simulations in R.</p>
 <p>We’ll show you the code to do this but there’s no need to commit any of it to memory. It’s included for readers who like to see how things work. We start by specifying the number of samples to take (<code>n_samples</code>), the sample size to use for each sample (<code>sample_size</code>), and the value of the population morph frequency (<code>purple_prob</code>). We set up the simulation by creating these variables:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sampling-error.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># number of independent samples</span></span>
-<span id="cb6-2"><a href="sampling-error.html#cb6-2" aria-hidden="true" tabindex="-1"></a>n_samples <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
-<span id="cb6-3"><a href="sampling-error.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># sample size to use for each sample</span></span>
-<span id="cb6-4"><a href="sampling-error.html#cb6-4" aria-hidden="true" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">80</span></span>
-<span id="cb6-5"><a href="sampling-error.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># probability a plant will be purple</span></span>
-<span id="cb6-6"><a href="sampling-error.html#cb6-6" aria-hidden="true" tabindex="-1"></a>purple_prob <span class="ot">&lt;-</span> <span class="fl">0.4</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="sampling-error.html#cb6-1" tabindex="-1"></a><span class="co"># number of independent samples</span></span>
+<span id="cb6-2"><a href="sampling-error.html#cb6-2" tabindex="-1"></a>n_samples <span class="ot">&lt;-</span> <span class="dv">100000</span></span>
+<span id="cb6-3"><a href="sampling-error.html#cb6-3" tabindex="-1"></a><span class="co"># sample size to use for each sample</span></span>
+<span id="cb6-4"><a href="sampling-error.html#cb6-4" tabindex="-1"></a>sample_size <span class="ot">&lt;-</span> <span class="dv">80</span></span>
+<span id="cb6-5"><a href="sampling-error.html#cb6-5" tabindex="-1"></a><span class="co"># probability a plant will be purple</span></span>
+<span id="cb6-6"><a href="sampling-error.html#cb6-6" tabindex="-1"></a>purple_prob <span class="ot">&lt;-</span> <span class="fl">0.4</span></span></code></pre></div>
 <p>This sets up a simulation to calculate the expected standard error when the purple morph frequency is 40% and the sample size is 80, using 10^{5} samples. The next step requires a bit more knowledge of R and probability theory:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="sampling-error.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># repeat the sampling/estimation procedure many times</span></span>
-<span id="cb7-2"><a href="sampling-error.html#cb7-2" aria-hidden="true" tabindex="-1"></a>raw_samples <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_samples, <span class="at">size =</span> sample_size, <span class="at">prob =</span> purple_prob)</span>
-<span id="cb7-3"><a href="sampling-error.html#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># convert results to %</span></span>
-<span id="cb7-4"><a href="sampling-error.html#cb7-4" aria-hidden="true" tabindex="-1"></a>percent_samples <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> raw_samples <span class="sc">/</span> sample_size</span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="sampling-error.html#cb7-1" tabindex="-1"></a><span class="co"># repeat the sampling/estimation procedure many times</span></span>
+<span id="cb7-2"><a href="sampling-error.html#cb7-2" tabindex="-1"></a>raw_samples <span class="ot">&lt;-</span> <span class="fu">rbinom</span>(<span class="at">n =</span> n_samples, <span class="at">size =</span> sample_size, <span class="at">prob =</span> purple_prob)</span>
+<span id="cb7-3"><a href="sampling-error.html#cb7-3" tabindex="-1"></a><span class="co"># convert results to %</span></span>
+<span id="cb7-4"><a href="sampling-error.html#cb7-4" tabindex="-1"></a>percent_samples <span class="ot">&lt;-</span> <span class="dv">100</span> <span class="sc">*</span> raw_samples <span class="sc">/</span> sample_size</span></code></pre></div>
 <p>The details of the R code are not important here. A minimum of A-level statistics is needed to understand what the <code>rbinom</code> function is doing, but in a nutshell, it is the workhorse that runs the simulation. Mostly, we’re showing the code to demonstrate that seemingly complex things are often easy to do in R.</p>
 <p>What matters here is the result. This is stored the result in a vector called <code>percent_samples</code>. Here are its first 50 values:</p>
 <pre><code>##  [1] 33.75 35.00 42.50 41.25 46.25 35.00 42.50 45.00 43.75 40.00 41.25 52.50
@@ -726,7 +732,7 @@ Figure 4.5: Distribution of number of purple morphs sampled (n = 500)
 ## [49] 40.00 45.00</code></pre>
 <p>These numbers are all part of the sampling distribution of morph frequency estimates. Each value is one possible estimate of the purple morph frequency when we sample 80 individuals from a population where the true value is 40%. There are 10^{5} such estimates stored in <code>percent_samples</code>.</p>
 <p>How do we then calculate the standard error? This is <em>defined</em> as the standard deviation of the sampling distribution that we just constructed with a simulation. So all we need to do now is calculate their standard deviation using the <code>sd</code> function:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sampling-error.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(percent_samples)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="sampling-error.html#cb9-1" tabindex="-1"></a><span class="fu">sd</span>(percent_samples)</span></code></pre></div>
 <pre><code>## [1] 5.494663</code></pre>
 <p>The standard error is about 5.5. Why is this number useful? It gives us a means to reason about the variability in a sampling distribution. When a sampling distribution is ‘well-behaved’, then roughly speaking, about 95% of estimates are expected to lie within a range of about four standard errors.</p>
 <p>Not convinced? Look at the second bar plot we produced, where the sample size was 80 and the purple morph frequency was 40%. What is the approximate range of simulated values? How close is this to <span class="math inline">\(4 \times 5.5\)</span>? Quite close!</p>
@@ -764,42 +770,42 @@ Figure 4.5: Distribution of number of purple morphs sampled (n = 500)
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

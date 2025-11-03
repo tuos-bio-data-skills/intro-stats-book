@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Choosing models and tests | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Choosing models and tests | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -641,8 +646,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">A.1.1</span> Do we need to carry out a statistical analysis?<a href="choosing-models-and-tests.html#do-we-need-to-carry-out-a-statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>This may seem like an odd question to ask, having just spent a considerable amount of time learning statistics. But it is an important one. There are many situations in which we don’t need, or can’t use, statistical tools. Here are two common ones:</p>
 <ol style="list-style-type: decimal">
-<li><p><em>There are no statistical procedures that will allow us to analyse our data correctly</em><a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a>. This happens sometimes. Even with careful planning, things don’t always work out as anticipated, and we end up with data that cannot be analysed with a technique we know about. If the data can’t be analysed sensibly, there is no point in doing any old analysis because we feel we have to produce a <em>p</em>-value. Instead, it’s time to seek some advice.</p></li>
-<li><p><em>We could quite correctly apply a statistical test to your data, but it would be entirely superfluous.</em> We don’t always need statistics to tell us what is going on. An effect may be exceptionally strong and clear, or it may be that the importance of the result is not something captured by applying a particular statistical model or test<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a>. This caveat is particularly relevant to exploratory studies, where the goal is to use the data to generate new hypotheses rather than test <em>a priori</em> hypotheses.</p></li>
+<li><p><em>There are no statistical procedures that will allow us to analyse our data correctly</em><a href="#fn32" class="footnote-ref" id="fnref32"><sup>32</sup></a>. This happens sometimes. Even with careful planning, things don’t always work out as anticipated, and we end up with data that cannot be analysed with a technique we know about. If the data can’t be analysed sensibly, there is no point in doing any old analysis because we feel we have to produce a <em>p</em>-value. Instead, it’s time to seek some advice.</p></li>
+<li><p><em>We could quite correctly apply a statistical test to your data, but it would be entirely superfluous.</em> We don’t always need statistics to tell us what is going on. An effect may be exceptionally strong and clear, or it may be that the importance of the result is not something captured by applying a particular statistical model or test<a href="#fn33" class="footnote-ref" id="fnref33"><sup>33</sup></a>. This caveat is particularly relevant to exploratory studies, where the goal is to use the data to generate new hypotheses rather than test <em>a priori</em> hypotheses.</p></li>
 </ol>
 <p>Also in the category of superfluous statistics are situations where we are using statistics in a technically correct way, but we’re evaluating effects that are not interesting or relevant to the question at hand. This often arises from a misplaced worry that unless we have lots of statistics in our study, it somehow isn’t ‘scientific’, so we apply them to everything in the hope that a reader will be impressed. Resist the temptation! This strategy will have the opposite effect—a knowledgeable reader will assume you don’t know what you’re doing if they see a load of pointless analyses.</p>
 </div>
@@ -690,7 +695,7 @@ Figure A.1: A key for choosing statistical models and tests.
 <li>a single theoretical value,</li>
 <li>another group whose values are independent of those in the first group (independent design),</li>
 <li>more than one other group, or</li>
-<li>a second group which has values that form logical pairs with those in the first group (paired design)<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a>.</li>
+<li>a second group which has values that form logical pairs with those in the first group (paired design)<a href="#fn34" class="footnote-ref" id="fnref34"><sup>34</sup></a>.</li>
 </ul>
 <p>The measurement scale of the variable in these situations may be ratio, interval, or ordinal. The only variable for which the statistical tools described here would not be suitable are categorical variables.</p>
 <p><strong>Question 2</strong>: Is there an association between two variables? What is the equation that describes the dependence of one variable on the other?</p>
@@ -823,7 +828,7 @@ Figure A.1: A key for choosing statistical models and tests.
 <div id="anova-vs.-regression" class="section level3 hasAnchor" number="29.8.1">
 <h3><span class="header-section-number">A.8.1</span> ANOVA vs. regression<a href="choosing-models-and-tests.html#anova-vs.-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>There are many situations in which data may be suitable for analysis by regression or one-way ANOVA, even though they are different kinds of models. For example, if a farmer wishes to determine the optimal amount of fertiliser to add to fields to achieve maximum crop yield, she might set up a trial with 5 control plots and 5 replicate plots for each of 4 levels of fertiliser treatment: 10, 20, 40 and 80 kg ha NPK (nitrogen, phosphorus and potassium fertiliser) and measure the crop yield in each replicate plot at the end of the growing season (kg ha year).</p>
-<p>If we are simply interested in determining whether there is a significant difference in yields from different fertiliser treatments, and if so, which dose is best, then ANOVA (and multiple comparisons) is probably the best technique. On the other hand, we might be interested in working out the general relationship between fertiliser dose and yield, perhaps to be able to make predictions about the yield at other doses than those we have tested. We could use regression to determine whether there was a significant relationship between the two and describe it mathematically<a href="#fn36" class="footnote-ref" id="fnref36"><sup>36</sup></a>.</p>
+<p>If we are simply interested in determining whether there is a significant difference in yields from different fertiliser treatments, and if so, which dose is best, then ANOVA (and multiple comparisons) is probably the best technique. On the other hand, we might be interested in working out the general relationship between fertiliser dose and yield, perhaps to be able to make predictions about the yield at other doses than those we have tested. We could use regression to determine whether there was a significant relationship between the two and describe it mathematically<a href="#fn35" class="footnote-ref" id="fnref35"><sup>35</sup></a>.</p>
 </div>
 <div id="making-categories-out-of-continuous-measures" class="section level3 hasAnchor" number="29.8.2">
 <h3><span class="header-section-number">A.8.2</span> Making categories out of continuous measures<a href="choosing-models-and-tests.html#making-categories-out-of-continuous-measures" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -835,11 +840,11 @@ Figure A.1: A key for choosing statistical models and tests.
 </div>
 <div class="footnotes">
 <hr />
-<ol start="33">
-<li id="fn33"><p>Alternatively, an appropriate technique exists, but we don’t know about it!<a href="choosing-models-and-tests.html#fnref33" class="footnote-back">↩︎</a></p></li>
-<li id="fn34"><p>As the old joke goes: <em>What does a statistician call it when ten mice have their heads cut off and one survives? Not significant.</em><a href="choosing-models-and-tests.html#fnref34" class="footnote-back">↩︎</a></p></li>
-<li id="fn35"><p>In a paired design the two groups aren’t really separate, independent entities, in the sense that pairs of measurements have been taken from the same physical ‘thing’ (site, animal, tree, etc).<a href="choosing-models-and-tests.html#fnref35" class="footnote-back">↩︎</a></p></li>
-<li id="fn36"><p>One additional potential advantage of regression in this kind of situation is that it <em>might</em> result in more a powerful statistical test of fertiliser effects than ANOVA. This is because a regression model only ‘uses up’ two degrees of freedom—one for each of the intercept and slope—while ANOVA uses four (n-1). A regression makes stronger assumptions about the data though, because it assumes a linear relationship between crop yield and fertiliser.<a href="choosing-models-and-tests.html#fnref36" class="footnote-back">↩︎</a></p></li>
+<ol start="32">
+<li id="fn32"><p>Alternatively, an appropriate technique exists, but we don’t know about it!<a href="choosing-models-and-tests.html#fnref32" class="footnote-back">↩︎</a></p></li>
+<li id="fn33"><p>As the old joke goes: <em>What does a statistician call it when ten mice have their heads cut off and one survives? Not significant.</em><a href="choosing-models-and-tests.html#fnref33" class="footnote-back">↩︎</a></p></li>
+<li id="fn34"><p>In a paired design the two groups aren’t really separate, independent entities, in the sense that pairs of measurements have been taken from the same physical ‘thing’ (site, animal, tree, etc).<a href="choosing-models-and-tests.html#fnref34" class="footnote-back">↩︎</a></p></li>
+<li id="fn35"><p>One additional potential advantage of regression in this kind of situation is that it <em>might</em> result in more a powerful statistical test of fertiliser effects than ANOVA. This is because a regression model only ‘uses up’ two degrees of freedom—one for each of the intercept and slope—while ANOVA uses four (n-1). A regression makes stronger assumptions about the data though, because it assumes a linear relationship between crop yield and fertiliser.<a href="choosing-models-and-tests.html#fnref35" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>
@@ -862,42 +867,42 @@ Figure A.1: A key for choosing statistical models and tests.
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

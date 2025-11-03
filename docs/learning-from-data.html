@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 Learning from data | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 Learning from data | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -733,7 +738,7 @@ Figure 3.1: Stylised landscape showing a population of purple and green plants
 <p>Imagine we had also previously studied a different population of this species that exhibits the same polymorphism. We think the two populations were once connected but habitat loss has isolated them. Our previous studies with the old neighbouring population have shown:</p>
 <ul>
 <li><p>A single gene with two alleles controls the colour polymorphism: a recessive mutant allele (‘P’) confers the purple colour and the dominant wild-type allele (‘G’) makes plants green. Genetic work has shown that the two alleles are present in a ratio of about 1:1 in the neighbouring population.</p></li>
-<li><p>There seems to be no observable fitness difference between the two morphs in the neighbouring population. What’s more, about 25% of plants are purple. This suggests that the two alleles are in <a href="https://en.wikipedia.org/wiki/Hardy–Weinberg_principle">Hardy-Weinberg equilibrium</a>. These two observations suggest that there is no selection operating on the polymorphism.</p></li>
+<li><p>There seems to be no observable fitness difference between the two morphs in the neighbouring population. What’s more, about 25% of plants are purple. This suggests that the two alleles are in <a href="https://en.wikipedia.org/wiki/Hardy%E2%80%93Weinberg_principle">Hardy-Weinberg equilibrium</a>. These two observations suggest that there is no selection operating on the polymorphism.</p></li>
 </ul>
 <p>Things are different in the new study population. The purple morph seems to be about as common as the green morph, and preliminary research indicates purple plants seem to produce more seeds than green plants. Our <strong>hypothesis</strong> is, therefore, that purple plants have a fitness advantage in the new study population. Our <strong>prediction</strong> is that the frequency of the purple morph will be greater than 25% in the new study population, as selection is driving the ‘P’ allele to fixation.</p>
 <p>(This isn’t the strongest test of our hypothesis, by the way. Really, we need to study allele and genotype frequencies, not just phenotypes. It is good enough for illustrative purposes.)</p>
@@ -796,42 +801,42 @@ Figure 3.2: Sampling plants. Sampled plants are circled in red
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

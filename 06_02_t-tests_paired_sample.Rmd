@@ -18,9 +18,9 @@ Consider the following. A drug company wishes to test two drugs for their effect
 
 One way to conduct an experiment that evaluates the effect of the new drug is to randomly assign the 8 patients to one or other drug and monitor their performance. However, this kind of design is very unlikely to detect a statistically significant difference between the treatments. This is because it provides very little replication, yet can we expect considerable variability from one person to another in glycolipid levels before any treatment is applied. This variability would lead to a large standard error in the difference between means.
 
-A solution to this problem is to treat each patient *with both drugs in turn* and record the glycolipid concentrations in the blood after taking each drug. One arrangement would be for four patients to start with drug A and four with drug B, and then after a suitable break from the treatments, they could be swapped over onto the other drug. This would give us eight replicate observations on the effectiveness of each drug, and we can determine, for each patient, which drug is more effective.[^t-tests_paired_sample-1]
+A solution to this problem is to treat each patient *with both drugs in turn* and record the glycolipid concentrations in the blood after taking each drug. One arrangement would be for four patients to start with drug A and four with drug B, and then after a suitable break from the treatments, they could be swapped over onto the other drug. This would give us eight replicate observations on the effectiveness of each drug, and we can determine, for each patient, which drug is more effective.[^06_02_t-tests_paired_sample-1]
 
-[^t-tests_paired_sample-1]: This kind of experimental design is called a cross-over study. It can be problematic if, for example, "carry-over" effects occur, e.g., the effect of one drug is altered when the other drug has previously been administered. We won't worry about these problems here though.
+[^06_02_t-tests_paired_sample-1]: This kind of experimental design is called a cross-over study. It can be problematic if, for example, "carry-over" effects occur, e.g., the effect of one drug is altered when the other drug has previously been administered. We won't worry about these problems here though.
 
 The experimental design, and one hypothetical outcome, is represented in the diagram below...
 
@@ -135,20 +135,35 @@ There are a couple of things to point out in interpreting the result of such a t
 
 2.  Since we used a paired-sample design our conclusion stresses the fact that the use of the Drug B results in a lower glycolipid level in individual patients. It doesn't say that the use of Drug B resulted in lower glycolipid concentrations for everyone given Drug B than for anyone given Drug A.
 
-### Using the `paired = TRUE` argument
+### Using the new `Pair()` interface for paired *t*-tests
 
-R has a built-in procedure for doing paired-sample *t*-tests in one step. Now that we've done it the hard way, let's try carrying out the test using that built-in procedure. This looks very similar to a two-sample *t*-test, except that we have to set the `paired` argument of the `t.test` function to `TRUE`:
+Since version 4.5, R provides a clearer and more explicit way to run paired-sample *t*-tests, using the `Pair()` interface. The logic is the same as before — we want to compare two measurements (Drug A vs. Drug B) taken from the **same participants** — but now we’ll make that pairing explicit in the data we give to `t.test()`.
+
+Our original `glycolipid` data are in *long* format: each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level. To use the new `Pair()` interface, we first need to reshape the data into *wide* format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.
+
+We can do this with the `pivot_wider()` function from the tidyverse **tidyr** package:
 
 ```{r}
-t.test(Glycolipid ~ Drug, data = glycolipid, paired = TRUE)
+library(tidyr)
+
+glycolipid_wide <- glycolipid %>%
+  select(Patient, Drug, Glycolipid) %>%
+  pivot_wider(
+    names_from  = Drug,
+    values_from = Glycolipid
+  )
 ```
 
-R takes care of the differencing for us, so now we can work with the original `glycolipid` data rather than the `glycolipid_diffs` data frame constructed above. We won't step through the output because it should make sense by this point.
+What does `pivot_wider` do here?
 
-::: {.infobox .action data-latex="{action}"}
-#### Order matter! {.unnumbered}
+-   `names_from = Drug` tells R to take the values in the `Drug` column (i.e. `"A"` and `"B"`) and turn them into new column names.
+-   `values_from = Glycolipid` tells R to fill those new columns with the corresponding glycolipid measurements.
+-   Because we also keep `Patient`, each patient now appears once in the data, with both of their measurements side by side.
 
-Be careful when using the built in procedure for doing paired-sample *t*-tests. The only information R uses to associate pairs of observations is their order in each group. The first observation in the 'A' group is paired with the first observation in the 'B' group, the second observation in the 'A' group is paired with the second observation in the 'B' group, and so on. If the items/individuals aren't ordered the same way in each group, the test will be wrong and we'll end up with a meaningless *p*-value!
-:::
+Now that our data are in the right shape, we can run the paired *t*-test using the `Pair()` syntax:
 
-It's nice that R makes it easy to do a paired-sample *t*-test in one step. Just don't forget that this version of the *t*-test is just a one-sample test on paired differences.
+```{r}
+t.test(Pair(B, A) ~ 1, data = glycolipid_wide)
+```
+
+This performs the same paired-sample *t*-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we'll not discuss it again.

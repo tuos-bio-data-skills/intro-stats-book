@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 18 Paired-sample t-test | Introductory Biostatistics with R</title>
   <meta name="description" content="This is the Introductory Biostatisics with R book provided by the School of Biosciences, University of Sheffield." />
-  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.45 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 18 Paired-sample t-test | Introductory Biostatistics with R" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2022-12-07" />
+<meta name="date" content="2025-11-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -55,6 +55,7 @@
 
 
 <style type="text/css">
+html { -webkit-text-size-adjust: 100%; }
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -119,6 +120,10 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -410,7 +415,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="18.4" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#carrying-out-a-paired-sample-t-test-in-r"><i class="fa fa-check"></i><b>18.4</b> Carrying out a paired-sample <em>t</em>-test in R</a>
 <ul>
-<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-paired-true-argument"><i class="fa fa-check"></i><b>18.4.1</b> Using the <code>paired = TRUE</code> argument</a></li>
+<li class="chapter" data-level="18.4.1" data-path="paired-sample-t-test.html"><a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests"><i class="fa fa-check"></i><b>18.4.1</b> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="19" data-path="anova-for-randomised-block-designs.html"><a href="anova-for-randomised-block-designs.html"><i class="fa fa-check"></i><b>19</b> ANOVA for randomised block designs</a>
@@ -684,7 +689,7 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 <p>The data live in the ‘GLYCOLIPID.CSV’ file. The code below assumes those data have been read into a tibble called <code>glycolipid</code>. Set that up if you plan to work along.</p>
 </div>
 <p>We start by looking at the data:</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="paired-sample-t-test.html#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(glycolipid)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="paired-sample-t-test.html#cb115-1" tabindex="-1"></a><span class="fu">glimpse</span>(glycolipid)</span></code></pre></div>
 <pre><code>## Rows: 16
 ## Columns: 4
 ## $ Patient    &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8
@@ -693,12 +698,12 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 ## $ Glycolipid &lt;dbl&gt; 142.9, 140.6, 144.7, 144.0, 142.4, 146.0, 149.1, 150.4, 139…</code></pre>
 <p>There are four variables in this data set: <code>Patient</code> indexes the patient identity, <code>Sex</code> is the sex of the patient (we don’t need this), <code>Drug</code> denotes the drug treatment, and <code>Glycolipid</code> is the glycolipid level.</p>
 <p>Next, we need to calculate the differences between each pair. We can do this with the <code>dplyr</code> functions <code>group_by</code> and <code>summarise</code>:</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="paired-sample-t-test.html#cb117-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs <span class="ot">&lt;-</span> </span>
-<span id="cb117-2"><a href="paired-sample-t-test.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  glycolipid <span class="sc">%&gt;%</span></span>
-<span id="cb117-3"><a href="paired-sample-t-test.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Patient) <span class="sc">%&gt;%</span></span>
-<span id="cb117-4"><a href="paired-sample-t-test.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Difference =</span> <span class="fu">diff</span>(Glycolipid))</span></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="paired-sample-t-test.html#cb117-1" tabindex="-1"></a>glycolipid_diffs <span class="ot">&lt;-</span> </span>
+<span id="cb117-2"><a href="paired-sample-t-test.html#cb117-2" tabindex="-1"></a>  glycolipid <span class="sc">%&gt;%</span></span>
+<span id="cb117-3"><a href="paired-sample-t-test.html#cb117-3" tabindex="-1"></a>  <span class="fu">group_by</span>(Patient) <span class="sc">%&gt;%</span></span>
+<span id="cb117-4"><a href="paired-sample-t-test.html#cb117-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Difference =</span> <span class="fu">diff</span>(Glycolipid))</span></code></pre></div>
 <p>What we did was group the data by the values of <code>Patient</code>, and then used a function called <code>diff</code> to calculate the difference between the two Glycolipid concentrations <em>within each patient</em>. We stored the result of this calculation in a new data frame called <code>glycolipid_diffs</code>. This is the data we’ll use to carry out the paired-sample <em>t</em>-test:</p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="paired-sample-t-test.html#cb118-1" aria-hidden="true" tabindex="-1"></a>glycolipid_diffs</span></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="paired-sample-t-test.html#cb118-1" tabindex="-1"></a>glycolipid_diffs</span></code></pre></div>
 <pre><code>## # A tibble: 8 × 2
 ##   Patient Difference
 ##     &lt;dbl&gt;      &lt;dbl&gt;
@@ -711,9 +716,10 @@ Figure 18.2: Data from glycolipid study, ignoring paired design.
 ## 7       7     -7    
 ## 8       8     -2.5</code></pre>
 <p>We should check that the differences could plausibly have been drawn from a normal distribution, though keep in mind that the normality assumption is hard to assess with only 8 observations:</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="paired-sample-t-test.html#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(glycolipid_diffs, <span class="fu">aes</span>(<span class="at">x =</span> Difference)) <span class="sc">+</span></span>
-<span id="cb120-2"><a href="paired-sample-t-test.html#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>() <span class="sc">+</span> <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">22</span>)</span></code></pre></div>
-<pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with `binwidth`.</code></pre>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="paired-sample-t-test.html#cb120-1" tabindex="-1"></a><span class="fu">ggplot</span>(glycolipid_diffs, <span class="fu">aes</span>(<span class="at">x =</span> Difference)) <span class="sc">+</span></span>
+<span id="cb120-2"><a href="paired-sample-t-test.html#cb120-2" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>() <span class="sc">+</span> <span class="fu">theme_grey</span>(<span class="at">base_size =</span> <span class="dv">22</span>)</span></code></pre></div>
+<pre><code>## Bin width defaults to 1/30 of the range of the data. Pick better value with
+## `binwidth`.</code></pre>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:glyco-diffs"></span>
 <img src="intro-bio-stats-book_files/figure-html/glyco-diffs-1.png" alt="Within-individual differences from glycolipid study" width="50%" />
 <p class="caption">
@@ -721,7 +727,7 @@ Figure 18.3: Within-individual differences from glycolipid study
 </p>
 </div>
 <p>Hmm… there really isn’t a lot of data to work with here but there’s nothing in that plot that screams ‘non-normal’, which means the assumptions have been met as best they can be. Let’s proceed to carry out a one-sample <em>t</em>-test on the calculated differences. This is easy to do in R:</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="paired-sample-t-test.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(glycolipid_diffs<span class="sc">$</span>Difference)</span></code></pre></div>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="paired-sample-t-test.html#cb122-1" tabindex="-1"></a><span class="fu">t.test</span>(glycolipid_diffs<span class="sc">$</span>Difference)</span></code></pre></div>
 <pre><code>## 
 ##  One Sample t-test
 ## 
@@ -744,27 +750,43 @@ Figure 18.3: Within-individual differences from glycolipid study
 <li><p>The sample of differences was used in the test, not the sample of paired observations. This means the degrees of freedom for a paired-sample <em>t</em> test are one less than the number of differences (= number of pairs); not one, or two, less than the total number of observations.</p></li>
 <li><p>Since we used a paired-sample design our conclusion stresses the fact that the use of the Drug B results in a lower glycolipid level in individual patients. It doesn’t say that the use of Drug B resulted in lower glycolipid concentrations for everyone given Drug B than for anyone given Drug A.</p></li>
 </ol>
-<div id="using-the-paired-true-argument" class="section level3 hasAnchor" number="18.4.1">
-<h3><span class="header-section-number">18.4.1</span> Using the <code>paired = TRUE</code> argument<a href="paired-sample-t-test.html#using-the-paired-true-argument" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>R has a built-in procedure for doing paired-sample <em>t</em>-tests in one step. Now that we’ve done it the hard way, let’s try carrying out the test using that built-in procedure. This looks very similar to a two-sample <em>t</em>-test, except that we have to set the <code>paired</code> argument of the <code>t.test</code> function to <code>TRUE</code>:</p>
-<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(Glycolipid <span class="sc">~</span> Drug, <span class="at">data =</span> glycolipid, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div id="using-the-new-pair-interface-for-paired-t-tests" class="section level3 hasAnchor" number="18.4.1">
+<h3><span class="header-section-number">18.4.1</span> Using the new <code>Pair()</code> interface for paired <em>t</em>-tests<a href="paired-sample-t-test.html#using-the-new-pair-interface-for-paired-t-tests" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Since version 4.5, R provides a clearer and more explicit way to run paired-sample <em>t</em>-tests, using the <code>Pair()</code> interface. The logic is the same as before — we want to compare two measurements (Drug A vs. Drug B) taken from the <strong>same participants</strong> — but now we’ll make that pairing explicit in the data we give to <code>t.test()</code>.</p>
+<p>Our original <code>glycolipid</code> data are in <em>long</em> format: each row represents a single measurement for a patient, with one column for the drug name and another for the glycolipid level. To use the new <code>Pair()</code> interface, we first need to reshape the data into <em>wide</em> format, where each patient’s two measurements occupy a single row — one column for Drug A and one for Drug B.</p>
+<p>We can do this with the <code>pivot_wider()</code> function from the tidyverse <strong>tidyr</strong> package:</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="paired-sample-t-test.html#cb124-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;tidyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:magrittr&#39;:
+## 
+##     extract</code></pre>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb127-1"><a href="paired-sample-t-test.html#cb127-1" tabindex="-1"></a>glycolipid_wide <span class="ot">&lt;-</span> glycolipid <span class="sc">%&gt;%</span></span>
+<span id="cb127-2"><a href="paired-sample-t-test.html#cb127-2" tabindex="-1"></a>  <span class="fu">select</span>(Patient, Drug, Glycolipid) <span class="sc">%&gt;%</span></span>
+<span id="cb127-3"><a href="paired-sample-t-test.html#cb127-3" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb127-4"><a href="paired-sample-t-test.html#cb127-4" tabindex="-1"></a>    <span class="at">names_from  =</span> Drug,</span>
+<span id="cb127-5"><a href="paired-sample-t-test.html#cb127-5" tabindex="-1"></a>    <span class="at">values_from =</span> Glycolipid</span>
+<span id="cb127-6"><a href="paired-sample-t-test.html#cb127-6" tabindex="-1"></a>  )</span></code></pre></div>
+<p>What does <code>pivot_wider</code> do here?</p>
+<ul>
+<li><code>names_from = Drug</code> tells R to take the values in the <code>Drug</code> column (i.e. <code>"A"</code> and <code>"B"</code>) and turn them into new column names.</li>
+<li><code>values_from = Glycolipid</code> tells R to fill those new columns with the corresponding glycolipid measurements.</li>
+<li>Because we also keep <code>Patient</code>, each patient now appears once in the data, with both of their measurements side by side.</li>
+</ul>
+<p>Now that our data are in the right shape, we can run the paired <em>t</em>-test using the <code>Pair()</code> syntax:</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="paired-sample-t-test.html#cb128-1" tabindex="-1"></a><span class="fu">t.test</span>(<span class="fu">Pair</span>(B, A) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> glycolipid_wide)</span></code></pre></div>
 <pre><code>## 
 ##  Paired t-test
 ## 
-## data:  Glycolipid by Drug
-## t = 2.6209, df = 7, p-value = 0.03436
+## data:  Pair(B, A)
+## t = -2.6209, df = 7, p-value = 0.03436
 ## alternative hypothesis: true mean difference is not equal to 0
 ## 95 percent confidence interval:
-##  0.277451 5.397549
+##  -5.397549 -0.277451
 ## sample estimates:
 ## mean difference 
-##          2.8375</code></pre>
-<p>R takes care of the differencing for us, so now we can work with the original <code>glycolipid</code> data rather than the <code>glycolipid_diffs</code> data frame constructed above. We won’t step through the output because it should make sense by this point.</p>
-<div id="order-matter" class="section level4 unnumbered hasAnchor infobox action">
-<h4>Order matter!<a href="paired-sample-t-test.html#order-matter" class="anchor-section" aria-label="Anchor link to header"></a></h4>
-<p>Be careful when using the built in procedure for doing paired-sample <em>t</em>-tests. The only information R uses to associate pairs of observations is their order in each group. The first observation in the ‘A’ group is paired with the first observation in the ‘B’ group, the second observation in the ‘A’ group is paired with the second observation in the ‘B’ group, and so on. If the items/individuals aren’t ordered the same way in each group, the test will be wrong and we’ll end up with a meaningless <em>p</em>-value!</p>
-</div>
-<p>It’s nice that R makes it easy to do a paired-sample <em>t</em>-test in one step. Just don’t forget that this version of the <em>t</em>-test is just a one-sample test on paired differences.</p>
+##         -2.8375</code></pre>
+<p>This performs the same paired-sample <em>t</em>-test as before, but the code now makes it very clear which two columns form the pair. R still does the differencing for us behind the scenes, so we don’t need to create a separate data frame of differences. The output should be exactly the same as above so we’ll not discuss it again.</p>
 
 </div>
 </div>
@@ -795,42 +817,42 @@ Figure 18.3: Within-individual differences from glycolipid study
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-}
+  "sharing": {
+    "github": false,
+    "facebook": true,
+    "twitter": true,
+    "linkedin": false,
+    "weibo": false,
+    "instapaper": false,
+    "vk": false,
+    "whatsapp": false,
+    "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+  },
+  "fontsettings": {
+    "theme": "white",
+    "family": "sans",
+    "size": 2
+  },
+  "edit": {
+    "link": null,
+    "text": null
+  },
+  "history": {
+    "link": null,
+    "text": null
+  },
+  "view": {
+    "link": null,
+    "text": null
+  },
+  "download": ["intro-bio-stats-book.pdf", "intro-bio-stats-book.epub"],
+  "search": {
+    "engine": "fuse",
+    "options": null
+  },
+  "toc": {
+    "collapse": "section"
+  }
 });
 });
 </script>

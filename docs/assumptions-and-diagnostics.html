@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2025-11-03" />
+<meta name="date" content="2025-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -678,7 +678,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>These data can be found in the ‘DIAGNOSTICS_EG.CSV’ file. The code below assumes they have been read into a tibble called <code>example</code>. Set that up if you plan to work along.</p>
 </div>
 <p>The data set contains two numeric variables: <code>Predictor</code> and <code>Response</code>:</p>
-<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="assumptions-and-diagnostics.html#cb139-1" tabindex="-1"></a><span class="fu">glimpse</span>(example)</span></code></pre></div>
+<div class="sourceCode" id="cb140"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb140-1"><a href="assumptions-and-diagnostics.html#cb140-1" tabindex="-1"></a><span class="fu">glimpse</span>(example)</span></code></pre></div>
 <pre><code>## Rows: 80
 ## Columns: 2
 ## $ Predictor &lt;dbl&gt; 0.00, 0.00, 0.01, 0.01, 0.03, 0.04, 0.04, 0.05, 0.06, 0.06, …
@@ -691,10 +691,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>To understand regression diagnostics we have to know what a <strong>fitted value</strong> is. The phrase ‘fitted value’ is simply another expression for ‘predicted value’. Look at the plot below:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-157-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This shows the raw data (black points), the line of best fit (blue line), the residuals (the vertical grey lines), and the fitted values (red points). The line of best fit was created using the workflow we introduced in the regression chapter, using the following fitted model:</p>
-<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="assumptions-and-diagnostics.html#cb141-1" tabindex="-1"></a>example_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Response <span class="sc">~</span> Predictor, <span class="at">data =</span> example)</span></code></pre></div>
+<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="assumptions-and-diagnostics.html#cb142-1" tabindex="-1"></a>example_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(Response <span class="sc">~</span> Predictor, <span class="at">data =</span> example)</span></code></pre></div>
 <p>How do we find the fitted values? Draw a vertical line from each observation to the line of best fit. The values of the response variable at the point where these meet the line of best fit are the ‘fitted values’. The fitted values are just predictions from the statistical model generated for each value of the predictor variable.</p>
 <p>In reality, R does this for us. If we ever need to find the fitted values of a model we can extract these with the <code>fitted</code> function:</p>
-<div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="assumptions-and-diagnostics.html#cb142-1" tabindex="-1"></a><span class="fu">fitted</span>(example_mod)</span></code></pre></div>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="assumptions-and-diagnostics.html#cb143-1" tabindex="-1"></a><span class="fu">fitted</span>(example_mod)</span></code></pre></div>
 <pre><code>##    1    2    3    4    5    6    7    8    9   10   11   12   13   14   15   16 
 ## -0.1 -0.1  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.0  0.1  0.1  0.1  0.1 
 ##   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32 
@@ -710,14 +710,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3><span class="header-section-number">20.3.2</span> Checking the linearity assumption<a href="assumptions-and-diagnostics.html#checking-the-linearity-assumption" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The linearity assumption states that the general relationship between the response and predictor variable should look like a straight line. We can evaluate this assumption by constructing a <strong>residuals vs fitted values</strong> plot.</p>
 <p>We can make this in two steps. First, use the <code>fitted</code> and <code>resid</code> functions to construct a data frame containing the fitted values and residuals from the model (called <code>plt_data</code>):</p>
-<div class="sourceCode" id="cb144"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb144-1"><a href="assumptions-and-diagnostics.html#cb144-1" tabindex="-1"></a>plt_data <span class="ot">&lt;-</span> </span>
-<span id="cb144-2"><a href="assumptions-and-diagnostics.html#cb144-2" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Fitted =</span> <span class="fu">fitted</span>(example_mod), </span>
-<span id="cb144-3"><a href="assumptions-and-diagnostics.html#cb144-3" tabindex="-1"></a>             <span class="at">Resids =</span>  <span class="fu">resid</span>(example_mod))</span></code></pre></div>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="assumptions-and-diagnostics.html#cb145-1" tabindex="-1"></a>plt_data <span class="ot">&lt;-</span> </span>
+<span id="cb145-2"><a href="assumptions-and-diagnostics.html#cb145-2" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Fitted =</span> <span class="fu">fitted</span>(example_mod), </span>
+<span id="cb145-3"><a href="assumptions-and-diagnostics.html#cb145-3" tabindex="-1"></a>             <span class="at">Resids =</span>  <span class="fu">resid</span>(example_mod))</span></code></pre></div>
 <p>Once we have made this data frame, we use <code>ggplot2</code> to plot the residuals against the fitted values:</p>
-<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="assumptions-and-diagnostics.html#cb145-1" tabindex="-1"></a><span class="fu">ggplot</span>(plt_data, <span class="fu">aes</span>(<span class="at">x =</span> Fitted, <span class="at">y =</span> Resids)) <span class="sc">+</span> </span>
-<span id="cb145-2"><a href="assumptions-and-diagnostics.html#cb145-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb145-3"><a href="assumptions-and-diagnostics.html#cb145-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb145-4"><a href="assumptions-and-diagnostics.html#cb145-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Fitted values&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="assumptions-and-diagnostics.html#cb146-1" tabindex="-1"></a><span class="fu">ggplot</span>(plt_data, <span class="fu">aes</span>(<span class="at">x =</span> Fitted, <span class="at">y =</span> Resids)) <span class="sc">+</span> </span>
+<span id="cb146-2"><a href="assumptions-and-diagnostics.html#cb146-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb146-3"><a href="assumptions-and-diagnostics.html#cb146-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb146-4"><a href="assumptions-and-diagnostics.html#cb146-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Fitted values&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Residuals&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-162-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>For a well-behaved model, there should be no relationship between the residuals and fitted values. In general terms, a pattern in this plot indicates that some aspect of the relationship between the predictor and response variables is not captured by the model we used. We added that blue trend line using <code>geom_smooth</code> to help reveal the pattern. This shows that the residuals tend to be positive at the largest and smallest fitted values and generally negative in the middle of the range. This u-shaped pattern is indicative of a potential problem with our model.</p>
@@ -735,14 +735,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-164-1.png" width="672" /></p>
 <p>The skewness in the first two distributions is easy to spot because they contain a lot of data and the asymmetry is quite pronounced. A normal probability plot allows us to pick up potential problems when we are not so lucky.</p>
 <p>The methodology underlying the construction of a normal probability plot is quite technical, so don’t worry if the next segment is confusing—interpreting a normal probability plot is much easier than making one. We start by extracting the residuals from the fitted model into a numeric vector using the <code>resids</code> function, and then standardise these by dividing them by their standard deviation:</p>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="assumptions-and-diagnostics.html#cb147-1" tabindex="-1"></a><span class="co"># 1. extract the residuals</span></span>
-<span id="cb147-2"><a href="assumptions-and-diagnostics.html#cb147-2" tabindex="-1"></a>mod_resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(example_mod)</span>
-<span id="cb147-3"><a href="assumptions-and-diagnostics.html#cb147-3" tabindex="-1"></a><span class="co"># 2. standardise them</span></span>
-<span id="cb147-4"><a href="assumptions-and-diagnostics.html#cb147-4" tabindex="-1"></a>mod_resids <span class="ot">&lt;-</span> mod_resids <span class="sc">/</span> <span class="fu">sd</span>(mod_resids)</span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="assumptions-and-diagnostics.html#cb148-1" tabindex="-1"></a><span class="co"># 1. extract the residuals</span></span>
+<span id="cb148-2"><a href="assumptions-and-diagnostics.html#cb148-2" tabindex="-1"></a>mod_resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(example_mod)</span>
+<span id="cb148-3"><a href="assumptions-and-diagnostics.html#cb148-3" tabindex="-1"></a><span class="co"># 2. standardise them</span></span>
+<span id="cb148-4"><a href="assumptions-and-diagnostics.html#cb148-4" tabindex="-1"></a>mod_resids <span class="ot">&lt;-</span> mod_resids <span class="sc">/</span> <span class="fu">sd</span>(mod_resids)</span></code></pre></div>
 <p>The standardisation step is not essential, but dividing the residuals by their standard deviation ensures that the standard deviation of the new residuals is equal to 1. Standardising the residuals this way makes it a little easier to compare more than one normal probability plot. We call these new residuals the ‘standardised residuals’.</p>
 <p>The next step is to find the rank order of each residual. To do this, we sort the data from lowest to highest and find the position of each case in the sequence (its ‘rank’). The function <code>order</code> can do this for us:</p>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="assumptions-and-diagnostics.html#cb148-1" tabindex="-1"></a>resid_order <span class="ot">&lt;-</span> <span class="fu">order</span>(mod_resids)</span>
-<span id="cb148-2"><a href="assumptions-and-diagnostics.html#cb148-2" tabindex="-1"></a>resid_order</span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="assumptions-and-diagnostics.html#cb149-1" tabindex="-1"></a>resid_order <span class="ot">&lt;-</span> <span class="fu">order</span>(mod_resids)</span>
+<span id="cb149-2"><a href="assumptions-and-diagnostics.html#cb149-2" tabindex="-1"></a>resid_order</span></code></pre></div>
 <pre><code>##  [1] 74 53 54 55 41 75 78 36 40 35 66 45 32 49 56 57 46 33 76 29 19 39 28 51 18
 ## [26] 25 71 37 52 48 50 15 38 70 16 17 59 43 22 26 11 13 20 21 62 12 44  7 47 14
 ## [51] 24  9 10  5  6  8 27 23 30  4 31 77  2 60  3 79 34 69  1 61 72 58 64 63 67
@@ -750,11 +750,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>This tells us that the first residual is the 74th largest, the second is the 53rd largest, the third is the 54th largest, and so on.</p>
 <p>The last step is the tricky one. Once we have established the rank order of the residuals, we ask the following question: if the residuals were drawn from a normal distribution, what is their most likely value based on their rank? We can’t explain how to do this without delving into the mathematics of distributions, so this will have to be a ‘trust us’ situation.</p>
 <p>As usual, R can do the hard calculations for us. We don’t even need the ranks—we only calculated those to help explain what happens when we build a normal probability plot. The function we need is called <code>qqnorm</code>:</p>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="assumptions-and-diagnostics.html#cb150-1" tabindex="-1"></a>all_resids <span class="ot">&lt;-</span> <span class="fu">qqnorm</span>(mod_resids, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb150-2"><a href="assumptions-and-diagnostics.html#cb150-2" tabindex="-1"></a>all_resids <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(all_resids)</span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="assumptions-and-diagnostics.html#cb151-1" tabindex="-1"></a>all_resids <span class="ot">&lt;-</span> <span class="fu">qqnorm</span>(mod_resids, <span class="at">plot.it =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb151-2"><a href="assumptions-and-diagnostics.html#cb151-2" tabindex="-1"></a>all_resids <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(all_resids)</span></code></pre></div>
 <p>The <code>qqnorm</code> doesn’t produce a data frame by default, so we converted the result using a function called <code>as.data.frame</code>.</p>
 <p>The <code>all_resids</code> object is now a data frame with two variables: <code>x</code> contains the theoretical values of normally distributed residuals based on the rank orders of the residuals from the model, and <code>y</code> contains the standardised residuals. Here are the first 10 values:</p>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="assumptions-and-diagnostics.html#cb151-1" tabindex="-1"></a><span class="fu">head</span>(all_resids, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="assumptions-and-diagnostics.html#cb152-1" tabindex="-1"></a><span class="fu">head</span>(all_resids, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##            x         y
 ## 1  1.0636219 0.8684423
 ## 2  0.7764218 0.5570255
@@ -767,20 +767,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 9  0.3685006 0.3197777
 ## 10 0.4022501 0.3197777</code></pre>
 <p>Finally, we can plot these against one another to make a normal probability plot:</p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="assumptions-and-diagnostics.html#cb153-1" tabindex="-1"></a><span class="fu">ggplot</span>(all_resids, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span> </span>
-<span id="cb153-2"><a href="assumptions-and-diagnostics.html#cb153-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb153-3"><a href="assumptions-and-diagnostics.html#cb153-3" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="fu">aes</span>(<span class="at">sample =</span> y), <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb153-4"><a href="assumptions-and-diagnostics.html#cb153-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical Value&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Standardised Residual&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="assumptions-and-diagnostics.html#cb154-1" tabindex="-1"></a><span class="fu">ggplot</span>(all_resids, <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span> </span>
+<span id="cb154-2"><a href="assumptions-and-diagnostics.html#cb154-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb154-3"><a href="assumptions-and-diagnostics.html#cb154-3" tabindex="-1"></a>  <span class="fu">geom_qq_line</span>(<span class="fu">aes</span>(<span class="at">sample =</span> y), <span class="at">colour =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb154-4"><a href="assumptions-and-diagnostics.html#cb154-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Theoretical Value&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Standardised Residual&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ## ℹ Please use `linewidth` instead.
 ## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was generated.</code></pre>
+## Call `lifecycle::last_lifecycle_warnings()` to see where this
+## warning was generated.</code></pre>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-169-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>At the beginning of this section, we said that it’s not essential to understand how a normal probability plot is constructed. It’s only important to know how to interpret one. The critical feature to look out for is the curvature of the relationship between the standardised residuals and their theoretical values. If the residuals really were drawn from a normal distribution, they should generally match the theoretical values, and the points should lie on a straight line.</p>
 <p>What we are looking for are systematic deviations from the expected relationship. We used <code>geom_qq_line</code> to help us make this assessment. The details aren’t too important, but in a nutshell, <code>geom_qq_line</code> adds a line to summarise the expected relationship based on the middle 50% of residuals. Deviations from that line relationship at either end of the normal probability plot suggest a departure from normality.</p>
 <p>That is what we see above. The largest positive residuals on the right-hand side of the plot lie above the line. What’s more, they start to move above the line and then get further away from it as we continue rightward. This is telling us something about the distribution of the residuals. It suggests their distribution is skewed to the right (‘positive skew’). To see this, we can visualise their distribution as a dot plot:</p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="assumptions-and-diagnostics.html#cb155-1" tabindex="-1"></a><span class="fu">ggplot</span>(all_resids, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
-<span id="cb155-2"><a href="assumptions-and-diagnostics.html#cb155-2" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="fl">0.3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="assumptions-and-diagnostics.html#cb156-1" tabindex="-1"></a><span class="fu">ggplot</span>(all_resids, <span class="fu">aes</span>(<span class="at">x =</span> y)) <span class="sc">+</span> </span>
+<span id="cb156-2"><a href="assumptions-and-diagnostics.html#cb156-2" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="fl">0.3</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-170-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This shows the asymmetry in the distribution of the residuals—the left ‘tail’ is bunched up toward the middle of the distribution, while the right tail stretches away from it.</p>
 <p>Normal probability plots are useful because they better reveal potential distributional problems than histograms or dot plots of raw residuals. This is particularly true when we have a small data set. Keep in mind that the relationship will never be perfect due to sampling variation—it is very common to see the points to ‘wobble’ around the line. This isn’t something to worry about. If there are no systematic departures from the line at either end of the plot, that is sufficient to conclude that the residuals are probably normally distributed.</p>
@@ -795,22 +796,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Take the square root of the residuals produced in step 2.</p></li>
 </ol>
 <p>These calculations are simple enough in R. We’ll demonstrate them using the partridge data set again:</p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="assumptions-and-diagnostics.html#cb156-1" tabindex="-1"></a><span class="co"># extract the residuals</span></span>
-<span id="cb156-2"><a href="assumptions-and-diagnostics.html#cb156-2" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(example_mod)</span>
-<span id="cb156-3"><a href="assumptions-and-diagnostics.html#cb156-3" tabindex="-1"></a><span class="co"># step 1. standardise them</span></span>
-<span id="cb156-4"><a href="assumptions-and-diagnostics.html#cb156-4" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> sqrt_abs_resids <span class="sc">/</span> <span class="fu">sd</span>(sqrt_abs_resids)</span>
-<span id="cb156-5"><a href="assumptions-and-diagnostics.html#cb156-5" tabindex="-1"></a><span class="co"># step 2. find their absolute value</span></span>
-<span id="cb156-6"><a href="assumptions-and-diagnostics.html#cb156-6" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">abs</span>(sqrt_abs_resids)</span>
-<span id="cb156-7"><a href="assumptions-and-diagnostics.html#cb156-7" tabindex="-1"></a><span class="co"># step 3. square root these</span></span>
-<span id="cb156-8"><a href="assumptions-and-diagnostics.html#cb156-8" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sqrt_abs_resids)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="assumptions-and-diagnostics.html#cb157-1" tabindex="-1"></a><span class="co"># extract the residuals</span></span>
+<span id="cb157-2"><a href="assumptions-and-diagnostics.html#cb157-2" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">resid</span>(example_mod)</span>
+<span id="cb157-3"><a href="assumptions-and-diagnostics.html#cb157-3" tabindex="-1"></a><span class="co"># step 1. standardise them</span></span>
+<span id="cb157-4"><a href="assumptions-and-diagnostics.html#cb157-4" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> sqrt_abs_resids <span class="sc">/</span> <span class="fu">sd</span>(sqrt_abs_resids)</span>
+<span id="cb157-5"><a href="assumptions-and-diagnostics.html#cb157-5" tabindex="-1"></a><span class="co"># step 2. find their absolute value</span></span>
+<span id="cb157-6"><a href="assumptions-and-diagnostics.html#cb157-6" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">abs</span>(sqrt_abs_resids)</span>
+<span id="cb157-7"><a href="assumptions-and-diagnostics.html#cb157-7" tabindex="-1"></a><span class="co"># step 3. square root these</span></span>
+<span id="cb157-8"><a href="assumptions-and-diagnostics.html#cb157-8" tabindex="-1"></a>sqrt_abs_resids <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(sqrt_abs_resids)</span></code></pre></div>
 <p>Now we use the <code>fitted</code> function to extract the fitted values from the model and place these in a data frame with the transformed residuals:</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="assumptions-and-diagnostics.html#cb157-1" tabindex="-1"></a>plt_data <span class="ot">&lt;-</span> </span>
-<span id="cb157-2"><a href="assumptions-and-diagnostics.html#cb157-2" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Fitted =</span> <span class="fu">fitted</span>(example_mod), <span class="at">Resids =</span> sqrt_abs_resids)</span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="assumptions-and-diagnostics.html#cb158-1" tabindex="-1"></a>plt_data <span class="ot">&lt;-</span> </span>
+<span id="cb158-2"><a href="assumptions-and-diagnostics.html#cb158-2" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">Fitted =</span> <span class="fu">fitted</span>(example_mod), <span class="at">Resids =</span> sqrt_abs_resids)</span></code></pre></div>
 <p>We called the data frame <code>plt_data</code>. Once we have made this data frame, we use <code>ggplot2</code> to plot the transformed residuals against the fitted values:</p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="assumptions-and-diagnostics.html#cb158-1" tabindex="-1"></a><span class="fu">ggplot</span>(plt_data, <span class="fu">aes</span>(<span class="at">x =</span> Fitted, <span class="at">y =</span> Resids)) <span class="sc">+</span> </span>
-<span id="cb158-2"><a href="assumptions-and-diagnostics.html#cb158-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
-<span id="cb158-3"><a href="assumptions-and-diagnostics.html#cb158-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb158-4"><a href="assumptions-and-diagnostics.html#cb158-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Fitted values&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Square root of absolute residuals&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="assumptions-and-diagnostics.html#cb159-1" tabindex="-1"></a><span class="fu">ggplot</span>(plt_data, <span class="fu">aes</span>(<span class="at">x =</span> Fitted, <span class="at">y =</span> Resids)) <span class="sc">+</span> </span>
+<span id="cb159-2"><a href="assumptions-and-diagnostics.html#cb159-2" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb159-3"><a href="assumptions-and-diagnostics.html#cb159-3" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> <span class="dv">2</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">linetype =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb159-4"><a href="assumptions-and-diagnostics.html#cb159-4" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Fitted values&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&quot;Square root of absolute residuals&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-173-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>This is a scale-location plot. Why is this useful? We want to assess whether or not the sizes of these new residuals increase or decrease as the fitted values get larger. If they do not and the relationship is essentially flat, we can conclude that the variability in the residuals is constant. Otherwise, we have to conclude that the constant variance assumption is likely violated.</p>

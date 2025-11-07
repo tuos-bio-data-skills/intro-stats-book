@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2025-11-03" />
+<meta name="date" content="2025-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -649,14 +649,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">23.2</span> The relationship between regression and ANOVA<a href="types-of-models.html#the-relationship-between-regression-and-anova" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Though not apparent at first, ANOVA models can be viewed as a kind of regression analysis. We will look at the corncrake growth data again to understand this idea. This was the study where scientists wanted to determine how four different diet supplements affected the initial growth of captive-bred corncrake hatchlings.</p>
 <p>Imagine that we have read these data into a data frame called <code>corn_crake</code>. The weight gain measurements are stored in the <code>WeightGain</code> variable, and the food supplement treatments are encoded in the categorical <code>Supplement</code> variable:</p>
-<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="types-of-models.html#cb187-1" tabindex="-1"></a><span class="fu">glimpse</span>(corn_crake)</span></code></pre></div>
+<div class="sourceCode" id="cb188"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb188-1"><a href="types-of-models.html#cb188-1" tabindex="-1"></a><span class="fu">glimpse</span>(corn_crake)</span></code></pre></div>
 <pre><code>## Rows: 40
 ## Columns: 2
 ## $ Supplement &lt;chr&gt; &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;None&quot;, &quot;No…
 ## $ WeightGain &lt;dbl&gt; 13, 20, 17, 16, 15, 14, 10, 20, 15, 18, 10, 22, 23, 19, 25,…</code></pre>
 <p>We can repeat the one-way ANOVA global significance test with these data using the usual R code:</p>
-<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="types-of-models.html#cb189-1" tabindex="-1"></a>diet_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span>
-<span id="cb189-2"><a href="types-of-models.html#cb189-2" tabindex="-1"></a><span class="fu">anova</span>(diet_model)</span></code></pre></div>
+<div class="sourceCode" id="cb190"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb190-1"><a href="types-of-models.html#cb190-1" tabindex="-1"></a>diet_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> Supplement, <span class="at">data =</span> corn_crake)</span>
+<span id="cb190-2"><a href="types-of-models.html#cb190-2" tabindex="-1"></a><span class="fu">anova</span>(diet_model)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: WeightGain
@@ -671,16 +671,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">23.2.0.1</span> Step 1<a href="types-of-models.html#step-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>We need to construct a new representation of the data. Rather than including one categorical variable that labels the observations from each supplement (+control), we construct a series of binary (i.e. 0/1) <em>indicator variables</em>. We need one indicator variable for each supplement category. Each indicator variable takes the value ‘1’ if an observation belongs to its corresponding supplement and ‘0’ otherwise.</p>
 <p>Here is one way to create these data using R:</p>
-<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="types-of-models.html#cb191-1" tabindex="-1"></a>corn_crake_reg <span class="ot">&lt;-</span> </span>
-<span id="cb191-2"><a href="types-of-models.html#cb191-2" tabindex="-1"></a>  <span class="fu">mutate</span>(corn_crake,</span>
-<span id="cb191-3"><a href="types-of-models.html#cb191-3" tabindex="-1"></a>         <span class="at">Allvit    =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Allvit&quot;</span>,    <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb191-4"><a href="types-of-models.html#cb191-4" tabindex="-1"></a>         <span class="at">Earlybird =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Earlybird&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb191-5"><a href="types-of-models.html#cb191-5" tabindex="-1"></a>         <span class="at">Linseed   =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Linseed&quot;</span>,   <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb191-6"><a href="types-of-models.html#cb191-6" tabindex="-1"></a>         <span class="at">Sizefast  =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Sizefast&quot;</span>,  <span class="dv">1</span>, <span class="dv">0</span>),</span>
-<span id="cb191-7"><a href="types-of-models.html#cb191-7" tabindex="-1"></a>         <span class="at">None      =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;None&quot;</span>,      <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb191-8"><a href="types-of-models.html#cb191-8" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Supplement)</span></code></pre></div>
+<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="types-of-models.html#cb192-1" tabindex="-1"></a>corn_crake_reg <span class="ot">&lt;-</span> </span>
+<span id="cb192-2"><a href="types-of-models.html#cb192-2" tabindex="-1"></a>  <span class="fu">mutate</span>(corn_crake,</span>
+<span id="cb192-3"><a href="types-of-models.html#cb192-3" tabindex="-1"></a>         <span class="at">Allvit    =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Allvit&quot;</span>,    <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb192-4"><a href="types-of-models.html#cb192-4" tabindex="-1"></a>         <span class="at">Earlybird =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Earlybird&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb192-5"><a href="types-of-models.html#cb192-5" tabindex="-1"></a>         <span class="at">Linseed   =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Linseed&quot;</span>,   <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb192-6"><a href="types-of-models.html#cb192-6" tabindex="-1"></a>         <span class="at">Sizefast  =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;Sizefast&quot;</span>,  <span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb192-7"><a href="types-of-models.html#cb192-7" tabindex="-1"></a>         <span class="at">None      =</span> <span class="fu">ifelse</span>(Supplement <span class="sc">==</span> <span class="st">&quot;None&quot;</span>,      <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb192-8"><a href="types-of-models.html#cb192-8" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Supplement)</span></code></pre></div>
 <p>This code creates a tibble called <code>corn_crake_reg</code> containing the original <code>WeightGain</code> variable and five new indicator variables called <code>Allvit</code>, <code>Earlybird</code>, <code>Linseed</code>, <code>Sizefast</code> and <code>None</code>:</p>
-<div class="sourceCode" id="cb192"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb192-1"><a href="types-of-models.html#cb192-1" tabindex="-1"></a><span class="fu">print</span>(corn_crake_reg, <span class="at">n =</span> <span class="dv">40</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="types-of-models.html#cb193-1" tabindex="-1"></a><span class="fu">print</span>(corn_crake_reg, <span class="at">n =</span> <span class="dv">40</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 40 × 6
 ##    WeightGain Allvit Earlybird Linseed Sizefast  None
 ##         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
@@ -730,7 +730,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="step-2" class="section level4 hasAnchor" number="23.2.0.2">
 <h4><span class="header-section-number">23.2.0.2</span> Step 2<a href="types-of-models.html#step-2" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The next step is to fit a minimal model to the data, called an ‘intercept only’ or ‘null’ model. We fit this using the <code>lm</code> function:</p>
-<div class="sourceCode" id="cb194"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb194-1"><a href="types-of-models.html#cb194-1" tabindex="-1"></a>mod_null <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> corn_crake_reg)</span></code></pre></div>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="types-of-models.html#cb195-1" tabindex="-1"></a>mod_null <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> corn_crake_reg)</span></code></pre></div>
 <p>The formula <code>WeightGain ~ 1</code> tells R to fit a model with exactly one coefficient—the overall grand mean of all the data. In graphical terms we can visualise this using one of the plots we made to explore how ANOVA works:</p>
 <p><img src="intro-bio-stats-book_files/figure-html/unnamed-chunk-203-1.png" width="384" style="display: block; margin: auto;" /></p>
 <p>The intercept (i.e. the grand mean) is shown by the vertical position dashed red line. The vertical lines show the distance between each observation and the grand mean. Therefore, the vertical lines are residuals from the ‘intercept only’ model. These capture the total variation in the data.</p>
@@ -738,10 +738,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="step-3" class="section level4 hasAnchor" number="23.2.0.3">
 <h4><span class="header-section-number">23.2.0.3</span> Step 3<a href="types-of-models.html#step-3" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>In the third step, we use <code>lm</code> to fit a regression model using the indicator variable version of the data set. We have to include the indicator variables as separate terms when we do this:</p>
-<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="types-of-models.html#cb195-1" tabindex="-1"></a>mod_mreg <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Allvit <span class="sc">+</span> Earlybird <span class="sc">+</span> Linseed <span class="sc">+</span> Sizefast <span class="sc">+</span> None, <span class="at">data =</span> corn_crake_reg)</span></code></pre></div>
+<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="types-of-models.html#cb196-1" tabindex="-1"></a>mod_mreg <span class="ot">&lt;-</span> <span class="fu">lm</span>(WeightGain <span class="sc">~</span> <span class="dv">0</span> <span class="sc">+</span> Allvit <span class="sc">+</span> Earlybird <span class="sc">+</span> Linseed <span class="sc">+</span> Sizefast <span class="sc">+</span> None, <span class="at">data =</span> corn_crake_reg)</span></code></pre></div>
 <p>The unusual ‘0’ in the formula is a trick to force R to fit the particular model we want. <code>lm</code> fits a regression because the indicator variables contain numeric values (i.e. 0 or 1). This model can be thought of as something called a <strong>multiple regression</strong>. It is a multiple regression because the model involves more than one predictor variable.</p>
 <p>This model involves five regression coefficients (a.k.a. ‘slopes’). Each of these describes the change in weight gain that occurs if we alter the corresponding indicator variable by one unit. Since the indicator variables only take values of ‘0’ or ‘1’, these coefficients describe the mean weight gain associated with each supplement. We can see those values by printing the model object:</p>
-<div class="sourceCode" id="cb196"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb196-1"><a href="types-of-models.html#cb196-1" tabindex="-1"></a><span class="fu">print</span>(mod_mreg)</span></code></pre></div>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="types-of-models.html#cb197-1" tabindex="-1"></a><span class="fu">print</span>(mod_mreg)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = WeightGain ~ 0 + Allvit + Earlybird + Linseed + 
@@ -758,7 +758,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="step-4" class="section level4 hasAnchor" number="23.2.0.4">
 <h4><span class="header-section-number">23.2.0.4</span> Step 4<a href="types-of-models.html#step-4" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The final step is to evaluate the significance of the supplement effect. We do this with the <code>anova</code> function. However, we have to use <code>anova</code> in a new way by passing it <em>two</em> models—the intercept-only model and the regression-with-indicators model:</p>
-<div class="sourceCode" id="cb198"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb198-1"><a href="types-of-models.html#cb198-1" tabindex="-1"></a><span class="fu">anova</span>(mod_null, mod_mreg)</span></code></pre></div>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="types-of-models.html#cb199-1" tabindex="-1"></a><span class="fu">anova</span>(mod_null, mod_mreg)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: WeightGain ~ 1

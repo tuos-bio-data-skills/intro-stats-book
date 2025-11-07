@@ -179,7 +179,7 @@ How does `pivot_wider` work here?
 
 Now that our data are in the right shape, we can run the paired *t*-test using the `Pair()` syntax:
 
-```{r, echo=FALSE}
+```{r}
 t.test(Pair(B, A) ~ 1, data = glycolipid_wide)
 ```
 

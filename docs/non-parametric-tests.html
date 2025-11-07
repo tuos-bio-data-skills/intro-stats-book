@@ -23,7 +23,7 @@
 <meta name="author" content="Dylan Z. Childs, Bethan J. Hindle and Philip H. Warren" />
 
 
-<meta name="date" content="2025-11-03" />
+<meta name="date" content="2025-11-07" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -853,10 +853,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## $ LeafType &lt;chr&gt; &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notdamaged&quot;, &quot;Notd…
 ## $ Damage   &lt;dbl&gt; 65, 0, 10, 45, 55, 45, 0, 10, 5, 70, 55, 40, 0, 70, 65, 35, 6…</code></pre>
 <p>As always, it’s a good idea to visualise the data:</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="non-parametric-tests.html#cb261-1" tabindex="-1"></a>jitter <span class="ot">&lt;-</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> <span class="dv">1</span>)</span>
-<span id="cb261-2"><a href="non-parametric-tests.html#cb261-2" tabindex="-1"></a><span class="fu">ggplot</span>(leaves, <span class="fu">aes</span>(<span class="at">x =</span> LeafType, <span class="at">y =</span> Damage, <span class="at">group =</span> ID)) <span class="sc">+</span></span>
-<span id="cb261-3"><a href="non-parametric-tests.html#cb261-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> jitter) <span class="sc">+</span> </span>
-<span id="cb261-4"><a href="non-parametric-tests.html#cb261-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">position =</span> jitter) </span></code></pre></div>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="non-parametric-tests.html#cb262-1" tabindex="-1"></a>jitter <span class="ot">&lt;-</span> <span class="fu">position_jitter</span>(<span class="at">width =</span> <span class="dv">0</span>, <span class="at">height =</span> <span class="dv">1</span>)</span>
+<span id="cb262-2"><a href="non-parametric-tests.html#cb262-2" tabindex="-1"></a><span class="fu">ggplot</span>(leaves, <span class="fu">aes</span>(<span class="at">x =</span> LeafType, <span class="at">y =</span> Damage, <span class="at">group =</span> ID)) <span class="sc">+</span></span>
+<span id="cb262-3"><a href="non-parametric-tests.html#cb262-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">position =</span> jitter) <span class="sc">+</span> </span>
+<span id="cb262-4"><a href="non-parametric-tests.html#cb262-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">position =</span> jitter) </span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/winter-moth-damage-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>We used a new trick here: we ‘jittered’ the vertical position of the <code>Damage</code> values to deal with the overplotting (using the <code>position_jitter</code> function). This adds a bit of random noise to the y-axis position so that those with the same values end up being plotted in different places. This plot highlights that:</p>
 <ol style="list-style-type: decimal">
@@ -864,29 +864,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>there is a tendency for larvae to prefer the undamaged leaves, though the pattern is not overwhelming.</li>
 </ol>
 <p>We need a statistical test. The data are paired, so a paired sample <em>t</em>-test or a Wilcoxon signed-rank test are our two options. We can visualise the damage distribution of <em>within larvae</em> <em>differences</em> to assess which test might be best:</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="non-parametric-tests.html#cb262-1" tabindex="-1"></a><span class="co"># step 1 -- calculate the differences</span></span>
-<span id="cb262-2"><a href="non-parametric-tests.html#cb262-2" tabindex="-1"></a>leaves_diff <span class="ot">&lt;-</span> </span>
-<span id="cb262-3"><a href="non-parametric-tests.html#cb262-3" tabindex="-1"></a>  leaves <span class="sc">%&gt;%</span> </span>
-<span id="cb262-4"><a href="non-parametric-tests.html#cb262-4" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> </span>
-<span id="cb262-5"><a href="non-parametric-tests.html#cb262-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">DiffDamage =</span> <span class="fu">diff</span>(Damage))</span>
-<span id="cb262-6"><a href="non-parametric-tests.html#cb262-6" tabindex="-1"></a><span class="co"># step 2 -- make the plot</span></span>
-<span id="cb262-7"><a href="non-parametric-tests.html#cb262-7" tabindex="-1"></a><span class="fu">ggplot</span>(leaves_diff, <span class="fu">aes</span>(<span class="at">x =</span> DiffDamage)) <span class="sc">+</span> </span>
-<span id="cb262-8"><a href="non-parametric-tests.html#cb262-8" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="non-parametric-tests.html#cb263-1" tabindex="-1"></a><span class="co"># step 1 -- calculate the differences</span></span>
+<span id="cb263-2"><a href="non-parametric-tests.html#cb263-2" tabindex="-1"></a>leaves_diff <span class="ot">&lt;-</span> </span>
+<span id="cb263-3"><a href="non-parametric-tests.html#cb263-3" tabindex="-1"></a>  leaves <span class="sc">%&gt;%</span> </span>
+<span id="cb263-4"><a href="non-parametric-tests.html#cb263-4" tabindex="-1"></a>  <span class="fu">group_by</span>(ID) <span class="sc">%&gt;%</span> </span>
+<span id="cb263-5"><a href="non-parametric-tests.html#cb263-5" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">DiffDamage =</span> <span class="fu">diff</span>(Damage))</span>
+<span id="cb263-6"><a href="non-parametric-tests.html#cb263-6" tabindex="-1"></a><span class="co"># step 2 -- make the plot</span></span>
+<span id="cb263-7"><a href="non-parametric-tests.html#cb263-7" tabindex="-1"></a><span class="fu">ggplot</span>(leaves_diff, <span class="fu">aes</span>(<span class="at">x =</span> DiffDamage)) <span class="sc">+</span> </span>
+<span id="cb263-8"><a href="non-parametric-tests.html#cb263-8" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">10</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/winter-moth-damage-diff-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>There are large differences in both directions, and the distribution does not seem to be normal. The problem here is that caterpillars often spend time feeding on the first leaf they encounter, which is a more or less random choice; some may change leaves quickly in response to the quality of the leaf, others may feed for some time before leaving the leaf. We might still expect those on better-defended leaves to feed less, as the leaves should be less palatable, but they may not make the behavioural decision to switch leaf during the short period of the experiment (the experiment cannot go on for longer because the leaves change chemically the longer they are detached from the plant).</p>
 <p>The distribution may not be normal, but it is roughly symmetrical. The symmetry assumption of the Wilcoxon signed-rank test seems to be satisfied, so we can use this test to examine whether there is any difference in caterpillar feeding on leaves from damaged areas and undamaged areas.</p>
 <p>As with the paired <em>t</em>-test, the Wilcoxon signed-rank test compares two measurements taken from the same experimental units — in this case, caterpillar feeding on damaged and undamaged leaves. The <code>Pair()</code> interface in R makes this pairing explicit, but it requires that each pair of measurements sits on the same row of the data set.</p>
 <p>Our <code>leaves</code> data are currently in long format, with one row per observation and a column (<code>LeafType</code>) indicating whether the leaf was damaged or not. We can convert this to wide format using the <code>pivot_wider()</code> function from the <strong>tidyr</strong> package:</p>
-<div class="sourceCode" id="cb263"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb263-1"><a href="non-parametric-tests.html#cb263-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb263-2"><a href="non-parametric-tests.html#cb263-2" tabindex="-1"></a><span class="co"># convert to wide format</span></span>
-<span id="cb263-3"><a href="non-parametric-tests.html#cb263-3" tabindex="-1"></a>leaves_wide <span class="ot">&lt;-</span> leaves <span class="sc">%&gt;%</span></span>
-<span id="cb263-4"><a href="non-parametric-tests.html#cb263-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
-<span id="cb263-5"><a href="non-parametric-tests.html#cb263-5" tabindex="-1"></a>    <span class="at">names_from =</span> LeafType,</span>
-<span id="cb263-6"><a href="non-parametric-tests.html#cb263-6" tabindex="-1"></a>    <span class="at">values_from =</span> Damage</span>
-<span id="cb263-7"><a href="non-parametric-tests.html#cb263-7" tabindex="-1"></a>  )</span></code></pre></div>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="non-parametric-tests.html#cb264-1" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb264-2"><a href="non-parametric-tests.html#cb264-2" tabindex="-1"></a><span class="co"># convert to wide format</span></span>
+<span id="cb264-3"><a href="non-parametric-tests.html#cb264-3" tabindex="-1"></a>leaves_wide <span class="ot">&lt;-</span> leaves <span class="sc">%&gt;%</span></span>
+<span id="cb264-4"><a href="non-parametric-tests.html#cb264-4" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb264-5"><a href="non-parametric-tests.html#cb264-5" tabindex="-1"></a>    <span class="at">names_from =</span> LeafType,</span>
+<span id="cb264-6"><a href="non-parametric-tests.html#cb264-6" tabindex="-1"></a>    <span class="at">values_from =</span> Damage</span>
+<span id="cb264-7"><a href="non-parametric-tests.html#cb264-7" tabindex="-1"></a>  )</span></code></pre></div>
 <p><code>pivot_wider()</code> tells R to use the values in the <code>LeafType</code> column (here, Damaged and Notdamaged) as new column names and fill those columns with the corresponding <code>Damage</code> measurements. Each sample (or leaf pair) now appears once, with both values side by side.</p>
 <p>With the data in this format, we can perform the Wilcoxon signed-rank test using the new <code>Pair</code> syntax:</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="non-parametric-tests.html#cb264-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="fu">Pair</span>(Notdamaged, Damaged) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> leaves_wide)</span></code></pre></div>
+<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="non-parametric-tests.html#cb265-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(<span class="fu">Pair</span>(Notdamaged, Damaged) <span class="sc">~</span> <span class="dv">1</span>, <span class="at">data =</span> leaves_wide)</span></code></pre></div>
 <pre><code>## Warning in wilcox.test.default(x = respVar[, 1L], y = respVar[, 2L], paired =
 ## TRUE, : cannot compute exact p-value with ties</code></pre>
 <pre><code>## Warning in wilcox.test.default(x = respVar[, 1L], y = respVar[, 2L], paired =
@@ -929,14 +929,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Set all that up if you plan to work along.</p>
 </div>
 <p>The <code>Tree</code> variable contains the identities, and the <code>Food</code> variable contains the food collection rates:</p>
-<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="non-parametric-tests.html#cb269-1" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="non-parametric-tests.html#cb270-1" tabindex="-1"></a><span class="fu">glimpse</span>(ants)</span></code></pre></div>
 <pre><code>## Rows: 53
 ## Columns: 2
 ## $ Food &lt;dbl&gt; 20.1, 47.4, 85.6, 17.1, 5.7, 7.8, 28.8, 18.8, 12.1, 62.0, 4.9, 57…
 ## $ Tree &lt;chr&gt; &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;Oak&quot;, &quot;O…</code></pre>
 <p>Carrying out a Mann-Whitney <em>U</em>-test in R is simple enough. However, somewhat confusingly, we have to use the <code>wilcox.test</code> function again. This is because, as we noted above, the Mann-Whitney <em>U</em>-test is also known as a <strong>two-sample Wilcoxon test</strong>.</p>
 <p>The <code>wilcox.test</code> function for an independent two-sample design works just like the corresponding analysis with the <code>t.test</code> function. The first argument should be a formula, and the second should be the data frame containing the relevant variables:</p>
-<div class="sourceCode" id="cb271"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb271-1"><a href="non-parametric-tests.html#cb271-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="non-parametric-tests.html#cb272-1" tabindex="-1"></a><span class="fu">wilcox.test</span>(Food <span class="sc">~</span> Tree, <span class="at">data =</span> ants)</span></code></pre></div>
 <pre><code>## Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...): cannot
 ## compute exact p-value with ties</code></pre>
 <pre><code>## 
@@ -979,18 +979,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The data for this example live in the ‘CUTTLEFISH.CSV’ file. The code below assumes those data have been read into a tibble called <code>cuttlefish</code>. Set that up if you plan to work along.</p>
 </div>
 <p>There are two variables: <code>Strikes</code> contains the number of strikes recorded and <code>Time</code> identifies the groups (period of previous exposure):</p>
-<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="non-parametric-tests.html#cb275-1" tabindex="-1"></a><span class="fu">glimpse</span>(cuttlefish)</span></code></pre></div>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="non-parametric-tests.html#cb276-1" tabindex="-1"></a><span class="fu">glimpse</span>(cuttlefish)</span></code></pre></div>
 <pre><code>## Rows: 50
 ## Columns: 2
 ## $ Strikes &lt;dbl&gt; 5, 12, 11, 4, 1, 6, 8, 3, 0, 5, 0, 13, 0, 3, 0, 7, 3, 4, 6, 11…
 ## $ Time    &lt;chr&gt; &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;, &quot;t02&quot;,…</code></pre>
 <p>We need a visualisation to explore the data. Dot plots for each treatment work well here:</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="non-parametric-tests.html#cb277-1" tabindex="-1"></a><span class="fu">ggplot</span>(cuttlefish, <span class="fu">aes</span>(<span class="at">x =</span> Strikes)) <span class="sc">+</span> </span>
-<span id="cb277-2"><a href="non-parametric-tests.html#cb277-2" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Time)</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="non-parametric-tests.html#cb278-1" tabindex="-1"></a><span class="fu">ggplot</span>(cuttlefish, <span class="fu">aes</span>(<span class="at">x =</span> Strikes)) <span class="sc">+</span> </span>
+<span id="cb278-2"><a href="non-parametric-tests.html#cb278-2" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>) <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> Time)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/cuttlefish-strikes-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>The data are very variable. The combination of the apparent skew and the fact that the data are generally small whole numbers with several equal values in each sample means that we may not be very successful in using a transformation to beat the data into shape. Let’s try the Kruskal-Wallis test instead.</p>
 <p>Predictably, the R function to carry out a Kruskal-Wallis test is called <code>kruskal.test</code>, and it is used in exactly the same way as every other statistical modelling function we have looked at:</p>
-<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="non-parametric-tests.html#cb278-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(Strikes <span class="sc">~</span> Time, <span class="at">data =</span> cuttlefish)</span></code></pre></div>
+<div class="sourceCode" id="cb279"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb279-1"><a href="non-parametric-tests.html#cb279-1" tabindex="-1"></a><span class="fu">kruskal.test</span>(Strikes <span class="sc">~</span> Time, <span class="at">data =</span> cuttlefish)</span></code></pre></div>
 <pre><code>## 
 ##  Kruskal-Wallis rank sum test
 ## 
@@ -999,9 +999,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>And… one more time… the elements of the output should be easy to work out. These are statements of the test used and the data, followed by the results: a test statistic (another type of <span class="math inline">\(\chi^2\)</span> statistic), a degrees of freedom, and the all-important <em>p</em>-value.</p>
 <p>We report all of these when writing up results of a Kruskal-Wallis test. However, there is some variation about how people report a Kruskal-Wallis test—some report the test statistic as a <span class="math inline">\(\chi^2\)</span>, while others refer to it as an ‘H’ statistic. We will follow the common convention of reporting it as an ‘H’ value.</p>
 <p>The test (as with ANOVA) tells us that there is at least one difference among the groups, but it doesn’t tell where the difference or differences are. The output does not give the medians so we cannot judge how the samples are ordered. We can use <code>dplyr</code> to calculate the group-specific medians, though:</p>
-<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="non-parametric-tests.html#cb280-1" tabindex="-1"></a>cuttlefish <span class="sc">%&gt;%</span> </span>
-<span id="cb280-2"><a href="non-parametric-tests.html#cb280-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Time) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-3"><a href="non-parametric-tests.html#cb280-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Median =</span> <span class="fu">median</span>(Strikes))</span></code></pre></div>
+<div class="sourceCode" id="cb281"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb281-1"><a href="non-parametric-tests.html#cb281-1" tabindex="-1"></a>cuttlefish <span class="sc">%&gt;%</span> </span>
+<span id="cb281-2"><a href="non-parametric-tests.html#cb281-2" tabindex="-1"></a>  <span class="fu">group_by</span>(Time) <span class="sc">%&gt;%</span> </span>
+<span id="cb281-3"><a href="non-parametric-tests.html#cb281-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Median =</span> <span class="fu">median</span>(Strikes))</span></code></pre></div>
 <pre><code>## # A tibble: 5 × 2
 ##   Time  Median
 ##   &lt;chr&gt;  &lt;dbl&gt;
@@ -1035,14 +1035,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>The data for this example live in the ‘GROUSE.CSV’ file. The code below assumes those data have been read into a tibble called <code>grouse</code>. Set that up if you plan to work along.</p>
 </div>
 <p>Each row of the data is the number of matings for a male in the two successive leks: <code>Year1</code> (year 1) and <code>Year2</code> (year 2):</p>
-<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="non-parametric-tests.html#cb282-1" tabindex="-1"></a><span class="fu">glimpse</span>(grouse)</span></code></pre></div>
+<div class="sourceCode" id="cb283"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb283-1"><a href="non-parametric-tests.html#cb283-1" tabindex="-1"></a><span class="fu">glimpse</span>(grouse)</span></code></pre></div>
 <pre><code>## Rows: 20
 ## Columns: 2
 ## $ Year1 &lt;dbl&gt; 3, 15, 4, 3, 4, 9, 1, 0, 2, 7, 3, 2, 6, 0, 1, 12, 2, 1, 5, 10
 ## $ Year2 &lt;dbl&gt; 6, 8, 0, 0, 2, 10, 5, 4, 1, 4, 3, 7, 6, 2, 5, 17, 0, 0, 6, 7</code></pre>
 <p>The first thing we might do is summarise the distribution of each number of matings variable:</p>
-<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="non-parametric-tests.html#cb284-1" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year1)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
-<span id="cb284-2"><a href="non-parametric-tests.html#cb284-2" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year2)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="non-parametric-tests.html#cb285-1" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year1)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span>
+<span id="cb285-2"><a href="non-parametric-tests.html#cb285-2" tabindex="-1"></a><span class="fu">ggplot</span>(grouse, <span class="fu">aes</span>(<span class="at">x =</span> Year2)) <span class="sc">+</span> <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="dv">2</span>)</span></code></pre></div>
 <p><img src="intro-bio-stats-book_files/figure-html/grouse-years-dist-1.png" width="40%" /><img src="intro-bio-stats-book_files/figure-html/grouse-years-dist-2.png" width="40%" /></p>
 <p>Notice that the data are integer-valued because they are counts. These distributions seems to tie in with the biological observation that the distribution of matings is right-skewed: in both years there are only a few males that have high mating success, with most males securing only a handful of matings.</p>
 <p>Now we need to visualise the association between the number of matings in successive years:</p>
@@ -1051,7 +1051,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><strong>How do we know to use a correlation analysis with these data?</strong> Although there seems to be an association between the counts, it is not obvious that success in one year ‘causes’ success in another year and neither variable is controlled by the investigator. We’re also not interested in using the success measure in year 1 to predict success in year 2. This indicates that correlation analysis is the appropriate method to evaluate the significance of the association.</p>
 <p><strong>Why are we using Spearman’s correlation?</strong> The relationship appears roughly linear, so in that regard, Pearson’s correlation might be appropriate. However, the distribution of each count variable is right-skewed, which means the normality assumption is probably suspect in this instance. We play it safe and use Spearman’s correlation.</p>
 <p>Carrying out a correlation analysis using Spearman’s rank correlation in R is simple. Again, we use the <code>cor.test</code> function to do this:</p>
-<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="non-parametric-tests.html#cb285-1" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Year1 <span class="sc">+</span> Year2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">data =</span> grouse)</span></code></pre></div>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="non-parametric-tests.html#cb286-1" tabindex="-1"></a><span class="fu">cor.test</span>(<span class="sc">~</span> Year1 <span class="sc">+</span> Year2, <span class="at">method =</span> <span class="st">&quot;spearman&quot;</span>, <span class="at">data =</span> grouse)</span></code></pre></div>
 <pre><code>## Warning in cor.test.default(x = mf[[1L]], y = mf[[2L]], ...): Cannot compute
 ## exact p-value with ties</code></pre>
 <pre><code>## 
